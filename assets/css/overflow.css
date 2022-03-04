@@ -1,0 +1,17 @@
+@media (min-width: 960px) {
+  .overflow-x-scroll-md {
+    overflow-x: scroll;
+  }
+}
+
+@media (min-width: 1264px) {
+  .overflow-x-scroll-md {
+    overflow-x: scroll;
+  }
+}
+
+@media (min-width: 1600px) {
+  .overflow-x-scroll-md {
+    overflow-x: scroll;
+  }
+}

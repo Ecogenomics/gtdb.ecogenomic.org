@@ -1,0 +1,89 @@
+/*html {*/
+/*  overflow-y: auto;*/
+/*}*/
+
+a {
+  color: #2d8a2d;
+}
+
+
+/*
+Page transition animations
+https://nuxtjs.org/docs/2.x/features/transitions
+ */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.1s ease-out;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+/*
+ */
+.gtdb-table {
+  border: #7e8d7d 1px solid;
+}
+
+.gtdb-table > .v-data-table__wrapper > table > thead {
+  background-color: #7e8e7d;
+  color: white;
+}
+
+.gtdb-table > .v-data-table__wrapper > table > thead > tr > th {
+  color: white !important;
+  font-size: 14px !important;
+}
+.gtdb-table tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, .03);
+}
+
+.gtdb-table.mt-2.v-data-table--dense.v-data-table--has-bottom.theme--light.v-data-table--mobile > div.v-data-table__wrapper > table > thead > tr > th > div > div > div > div > div.v-select__slot > label {
+  color: white !important;
+}
+
+/* Main container that wraps all default template pages */
+.gtdb-container {
+  max-width: 1500px !important;
+}
+
+@media (max-width: 600px) {
+  .gtdb-container {
+    max-width: 100%;
+    margin-top: 0 !important;
+    padding: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .gtdb-container {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .gtdb-container {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 1264px) {
+  .gtdb-container {
+    max-width: 1185px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .gtdb-container {
+    max-width: 1500px !important;
+  }
+}
+
+
+.gtdb-green-bg-table {
+  background-color: #7e8f7c;
+  color: white;
+  font-weight: 500;
+}

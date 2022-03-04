@@ -1,0 +1,104 @@
+<template>
+  <v-container class="gtdb-container">
+
+    <v-card>
+
+      <v-card-title class="text-h5">
+        Attributions
+      </v-card-title>
+
+      <v-divider></v-divider>
+
+      <v-card-text class="text--primary">
+        <v-simple-table class="gtdb-table">
+          <template v-slot:default>
+            <thead>
+            <tr>
+              <th class="text-left">
+                Resource
+              </th>
+              <th class="text-left">
+                Description
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--            <tr>-->
+            <!--              <td><a href="/tree">Tree viewer</a></td>-->
+            <!--              <td>The tree viewer page is a derivative of <a href="https://bl.ocks.org/mbostock/1093025"-->
+            <!--                                                             target="_blank">"Collapsible Indented Tree"</a> by-->
+            <!--                <a href="https://gist.github.com/mbostock" target="_blank">Mike Bostock</a>,-->
+            <!--                used under the <a href="https://opensource.org/licenses/GPL-3.0" target="_blank">GNU General Public-->
+            <!--                  License, version 3</a>.-->
+            <!--              </td>-->
+            <!--            </tr>-->
+            <tr>
+              <td>
+                <nuxt-link to="/taxon-history">Taxon history</nuxt-link>
+              </td>
+              <td>The taxon history page is a derivative work of <a href="https://observablehq.com/@d3/sankey-diagram">"Sankey
+                Diagram"</a>
+                by <a href="https://gist.github.com/mbostock" target="_blank">Mike Bostock</a>,
+                used under the <a href="https://opensource.org/licenses/ISC" target="_blank">ISC license</a>.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Website
+              </td>
+              <td>
+                This website was developed using the <a href="https://nuxtjs.org/" target="_blank">Nuxt</a>
+                framework for <a href="https://vuejs.org/" target="_blank">Vue.js</a> and was
+                statically generated.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                UI Framework
+              </td>
+              <td>
+                This website uses <a href="https://vuetifyjs.com/en/" target="_blank">Vuetify</a> as a base for the UI.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a :href="apiUrl" target="_blank">GTDB API</a>
+              </td>
+              <td>
+                The API was generated using <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a>.
+              </td>
+            </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+
+      </v-card-text>
+    </v-card>
+  </v-container>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  head() {
+    return {
+      title: 'Attributions',
+      meta: [
+        {
+          hid: 'attributions',
+          name: 'description',
+          content: `Attributions to works used in the development of the GTDB website.`
+        }
+      ]
+    }
+  },
+  data: () => ({
+    apiUrl: process.env.apiBase
+  }),
+})
+</script>
+
+<style scoped>
+
+</style>

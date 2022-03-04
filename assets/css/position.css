@@ -1,0 +1,17 @@
+@media (min-width: 960px) {
+  .pos-fixed-md {
+    position: fixed !important;
+  }
+}
+
+@media (min-width: 1264px) {
+  .pos-fixed-md {
+    position: fixed !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .pos-fixed-md {
+    position: fixed !important;
+  }
+}
