@@ -32,21 +32,30 @@
         </p>
 
         <p>
-          The GTDB taxonomy is based on genome trees inferred with <a
+          The GTDB taxonomy is based on genome trees inferred using <a
           href="http://www.microbesonline.org/fasttree/" target="_blank">FastTree</a> from an aligned concatenated set of
           120 single copy marker proteins for Bacteria, and with <a href="http://www.iqtree.org/">IQ-TREE</a> from a concatenated set of 53
           (starting with R07-RS207) and 122 (prior to R07-RS207) marker proteins for Archaea (download page <NuxtLink to="/downloads">here</NuxtLink>).
           Additional marker sets are also used to cross-validate tree topologies including concatenated ribosomal
-          proteins and ribosomal RNA genes. <a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank">NCBI taxonomy</a> was initially used to decorate the genome tree via
+          proteins and ribosomal RNA genes.
+        </p>
+
+        <p>
+          <a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank">NCBI taxonomy</a> was initially used to decorate the genome tree via
           <a href="http://tax2tree.sourceforge.net/" target="_blank">tax2tree</a> and subsequently used as a reference source of new taxonomic opinions including new names.
           The 16S rRNA-based <a href="http://greengenes.secondgenome.com" target="_blank">Greengenes</a> and <a href="https://www.arb-silva.de/" target="_blank">SILVA</a> taxonomies were intially used to supplement the taxonomy
           particularly in regions of the tree with no cultured representatives, however genome assembly
-          identifiers are now used to create placeholder names for uncultured taxa. <a href="https://lpsn.dsmz.de/" target="_blank">LPSN</a> is used as the
-          primary nomenclatural reference for establishing naming priorities and nomenclature types. All t
-          axonomic ranks except species are normalised using <a href="https://github.com/dparks1134/PhyloRank" target="_blank">PhyloRank</a> and the taxonomy manually curated to
-          remove polyphyletic groups. Polyphyly and rank evenness can be visualised in PhyloRank <NuxtLink :to="latestStatsPageUrl">plots</NuxtLink>.
-          Delineation of species was initially done based on phylogeny and rank normalization but was
-          substituted with the ANI-based method (starting with R04-RS89) to enable scalable and automated assignment of genomes to species clusters.
+          identifiers are now used to create placeholder names for uncultured taxa.
+        </p>
+
+        <p>
+          <a href="https://lpsn.dsmz.de/" target="_blank">LPSN</a> is used as the
+          primary nomenclatural reference for establishing naming priorities and nomenclature types.
+          All taxonomic ranks except species are normalised using <a href="https://github.com/dparks1134/PhyloRank" target="_blank">PhyloRank</a> and the taxonomy manually curated to
+          remove polyphyletic groups.
+          Polyphyly and rank evenness can be visualised in PhyloRank <NuxtLink :to="latestStatsPageUrl">plots</NuxtLink>.
+          Species were originally delineated based on phylogeny and rank normalization but this was replaced with an ANI-based method (starting with R04-RS89)
+          to enable scalable and automated assignment of genomes to species clusters.
         </p>
 
         <p>
