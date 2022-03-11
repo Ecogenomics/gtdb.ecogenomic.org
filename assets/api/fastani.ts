@@ -63,7 +63,8 @@ export interface FastAniResultData {
   mapped: number,
   total: number
   stdout: string | null,
-  stderr: string | null
+  stderr: string | null,
+  cmd: string | null,
 }
 
 export interface FastAniResult {
