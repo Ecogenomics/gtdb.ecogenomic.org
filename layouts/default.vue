@@ -276,6 +276,13 @@ export default {
         },
         {
           icon: 'mdi-apps',
+          title: 'Status',
+          to: 'https://stats.uptimerobot.com/gZZr2fq81O',
+          nuxt: false,
+          external: true,
+        },
+        {
+          icon: 'mdi-apps',
           title: 'Contact us',
           to: '/contact',
           nuxt: true,
