@@ -1,3 +1,9 @@
+// Load the version
+const fs = require('fs')
+const packageJson = fs.readFileSync('./package.json')
+const version = JSON.parse(packageJson).version || ''
+
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -114,7 +120,8 @@ export default {
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search
     captchaSiteKey: process.env.CAPTCHA_KEY,
     googleAnalyticsId: process.env.GA_TRACKING_ID,
-    latestStatsPageUrl: '/stats/r202'  // this is used to point to the latest stats page
+    latestStatsPageUrl: '/stats/r202',  // this is used to point to the latest stats page,
+    nuxtVersion: version
   },
 
   // https://github.com/nuxt/telemetry

@@ -9,6 +9,7 @@ import {SearchApi} from "~/assets/api/search";
 import {TaxonApi} from "~/assets/api/taxon";
 import {AdvancedApi} from "~/assets/api/advanced";
 import {UtilApi} from "~/assets/api/util";
+import {MetaApi} from "~/assets/api/meta";
 
 export class API {
   fastani = new FastAniApi();
@@ -20,6 +21,7 @@ export class API {
   taxonomy = new TaxonomyApi();
   advanced = new AdvancedApi();
   util = new UtilApi();
+  meta = new MetaApi();
 }
 
 export function getApiErrorMessage(error: Error | AxiosError): string[] {

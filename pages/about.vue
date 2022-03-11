@@ -5,6 +5,30 @@
 
       <v-card-title class="text-h4">
         About
+
+        <v-spacer></v-spacer>
+
+        <div>
+          <div v-if="apiVersion && apiVersion.length > 0" class="text-caption d-block version-link-out">
+            <a href="https://github.com/Ecogenomics/api.gtdb.ecogenomic.org" target="_blank">
+              <v-icon small>
+                {{ mdiApiSvg }}
+              </v-icon>
+              {{ apiVersion }}
+            </a>
+          </div>
+
+          <div v-if="nuxtVersion && nuxtVersion.length > 0" class="text-caption d-block version-link-out">
+            <a href="https://github.com/Ecogenomics/gtdb.ecogenomic.org" target="_blank">
+              <v-icon small>
+                {{ mdiWebSvg }}
+              </v-icon>
+              {{ nuxtVersion }}
+            </a>
+          </div>
+        </div>
+
+
       </v-card-title>
 
       <v-divider></v-divider>
@@ -13,37 +37,54 @@
 
         <p>
           The Genome Taxonomy Database (GTDB) is an initiative to establish a standardised microbial taxonomy
-          based on genome phylogeny, primarily funded by the <a href="https://www.arc.gov.au/" target="_blank">Australian Research Council</a> via a
-          <a href="https://www.uq.edu.au/news/article/2015/06/uq-leads-nation-prestigious-arc-laureate-fellowships" target="_blank">Laureate Fellowship</a>
-          (<a href="https://app.dimensions.ai/details/grant/grant.5129370" target="_blank">FL150100038</a>) and Discovery Project
+          based on genome phylogeny, primarily funded by the <a href="https://www.arc.gov.au/" target="_blank">Australian
+          Research Council</a> via a
+          <a href="https://www.uq.edu.au/news/article/2015/06/uq-leads-nation-prestigious-arc-laureate-fellowships"
+             target="_blank">Laureate Fellowship</a>
+          (<a href="https://app.dimensions.ai/details/grant/grant.5129370" target="_blank">FL150100038</a>) and
+          Discovery Project
           (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP220100900" target="_blank">DP220100900</a>),
-          with the welcome assistance of <a href="https://research.uq.edu.au/research-support/research-management/funding-schemes/uq-internal-schemes" target="_blank">strategic funding from
+          with the welcome assistance of <a
+          href="https://research.uq.edu.au/research-support/research-management/funding-schemes/uq-internal-schemes"
+          target="_blank">strategic funding from
           The University of Queensland.</a>
         </p>
 
         <p>
-          The genomes used to construct the phylogeny are obtained from <a href="https://www.ncbi.nlm.nih.gov/refseq/" target="_blank">RefSeq</a>
+          The genomes used to construct the phylogeny are obtained from <a href="https://www.ncbi.nlm.nih.gov/refseq/"
+                                                                           target="_blank">RefSeq</a>
           and <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank">GenBank</a>, and GTDB
           releases are indexed to RefSeq releases, starting with release 76. Importantly and increasingly,
           this dataset includes draft genomes of uncultured microorganisms obtained from metagenomes and single
           cells, ensuring improved genomic representation of the microbial world. All genomes are independently
-          quality controlled using <a href="https://github.com/Ecogenomics/CheckM/wiki" target="_blank">CheckM</a> before inclusion in GTDB,
-          see statistics <NuxtLink :to="latestStatsPageUrl">here</NuxtLink>.
+          quality controlled using <a href="https://github.com/Ecogenomics/CheckM/wiki" target="_blank">CheckM</a>
+          before inclusion in GTDB,
+          see statistics
+          <NuxtLink :to="latestStatsPageUrl">here</NuxtLink>
+          .
         </p>
 
         <p>
           The GTDB taxonomy is based on genome trees inferred using <a
-          href="http://www.microbesonline.org/fasttree/" target="_blank">FastTree</a> from an aligned concatenated set of
-          120 single copy marker proteins for Bacteria, and with <a href="http://www.iqtree.org/">IQ-TREE</a> from a concatenated set of 53
-          (starting with R07-RS207) and 122 (prior to R07-RS207) marker proteins for Archaea (download page <NuxtLink to="/downloads">here</NuxtLink>).
+          href="http://www.microbesonline.org/fasttree/" target="_blank">FastTree</a> from an aligned concatenated set
+          of
+          120 single copy marker proteins for Bacteria, and with <a href="http://www.iqtree.org/">IQ-TREE</a> from a
+          concatenated set of 53
+          (starting with R07-RS207) and 122 (prior to R07-RS207) marker proteins for Archaea (download page
+          <NuxtLink to="/downloads">here</NuxtLink>
+          ).
           Additional marker sets are also used to cross-validate tree topologies including concatenated ribosomal
           proteins and ribosomal RNA genes.
         </p>
 
         <p>
-          <a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank">NCBI taxonomy</a> was initially used to decorate the genome tree via
-          <a href="http://tax2tree.sourceforge.net/" target="_blank">tax2tree</a> and subsequently used as a reference source of new taxonomic opinions including new names.
-          The 16S rRNA-based <a href="http://greengenes.secondgenome.com" target="_blank">Greengenes</a> and <a href="https://www.arb-silva.de/" target="_blank">SILVA</a> taxonomies were intially used to supplement the taxonomy
+          <a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank">NCBI taxonomy</a> was initially used to
+          decorate the genome tree via
+          <a href="http://tax2tree.sourceforge.net/" target="_blank">tax2tree</a> and subsequently used as a reference
+          source of new taxonomic opinions including new names.
+          The 16S rRNA-based <a href="http://greengenes.secondgenome.com" target="_blank">Greengenes</a> and <a
+          href="https://www.arb-silva.de/" target="_blank">SILVA</a> taxonomies were intially used to supplement the
+          taxonomy
           particularly in regions of the tree with no cultured representatives, however genome assembly
           identifiers are now used to create placeholder names for uncultured taxa.
         </p>
@@ -51,15 +92,21 @@
         <p>
           <a href="https://lpsn.dsmz.de/" target="_blank">LPSN</a> is used as the
           primary nomenclatural reference for establishing naming priorities and nomenclature types.
-          All taxonomic ranks except species are normalised using <a href="https://github.com/dparks1134/PhyloRank" target="_blank">PhyloRank</a> and the taxonomy manually curated to
+          All taxonomic ranks except species are normalised using <a href="https://github.com/dparks1134/PhyloRank"
+                                                                     target="_blank">PhyloRank</a> and the taxonomy
+          manually curated to
           remove polyphyletic groups.
-          Polyphyly and rank evenness can be visualised in PhyloRank <NuxtLink :to="latestStatsPageUrl">plots</NuxtLink>.
-          Species were originally delineated based on phylogeny and rank normalization but this was replaced with an ANI-based method (starting with R04-RS89)
+          Polyphyly and rank evenness can be visualised in PhyloRank
+          <NuxtLink :to="latestStatsPageUrl">plots</NuxtLink>
+          .
+          Species were originally delineated based on phylogeny and rank normalization but this was replaced with an
+          ANI-based method (starting with R04-RS89)
           to enable scalable and automated assignment of genomes to species clusters.
         </p>
 
         <p>
-          The GTDB taxonomy can be queried and downloaded through a number of tools on this website. Classification of new genomes based on GTDB framework can be done via
+          The GTDB taxonomy can be queried and downloaded through a number of tools on this website. Classification of
+          new genomes based on GTDB framework can be done via
           <a href="https://github.com/Ecogenomics/GTDBTk" target="_blank">GTDB-Tk</a>.
         </p>
 
@@ -235,6 +282,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import AboutAvatar from "~/components/about/AboutAvatar.vue";
+import {MetaVersionResponse} from "~/assets/api/meta";
+import {mdiApi, mdiWeb} from "@mdi/js";
 
 export default Vue.extend({
   components: {AboutAvatar},
@@ -252,8 +301,25 @@ export default Vue.extend({
   },
   data() {
     return {
-      latestStatsPageUrl: process.env.latestStatsPageUrl
+      latestStatsPageUrl: process.env.latestStatsPageUrl,
+      apiVersion: '',
+      nuxtVersion: process.env.nuxtVersion,
+
+      // Icons
+      mdiWebSvg: mdiWeb,
+      mdiApiSvg: mdiApi,
     }
+  },
+  methods: {
+    getApiVersion() {
+      // @ts-ignore
+      this.$api.meta.version().then((resp) => {
+        this.apiVersion = `${resp.data.major}.${resp.data.minor}.${resp.data.patch}`
+      })
+    },
+  },
+  mounted() {
+    this.getApiVersion()
   }
 })
 </script>
@@ -262,4 +328,15 @@ export default Vue.extend({
 .about-block {
   border: #dadada 1px solid;
 }
+
+.version-link-out a {
+  color: #5b5b5b;
+  text-decoration: none;
+}
+
+.version-link-out a:hover {
+  color: #48a0da;
+  text-decoration: none;
+}
+
 </style>
