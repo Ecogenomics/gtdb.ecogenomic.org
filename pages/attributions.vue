@@ -23,15 +23,6 @@
             </tr>
             </thead>
             <tbody>
-            <!--            <tr>-->
-            <!--              <td><a href="/tree">Tree viewer</a></td>-->
-            <!--              <td>The tree viewer page is a derivative of <a href="https://bl.ocks.org/mbostock/1093025"-->
-            <!--                                                             target="_blank">"Collapsible Indented Tree"</a> by-->
-            <!--                <a href="https://gist.github.com/mbostock" target="_blank">Mike Bostock</a>,-->
-            <!--                used under the <a href="https://opensource.org/licenses/GPL-3.0" target="_blank">GNU General Public-->
-            <!--                  License, version 3</a>.-->
-            <!--              </td>-->
-            <!--            </tr>-->
             <tr>
               <td>
                 <nuxt-link to="/taxon-history">Taxon history</nuxt-link>
@@ -66,6 +57,16 @@
               </td>
               <td>
                 The API was generated using <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a>.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Compute
+              </td>
+              <td>
+                The GTDB website, file server, API, and database are all hosted in the Australian Research Data Commons (ARDC)
+                <a href="https://ardc.edu.au/services/nectar-research-cloud/" target="_blank">Nectar Research Cloud</a>, on
+                Queensland Cyber Infrastructure Foundation (QCIF) infrastructure.
               </td>
             </tr>
             </tbody>
