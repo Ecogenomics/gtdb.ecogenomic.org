@@ -1,0 +1,4 @@
+# Changes to these patterns will not trigger a rebuild
+public/
+.github/
+**.md
