@@ -2,8 +2,9 @@
   <div>
     <div v-if="areJobsRunning">
       <p>
-        The table below will be automatically refreshed every
-        {{ (refreshEveryMs / 1000).toLocaleString() }} seconds.
+        Press the "Refresh" button below to reload the results.
+<!--        The table below will be automatically refreshed every-->
+<!--        {{ (refreshEveryMs / 1000).toLocaleString() }} seconds.-->
       </p>
       <p v-if="positionInQueue !== null">
         Position in queue: {{ positionInQueue.toLocaleString() }}
@@ -15,16 +16,30 @@
       </p>
     </div>
 
+<!-- TODO: This is currently broken, this is being replaced with a manual refresh for now -->
+<!--    <v-btn-->
+<!--      :color="isAutoRefreshEnabled ? '#e79595' : '#74d993'"-->
+<!--      :disabled="!areJobsRunning"-->
+<!--      depressed-->
+<!--      small-->
+<!--      @click="toggleAutoRefresh"-->
+<!--    >-->
+<!--      {{ isAutoRefreshEnabled ? 'Disable' : 'Enable' }} Auto Refresh-->
+<!--      <v-icon right>-->
+<!--        {{ mdiCogRefreshSvg }}-->
+<!--      </v-icon>-->
+<!--    </v-btn>-->
+
     <v-btn
-      :color="isAutoRefreshEnabled ? '#e79595' : '#74d993'"
       :disabled="!areJobsRunning"
       depressed
       small
-      @click="toggleAutoRefresh"
+      @click="manualRefresh"
+      :loading="isManualRefreshLoading || isRefreshQueryStillRunning"
     >
-      {{ isAutoRefreshEnabled ? 'Disable' : 'Enable' }} Auto Refresh
+      Refresh
       <v-icon right>
-        {{ mdiCogRefreshSvg }}
+        {{ mdiRefreshSvg }}
       </v-icon>
     </v-btn>
 
@@ -236,11 +251,11 @@ import Vue from 'vue';
 
 import {RqJobStatus} from "~/assets/api/models";
 import HelpTooltip from "~/components/layout/HelpTooltip.vue";
-import {mdiCogRefresh, mdiDownload} from "@mdi/js";
+import {mdiCogRefresh, mdiDownload, mdiRefresh} from "@mdi/js";
 import {FastAniResult, FastAniResultData} from "~/assets/api/fastani";
 import FastAniLogsModal from "~/components/fastani/FastAniLogsModal.vue";
 import {DataOptions} from "vuetify";
-import {isDefined, JsonEqual} from "~/assets/ts/common";
+import {isDefined, JsonEqual, sleep} from "~/assets/ts/common";
 
 const RUNNING_STATUSES = ['queued', 'started', 'deferred', 'scheduled'];
 
@@ -272,6 +287,7 @@ export default Vue.extend({
     // Icons
     mdiCogRefreshSvg: mdiCogRefresh,
     mdiDownloadSvg: mdiDownload,
+    mdiRefreshSvg: mdiRefresh,
 
     // Refreshing results
     isAutoRefreshEnabled: false,
@@ -281,6 +297,7 @@ export default Vue.extend({
     lastRefreshRequestStartTime: new Date(),
     refreshProgressPct: 0,
     isRefreshQueryStillRunning: false,
+    isManualRefreshLoading: false,
 
     // Pagination
     totalRows: 0,
@@ -308,6 +325,18 @@ export default Vue.extend({
         this.startNewAutoRefreshInterval();
       }
       this.isAutoRefreshEnabled = !this.isAutoRefreshEnabled;
+    },
+
+    // Do a manual refresh of the data, force the user to wait a few seconds.
+    manualRefresh() {
+      if (this.isManualRefreshLoading || this.isRefreshQueryStillRunning) {
+        return;
+      }
+      this.isManualRefreshLoading = true;
+      this.getJobData();
+      sleep(5000).finally(() => {
+        this.isManualRefreshLoading = false;
+      });
     },
 
     // A collection of status states
@@ -482,7 +511,7 @@ export default Vue.extend({
     jobId(after, before) {
       if (after && after !== before) {
         this.getJobData()
-        this.startNewAutoRefreshInterval()
+        // this.startNewAutoRefreshInterval()
       }
     }
   },
@@ -490,7 +519,7 @@ export default Vue.extend({
     // If this component is loaded with a job id in the url, then load
     if (this.hasJobId) {
       this.getJobData()
-      this.startNewAutoRefreshInterval()
+      // this.startNewAutoRefreshInterval()
     }
   }
 })
