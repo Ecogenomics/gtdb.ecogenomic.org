@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v1.1.0...v1.2.0) (2022-03-18)
+
+
+### Features
+
+* **tree:** Limit the number of genomes displayed under a single species to 100. ([8d3b57a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8d3b57a93ea6ae09702d8528f72059f5a765c410))
+
 # [1.1.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v1.0.0...v1.1.0) (2022-03-11)
 
 
