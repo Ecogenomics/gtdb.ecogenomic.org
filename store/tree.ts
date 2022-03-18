@@ -5,6 +5,8 @@
 import {actionTree, getterTree, mutationTree} from "typed-vuex";
 import {TaxonDescendants} from "~/assets/api/taxon";
 
+const MAX_CHILDREN = 100;
+
 export interface TreeItem {
   taxon: string
   total?: number
@@ -15,6 +17,9 @@ export interface TreeItem {
   isTypeStrainOfSpecies?: boolean,
   isTypeStrainOfSubspecies?: boolean,
   isGtdbSpeciesRep?: boolean,
+
+  hideLink?: boolean
+  species?: string
 
 }
 
@@ -113,9 +118,7 @@ function treeItemFromTaxonDescendants(item: TaxonDescendants): TreeItem {
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const getters = getterTree(state, {
-  items: state => state.items,
-  initHasRun: state => state.initHasRun,
-  open: state => state.open
+  items: state => state.items, initHasRun: state => state.initHasRun, open: state => state.open
 })
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -169,9 +172,21 @@ export const actions = actionTree({state, getters, mutations}, {
         const taxon = payload[i];
         const resp = values[i];
         const children: TreeItem[] = [];
-        resp.data.forEach(respItem => {
-          children.push(treeItemFromTaxonDescendants(respItem));
-        })
+
+        // break if too many genomes
+        for (let j = 0; j < resp.data.length; j++) {
+          children.push(treeItemFromTaxonDescendants(resp.data[j]))
+
+          if (j >= MAX_CHILDREN && resp.data[j].isGenome) {
+            children.push({
+              taxon: `+ ${(resp.data.length - MAX_CHILDREN).toLocaleString()} others`,
+              isGenome: true,
+              hideLink: true,
+              species: taxon
+            })
+            break;
+          }
+        }
         commit('SET_NODE_CHILDREN', {taxon: taxon, children: children})
         commit('ADD_OPEN', taxon)
       }
@@ -203,8 +218,16 @@ export const actions = actionTree({state, getters, mutations}, {
       const children: TreeItem[] = [];
       for (let i = 0; i < res.data.length; i++) {
         children.push(treeItemFromTaxonDescendants(res.data[i]));
+        if (i >= MAX_CHILDREN && res.data[i].isGenome) {
+          children.push({
+            taxon: `+ ${(res.data.length - MAX_CHILDREN).toLocaleString()} others`,
+            isGenome: true,
+            hideLink: true,
+            species: item.taxon
+          })
+          break;
+        }
       }
-
       commit('SET_NODE_CHILDREN', {taxon: item.taxon, children: children})
     })
   }

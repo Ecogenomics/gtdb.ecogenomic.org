@@ -82,22 +82,31 @@
 
                   <!-- This is a genome (leaf node) -->
                   <template v-if="item.isGenome">
-                    <NuxtLink :to="{name: 'genome',
+                    <template v-if="item.hideLink">
+                      <nuxt-link :to="`/species?id=${item.species.substring(3)}`">
+                        <div :class="`${getTreeNodeClass(item)} + rounded py-1 px-2`">
+                          {{ item.taxon }}
+                        </div>
+                      </nuxt-link>
+                    </template>
+                    <template v-else>
+                      <NuxtLink :to="{name: 'genome',
                       query: {
                         gid: item.taxon.startsWith('GB_') ? item.taxon.substring(3) :
                         item.taxon.startsWith('RS_') ? item.taxon.substring(3) : item.taxon
                       }}"
-                    >
-                      <div :class="`${getTreeNodeClass(item)} + rounded py-1 px-2`">
+                      >
+                        <div :class="`${getTreeNodeClass(item)} + rounded py-1 px-2`">
                        <span v-if="item.isGtdbSpeciesRep">
                         *
                       </span>
-                        {{
-                          item.taxon.startsWith('GB_') ? item.taxon.substring(3) :
-                            item.taxon.startsWith('RS_') ? item.taxon.substring(3) : item.taxon
-                        }}
-                      </div>
-                    </NuxtLink>
+                          {{
+                            item.taxon.startsWith('GB_') ? item.taxon.substring(3) :
+                              item.taxon.startsWith('RS_') ? item.taxon.substring(3) : item.taxon
+                          }}
+                        </div>
+                      </NuxtLink>
+                    </template>
                   </template>
 
                   <!-- This is a taxon (internal node) -->
@@ -108,7 +117,8 @@
                        `treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}`">
                       {{ item.taxon }} ({{ item.total ? item.total.toLocaleString() : 'loading...' }})
                       <template v-if="taxaNotInLit[item.taxon.substring(3)]">
-                        <TaxonNotInLit v-if="taxaNotInLit[item.taxon.substring(3)]" :tooltip="taxaNotInLit[item.taxon.substring(3)]"/>
+                        <TaxonNotInLit v-if="taxaNotInLit[item.taxon.substring(3)]"
+                                       :tooltip="taxaNotInLit[item.taxon.substring(3)]"/>
                       </template>
                     </div>
                   </template>
