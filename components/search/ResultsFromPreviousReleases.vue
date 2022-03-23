@@ -44,7 +44,7 @@
 
             <!-- Rows -->
             <template v-slot:item.view="{ item }">
-              <nuxt-link :to="`/taxon-history?from=${item.firstSeen}&to=R202&query=${item.taxon}`">
+              <nuxt-link :to="`/taxon-history?from=${item.firstSeen}&to=R207&query=${item.taxon}`">
                 Taxon History ({{ item.firstSeen }} to {{ item.lastSeen }})
               </nuxt-link>
             </template>

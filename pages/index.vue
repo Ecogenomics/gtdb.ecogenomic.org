@@ -8,14 +8,8 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-        <NotifyBar>
-          ***
-          GTDB Release 202 is now available! Files are available in <NuxtLink to="/downloads">Downloads</NuxtLink>***
-        </NotifyBar>
-        <NotifyBar>
-          *** OUT NOW : A standardized archaeal taxonomy for the Genome Taxonomy Database.
-          Available in <a href="https://rdcu.be/cmVP6" target="_blank">Nature Microbiology</a>
-          ***
+        <NotifyBar uid="r207">
+          *** GTDB Release 207 is now available 🎉 <NuxtLink to="/downloads" class="mx-1">download files</NuxtLink> ***
         </NotifyBar>
       </div>
 
@@ -118,27 +112,27 @@ export default Vue.extend({
   },
   data: () => ({
     /* Bacterial stats */
-    nBacTot: 254090,
-    nBacS: 45555,
-    nBacG: 12037,
-    nBacF: 2886,
-    nBacO: 1163,
-    nBacC: 360,
-    nBacP: 127,
+    nBacTot: 311480,
+    nBacS: 62291,
+    nBacG: 15342,
+    nBacF: 3614,
+    nBacO: 1439,
+    nBacC: 425,
+    nBacP: 148,
 
     /* Archaeal stats */
-    nArcTot: 4316,
-    nArcS: 2339,
-    nArcG: 851,
-    nArcF: 336,
-    nArcO: 116,
-    nArcC: 47,
-    nArcP: 19,
+    nArcTot: 6062,
+    nArcS: 3412,
+    nArcG: 1344,
+    nArcF: 456,
+    nArcO: 132,
+    nArcC: 52,
+    nArcP: 18,
 
     /* Summary stats */
-    nGenomes: 258406,
-    releaseVer: '06-RS202',
-    releaseDate: '27th April 2021'
+    nGenomes: 6062+311480,
+    releaseVer: '07-RS207',
+    releaseDate: '25th March 2022'
 
   })
 })
