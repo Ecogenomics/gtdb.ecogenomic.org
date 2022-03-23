@@ -405,8 +405,8 @@
           </ImgToggle>
           <h2>Archaea</h2>
           <ImgToggle
-            :full="require('~/assets/images/stats/r202/red-bacteria.png')"
-            :preview="require('~/assets/images/stats/r202/red-bacteria.png')"
+            :full="require('~/assets/images/stats/r202/red-archaea.png')"
+            :preview="require('~/assets/images/stats/r202/red-archaea.png')"
             class="mt-2"
             preview-max-width="800px;"
             preview-width="75%"
@@ -443,8 +443,8 @@
       <template #genomic-statistics>
         Key genomic statistics for the GTDB species representative genomes and all genomes in the GTDB.
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/genomic-stats-species.png')"
-          :preview="require('~/assets/images/stats/r202/genomic-stats-species-small.jpg')"
+          :full="require('~/assets/images/stats/r202/genomic-stats-genomes.png')"
+          :preview="require('~/assets/images/stats/r202/genomic-stats-genomes-small.jpg')"
           class="mt-2"
           preview-max-width="800px;"
           preview-width="75%"
