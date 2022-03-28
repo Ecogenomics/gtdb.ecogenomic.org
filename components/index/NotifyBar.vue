@@ -14,7 +14,7 @@
         @click="close"
       >
         <v-icon>
-          {{ mdiCloseCircleOutlineSvg }}
+          {{ mdiCloseSvg }}
         </v-icon>
       </v-btn>
     </div>
@@ -24,7 +24,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {mdiCloseCircleOutline} from '@mdi/js';
+import {mdiClose} from '@mdi/js';
 
 export default Vue.extend({
   props: {
@@ -40,7 +40,7 @@ export default Vue.extend({
   },
   data: () => ({
     isVisible: true,
-    mdiCloseCircleOutlineSvg: mdiCloseCircleOutline,
+    mdiCloseSvg: mdiClose,
   }),
   methods: {
     close() {
