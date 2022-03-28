@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
-    "@mdi/js": "^6.5.95",
+    "@mdi/js": "^6.6.96",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-module": "^3.0.2",
