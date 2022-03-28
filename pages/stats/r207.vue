@@ -1,7 +1,7 @@
 <template>
   <v-container class="gtdb-container">
 
-    <SectionedPage :items="items"  >
+    <SectionedPage :items="items">
 
       <template #title>
         Release 207 statistics
@@ -72,7 +72,7 @@
       <template #species-overview>
         GTDB R207 is comprised of 311,480 bacterial and 6,062 archaeal genomes organized into 62,291 bacterial and 3,412
         archaeal species clusters.
-        <v-simple-table class="gtdb-table mt-3" dense >
+        <v-simple-table class="gtdb-table mt-3" dense>
           <template v-slot:default>
             <thead>
             <tr>
@@ -302,63 +302,72 @@
               <td>Enterobacteriaceae 63,971</td>
               <td>Escherichia 27,205</td>
               <td>Escherichia coli 26,859</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Firmicutes 61,795</td>
               <td>Bacilli 61,794</td>
               <td>Lactobacillales 32,177</td>
               <td>Staphylococcaceae 17,191</td>
               <td>Staphylococcus 16,835</td>
               <td>Staphylococcus aureus 13,059</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Actinobacteriota 28,532</td>
               <td>Actinomycetia 24,379</td>
               <td>Pseudomonadales 22,407</td>
               <td>Streptococcaceae 17,088</td>
               <td>Streptococcus 16,657</td>
               <td>Salmonella enterica 12,285</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Firmicutes_A 21,744</td>
               <td>Clostridia 21,601</td>
               <td>Staphylococcales 17,289</td>
               <td>Mycobacteriaceae 12,366</td>
               <td>Klebsiella 13,720</td>
               <td>Klebsiella pneumoniae 11,294</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Bacteroidota 20,893</td>
               <td>Bacteroidia 19,504</td>
               <td>Burkholderiales 15,809</td>
               <td>Pseudomonadaceae 12,187</td>
               <td>Salmonella 12,544</td>
               <td>Streptococcus pneumoniae 8,452</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Campylobacterota 6,845</td>
               <td>Alphaproteobacteria 19,166</td>
               <td>Mycobacteriales 13,541</td>
               <td>Burkholderiaceae 10,295</td>
               <td>Mycobacterium 9,983</td>
               <td>Mycobacterium tuberculosis 6,836</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Patescibacteria 4,645</td>
               <td>Campylobacteria 6,825</td>
               <td>Bacteroidales 11,844</td>
               <td>Moraxellaceae 7,998</td>
               <td>Acinetobacter 7,409</td>
               <td>Pseudomonas aeruginosa 5,623</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Verrucomicrobiota 2,848</td>
               <td>Cyanobacteriia 2,387</td>
               <td>Campylobacterales 6,808</td>
               <td>Lachnospiraceae 6,306</td>
               <td>Pseudomonas 5,738</td>
               <td>Acinetobacter baumannii 5,417</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Cyanobacteria 2,818</td>
               <td>Verrucomicrobiae 2,221</td>
               <td>Oscillospirales 6,803</td>
               <td>Vibrionaceae 5,492</td>
               <td>Pseudomonas_E 5,692</td>
               <td>Clostridioides difficile 2,225</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>Spirochaetota 2,331</td>
               <td>Coriobacteriia 1,961</td>
               <td>Lachnospirales 6,595</td>
@@ -379,28 +388,39 @@
         intervals for normalizing taxa at taxonomic ranks was operationally defined as the median RED value
         (indicated by a blue bar) at each rank ±0.1 (indicated by grey bars).
 
-        <h2>Bacteria</h2>
-        <ImgToggle
-          :full="require('~/assets/images/stats/r207/red-bacteria.png')"
-          :preview="require('~/assets/images/stats/r207/red-bacteria.png')"
-          class="mt-2"
-          preview-max-width="800px;"
-          preview-width="75%"
-        >
-        </ImgToggle>
+        <v-switch
+          v-if="$vuetify.breakpoint.mdAndUp"
+          v-model="showRedAsD3"
+          :label="`Interactive: ${showRedAsD3.toString()}`"
+          color="blue"
+          inset
+        ></v-switch>
+        <template v-if="showRedAsD3">
+          <REDr207></REDr207>
+        </template>
+        <template v-else>
+          <h2>Bacteria</h2>
+          <ImgToggle
+            :full="require('~/assets/images/stats/r207/red-bacteria.png')"
+            :preview="require('~/assets/images/stats/r207/red-bacteria.png')"
+            class="mt-2"
+            preview-max-width="800px;"
+            preview-width="75%"
+          >
+          </ImgToggle>
 
-        <hr>
+          <hr>
 
-        <h2>Archaea</h2>
-        <ImgToggle
-          :full="require('~/assets/images/stats/r207/red-archaea.png')"
-          :preview="require('~/assets/images/stats/r207/red-archaea.png')"
-          class="mt-3"
-          preview-max-width="800px;"
-          preview-width="75%"
-        >
-        </ImgToggle>
-
+          <h2>Archaea</h2>
+          <ImgToggle
+            :full="require('~/assets/images/stats/r207/red-archaea.png')"
+            :preview="require('~/assets/images/stats/r207/red-archaea.png')"
+            class="mt-3"
+            preview-max-width="800px;"
+            preview-width="75%"
+          >
+          </ImgToggle>
+        </template>
       </template>
 
       <template #comparison-of-gtdb-and-ncbi-taxa>
@@ -429,6 +449,8 @@
 
       <template #genomic-statistics>
         Key genomic statistics for the GTDB species representative genomes and all genomes in the GTDB.
+
+        <h2>Genomes</h2>
         <ImgToggle
           :full="require('~/assets/images/stats/r207/genomic-stats-genomes.png')"
           :preview="require('~/assets/images/stats/r207/genomic-stats-genomes-small.jpg')"
@@ -437,7 +459,10 @@
           preview-width="75%"
         >
         </ImgToggle>
+
         <hr>
+
+        <h2>Species</h2>
         <ImgToggle
           :full="require('~/assets/images/stats/r207/genomic-stats-species.png')"
           :preview="require('~/assets/images/stats/r207/genomic-stats-species-small.jpg')"
