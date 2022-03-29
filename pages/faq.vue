@@ -164,8 +164,9 @@
             permits this to be as high as 97%
             in order to retain a larger number of existing species names. Species with an ANI
             >97% are synonyms within the
-            GTDB. Species assignments use an AF of 65%. ANI and AF values are calculated with <a
-              href="https://github.com/ParBLiSS/FastANI" target="_blank">FastANI</a> v1.1.
+            GTDB. Species assignments use an AF of 50% as of R07-RS207 and 65% prior to this release.
+            ANI and AF values are calculated with <a
+              href="https://github.com/ParBLiSS/FastANI" target="_blank">FastANI</a> v1.3.
           </li>
           <li>Remaining genomes are formed into <i>de novo</i> species clusters using a greedy
             clustering approach that emphasizes
@@ -253,7 +254,7 @@
           NCBI.</p>
 
         <b>Table 1</b>. Criteria used to establish quality score of an assembly
-        <v-simple-table class="gtdb-table mt-2" dense style="max-width: 50%;">
+        <v-simple-table class="gtdb-table mt-2" dense style="max-width: 800px;">
           <template v-slot:default>
             <thead>
             <tr>
@@ -381,6 +382,11 @@
         at: <a href="https://data.gtdb.ecogenomic.org/releases/latest/METHODS" target="_blank">https://data.gtdb.ecogenomic.org/releases/latest/METHODS</a>
       </template>
 
+    <template #why-doesnt-the-gtdb-contain-shigella-species>
+      Shigella species are considered heterotypic synonyms of E. coli
+      <a href="https://doi.org/10.1101/2021.09.22.461432" target="_blank">(Parks et al., 2021)</a>
+    </template>
+
       <template #references>
         <p>Oren A, et al. (2015). Proposal to include the rank of phylum in the international code
           of nomenclature of
@@ -478,6 +484,10 @@ export default Vue.extend({
       {
         text: 'Where can I find details on the methods used by the GTDB?',
         ref: 'where-can-i-find-details-on-the-methods-used-by-the-gtdb'
+      },
+      {
+        text: "Why doesn't the GTDB contain Shigella species?",
+        ref: 'why-doesnt-the-gtdb-contain-shigella-species'
       },
       {text: 'References', ref: 'references'},
     ]
