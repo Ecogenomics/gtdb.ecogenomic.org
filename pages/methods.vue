@@ -29,7 +29,7 @@
           <a href="https://doi.org/10.1038/nbt.4229" target="_blank">(Parks et al., 2018)</a>.
         </p>
         <p class="mb-0">
-          Archaea reference tree is inferred with IQ-Tree v1.6.9 under the PMSF model
+          Archaea reference tree is inferred with IQ-Tree v2.1.2 under the PMSF model
           from the concatenated alignment of 53 archaeal genes based on a subset of the "top-ranked marker proteins"
           from a recent evaluation based on minimizing horizontal gene transfer and optimising the recovery of monophyletic lineages
           <a href="https://doi.org/10.1038/s41467-020-17408-w" target="_blank">(Rinke & Spang et al., 2020)</a>,
@@ -63,7 +63,7 @@
           <li>CheckM completeness estimate >50%</li>
           <li>CheckM contamination estimate <10%</li>
           <li>quality score, defined as completeness - 5*contamination, >50</li>
-          <li>contain >40% of the bac120 or arc53 marker genes</li>
+          <li>contain >40% of the bac120 or ar53 marker genes</li>
           <li>contain <1000 contigs</li>
           <li>have an N50 >5kb</li>
           <li>contain <100,000 ambiguous bases</li>
