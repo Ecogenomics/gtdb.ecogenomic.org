@@ -82,7 +82,7 @@
           <li>CheckM completeness estimate &gt;50%</li>
           <li>CheckM contamination estimate &lt;10%</li>
           <li>quality score, defined as completeness - 5*contamination, &gt;50</li>
-          <li>contain &gt;40% of the bac120 or arc122 marker genes</li>
+          <li>contain &gt;40% of the bac120 or arc53 marker genes</li>
           <li>contain &lt;1000 contigs</li>
           <li>have an N50 &gt;5kb</li>
           <li>contain &lt;100,000 ambiguous bases</li>
@@ -102,9 +102,9 @@
 
       <template #how-are-the-bacterial-and-archaeal-multiple-sequence-alignments-constructed>
         <p> Bacterial and archaeal multiple sequence alignments (MSAs) are formed
-          from the concatenation of 120 or 122
+          from the concatenation of 120 or 53
           phylogenetically informative markers, respectively. These marker sets are referred to as
-          bac120 and arc122 for
+          bac120 and arc53 for
           bacterial and archaeal markers, respectively, and are comprised of proteins or protein
           domains specified in the
           Pfam v27 or TIGRFAMs v15.0 databases. Details on these markers are available for
@@ -127,7 +127,7 @@
 
       <template #how-are-the-bacterial-and-archaeal-reference-trees-inferred>
         Bacterial and archaeal reference trees are inferred from the filtered
-        bac120 and ar122 multiple sequence
+        bac120 and ar53 multiple sequence
         alignments, respectively. Reference trees contain 1 genome per GTDB species cluster. The
         bacterial reference
         tree is inferred with FastTree v2.1.10 under the WAG model. The archaeal reference tree
