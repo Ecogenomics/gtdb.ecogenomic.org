@@ -1,3 +1,25 @@
+# [2.0.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v1.2.0...v2.0.0) (2022-04-08)
+
+
+### Bug Fixes
+
+* **faq:** Update FAQ to reference AR53 marker set. ([9c52ae6](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9c52ae6f98a555ae62c94813a3de525f17d4fea3))
+* **r202 stats:** Fixed an issue where the double plots were showing. ([7babc86](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7babc867a09e8d6d8f0802cae8a439066f72c5c2))
+* **stats:** Fit stats within margin and add interactivity. ([3264cd9](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3264cd947dbdff8c8819ca444a5e8ab593478795))
+* **stats:** Interactive RED plots now are within margins and display Order plus count on Y axis. ([6d8eb78](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6d8eb788eee4a4e0fcdb18379e257d7aa67351a1))
+
+
+### Features
+
+* **faq:** Add FAQ for Shigella species. ([2f1f71b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/2f1f71b58369407c5b21ec46ef54a56785f0f544))
+* **methods:** Update reference to AR53 instead of AR122. ([7bd5b93](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7bd5b9316773d48570e97c2bb0df6d42aa9690e6))
+* **R207:** Update for R207. ([d8366ec](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d8366ec1bbc326bb0acd5a4fed65617adefb5a79))
+
+
+### BREAKING CHANGES
+
+* **R207:** R207 taxonomy
+
 # [1.2.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v1.1.0...v1.2.0) (2022-03-18)
 
 
