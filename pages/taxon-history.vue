@@ -66,7 +66,7 @@ export default Vue.extend({
     // The taxon history search model
     search: {
       from: TaxonHistoryRelease.R80,
-      to: TaxonHistoryRelease.R202,
+      to: TaxonHistoryRelease.R207,
       taxon: '',
     } as TaxonHistorySearch,
 

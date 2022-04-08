@@ -28,7 +28,8 @@
       "@nuxt/types",
       "@nuxtjs/axios",
       "@types/node",
-      "vuetify"
+      "vuetify",
+      "cookie-universal-nuxt"
     ]
   },
   "exclude": [

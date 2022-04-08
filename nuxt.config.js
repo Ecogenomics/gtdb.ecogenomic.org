@@ -48,7 +48,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [// https://go.nuxtjs.dev/axios
     '@nuxtjs/axios', // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa' // https://pwa.nuxtjs.org/
+    '@nuxtjs/pwa', // https://pwa.nuxtjs.org/
+    'cookie-universal-nuxt' // https://www.npmjs.com/package/cookie-universal-nuxt
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -120,7 +121,7 @@ export default {
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search
     captchaSiteKey: process.env.CAPTCHA_KEY,
     googleAnalyticsId: process.env.GA_TRACKING_ID,
-    latestStatsPageUrl: '/stats/r202',  // this is used to point to the latest stats page,
+    latestStatsPageUrl: '/stats/r207',  // this is used to point to the latest stats page,
     nuxtVersion: version
   },
 

@@ -1,13 +1,63 @@
 <template>
-  <div class="notifyBar body-2 text-center py-1">
-    <slot></slot>
+  <div v-if="isVisible" class="notifyBar py-1 d-flex">
+    <div class="d-flex ml-5" style="min-width: 30px;">
+    </div>
+    <div class="d-flex mx-auto my-auto body-2">
+      <slot></slot>
+    </div>
+    <div class="d-flex mr-5" style="min-width: 30px;">
+      <v-btn
+        color="#a0b8a0"
+        depressed
+        icon
+        small
+        @click="close"
+      >
+        <v-icon>
+          {{ mdiCloseSvg }}
+        </v-icon>
+      </v-btn>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
-export default Vue.extend({})
+import {mdiClose} from '@mdi/js';
+
+export default Vue.extend({
+  props: {
+    uid: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    cookieKey(): string {
+      return `gtdb-notify-bar-hidden-${this.uid}`;
+    }
+  },
+  data: () => ({
+    isVisible: true,
+    mdiCloseSvg: mdiClose,
+  }),
+  methods: {
+    close() {
+      this.$cookies.set(this.cookieKey, 'true', {
+        path: '/',
+        maxAge: 2147483647,
+        sameSite: true,
+      });
+      this.isVisible = false;
+    },
+  },
+  created() {
+    if (this.$cookies.get(this.cookieKey)) {
+      this.isVisible = false;
+    }
+  }
+})
 </script>
 
 <style scoped>

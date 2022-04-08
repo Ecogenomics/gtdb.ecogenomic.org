@@ -1,14 +1,14 @@
 <template>
   <v-container class="gtdb-container">
 
-  <SectionedPage :items="items"  >
+    <SectionedPage :items="items">
 
       <template #title>
-        Release 202 statistics
+        Release 207 statistics
       </template>
 
       <template #taxon-overview>
-        GTDB R202 spans 258,406 genomes organized into 47,894 species clusters.
+        GTDB R207 spans 317,542 genomes organized into 65,703 species clusters.
         <v-simple-table class="gtdb-table mt-3" dense style="max-width: 500px;">
           <template v-slot:default>
             <thead>
@@ -30,39 +30,39 @@
             <tbody>
             <tr>
               <td>Phylum</td>
-              <td>127</td>
-              <td>19</td>
-              <td>146</td>
+              <td>148</td>
+              <td>18</td>
+              <td>166</td>
             </tr>
             <tr>
               <td>Class</td>
-              <td>360</td>
-              <td>47</td>
-              <td>407</td>
+              <td>425</td>
+              <td>52</td>
+              <td>477</td>
             </tr>
             <tr>
               <td>Order</td>
-              <td>1,163</td>
-              <td>116</td>
-              <td>1,279</td>
+              <td>1,439</td>
+              <td>132</td>
+              <td>1,571</td>
             </tr>
             <tr>
               <td>Family</td>
-              <td>2,886</td>
-              <td>336</td>
-              <td>3,222</td>
+              <td>3,614</td>
+              <td>456</td>
+              <td>4,070</td>
             </tr>
             <tr>
               <td>Genus</td>
-              <td>12,037</td>
-              <td>851</td>
-              <td>12,888</td>
+              <td>15,342</td>
+              <td>1,344</td>
+              <td>16,686</td>
             </tr>
             <tr>
               <td>Species</td>
-              <td>45,555</td>
-              <td>2,339</td>
-              <td>47,894</td>
+              <td>62,291</td>
+              <td>3,412</td>
+              <td>65,703</td>
             </tr>
             </tbody>
           </template>
@@ -70,10 +70,9 @@
       </template>
 
       <template #species-overview>
-        GTDB R202 is comprised of 254,090 bacterial and 4,316 archaeal genomes organized into 45,555 bacterial and 2,339
-        archaeal species clusters. This is an increase of 63,806 (32.79%) genomes and 15,984 (50.09%) species clusters
-        compared to GTDB R95.
-        <v-simple-table class="gtdb-table mt-3" dense style="max-width: 700px;">
+        GTDB R207 is comprised of 311,480 bacterial and 6,062 archaeal genomes organized into 62,291 bacterial and 3,412
+        archaeal species clusters.
+        <v-simple-table class="gtdb-table mt-3" dense>
           <template v-slot:default>
             <thead>
             <tr>
@@ -89,7 +88,10 @@
                 R06-RS202
               </th>
               <th class="text-left">
-                Growth from R05-RS95 (%)
+                R07-RS207
+              </th>
+              <th class="text-left">
+                Growth from R06-RS202 (%)
               </th>
             </tr>
             </thead>
@@ -99,13 +101,15 @@
               <td>143,512</td>
               <td>191,527</td>
               <td>254,090</td>
-              <td>32.67</td>
+              <td>311,480</td>
+              <td>22.59</td>
             </tr>
             <tr>
               <td>Archaeal genomes</td>
               <td>2,392</td>
               <td>3,073</td>
               <td>4,316</td>
+              <td>6,062</td>
               <td>40.45</td>
             </tr>
             <tr>
@@ -113,14 +117,16 @@
               <td>23,458</td>
               <td>30,238</td>
               <td>45,555</td>
-              <td>50.65</td>
+              <td>62,291</td>
+              <td>36.73</td>
             </tr>
             <tr>
               <td>Archaeal species clusters</td>
               <td>1,248</td>
               <td>1,672</td>
               <td>2,339</td>
-              <td>39.89</td>
+              <td>3,412</td>
+              <td>45.87</td>
             </tr>
             </tbody>
           </template>
@@ -133,8 +139,8 @@
         isolate genomes, exclusively of environmental genomes (i.e. MAGs/SAGs), or both isolate and environmental
         genomes.
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/genome-category-per-rank.png')"
-          :preview="require('~/assets/images/stats/r202/genome-category-per-rank-small.jpg')"
+          :full="require('~/assets/images/stats/r207/genome-category-per-rank.png')"
+          :preview="require('~/assets/images/stats/r207/genome-category-per-rank-small.jpg')"
           class="mt-2"
           preview-max-width="800px;"
           preview-width="75%"
@@ -148,8 +154,8 @@
         placeholder names. The proportion of representatives which are isolates, MAGs, or SAGs is given for each
         category.
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/sp-rep-type.png')"
-          :preview="require('~/assets/images/stats/r202/sp-rep-type-small.jpg')"
+          :full="require('~/assets/images/stats/r207/sp-rep-type.png')"
+          :preview="require('~/assets/images/stats/r207/sp-rep-type-small.jpg')"
           class="mt-2"
           preview-max-width="800px;"
           preview-width="75%"
@@ -166,8 +172,8 @@
         quality satisfying completeness - 5*contamination >50. A few exceptions exist in order to retain
         well-known species with abnormal CheckM quality estimates.
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/genome-quality-species.png')"
-          :preview="require('~/assets/images/stats/r202/genome-quality-species-small.jpg')"
+          :full="require('~/assets/images/stats/r207/genome-quality-species.png')"
+          :preview="require('~/assets/images/stats/r207/genome-quality-species-small.jpg')"
           class="mt-2"
           preview-max-width="800px;"
           preview-width="75%"
@@ -200,76 +206,75 @@
             </thead>
             <tbody>
             <tr>
-              <td>Proteobacteria 14,419</td>
-              <td>Gammaproteobacteria 7,998</td>
-              <td>Burkholderiales 2,491</td>
-              <td>Burkholderiaceae 1,668</td>
-              <td>Pelagibacter 841</td>
+              <td>Proteobacteria 17,350</td>
+              <td>Gammaproteobacteria 9,582</td>
+              <td>Bacteroidales 3,805</td>
+              <td>Lachnospiraceae 2,184</td>
+              <td>Streptomyces 855</td>
             </tr>
             <tr>
-              <td>Actinobacteriota 6,192</td>
-              <td>Alphaproteobacteria 6,379</td>
-              <td>Bacteroidales 2,083</td>
-              <td>Flavobacteriaceae 1,247</td>
-              <td>Streptomyces 762</td>
+              <td>Bacteroidota 8,588</td>
+              <td>Clostridia 8,185</td>
+              <td>Burkholderiales 3,181</td>
+              <td>Burkholderiaceae 2,063</td>
+              <td>Pelagibacter 855</td>
             </tr>
             <tr>
-              <td>Bacteroidota 5,818</td>
-              <td>Bacteroidia 5,402</td>
-              <td>Pseudomonadales 1,886</td>
-              <td>Lachnospiraceae 1,155</td>
-              <td>Pseudomonas_E 574</td>
+              <td>Firmicutes_A 8,243</td>
+              <td>Bacteroidia 8,033</td>
+              <td>Oscillospirales 3,168</td>
+              <td>Flavobacteriaceae 1,452</td>
+              <td>Pseudomonas_E 626</td>
             </tr>
             <tr>
-              <td>Firmicutes_A 4,062</td>
-              <td>Actinomycetia 4,864</td>
-              <td>Flavobacteriales 1,847</td>
-              <td>Pelagibacteraceae 1,114</td>
-              <td>Prevotella 383</td>
+              <td>Actinobacteriota 7,328</td>
+              <td>Alphaproteobacteria 7,684</td>
+              <td>Lachnospirales 2,360</td>
+              <td>Rhodobacteraceae 1,187</td>
+              <td>Prevotella 554</td>
             </tr>
             <tr>
-              <td>Firmicutes 3,390</td>
-              <td>Clostridia 3,566</td>
-              <td>Enterobacterales 1,701</td>
-              <td>Rhodobacteraceae 1,015</td>
-              <td>Mycobacterium 339</td>
+              <td>Firmicutes 4,216</td>
+              <td>Actinomycetia 5,591</td>
+              <td>Flavobacteriales 2,233</td>
+              <td>Bacteroidaceae 1,135</td>
+              <td>Collinsella 403</td>
             </tr>
             <tr>
-              <td>Patescibacteria 1,601</td>
-              <td>Bacilli 3,352</td>
-              <td>Actinomycetales 1,678</td>
-              <td>Streptomycetaceae 846</td>
-              <td>Flavobacterium 319</td>
+              <td>Patescibacteria 2,485</td>
+              <td>Bacilli 4,215</td>
+              <td>Pseudomonadales 2,152</td>
+              <td>Pelagibacteraceae 1,134</td>
+              <td>Flavobacterium 395</td>
             </tr>
             <tr>
-              <td>Cyanobacteria 1,067</td>
-              <td>Cyanobacteriia 920</td>
-              <td>Mycobacteriales 1,426</td>
-              <td>Mycobacteriaceae 811</td>
-              <td>Collinsella 316</td>
+              <td>Chloroflexota 1,387</td>
+              <td>Cyanobacteriia 1,113</td>
+              <td>Actinomycetales 1,980</td>
+              <td>Streptomycetaceae 924</td>
+              <td>Mycobacterium 370</td>
             </tr>
             <tr>
-              <td>Chloroflexota 982</td>
-              <td>Verrucomicrobiae 699</td>
-              <td>Rhizobiales 1,395</td>
-              <td>Sphingomonadaceae 762</td>
-              <td>Streptococcus 301</td>
+              <td>Cyanobacteria 1,372</td>
+              <td>Paceibacteria 961</td>
+              <td>Enterobacterales 1,767</td>
+              <td>Acutalibacteraceae 919</td>
+              <td>Streptococcus 365</td>
             </tr>
             <tr>
-              <td>Verrucomicrobiota 917</td>
-              <td>Paceibacteria 684</td>
-              <td>Lachnospirales 1,285</td>
-              <td>Pseudomonadaceae 731</td>
-              <td>Prochlorococcus_A 265</td>
+              <td>Verrucomicrobiota 1,325</td>
+              <td>Verrucomicrobiae 912</td>
+              <td>Rhizobiales 1,709</td>
+              <td>Mycobacteriaceae 891</td>
+              <td>Cryptobacteroides 361</td>
             </tr>
             <tr>
-              <td>Planctomycetota 748</td>
-              <td>Coriobacteriia 594</td>
-              <td>Oscillospirales 1,249</td>
-              <td>Enterobacteriaceae 724</td>
-              <td>Microbacterium 206</td>
+              <td>Planctomycetota 1,071</td>
+              <td>Coriobacteriia 779</td>
+              <td>Mycobacteriales 1,620</td>
+              <td>Sphingomonadaceae 883</td>
+              <td>Prochlorococcus_A 272</td>
             </tr>
-
             </tbody>
           </template>
         </v-simple-table>
@@ -291,84 +296,84 @@
             </thead>
             <tbody>
             <tr>
-              <td>Proteobacteria 120,757</td>
-              <td>Gammaproteobacteria 104,665</td>
-              <td>Enterobacterales 64,157</td>
-              <td>Enterobacteriaceae 55,347</td>
-              <td>Escherichia 23,687</td>
-              <td>Escherichia flexneri 14,743</td>
+              <td>Proteobacteria 141,114</td>
+              <td>Gammaproteobacteria 121,804</td>
+              <td>Enterobacterales 74,108</td>
+              <td>Enterobacteriaceae 63,971</td>
+              <td>Escherichia 27,205</td>
+              <td>Escherichia coli 26,859</td>
             </tr>
             <tr>
-              <td>Firmicutes 53,879</td>
-              <td>Bacilli 53,835</td>
-              <td>Lactobacillales 28,917</td>
-              <td>Streptococcaceae 16,112</td>
-              <td>Streptococcus 15,765</td>
-              <td>Staphylococcus aureus 12,022</td>
+              <td>Firmicutes 61,795</td>
+              <td>Bacilli 61,794</td>
+              <td>Lactobacillales 32,177</td>
+              <td>Staphylococcaceae 17,191</td>
+              <td>Staphylococcus 16,835</td>
+              <td>Staphylococcus aureus 13,059</td>
             </tr>
             <tr>
-              <td>Actinobacteriota 24,602</td>
-              <td>Actinomycetia 21,459</td>
-              <td>Pseudomonadales 19,449</td>
-              <td>Staphylococcaceae 15,139</td>
-              <td>Staphylococcus 14,962</td>
-              <td>Salmonella enterica 11,523</td>
+              <td>Actinobacteriota 28,532</td>
+              <td>Actinomycetia 24,379</td>
+              <td>Pseudomonadales 22,407</td>
+              <td>Streptococcaceae 17,088</td>
+              <td>Streptococcus 16,657</td>
+              <td>Salmonella enterica 12,285</td>
             </tr>
             <tr>
-              <td>Bacteroidota 13,917</td>
-              <td>Alphaproteobacteria 16,016</td>
-              <td>Staphylococcales 15,215</td>
-              <td>Mycobacteriaceae 11,561</td>
-              <td>Salmonella 11,772</td>
-              <td>Klebsiella pneumoniae 9,621</td>
+              <td>Firmicutes_A 21,744</td>
+              <td>Clostridia 21,601</td>
+              <td>Staphylococcales 17,289</td>
+              <td>Mycobacteriaceae 12,366</td>
+              <td>Klebsiella 13,720</td>
+              <td>Klebsiella pneumoniae 11,294</td>
             </tr>
             <tr>
-              <td>Firmicutes_A 12,649</td>
-              <td>Bacteroidia 12,772</td>
-              <td>Burkholderiales 13,431</td>
-              <td>Pseudomonadaceae 10,859</td>
-              <td>Klebsiella 10,886</td>
-              <td>Streptococcus pneumoniae 8,405</td>
+              <td>Bacteroidota 20,893</td>
+              <td>Bacteroidia 19,504</td>
+              <td>Burkholderiales 15,809</td>
+              <td>Pseudomonadaceae 12,187</td>
+              <td>Salmonella 12,544</td>
+              <td>Streptococcus pneumoniae 8,452</td>
             </tr>
             <tr>
-              <td>Campylobacterota 5,968</td>
-              <td>Clostridia 11,762</td>
-              <td>Mycobacteriales 12,534</td>
-              <td>Burkholderiaceae 8,796</td>
-              <td>Mycobacterium 9,568</td>
-              <td>Mycobacterium tuberculosis 6,684</td>
+              <td>Campylobacterota 6,845</td>
+              <td>Alphaproteobacteria 19,166</td>
+              <td>Mycobacteriales 13,541</td>
+              <td>Burkholderiaceae 10,295</td>
+              <td>Mycobacterium 9,983</td>
+              <td>Mycobacterium tuberculosis 6,836</td>
             </tr>
             <tr>
-              <td>Patescibacteria 3,496</td>
-              <td>Campylobacteria 5,957</td>
-              <td>Bacteroidales 7,082</td>
-              <td>Moraxellaceae 6,881</td>
-              <td>Acinetobacter 6,462</td>
-              <td>Pseudomonas aeruginosa 5,211</td>
+              <td>Patescibacteria 4,645</td>
+              <td>Campylobacteria 6,825</td>
+              <td>Bacteroidales 11,844</td>
+              <td>Moraxellaceae 7,998</td>
+              <td>Acinetobacter 7,409</td>
+              <td>Pseudomonas aeruginosa 5,623</td>
             </tr>
             <tr>
-              <td>Cyanobacteria 2,210</td>
-              <td>Cyanobacteriia 1,949</td>
-              <td>Campylobacterales 5,940</td>
-              <td>Vibrionaceae 4,865</td>
-              <td>Pseudomonas 5,311</td>
-              <td>Acinetobacter baumannii 4,766</td>
+              <td>Verrucomicrobiota 2,848</td>
+              <td>Cyanobacteriia 2,387</td>
+              <td>Campylobacterales 6,808</td>
+              <td>Lachnospiraceae 6,306</td>
+              <td>Pseudomonas 5,738</td>
+              <td>Acinetobacter baumannii 5,417</td>
             </tr>
             <tr>
-              <td>Verrucomicrobiota 2,095</td>
-              <td>Verrucomicrobiae 1,742</td>
-              <td>Bacillales 4,944</td>
-              <td>Enterococcaceae 4,454</td>
-              <td>Pseudomonas_E 4,871</td>
-              <td>Escherichia coli 4,370</td>
+              <td>Cyanobacteria 2,818</td>
+              <td>Verrucomicrobiae 2,221</td>
+              <td>Oscillospirales 6,803</td>
+              <td>Vibrionaceae 5,492</td>
+              <td>Pseudomonas_E 5,692</td>
+              <td>Clostridioides difficile 2,225</td>
             </tr>
             <tr>
-              <td>Spirochaetota 1,689</td>
-              <td>Paceibacteria 1,561</td>
-              <td>Rhizobiales 4,913</td>
-              <td>Lactobacillaceae 4,070</td>
-              <td>Vibrio 4,447</td>
-              <td>Streptococcus pyogenes 2,136</td>
+              <td>Spirochaetota 2,331</td>
+              <td>Coriobacteriia 1,961</td>
+              <td>Lachnospirales 6,595</td>
+              <td>Enterococcaceae 5,353</td>
+              <td>Vibrio 5,056</td>
+              <td>Enterococcus_B faecium 2,177</td>
             </tr>
             </tbody>
           </template>
@@ -384,37 +389,38 @@
         (indicated by a blue bar) at each rank ±0.1 (indicated by grey bars).
 
         <v-switch
-          v-model="showRedAsD3"
           v-if="$vuetify.breakpoint.mdAndUp"
-          inset
-          color="blue"
+          v-model="showRedAsD3"
           :label="`Interactive: ${showRedAsD3.toString()}`"
+          color="blue"
+          inset
         ></v-switch>
         <template v-if="showRedAsD3">
-          <REDr202></REDr202>
+          <REDr207></REDr207>
         </template>
         <template v-else>
           <h2>Bacteria</h2>
           <ImgToggle
-            :full="require('~/assets/images/stats/r202/red-bacteria.png')"
-            :preview="require('~/assets/images/stats/r202/red-bacteria.png')"
+            :full="require('~/assets/images/stats/r207/red-bacteria.png')"
+            :preview="require('~/assets/images/stats/r207/red-bacteria.png')"
             class="mt-2"
             preview-max-width="800px;"
             preview-width="75%"
           >
           </ImgToggle>
+
+          <hr>
+
           <h2>Archaea</h2>
           <ImgToggle
-            :full="require('~/assets/images/stats/r202/red-archaea.png')"
-            :preview="require('~/assets/images/stats/r202/red-archaea.png')"
-            class="mt-2"
+            :full="require('~/assets/images/stats/r207/red-archaea.png')"
+            :preview="require('~/assets/images/stats/r207/red-archaea.png')"
+            class="mt-3"
             preview-max-width="800px;"
             preview-width="75%"
           >
           </ImgToggle>
         </template>
-
-
       </template>
 
       <template #comparison-of-gtdb-and-ncbi-taxa>
@@ -423,17 +429,18 @@
         if its name was identical in both taxonomies, passively changed if the GTDB taxonomy provided name information
         absent in the NCBI taxonomy, or actively changed if the name was different between the two taxonomies.
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/ncbi-compare-species.png')"
-          :preview="require('~/assets/images/stats/r202/ncbi-compare-species-small.jpg')"
+          :full="require('~/assets/images/stats/r207/ncbi-compare-species.png')"
+          :preview="require('~/assets/images/stats/r207/ncbi-compare-species-small.jpg')"
           class="mt-2"
           preview-max-width="800px;"
           preview-width="75%"
         >
         </ImgToggle>
+        <hr>
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/ncbi-compare-genomes.png')"
-          :preview="require('~/assets/images/stats/r202/ncbi-compare-genomes-small.jpg')"
-          class="mt-2"
+          :full="require('~/assets/images/stats/r207/ncbi-compare-genomes.png')"
+          :preview="require('~/assets/images/stats/r207/ncbi-compare-genomes-small.jpg')"
+          class="mt-3"
           preview-max-width="800px;"
           preview-width="75%"
         >
@@ -442,18 +449,24 @@
 
       <template #genomic-statistics>
         Key genomic statistics for the GTDB species representative genomes and all genomes in the GTDB.
+
+        <h2>Genomes</h2>
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/genomic-stats-genomes.png')"
-          :preview="require('~/assets/images/stats/r202/genomic-stats-genomes-small.jpg')"
+          :full="require('~/assets/images/stats/r207/genomic-stats-genomes.png')"
+          :preview="require('~/assets/images/stats/r207/genomic-stats-genomes-small.jpg')"
           class="mt-2"
           preview-max-width="800px;"
           preview-width="75%"
         >
         </ImgToggle>
+
+        <hr>
+
+        <h2>Species</h2>
         <ImgToggle
-          :full="require('~/assets/images/stats/r202/genomic-stats-species.png')"
-          :preview="require('~/assets/images/stats/r202/genomic-stats-species-small.jpg')"
-          class="mt-2"
+          :full="require('~/assets/images/stats/r207/genomic-stats-species.png')"
+          :preview="require('~/assets/images/stats/r207/genomic-stats-species-small.jpg')"
+          class="mt-3"
           preview-max-width="800px;"
           preview-width="75%"
         >
@@ -469,17 +482,17 @@
 import Vue from 'vue'
 
 import SectionedPage from "~/components/layout/SectionedPage.vue";
-import REDr202 from "~/components/stats/REDr202.vue";
+import REDr207 from "~/components/stats/REDr207.vue";
 import ImgToggle from "~/components/layout/ImgToggle.vue";
 
 export default Vue.extend({
-  components: {REDr202, SectionedPage, ImgToggle},
+  components: {REDr207, SectionedPage, ImgToggle},
   head() {
     return {
-      title: 'Statistics (R202)',
+      title: 'Statistics (R207)',
       meta: [
         {
-          hid: 'stats/r202',
+          hid: 'stats/r207',
           name: 'description',
           content: `Statistics describing GTDB release R202.`
         }
