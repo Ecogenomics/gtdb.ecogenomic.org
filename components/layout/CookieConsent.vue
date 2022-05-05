@@ -33,12 +33,12 @@ import {bootstrap} from 'vue-gtag';
 
 export default Vue.extend({
   data: () => ({
-    snackbar: true,
+    snackbar: false,
     cookieKey: 'do-not-show-analytics-consent',
   }),
   created() {
-    if (this.$cookies.get(this.cookieKey)) {
-      this.snackbar = false;
+    if (!this.$cookies.get(this.cookieKey)) {
+      this.snackbar = true;
     }
   },
   methods: {
