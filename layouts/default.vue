@@ -119,7 +119,7 @@
     <!-- The main content block -->
     <v-main>
       <nuxt/>
-      <CookieConsent />
+<!--      <CookieConsent />-->
       <ApiSnackbar/>
     </v-main>
 
@@ -144,7 +144,7 @@ import ApiSnackbar from "../components/layout/ApiSnackbar";
 import CookieConsent from "@/components/layout/CookieConsent";
 
 export default {
-  components: {CookieConsent, ApiSnackbar, MenuListGroup, MenuSearch, GtdbLogo, MenuButton, MenuDropdown},
+  components: {ApiSnackbar, MenuListGroup, MenuSearch, GtdbLogo, MenuButton, MenuDropdown},
   // head() {
   //   let productionScripts = []
   //   if (!process.env.DEV) {
