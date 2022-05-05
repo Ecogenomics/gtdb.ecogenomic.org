@@ -16,6 +16,7 @@ const vueGtag = ({app, env}) => {
       params: {
         send_page_view: true,
       },
+      bootstrap: true
     },
   }, app.router)
 }

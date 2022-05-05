@@ -119,6 +119,7 @@
     <!-- The main content block -->
     <v-main>
       <nuxt/>
+      <CookieConsent />
       <ApiSnackbar/>
     </v-main>
 
@@ -140,9 +141,10 @@ import MenuSearch from "../components/layout/MenuSearch";
 import MenuListGroup from "../components/layout/MenuListGroup";
 import {mdiOpenInNew} from "@mdi/js";
 import ApiSnackbar from "../components/layout/ApiSnackbar";
+import CookieConsent from "@/components/layout/CookieConsent";
 
 export default {
-  components: {ApiSnackbar, MenuListGroup, MenuSearch, GtdbLogo, MenuButton, MenuDropdown},
+  components: {CookieConsent, ApiSnackbar, MenuListGroup, MenuSearch, GtdbLogo, MenuButton, MenuDropdown},
   // head() {
   //   let productionScripts = []
   //   if (!process.env.DEV) {
