@@ -3,8 +3,8 @@
     <div>
       Release {{ release }} statistics
     </div>
-    <div class="text-subtitle-2">
-      {{ date }}
+    <div style="font-size: 12px; font-weight: 400;">
+      GTDB release date: {{ date }}
     </div>
   </div>
 </template>
