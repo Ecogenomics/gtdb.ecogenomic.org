@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.1.0...v2.1.1) (2022-05-06)
+
+
+### Bug Fixes
+
+* **fastani:** Include CMD in logs. ([819028e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/819028eb2f6d684f8c6e1585c60a1b754328df2c))
+
 # [2.1.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.0.0...v2.1.0) (2022-05-06)
 
 
