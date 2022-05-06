@@ -1,8 +1,8 @@
 <template>
   <v-dialog
     v-model="dialog"
-    scrollable
     max-width="70%"
+    scrollable
   >
     <template v-slot:activator="{ on, attrs }">
       <v-btn
@@ -42,23 +42,11 @@
 
         <div class="mt-2 pa-2 rounded bordered">
           <v-row no-gutters>
-            <v-icon left>
-              {{ mdiScriptTextOutlineSvg }}
-            </v-icon>
-            <span class="text-h6 black--text">stdout</span>
-          </v-row>
-          <v-row class="mt-1" no-gutters>
-            <code style="white-space: pre;">{{ stdout !== null && stdout.length > 0 ? stdout : 'n/a' }}</code>
-          </v-row>
-        </div>
-
-        <div class="mt-2 pa-2 rounded bordered">
-          <v-row no-gutters>
             <span class="text-h6 black--text">
                    <v-icon left>
               {{ mdiScriptTextOutlineSvg }}
             </v-icon>
-              stderr</span>
+              Output</span>
           </v-row>
           <v-row class="mt-1" no-gutters>
             <code style="white-space: pre;">{{ stderr !== null && stderr.length > 0 ? stderr : 'n/a' }}</code>
@@ -87,10 +75,6 @@ import {mdiConsole, mdiHelpCircle, mdiScriptTextOutline} from "@mdi/js";
 
 export default {
   props: {
-    stdout: {
-      type: String,
-      default: null,
-    },
     stderr: {
       type: String,
       default: null,
@@ -102,7 +86,6 @@ export default {
   },
   data: () => ({
     dialog: false,
-
     mdiHelpCircleSvg: mdiHelpCircle,
     mdiConsoleSvg: mdiConsole,
     mdiScriptTextOutlineSvg: mdiScriptTextOutline,

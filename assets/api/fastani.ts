@@ -60,6 +60,7 @@ export interface FastAniJobResult {
 export interface FastAniResultData {
   status: RqJobStatus,
   ani: number,
+  af: number | null,
   mapped: number,
   total: number
   stdout: string | null,
@@ -70,8 +71,7 @@ export interface FastAniResultData {
 export interface FastAniResult {
   query: string,
   reference: string,
-  qvr: FastAniResultData,
-  rvq: FastAniResultData
+  data: FastAniResultData,
 }
 
 export interface FastAniConfig {

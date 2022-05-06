@@ -3,8 +3,8 @@
     <div v-if="areJobsRunning">
       <p>
         Press the "Refresh" button below to reload the results.
-<!--        The table below will be automatically refreshed every-->
-<!--        {{ (refreshEveryMs / 1000).toLocaleString() }} seconds.-->
+        <!--        The table below will be automatically refreshed every-->
+        <!--        {{ (refreshEveryMs / 1000).toLocaleString() }} seconds.-->
       </p>
       <p v-if="positionInQueue !== null">
         Position in queue: {{ positionInQueue.toLocaleString() }}
@@ -16,26 +16,26 @@
       </p>
     </div>
 
-<!-- TODO: This is currently broken, this is being replaced with a manual refresh for now -->
-<!--    <v-btn-->
-<!--      :color="isAutoRefreshEnabled ? '#e79595' : '#74d993'"-->
-<!--      :disabled="!areJobsRunning"-->
-<!--      depressed-->
-<!--      small-->
-<!--      @click="toggleAutoRefresh"-->
-<!--    >-->
-<!--      {{ isAutoRefreshEnabled ? 'Disable' : 'Enable' }} Auto Refresh-->
-<!--      <v-icon right>-->
-<!--        {{ mdiCogRefreshSvg }}-->
-<!--      </v-icon>-->
-<!--    </v-btn>-->
+    <!-- TODO: This is currently broken, this is being replaced with a manual refresh for now -->
+    <!--    <v-btn-->
+    <!--      :color="isAutoRefreshEnabled ? '#e79595' : '#74d993'"-->
+    <!--      :disabled="!areJobsRunning"-->
+    <!--      depressed-->
+    <!--      small-->
+    <!--      @click="toggleAutoRefresh"-->
+    <!--    >-->
+    <!--      {{ isAutoRefreshEnabled ? 'Disable' : 'Enable' }} Auto Refresh-->
+    <!--      <v-icon right>-->
+    <!--        {{ mdiCogRefreshSvg }}-->
+    <!--      </v-icon>-->
+    <!--    </v-btn>-->
 
     <v-btn
       :disabled="!areJobsRunning"
+      :loading="isManualRefreshLoading || isRefreshQueryStillRunning"
       depressed
       small
       @click="manualRefresh"
-      :loading="isManualRefreshLoading || isRefreshQueryStillRunning"
     >
       Refresh
       <v-icon right>
@@ -55,6 +55,27 @@
       </v-icon>
     </v-btn>
 
+    <!--    <v-btn-->
+    <!--      class="ml-2"-->
+    <!--      :loading="isManualRefreshLoading || isRefreshQueryStillRunning"-->
+    <!--      depressed-->
+    <!--      small-->
+    <!--      @click="toggleGroupResults"-->
+    <!--    >-->
+    <!--      <template v-if="shouldGroupResults">-->
+    <!--        Un-group results-->
+    <!--        <v-icon right>-->
+    <!--          {{ mdiSortNumericAscendingSvg }}-->
+    <!--        </v-icon>-->
+    <!--      </template>-->
+    <!--      <template v-else>-->
+    <!--        Group (maximum)-->
+    <!--        <v-icon right>-->
+    <!--          {{ mdiSortNumericDescendingSvg }}-->
+    <!--        </v-icon>-->
+    <!--      </template>-->
+    <!--    </v-btn>-->
+
     <v-data-table
       :footer-props="{'items-per-page-options': [20, 50, 100, 250, 500, -1]}"
       :headers="headers"
@@ -64,12 +85,12 @@
       dense
       item-key="id"
       multi-sort
-      show-expand
     >
 
       <!-- Progress bar -->
       <template v-slot:progress>
-        <v-progress-linear v-show="isRefreshQueryStillRunning" indeterminate color="white" height="6"></v-progress-linear>
+        <v-progress-linear v-show="isRefreshQueryStillRunning" color="white" height="6"
+                           indeterminate></v-progress-linear>
       </template>
 
       <!-- Header -->
@@ -103,10 +124,10 @@
 
       <!-- ANI row -->
       <template v-slot:item.ani="{ item }">
-        <template v-if="item.ani">
-          {{ item.ani }}
+        <template v-if="item.qvr.data.ani">
+          {{ item.qvr.data.ani }}
         </template>
-        <template v-else-if="!isStatusFinished(item.status)">
+        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -120,10 +141,10 @@
 
       <!-- AF row -->
       <template v-slot:item.af="{ item }">
-        <template v-if="item.af">
-          {{ item.af.toPrecision(4) }}
+        <template v-if="item.qvr.data.af">
+          {{ item.qvr.data.af }}
         </template>
-        <template v-else-if="!isStatusFinished(item.status)">
+        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -133,14 +154,15 @@
             n/a
           </v-chip>
         </template>
+
       </template>
 
       <!-- Mapped fragments row -->
       <template v-slot:item.mapped="{ item }">
-        <template v-if="item.mapped">
-          {{ item.mapped }}
+        <template v-if="item.qvr.data.mapped">
+          {{ item.qvr.data.mapped }}
         </template>
-        <template v-else-if="!isStatusFinished(item.status)">
+        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -154,10 +176,12 @@
 
       <!-- Total fragments row -->
       <template v-slot:item.total="{ item }">
-        <template v-if="item.total">
-          {{ item.total }}
+
+
+        <template v-if="item.qvr.data.total">
+          {{ item.qvr.data.total }}
         </template>
-        <template v-else-if="!isStatusFinished(item.status)">
+        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -167,79 +191,120 @@
             n/a
           </v-chip>
         </template>
+
       </template>
 
       <!-- Status row -->
       <template v-slot:item.status="{ item }">
-        <template v-if="isStatusQueued(item.status)">
+
+
+        <!-- Ungrouped results -->
+        <template v-if="isStatusQueued(item.qvr.data.status)">
           <v-chip color="gray" small text-color="black">
             queued
           </v-chip>
         </template>
-        <template v-else-if="isStatusRunning(item.status)">
+        <template v-else-if="isStatusRunning(item.qvr.data.status)">
           <v-chip color="orange" small text-color="white">
             running
           </v-chip>
         </template>
-        <template v-else-if="isStatusStopped(item.status)">
+        <template v-else-if="isStatusStopped(item.qvr.data.status)">
           <v-chip color="red" small text-color="white">
             failed
           </v-chip>
         </template>
-        <template v-else-if="isStatusFinished(item.status)">
+        <template v-else-if="isStatusFinished(item.qvr.data.status)">
           <v-chip color="green" small text-color="white">
             finished
           </v-chip>
         </template>
         <template v-else>
-          {{ item.status }}
+          {{ item.qvr.data.status }}
         </template>
+
       </template>
 
-      <!-- Expandable row -->
-      <template v-slot:expanded-item="{ headers, item }">
-        <td colspan="1">
-        </td>
-        <td class="expandable-text" colspan="1">
-          {{ item.query }}<br>
-          {{ item.reference }}
-        </td>
-        <td class="expandable-text" colspan="1">
-          {{ item.reference }}<br>
-          {{ item.query }}
-        </td>
-        <td class="expandable-text" colspan="1">
-          {{ item.qvr.ani ? item.qvr.ani : 'n/a' }}<br>
-          {{ item.rvq.ani ? item.rvq.ani : 'n/a' }}
-        </td>
-        <td class="expandable-text" colspan="1">
-          {{ item.qvr.ani ? (item.qvr.mapped / item.qvr.total).toPrecision(4) : 'n/a' }}<br>
-          {{ item.rvq.ani ? (item.rvq.mapped / item.rvq.total).toPrecision(4) : 'n/a' }}
-        </td>
-        <td class="expandable-text" colspan="1">
-          {{ item.qvr.mapped ? item.qvr.mapped : 'n/a' }}<br>
-          {{ item.rvq.mapped ? item.rvq.mapped : 'n/a' }}
-        </td>
-        <td class="expandable-text" colspan="1">
-          {{ item.qvr.total ? item.qvr.total : 'n/a' }}<br>
-          {{ item.rvq.total ? item.rvq.total : 'n/a' }}
-        </td>
-        <td class="expandable-text" colspan="1">
-          {{ item.qvr.status }}
-          <FastAniLogsModal
-            :stderr="item.qvr.stderr"
-            :stdout="item.qvr.stdout"
-            class="ml-1"
-          />
-          <br>
-          {{ item.rvq.status }}
-          <FastAniLogsModal
-            :stderr="item.rvq.stderr"
-            :stdout="item.rvq.stdout"
-            class="ml-1"
-          />
-        </td>
+      <!-- logs row -->
+      <template v-slot:item.logs="{ item }">
+        <FastAniLogsModal
+          :stderr="item.qvr.data.stderr"
+          class="ml-1"
+        />
       </template>
+
+      <!--      &lt;!&ndash; Expandable row &ndash;&gt;-->
+      <!--      <template v-slot:expanded-item="{ headers, item }">-->
+
+      <!--        &lt;!&ndash; Display the forward and reverse grouping &ndash;&gt;-->
+      <!--        <template v-if="shouldGroupResults && item.rvq && item.query !== item.reference">-->
+      <!--          <td colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            {{ item.query }}<br>-->
+      <!--            {{ item.reference }}-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            {{ item.reference }}<br>-->
+      <!--            {{ item.query }}-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            {{ item.qvr.data.ani ? item.qvr.data.ani : 'n/a' }}<br>-->
+      <!--            {{ item.rvq.data.ani ? item.rvq.data.ani : 'n/a' }}-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            {{ item.qvr.data.af ? item.qvr.data.af : 'n/a' }}<br>-->
+      <!--            {{ item.rvq.data.af ? item.rvq.data.af : 'n/a' }}-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            {{ item.qvr.data.mapped ? item.qvr.data.mapped : 'n/a' }}<br>-->
+      <!--            {{ item.rvq.data.mapped ? item.rvq.data.mapped : 'n/a' }}-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            {{ item.qvr.data.total ? item.qvr.data.total : 'n/a' }}<br>-->
+      <!--            {{ item.rvq.data.total ? item.rvq.data.total : 'n/a' }}-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            {{ item.qvr.data.status }}-->
+      <!--            <FastAniLogsModal-->
+      <!--              :stderr="item.qvr.data.stderr"-->
+      <!--              class="ml-1"-->
+      <!--            />-->
+      <!--            <br>-->
+      <!--            {{ item.rvq.data.status }}-->
+      <!--            <FastAniLogsModal-->
+      <!--              :stderr="item.rvq.data.stderr"-->
+      <!--              :stdout="item.rvq.data.stdout"-->
+      <!--              class="ml-1"-->
+      <!--            />-->
+      <!--          </td>-->
+      <!--        </template>-->
+
+      <!--        &lt;!&ndash; Otherwise, just display the stdout/stderr for the qvr &ndash;&gt;-->
+      <!--        <template v-else>-->
+      <!--          <td colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--          </td>-->
+      <!--          <td class="expandable-text" colspan="1">-->
+      <!--            <FastAniLogsModal-->
+      <!--              :stderr="item.qvr.data.stderr"-->
+      <!--              class="ml-1"-->
+      <!--            />-->
+      <!--          </td>-->
+      <!--        </template>-->
+
+      <!--      </template>-->
 
     </v-data-table>
   </div>
@@ -251,11 +316,17 @@ import Vue from 'vue';
 
 import {RqJobStatus} from "~/assets/api/models";
 import HelpTooltip from "~/components/layout/HelpTooltip.vue";
-import {mdiCogRefresh, mdiDownload, mdiRefresh} from "@mdi/js";
+import {
+  mdiCogRefresh,
+  mdiDownload,
+  mdiRefresh,
+  mdiSigma,
+  mdiSortNumericAscending,
+  mdiSortNumericDescending
+} from "@mdi/js";
 import {FastAniResult, FastAniResultData} from "~/assets/api/fastani";
 import FastAniLogsModal from "~/components/fastani/FastAniLogsModal.vue";
-import {DataOptions} from "vuetify";
-import {isDefined, JsonEqual, sleep} from "~/assets/ts/common";
+import {isDefined, sleep} from "~/assets/ts/common";
 
 const RUNNING_STATUSES = ['queued', 'started', 'deferred', 'scheduled'];
 
@@ -265,18 +336,14 @@ interface TableRow {
   id: number,
   query: string,
   reference: string,
-  ani: number | null,
-  af: number | null,
-  mapped: number,
-  total: number,
-  status: RqJobStatus,
-  qvr: FastAniResultData,
-  rvq: FastAniResultData,
+  qvr: FastAniResult,
+  rvq: FastAniResult | null,
 
 }
 
 const FAIL_STATUS = [RqJobStatus.FAILED, RqJobStatus.DEFERRED, RqJobStatus.STOPPED, RqJobStatus.CANCELED]
 const QUEUE_STATUS = [RqJobStatus.QUEUED, RqJobStatus.SCHEDULED]
+
 
 export default Vue.extend({
   props: {
@@ -288,6 +355,9 @@ export default Vue.extend({
     mdiCogRefreshSvg: mdiCogRefresh,
     mdiDownloadSvg: mdiDownload,
     mdiRefreshSvg: mdiRefresh,
+    mdiSigmaSvg: mdiSigma,
+    mdiSortNumericDescendingSvg: mdiSortNumericDescending,
+    mdiSortNumericAscendingSvg: mdiSortNumericAscending,
 
     // Refreshing results
     isAutoRefreshEnabled: false,
@@ -298,6 +368,8 @@ export default Vue.extend({
     refreshProgressPct: 0,
     isRefreshQueryStillRunning: false,
     isManualRefreshLoading: false,
+
+    shouldGroupResults: false,
 
     // Pagination
     totalRows: 0,
@@ -315,16 +387,109 @@ export default Vue.extend({
       {text: "Mapped Fragments", value: "mapped"},
       {text: "Total Fragments", value: "total"},
       {text: "Status", value: "status"},
+      {text: "Logs", value: "logs"}
     ],
-    results: ([] as FastAniResult[]),
+    results: ([] as TableRow[]),
   }),
   methods: {
+
+    getGroupedMappedFrags(qvr: FastAniResultData, rvq: FastAniResultData): number {
+      let largest: null | FastAniResultData = null;
+      if (qvr.af && rvq.af) {
+        if (qvr.af > rvq.af) {
+          largest = qvr;
+        } else {
+          largest = rvq;
+        }
+      } else if (qvr.af) {
+        largest = qvr
+      } else if (rvq.af) {
+        largest = rvq
+      } else {
+        return 0;
+      }
+      return largest.mapped;
+    },
+
+    getGroupedTotalFrags(qvr: FastAniResultData, rvq: FastAniResultData): number {
+      let largest: null | FastAniResultData = null;
+      if (qvr.af && rvq.af) {
+        if (qvr.af > rvq.af) {
+          largest = qvr;
+        } else {
+          largest = rvq;
+        }
+      } else if (qvr.af) {
+        largest = qvr
+      } else if (rvq.af) {
+        largest = rvq
+      } else {
+        return 0;
+      }
+      return largest.total;
+    },
+
+    isGroupedStatusFinished(qvr: FastAniResult, rvq: FastAniResult | null): boolean {
+      if (rvq === null) {
+        return this.isStatusFinished(qvr.data.status);
+      } else {
+        return this.isStatusFinished(qvr.data.status) && this.isStatusFinished(rvq.data.status);
+      }
+    },
+
     // Starts a new auto-refresh interval if it is not already running, otherwise disables it
     toggleAutoRefresh() {
       if (!this.isAutoRefreshEnabled) {
         this.startNewAutoRefreshInterval();
       }
       this.isAutoRefreshEnabled = !this.isAutoRefreshEnabled;
+    },
+
+    // Group forward and reverse results together and display the max value
+    toggleGroupResults() {
+      this.shouldGroupResults = !this.shouldGroupResults;
+      this.manualRefresh();
+    },
+
+    groupResults() {
+      const newResults = [] as TableRow[];
+
+      // Generate a mapping from reference to query
+      const queryToRefMap = new Map<string, Map<string, number>>();
+      for (let i = 0; i < this.results.length; i++) {
+        const curResult = this.results[i];
+        if (!queryToRefMap.has(curResult.query)) {
+          queryToRefMap.set(curResult.query, new Map<string, number>());
+        }
+        //@ts-ignore
+        queryToRefMap.get(curResult.query).set(curResult.reference, i);
+      }
+
+      // Group the results
+      const setOfDonePairs = new Set<number>();
+      for (let i = 0; i < this.results.length; i++) {
+        const curResult = this.results[i];
+
+        // Skip those where the rvq has already been stored
+        if (setOfDonePairs.has(i)) {
+          continue;
+        }
+
+        // Get the reverse mapping for this
+        const reverseMap = queryToRefMap.get(curResult.reference);
+        if (reverseMap) {
+          const reverseIdx = reverseMap.get(curResult.query);
+          if (reverseIdx != undefined) {
+            curResult.rvq = this.results[reverseIdx].qvr;
+            setOfDonePairs.add(reverseIdx);
+          }
+        }
+        newResults.push(curResult);
+      }
+
+      // Return the new results
+      console.log(newResults);
+      return newResults;
     },
 
     // Do a manual refresh of the data, force the user to wait a few seconds.
@@ -370,85 +535,26 @@ export default Vue.extend({
         for (let i = 0; i < resp.data.results.length; i++) {
           const result = resp.data.results[i];
 
-          let curAni = null as null | number;
-          let curAf = null as null | number;
-          let curMapped = null as null | number;
-          let curTotal = null as null | number;
-          let curStatus = RqJobStatus.FAILED as RqJobStatus;
-
-          // Determine ANI
-          if (result.qvr.ani && result.rvq.ani) {
-            curAni = Math.max(result.qvr.ani, result.rvq.ani);
-          } else if (result.qvr.ani) {
-            curAni = result.qvr.ani;
-          } else if (result.rvq.ani) {
-            curAni = result.rvq.ani;
-          } else {
-            curAni = null;
-          }
-
-          // Determine AF
-          if (result.qvr.ani && result.rvq.ani) {
-            const qvrAf = result.qvr.mapped / result.qvr.total;
-            const rvqAf = result.rvq.mapped / result.rvq.total;
-            if (qvrAf > rvqAf) {
-              curAf = qvrAf;
-              curMapped = result.qvr.mapped;
-              curTotal = result.qvr.total;
-            } else {
-              curAf = rvqAf;
-              curMapped = result.rvq.mapped;
-              curTotal = result.rvq.total;
-            }
-          } else if (result.qvr.ani) {
-            curAf = result.qvr.mapped / result.qvr.total;
-            curMapped = result.qvr.mapped;
-            curTotal = result.qvr.total;
-          } else if (result.rvq.ani) {
-            curAf = result.rvq.mapped / result.rvq.total;
-            curMapped = result.rvq.mapped;
-            curTotal = result.rvq.total;
-          } else {
-            curAf = null;
-            curMapped = null;
-            curTotal = null;
-          }
-
-          // Determine status
-          if (result.qvr.status === result.rvq.status) {
-            curStatus = result.qvr.status;
-          } else if (FAIL_STATUS.includes(result.qvr.status) || FAIL_STATUS.includes(result.rvq.status)) {
-            curStatus = RqJobStatus.FAILED;
-          } else if (result.qvr.status === RqJobStatus.STARTED || result.rvq.status === RqJobStatus.STARTED) {
-            curStatus = RqJobStatus.STARTED;
-          } else if (QUEUE_STATUS.includes(result.qvr.status) || QUEUE_STATUS.includes(result.rvq.status)) {
-            curStatus = RqJobStatus.QUEUED;
-          } else {
-            curStatus = result.qvr.status;
-          }
-
           const curRow = {
             id: i,
             query: result.query,
             reference: result.reference,
-            ani: curAni,
-            af: curAf,
-            mapped: curMapped,
-            total: curTotal,
-            status: curStatus,
-            qvr: result.qvr,
-            rvq: result.rvq,
+            qvr: result,
+            rvq: null,
           } as TableRow;
           newResults.push(curRow);
 
           // Check if any jobs are running
-          if (RUNNING_STATUSES.includes(result.qvr.status) || RUNNING_STATUSES.includes(result.rvq.status)) {
+          if (RUNNING_STATUSES.includes(result.data.status)) {
             anyJobsRunning = true;
           }
         }
 
         // Set the data
         this.results = newResults;
+        // if (this.shouldGroupResults) {
+        //   this.groupResults();
+        // }
         this.areJobsRunning = anyJobsRunning;
       })
         .catch((err) => {
