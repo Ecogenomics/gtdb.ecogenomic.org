@@ -229,6 +229,7 @@
       <template v-slot:item.logs="{ item }">
         <FastAniLogsModal
           :stderr="item.qvr.data.stderr"
+          :cmd="item.qvr.data.cmd"
           class="ml-1"
         />
       </template>
