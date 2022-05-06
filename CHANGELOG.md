@@ -1,3 +1,23 @@
+# [2.1.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.0.0...v2.1.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **cookie banner:** Set banner to hide by default. ([9ac186f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9ac186fb2d1be019a2ca996cde6ecbe8bcd9cbda))
+* **fastani:** Move logs outside expandable rows, don't group qvr and rvq. ([21b2235](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/21b2235ddb36158e5a3c823226172d64c0ed9c53))
+
+
+### Features
+
+* **gdpr:** Add cookie consent banner. ([0fbf51a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/0fbf51aad4675893da2d8ad80f2efd913c083a9d))
+* **stats:** Add release date to stats page. ([77e9f86](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/77e9f863262efaafd16ad6f2a50f67973f51be16))
+* **stats:** Add release date to stats page. ([4267dd5](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/4267dd54e02df743b452cd3fc1eb857752ad24ce))
+
+
+### Reverts
+
+* **cookie banner:** Temporarily hide until bootstrap works. ([f47a8de](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f47a8de89728eab52cca2d28444518d6edd26b6c))
+
 # [2.0.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v1.2.0...v2.0.0) (2022-04-08)
 
 
