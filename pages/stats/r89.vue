@@ -5,7 +5,7 @@
   <SectionedPage :items="items">
 
     <template #title>
-      Release 89 statistics
+      <StatsTitle date="June 17, 2019" release="89"/>
     </template>
 
     <template #taxon-overview>
@@ -438,9 +438,10 @@ import Vue from 'vue'
 import SectionedPage from "~/components/layout/SectionedPage.vue";
 import REDr89 from "~/components/stats/REDr89.vue";
 import ImgToggle from "~/components/layout/ImgToggle.vue";
+import StatsTitle from "~/components/stats/StatsTitle.vue";
 
 export default Vue.extend({
-  components: {ImgToggle, REDr89, SectionedPage},
+  components: {StatsTitle, ImgToggle, REDr89, SectionedPage},
   head() {
     return {
       title: 'Statistics (R89)',
