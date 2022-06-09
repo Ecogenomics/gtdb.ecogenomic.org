@@ -104,4 +104,5 @@ export interface FastAniJobHeatmap {
   ySpecies: string[],
   method: string,
   spReps: string[],
+  pctDone: number,
 }

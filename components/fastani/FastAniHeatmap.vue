@@ -1,21 +1,110 @@
 <template>
   <div>
 
-    <!-- Configure -->
-    <v-row class="mt-3">
-      <v-expansion-panels>
-        <v-expansion-panel>
-          <v-expansion-panel-header class="text-body-1" color="#e6e6e6" ripple>
-                <span>
-                  <v-icon left>
-                    {{ mdiWrenchSvg }}
-                  </v-icon>
-                  Configure
-                </span>
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
+    <!-- Display when the Jobs are loading -->
+    <template v-if="areJobsRunning">
+      <v-row class="mt-5" no-gutters>
+        <v-col>
+          <h3>Loading...</h3>
+          <p class="mt-2">
+            Press the "Refresh" button below to reload the results.
+          </p>
+        </v-col>
+      </v-row>
+      <v-row no-gutters>
+        <v-col>
+          <v-progress-linear
+            :value="loadingProgressPct"
+            color="#5a6855"
+            height="28"
+            rounded
+          >
+            <strong>{{ Math.ceil(loadingProgressPct) }}%</strong>
+          </v-progress-linear>
+        </v-col>
+        <v-col class="pl-5" cols="2">
+          <v-btn
+            :loading="isManualRefreshLoading || isRefreshQueryStillRunning || isPlotDrawing"
+            color="#e2e2e2"
+            depressed
+            small
+            width="100%"
+            @click="manualRefresh"
+          >
+            Refresh
+            <v-icon right>
+              {{ mdiRefreshSvg }}
+            </v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <p>
+            <b>Note:</b> Comparisons that are still running will appear filled with dots. Large comparisons will take
+            some time (~15
+            minutes).
+          </p>
+        </v-col>
+      </v-row>
+    </template>
 
-            <v-row class="mt-3">
+    <!-- Display when the Jobs are done -->
+    <template v-else>
+      <!-- Row for result text -->
+      <v-row>
+        <v-col>
+          <p>
+            All jobs have completed.
+          </p>
+          <ul>
+            <li>GTDB Species representatives are bold.</li>
+            <li>To download the raw data see "Tabular results"</li>
+            <li>If data are missing let us know, some genomes may have not synchronised with NCBI.</li>
+          </ul>
+        </v-col>
+      </v-row>
+      <!-- Row for buttons -->
+      <v-row>
+        <v-col>
+          <v-btn
+            :loading="downloadSvgDisabled"
+            depressed
+            small
+            @click="downloadHeatmap"
+          >
+            Download SVG
+            <v-icon right>
+              {{ mdiDownloadSvg }}
+            </v-icon>
+          </v-btn>
+          <v-btn
+            depressed
+            small
+            @click="toggleOpenPlotConfiguration"
+          >
+            Configure
+            <v-icon right>
+              {{ mdiWrenchSvg }}
+            </v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </template>
+
+
+    <!-- Configuration row -->
+    <v-expand-transition>
+      <v-row v-show="showPlotConfig" class="mt-5">
+        <v-card width="100%">
+          <v-card-title>
+            <v-icon left>
+              {{ mdiWrenchSvg }}
+            </v-icon>
+            Plot configuration
+          </v-card-title>
+          <v-card-text>
+            <v-row>
               <v-col>
                 <v-select
                   v-model="clusterBy"
@@ -45,14 +134,25 @@
               </v-col>
             </v-row>
 
-            <v-row>
+            <v-row no-gutters>
               <v-col>
                 <D3ScaleSelect v-model="scalePalette"></D3ScaleSelect>
               </v-col>
             </v-row>
 
-            <v-row>
-              <v-col class="px-10">
+            <v-row no-gutters>
+              <v-col class="px-1" cols="1">
+                <v-text-field
+                  :value="scaleRange[0]"
+                  class="mt-0 pt-0"
+                  dense
+                  hide-details
+                  single-line
+                  type="number"
+                  @change="$set(scaleRange, 0, $event)"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="8">
                 <v-range-slider
                   v-model="scaleRange"
                   :max="scaleMax"
@@ -60,112 +160,47 @@
                   :step="scaleStep"
                   class="align-center"
                   hide-details
+                ></v-range-slider>
+              </v-col>
+              <v-col class="px-1" cols="1">
+                <v-text-field
+                  :value="scaleRange[1]"
+                  class="mt-0 pt-0"
+                  dense
+                  hide-details
+                  single-line
+                  style="width: 100px"
+                  type="number"
+                  @change="$set(scaleRange, 1, $event)"
+                ></v-text-field>
+              </v-col>
+              <v-col class="px-1" cols="2">
+                <v-btn
+                  depressed
+                  width="100%"
+                  @click="resetScaleToOptimal"
                 >
-                  <template v-slot:prepend>
-                    <v-text-field
-                      :value="scaleRange[0]"
-                      class="mt-0 pt-0"
-                      dense
-                      hide-details
-                      single-line
-                      style="width: 100px"
-                      type="number"
-                      @change="$set(scaleRange, 0, $event)"
-                    ></v-text-field>
-                  </template>
-                  <template v-slot:append>
-                    <v-text-field
-                      :value="scaleRange[1]"
-                      class="mt-0 pt-0"
-                      dense
-                      hide-details
-                      single-line
-                      style="width: 100px"
-                      type="number"
-                      @change="$set(scaleRange, 1, $event)"
-                    ></v-text-field>
-                    <v-btn
-                      class="ml-2"
-                      depressed
-                      @click="resetScaleToOptimal"
-                    >
-                      Reset scale
-                      <v-icon right>
-                        {{ mdiScaleBalanceSvg }}
-                      </v-icon>
-                    </v-btn>
-                  </template>
-                </v-range-slider>
+                  Reset scale
+                  <v-icon right>
+                    {{ mdiScaleBalanceSvg }}
+                  </v-icon>
+                </v-btn>
               </v-col>
             </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
-    </v-row>
-
-    <!-- Job status -->
-    <v-row class="mt-5">
-      <v-col>
-        <div v-if="areJobsRunning">
-          <p>
-            Press the "Refresh" button below to reload the results.
-          </p>
-          <p>
-            Comparisons that are still running will appear filled with dots (large comparisons will take some time, ~15
-            minutes)
-          </p>
-        </div>
-        <div v-else>
-          <p>
-            All jobs have completed.
-          </p>
-          <ul>
-            <li>GTDB Species representatives are bold.</li>
-            <li>To download the raw data see "Tabular results"</li>
-            <li>If data are missing let us know, some genomes may have not synchronised with NCBI.</li>
-          </ul>
-        </div>
-
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col>
-        <v-btn
-          :disabled="!areJobsRunning"
-          :loading="isManualRefreshLoading || isRefreshQueryStillRunning || isPlotDrawing"
-          depressed
-          small
-          @click="manualRefresh"
-        >
-          Refresh
-          <v-icon right>
-            {{ mdiRefreshSvg }}
-          </v-icon>
-        </v-btn>
-        <v-btn
-          :disabled="areJobsRunning"
-          depressed
-          small
-          @click="downloadHeatmap"
-        >
-          Download SVG
-          <v-icon right>
-            {{ mdiDownloadSvg }}
-          </v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
+          </v-card-text>
+        </v-card>
+      </v-row>
+    </v-expand-transition>
 
     <!-- Row for graph -->
-    <v-row>
-      <div class="mx-auto" style="max-width: 100%;">
+    <v-row class="mt-15">
+      <div ref="svgContainer" class="mx-auto" style="max-width: 100%;">
         <svg ref="svgEle" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
       </div>
     </v-row>
 
-    <!-- Tooltip (todo) -->
+    <!-- Tooltip -->
     <div ref="tooltipEle" class="tooltipStyle" style="visibility: hidden"></div>
 
   </div>
@@ -242,6 +277,13 @@ export default Vue.extend({
     decimalPlaces: 2,
 
     scalePalette: "viridis",
+
+    loadingProgressPct: 0,
+
+    showPlotConfig: false,
+
+    downloadSvgDisabled: false,
+
 
   }),
   methods: {
@@ -360,6 +402,9 @@ export default Vue.extend({
 
     drawHeatmapMethod(heatmapData: FastAniJobHeatmap) {
 
+      // Set the progress
+      this.loadingProgressPct = heatmapData.pctDone;
+
       // HTML elements
       const tooltipEle = this.$refs.tooltipEle as HTMLElement;
       const svgEle = this.$refs.svgEle as HTMLElement;
@@ -386,8 +431,8 @@ export default Vue.extend({
       const padding = 0.03;
       const rectSize = 35;
       const fontSize = 8;
-      const margin = {top: 30, right: 5, bottom: 100, left: 100}
-      const width = 150 + xValues.length * rectSize - margin.left - margin.right;
+      const margin = {top: 30, right: 80, bottom: 100, left: 175}
+      const width = 300 + xValues.length * rectSize - margin.left - margin.right;
       const height = 100 + yValues.length * rectSize - margin.top - margin.bottom;
       const tickSize = 3;
       const rectRounding = 3;
@@ -660,8 +705,15 @@ export default Vue.extend({
 
 
     downloadHeatmap() {
+      if (this.downloadSvgDisabled) {
+        return;
+      }
+      this.downloadSvgDisabled = true;
       const svgEle = this.$refs.svgEle as HTMLElement;
       saveSvgElement(svgEle, 'heatmap.svg')
+      sleep(2500).finally(() => {
+        this.downloadSvgDisabled = false;
+      });
     },
 
 
@@ -676,16 +728,26 @@ export default Vue.extend({
 
     setScale() {
       this.scaleStep = 1 / Math.pow(10, this.decimalPlaces)
-    }
+    },
+
+    toggleOpenPlotConfiguration() {
+      this.showPlotConfig = !this.showPlotConfig
+      sleep(100).finally(() => {
+        this.$vuetify.goTo(document.body.scrollHeight, {
+          duration: 500,
+          easing: 'easeInOutCubic'
+        });
+      })
+    },
 
   },
-
 
   watch: {
     // When the job id parameter changes, load
     jobId(after, before) {
       if (isDefined(after) && after !== before) {
         this.loadData()
+        this.showPlotConfig = false;
       }
     },
     clusterBy(after, before) {
@@ -742,7 +804,6 @@ export default Vue.extend({
   },
 })
 </script>
-
 <style scoped>
 .tooltipStyle {
   position: absolute;
@@ -754,5 +815,11 @@ export default Vue.extend({
   background: #FFFFFF;
   padding: 5px;
 }
+</style>
 
+<style>
+/* Set the progress bar text colour to be white */
+.v-progress-linear__content {
+  color: white !important;
+}
 </style>
