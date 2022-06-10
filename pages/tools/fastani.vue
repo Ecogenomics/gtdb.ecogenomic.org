@@ -111,6 +111,13 @@
                         </v-select>
                       </v-row>
                       <v-row no-gutters>
+                        <v-checkbox
+                          class="ml-2"
+                          v-model="addGenomesFromTaxonSpReps"
+                          label="Only include species representatives"
+                        ></v-checkbox>
+                      </v-row>
+                      <v-row no-gutters>
                         <v-btn
                           :disabled="addGenomesToGroupSelectedTaxon == null || addGenomesToGroupSelectedGroup == null"
                           :loading="addGenomesFromTaxonLoading"
@@ -183,7 +190,7 @@
               </v-expansion-panel-content>
             </v-expansion-panel>
 
-            <v-expansion-panel>
+            <v-expansion-panel key="4">
               <v-expansion-panel-header class="text-h6" ripple>
                 <span>
                   <v-icon left>
@@ -270,13 +277,32 @@
                   <v-icon left>
                     {{ mdiTableSvg }}
                   </v-icon>
-                  Results
+                  Tabular results
                 </span>
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <FastAniResults :job-id="computedJobId"/>
               </v-expansion-panel-content>
             </v-expansion-panel>
+
+            <!-- Heatmap -->
+            <v-expansion-panel
+              :key="3"
+              :disabled="!hasJobId"
+            >
+              <v-expansion-panel-header class="text-h6" ripple>
+                <span>
+                  <v-icon left>
+                    {{ mdiChartScatterPlotHexbinSvg }}
+                  </v-icon>
+                  Heatmap
+                </span>
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <FastAniHeatmap :job-id="computedJobId"/>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+
           </v-expansion-panels>
         </div>
 
@@ -317,9 +343,19 @@ import KmerSize from "~/components/fastani/KmerSize.vue";
 import MinFraction from "~/components/fastani/MinFraction.vue";
 import FragLength from "~/components/fastani/FragLength.vue";
 import FastAniResults from "~/components/fastani/FastAniResults.vue";
-import {mdiCog, mdiHandshake, mdiMagnify, mdiPlusThick, mdiProgressCheck, mdiTable} from "@mdi/js";
+import {
+  mdiChartScatterPlotHexbin,
+  mdiCog,
+  mdiHandshake,
+  mdiMagnify,
+  mdiPlusThick,
+  mdiProgressCheck,
+  mdiTable
+} from "@mdi/js";
 import {FastAniJobRequest} from "~/assets/api/fastani";
 import TaxonSearchAutocomplete from "~/components/shared/TaxonSearchAutocomplete.vue";
+import FastAniHeatmap from "~/components/fastani/FastAniHeatmap.vue";
+import {isDefined} from "~/assets/ts/common";
 
 export default Vue.extend({
   head() {
@@ -335,6 +371,7 @@ export default Vue.extend({
     }
   },
   components: {
+    FastAniHeatmap,
     FastAniVersion,
     KmerSize,
     MinFraction,
@@ -363,9 +400,9 @@ export default Vue.extend({
     mdiTableSvg: mdiTable,
     mdiHandshakeSvg: mdiHandshake,
     mdiPlusThickSvg: mdiPlusThick,
+    mdiChartScatterPlotHexbinSvg: mdiChartScatterPlotHexbin,
 
-
-    // Form values
+    // Default form values
     minAlignedFragments: 50,
     fragmentLength: 3000,
     minAlignmentFraction: 0.2,
@@ -389,7 +426,7 @@ export default Vue.extend({
     openSectionIndex: [0],
 
     // Config
-    fastAniMaxPairwise: '500',
+    fastAniMaxPairwise: '1000',
 
     // Add genomes from taxon button
     modalAddGenomesFromTaxonVisible: false,
@@ -397,18 +434,23 @@ export default Vue.extend({
     addGenomesToGroupSelectedTaxon: null as null | string,
     addGenomesToGroupSelectedGroup: null as null | string,
     addGenomesFromTaxonLoading: false,
+    addGenomesFromTaxonSpReps: true,
 
   }),
   computed: {
+    // Returns True if the form can be submitted
     isFormValid(): boolean {
       if (this.textareaGroupA == null || this.textareaGroupB == null) {
         return false;
       }
       return this.textareaGroupA.length > 0 && this.textareaGroupB.length > 0
     },
+
+    // Returns the JobID
     computedJobId(): string {
       return this.jobId;
     },
+
     hasJobId(): boolean {
       return this.jobId != null && this.jobId !== '';
     },
@@ -437,11 +479,10 @@ export default Vue.extend({
   },
   methods: {
     async getAndSetContentFromJobId() {
-      console.log('called')
-      if (this.jobId) {
-        console.log(this.jobId)
+      if (isDefined(this.jobId) && this.jobId.length == 36) {
+        this.openSectionIndex = [3];
         this.$api.fastani.getJob(this.jobId).then(resp => {
-          // Set genomes
+          // Set the input to be the genomes used in the Job
           if (resp.data.group_1) {
             this.textareaGroupA = resp.data.group_1.join('\n');
           }
@@ -485,8 +526,8 @@ export default Vue.extend({
       this.fastAniVersion = value
     },
     loadExample() {
-      this.textareaGroupA = 'GCA_002950215.1';
-      this.textareaGroupB = 'GCA_900448465.1\nGCA_009793805.1';
+      this.textareaGroupA = 'GCF_009363175.1\nGCF_009295665.1\nGCA_003537015.1\nGCF_001463265.1\nGCF_000759835.1\nGCA_002471245.1';
+      this.textareaGroupB = 'GCF_009363175.1\nGCF_009295665.1\nGCA_003537015.1\nGCF_001463265.1\nGCF_000759835.1\nGCA_002471245.1';
       this.submitRequest();
     },
     submitRequest() {
@@ -498,7 +539,7 @@ export default Vue.extend({
           const encodedExp = encodeURIComponent(String(resp.data.job_id))
           history.pushState({}, "", `${this.$route.path}?job-id=${encodedExp}`);
           this.jobId = resp.data.job_id;
-          this.openSectionIndex = [2];
+          this.openSectionIndex = [3];
         })
         .catch((err) => {
           this.$accessor.api.defaultCatch(err);
@@ -512,7 +553,7 @@ export default Vue.extend({
       // Load the genomes from that group
       if (this.addGenomesToGroupSelectedTaxon) {
         this.addGenomesFromTaxonLoading = true;
-        this.$api.taxon.getTaxonGenomes(this.addGenomesToGroupSelectedTaxon).then(resp => {
+        this.$api.taxon.getTaxonGenomes(this.addGenomesToGroupSelectedTaxon, this.addGenomesFromTaxonSpReps).then(resp => {
           if (this.addGenomesToGroupSelectedGroup === this.addGenomesToGroupSelectOptions[0]) {
             if (this.textareaGroupA !== null && this.textareaGroupA.length > 0 && this.textareaGroupA.slice(-1) !== '\n') {
               this.textareaGroupA += '\n'
@@ -536,8 +577,9 @@ export default Vue.extend({
     },
   },
   mounted() {
-    if (this.$route.query['job-id']) {
-      this.jobId = (this.$route.query['job-id'] as string)
+    const jobId = this.$route.query['job-id'];
+    if (isDefined(jobId) && jobId.length == 36) {
+      this.jobId = jobId as string;
       this.getAndSetContentFromJobId();
     }
   }

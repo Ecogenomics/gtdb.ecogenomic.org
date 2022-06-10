@@ -19,6 +19,10 @@ export class FastAniApi {
     return axios.get<FastAniJobResult>(`${apiBase}/fastani/${jobId}`, {timeout: 60000})
   }
 
+  getJobHeatmap(jobId: string, method: string) {
+    return axios.get<FastAniJobHeatmap>(`${apiBase}/fastani/${jobId}/heatmap/${method}`, {timeout: 60000})
+  }
+
   getJobCsvUrl(jobId: string) {
     return `${apiBase}/fastani/${jobId}/csv`
   }
@@ -76,4 +80,29 @@ export interface FastAniResult {
 
 export interface FastAniConfig {
   maxPairwise: number
+}
+
+export enum FastAniHeatmapDataStatus {
+  QUEUED = "queued",
+  FINISHED = "finished",
+  ERROR = "error"
+}
+
+export interface FastAniJobHeatmapData {
+  x: number,
+  y: number,
+  ani: number,
+  af: number,
+  status: FastAniHeatmapDataStatus,
+}
+
+export interface FastAniJobHeatmap {
+  data: FastAniJobHeatmapData[],
+  xLabels: string[],
+  yLabels: string[],
+  xSpecies: string[],
+  ySpecies: string[],
+  method: string,
+  spReps: string[],
+  pctDone: number,
 }

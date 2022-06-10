@@ -25,8 +25,8 @@ export class TaxonApi {
     return axios.get<TaxonPreviousReleases[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/previous-releases`, {timeout: apiTimeout})
   }
 
-  getTaxonGenomes(taxon: string) {
-    return axios.get<string[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes`, {timeout: apiTimeout})
+  getTaxonGenomes(taxon: string, sp_reps_only: boolean) {
+    return axios.get<string[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes?sp_reps_only=${sp_reps_only}`, {timeout: apiTimeout})
   }
 
 }

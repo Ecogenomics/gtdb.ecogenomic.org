@@ -110,7 +110,17 @@ export default {
       img: ({ isDev }) => isDev ? '[path][name].[ext]' : `img/[contenthash].[ext]`,
       font: ({ isDev }) => isDev ? '[path][name].[ext]' : `fonts/[contenthash].[ext]`,
       video: ({ isDev }) => isDev ? '[path][name].[ext]' : `videos/[contenthash].[ext]`
+    },
+
+    terser: {
+      // https://github.com/terser/terser#compress-options
+      terserOptions: {
+        compress: {
+          drop_console: true
+        }
+      }
     }
+
   },
 
   // Environment variables
