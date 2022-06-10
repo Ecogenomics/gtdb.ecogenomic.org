@@ -1,3 +1,11 @@
+# [2.2.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.1.1...v2.2.0) (2022-06-10)
+
+
+### Features
+
+* **fastani:** Add heatmap to FastANI calculator. ([7b10057](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7b10057f4376ae870a7340b40d60922e544e3e8d))
+* **fastani:** Update heatmap styling and add progress bar. ([edf9245](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/edf924557051b734a10ae388d5a09eb98469efbc))
+
 ## [2.1.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.1.0...v2.1.1) (2022-05-06)
 
 
