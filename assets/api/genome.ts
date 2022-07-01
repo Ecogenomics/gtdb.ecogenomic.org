@@ -34,8 +34,9 @@ export interface GenomeMetadata {
 }
 
 export interface GenomeMetadataTypeMaterial {
-  gtdbTypeDesignation?: string
-  gtdbTypeDesignationSources?: string
+  gtdbTypeDesignationNcbiTaxa?: string
+  gtdbTypeDesignationGtdbTaxa?: string
+  gtdbTypeDesignationNcbiTaxaSources?: string
   lpsnTypeDesignation?: string
   dsmzTypeDesignation?: string
   lpsnPriorityYear?: number
