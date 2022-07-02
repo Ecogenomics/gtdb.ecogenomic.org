@@ -57,6 +57,7 @@
     <v-app-bar
       app
       class="fix-navbar-width"
+      :class="{'fix-navbar-width': true, 'dev-bg': !isProd}"
       clipped-left
       color="black"
       dark
@@ -169,6 +170,7 @@ export default {
   },
   data() {
     return {
+      isProd: process.env.envName === 'prod',
       mdiOpenInNewSvg: mdiOpenInNew,
       drawer: false,
       browsersItems: [
@@ -311,5 +313,10 @@ export default {
 
 .fix-navbar-width >>> .v-toolbar__content {
   width: 100vw;
+}
+
+.dev-bg {
+  background-image: url('~/assets/images/dev-bg-tile.png') !important;
+  background-repeat: repeat !important;
 }
 </style>

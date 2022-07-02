@@ -128,6 +128,7 @@ export default {
     apiMessageTimeout: 10000,
     apiTimeout: 30000,  // number of ms to wait until api call fails
     apiBase: process.env.API_BASE,
+    envName: process.env.ENV_NAME,
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search
     captchaSiteKey: process.env.CAPTCHA_KEY,
     googleAnalyticsId: process.env.GA_TRACKING_ID,
