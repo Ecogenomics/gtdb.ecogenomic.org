@@ -30,8 +30,7 @@ export class UtilApi {
       headers: {
         'Content-Type': 'multipart/form-data'
       },
-      responseType: 'blob',
-      timeout: apiTimeout
+      responseType: 'blob'
     })
   }
 
