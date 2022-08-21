@@ -173,7 +173,7 @@
 
         <!-- GTDB Type material designation -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col">GTDB Type Material Designation</td>
+          <td class="gtdb-green-bg-table first-table-col">Type Material Designation</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader

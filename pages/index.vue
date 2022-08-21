@@ -81,8 +81,8 @@
     </div>
 
     <!-- Right column (twitter) -->
-    <div class="d-flex  w-md-20 flex-grow-0">
-      <TwitterTimeline></TwitterTimeline>
+    <div class="d-flex w-md-20 flex-grow-0">
+      <TwitterTimeline style="max-height: 90vh; overflow: hidden;"></TwitterTimeline>
     </div>
 
   </div>

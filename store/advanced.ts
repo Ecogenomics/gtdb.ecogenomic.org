@@ -386,7 +386,7 @@ export const getters = getterTree(state, {
   operators: state => state.operators,
   treeAsEncodedPayload: state => {
     const [expr, args] = formatTreeAsPayload([state.root]);
-    const encodedArgs: Dict<String> = {};
+    const encodedArgs: Dict<string> = {};
     for (const [k, v] of Object.entries(args)) {
       encodedArgs[k] = base64EncodeUrl(v);
     }
@@ -710,16 +710,31 @@ export const actions = actionTree({state, getters, mutations}, {
   // -------------------------------------------------------------------------------------------------------------------
   // Initial state modifications
   // -------------------------------------------------------------------------------------------------------------------
+  //
+  // queryDatabase({commit}, payload) {
+  //   commit('SET_RESULTS', null);
+  //   commit('SET_RESULTS_IS_LOADING', true);
+  //   commit('SET_RESULTS_HAS_BEEN_RUN', true);
+  //   this.$api.advanced.getSearch(payload)
+  //     .then(resp => {
+  //       commit('SET_RESULTS_IS_LOADING', false);
+  //       commit('SET_RESULTS', resp.data);
+  //     });
+  // },
 
-  queryDatabase({commit}, payload) {
+
+  startNewQuery({commit}) {
     commit('SET_RESULTS', null);
     commit('SET_RESULTS_IS_LOADING', true);
     commit('SET_RESULTS_HAS_BEEN_RUN', true);
-    this.$api.advanced.getSearch(payload)
-      .then(resp => {
-        commit('SET_RESULTS_IS_LOADING', false);
-        commit('SET_RESULTS', resp.data);
-      });
+  },
+
+  setResultsFromQuery({commit}, resp) {
+    commit('SET_RESULTS', resp.data);
+  },
+
+  queryHasFinished({commit}) {
+    commit('SET_RESULTS_IS_LOADING', false);
   },
 
   // Initialise the tree based on a query string

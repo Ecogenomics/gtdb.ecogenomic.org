@@ -64,6 +64,7 @@ import SearchNode from '~/components/advanced/SearchNode.vue'
 import ResultsTable from "~/components/advanced/ResultsTable.vue";
 import {Dict} from "~/assets/ts/interfaces";
 import {mdiMagnify} from "@mdi/js";
+import {ApiMessage, ApiMessageStatus} from "~/store/api";
 
 export default Vue.extend({
 
@@ -116,7 +117,7 @@ export default Vue.extend({
     },
     submitSearch() {
       const [expr, args] = this.$accessor.advanced.treeAsEncodedPayload;
-      const argsForQuery: Dict<String> = {"exp": String(expr)};
+      const argsForQuery: Dict<string> = {"exp": String(expr)};
       if (expr.length > 0 && Object.keys(args).length > 0) {
         const newUrl = [];
         for (const [k, v] of Object.entries(args)) {
@@ -129,7 +130,23 @@ export default Vue.extend({
           "",
           `${this.$route.path}?exp=${encodedExp}&${newUrl.join('&')}`
         )
-        this.$accessor.advanced.queryDatabase(argsForQuery);
+
+        // Execute the query
+        this.$accessor.advanced.startNewQuery();
+        this.$api.advanced.getSearch(argsForQuery)
+          .then(resp => {
+            this.$accessor.advanced.setResultsFromQuery(resp);
+          })
+          .catch((err) => {
+            this.$accessor.api.defaultCatch(err);
+          })
+          .finally(() => {
+            this.$accessor.advanced.queryHasFinished();
+          })
+
+        // this.$accessor.advanced.queryDatabase(argsForQuery);
+
+
       }
     }
   }
