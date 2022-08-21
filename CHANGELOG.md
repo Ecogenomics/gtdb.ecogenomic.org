@@ -1,3 +1,12 @@
+## [2.2.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.2.0...v2.2.1) (2022-08-21)
+
+
+### Bug Fixes
+
+* **genome:** Removed "GTDB" from "GTDB Type Material Designation". ([f7dba40](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f7dba408098a2b07e5afacf320a9eaebd0d1bba0))
+* **index:** Temporary fix to set maximum height for twitter feed. ([5ed8ef3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5ed8ef34c836ba620b8b9365b2bad2d5d7b81856))
+* **tree-accessions:** Remove timeout period. ([6c4a995](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6c4a995589e3ac1a6067ce9f9be01bc2bcea4748))
+
 # [2.2.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.1.1...v2.2.0) (2022-06-10)
 
 
