@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.2.1...v2.2.2) (2022-09-16)
+
+
+### Bug Fixes
+
+* **twitter:** Update twitter timeline to fill max space. ([d517f54](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d517f5461dbed5087c03978ecbfe14e5dd88d8eb))
+
 ## [2.2.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.2.0...v2.2.1) (2022-08-21)
 
 
