@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.2.2...v2.3.0) (2022-10-11)
+
+
+### Features
+
+* **GTDB-Tk v2:** Add the GTDB-Tk v2 manuscript and citation link. ([c3ca45b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c3ca45bba526ec5fd99a7de381f94ea73cae5c5b))
+
 ## [2.2.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.2.1...v2.2.2) (2022-09-16)
 
 
