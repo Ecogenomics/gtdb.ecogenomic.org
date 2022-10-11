@@ -11,6 +11,9 @@
         <NotifyBar uid="r207">
           *** GTDB Release 207 is now available 🎉 <NuxtLink to="/downloads" class="mx-1">download files</NuxtLink> ***
         </NotifyBar>
+        <NotifyBar uid="gtdbtkv2">
+          *** Now published: <a href="https://doi.org/10.1093/bioinformatics/btac672" class="mx-1" target="_blank">GTDB-Tk v2: memory friendly classification with the Genome Taxonomy Database</a> ***
+        </NotifyBar>
       </div>
 
       <!-- First row -->

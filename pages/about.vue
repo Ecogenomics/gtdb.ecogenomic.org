@@ -269,6 +269,10 @@
               a toolkit to classify genomes with the Genome Taxonomy Database.</a>"
               <i>Bioinformatics</i>, <b>btz848</b>: https://doi.org/10.1093/bioinformatics/btz848.
             </li>
+            <li class="mt-3">
+              Chaumeil, P.-A, et al. (2022). "<a href="https://doi.org/10.1093/bioinformatics/btac672" target="_blank">GTDB-Tk v2: memory friendly classification with the Genome Taxonomy Database</a>"
+              <i>Bioinformatics</i>, <b>btac672</b>: https://doi.org/10.1093/bioinformatics/btac672.
+            </li>
           </ul>
         </v-flex>
 
@@ -282,7 +286,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import AboutAvatar from "~/components/about/AboutAvatar.vue";
-import {MetaVersionResponse} from "~/assets/api/meta";
 import {mdiApi, mdiWeb} from "@mdi/js";
 
 export default Vue.extend({
