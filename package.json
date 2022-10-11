@@ -14,7 +14,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "cookie-universal-nuxt": "^2.2.2",
-    "core-js": "^3.25.1",
+    "core-js": "^3.25.5",
     "d3-sankey": "^0.12.3",
     "d3-scale-chromatic": "^3.0.0",
     "d3v5": "npm:d3@^5.16.0",
@@ -23,10 +23,10 @@
     "nuxt": "^2.15.8",
     "nuxt-typed-vuex": "^0.3.1",
     "vue-gtag": "^1.16.1",
-    "vuetify": "^2.6.10"
+    "vuetify": "^2.6.11"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.18.9",
+    "@babel/eslint-parser": "^7.19.1",
     "@mdi/js": "^6.9.96",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
@@ -41,6 +41,6 @@
     "@types/d3-sankey": "^0.11.2",
     "@types/d3v5": "npm:@types/d3@^5.16.4",
     "@types/d3v6": "npm:@types/d3@^6.7.5",
-    "semantic-release": "^19.0.3"
+    "semantic-release": "^19.0.5"
   }
 }
