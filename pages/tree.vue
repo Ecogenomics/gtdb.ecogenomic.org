@@ -115,11 +115,26 @@
                       :class="getActive.includes(item.taxon) ?
                       `treeNodeActive treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}` :
                        `treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}`">
-                      {{ item.taxon }} ({{ item.total ? item.total.toLocaleString() : 'loading...' }})
+
+                      <!-- Add the taxon name -->
+                      {{ item.taxon }}
+
+                      <!-- Add the genome count -->
+                      <v-chip v-if="showDescGenomes" x-small color="#e3e3e3" class="ml-2">
+                        {{ item.total ? item.total.toLocaleString() : 'loading...' }}
+                      </v-chip>
+
+                      <!-- Add the taxon count -->
+                      <v-chip v-if="showDescChildren && item.nDescChildren" x-small color="#9e94ca" class="m-2">
+                        {{ item.nDescChildren.toLocaleString() }}
+                      </v-chip>
+
+                      <!-- Append the taxon not in literature icon if required -->
                       <template v-if="taxaNotInLit[item.taxon.substring(3)]">
                         <TaxonNotInLit v-if="taxaNotInLit[item.taxon.substring(3)]"
                                        :tooltip="taxaNotInLit[item.taxon.substring(3)]"/>
                       </template>
+
                     </div>
                   </template>
                 </div>
@@ -166,6 +181,32 @@
               <TreeLegend
                 class="pa-2 mt-5"
               />
+
+              <!-- Annotations selection options -->
+              <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
+                <v-row no-gutters>
+                  <b>Annotations</b>
+                </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    dense
+                    v-model="showDescGenomes"
+                    class="font-12px"
+                    label="Genome count"
+                    hide-details
+                  ></v-checkbox>
+                </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    dense
+                    color="#9e94ca"
+                    v-model="showDescChildren"
+                    class="font-12px"
+                    label="Taxon count"
+                    hide-details
+                  ></v-checkbox>
+                </v-row>
+              </div>
 
               <!-- Taxonomy table for the selected taxon -->
               <!--              <TreeFullTaxonomy-->
@@ -236,12 +277,15 @@ export default Vue.extend({
     // The taxonomy string of the selected node
     selectedTaxonomy: {} as TaxonomyOptional,
 
-
     // Navigation drawer (for small screens)
     drawer: false,
 
     // Taxa not in literature tooltip
     taxaNotInLit: {} as Dict<string>,
+
+    // Allow the user to select the following tree annotations
+    showDescChildren: false,
+    showDescGenomes: true
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
@@ -485,4 +529,19 @@ export default Vue.extend({
   }
 }
 
+.treeAnnotation {
+  background-color: #f5f5f5;
+  border-color: #e1e1e1;
+  border-style: solid;
+  border-width: 1px;
+}
+
+
+
+</style>
+
+<style>
+.font-12px .v-label {
+  font-size: 13px !important;
+}
 </style>
