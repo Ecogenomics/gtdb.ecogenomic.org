@@ -1,3 +1,16 @@
+# [2.4.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.3.0...v2.4.0) (2022-10-28)
+
+
+### Bug Fixes
+
+* **survey:** Partial searches for an accession to trigger surveillance genome warning. ([9bafef3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9bafef3332f1b7fa102954f7be57e386c6124235))
+
+
+### Features
+
+* **tree:** Add popup help text for counts. ([9264f26](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9264f260ec2129289eb590c367869929485c37b3))
+* **tree:** Add taxon count to tree view. ([288062b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/288062bfdcd35b070031f203aa5aaf6a008c300f))
+
 # [2.3.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.2.2...v2.3.0) (2022-10-11)
 
 
