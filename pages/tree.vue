@@ -54,7 +54,7 @@
       </v-btn>
     </v-col>
 
-    <v-card style="min-height: 500px;">
+    <v-card style="min-height: 600px;">
       <v-card-title class="text-h4">
         Tree
       </v-card-title>
@@ -185,14 +185,14 @@
               <!-- Annotations selection options -->
               <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
                 <v-row no-gutters>
-                  <b>Annotations</b>
+                  <b>Counts</b>
                 </v-row>
                 <v-row no-gutters>
                   <v-checkbox
                     dense
                     v-model="showDescGenomes"
                     class="font-12px"
-                    label="Genome count"
+                    label="Genomes"
                     hide-details
                   ></v-checkbox>
                 </v-row>
@@ -202,9 +202,10 @@
                     color="#9e94ca"
                     v-model="showDescChildren"
                     class="font-12px"
-                    label="Taxon count"
+                    label="Children"
                     hide-details
                   ></v-checkbox>
+                  <TreePopUpHelp class="ml-3 my-auto"></TreePopUpHelp>
                 </v-row>
               </div>
 
@@ -235,6 +236,7 @@ import {TaxonomyOptional} from "~/assets/api/taxonomy";
 import TreeFullTaxonomy from "~/components/tree/TreeFullTaxonomy.vue";
 import {Dict} from "~/assets/ts/interfaces";
 import TaxonNotInLit from "~/components/browse/TaxonNotInLit.vue";
+import TreePopUpHelp from "~/components/tree/TreePopUpHelp.vue";
 
 export default Vue.extend({
   head() {
@@ -249,7 +251,7 @@ export default Vue.extend({
       ]
     }
   },
-  components: {TreeFullTaxonomy, TaxonSearchAutocomplete, TreeLegend, TaxonNotInLit},
+  components: {TreePopUpHelp, TreeFullTaxonomy, TaxonSearchAutocomplete, TreeLegend, TaxonNotInLit},
 
   // Load the initial content to be baked into the page
   async asyncData({$api}) {
