@@ -14,14 +14,14 @@
 
     <v-divider></v-divider>
     <v-card-text>
-      <p>You searched for the accession <b>{{ accession }}</b>, which is a known surveillance genome.</p>
+      <p>You searched for the accession <b>{{ surveyAccession }}</b>, which is a known surveillance genome.</p>
 
       <p>The <a href="https://www.ncbi.nlm.nih.gov/pathogens/" target="_blank">NCBI Pathogen Detection Assembly</a>
         (surveillance) genomes have been excluded from the GTDB as they include extremely large quantities of well
         described taxa.</p>
 
       <p class="mb-0">For more information, search the NCBI assembly database: NCBI - <a
-        :href="`https://www.ncbi.nlm.nih.gov/assembly/${accession}/`" target="_blank">{{ accession }}</a></p cla>
+        :href="`https://www.ncbi.nlm.nih.gov/assembly/${surveyAccession}/`" target="_blank">{{ surveyAccession }}</a></p cla>
     </v-card-text>
   </v-card>
 </template>
@@ -46,7 +46,8 @@ export default Vue.extend({
     loading: false,
     lastAccession: '',
     isSurveillance: false,
-    mdiAlertCircleSvg: mdiAlertCircle
+    mdiAlertCircleSvg: mdiAlertCircle,
+    surveyAccession: '',
   }),
   mounted() {
     this.loadGenomeMetadata(this.accession);
@@ -58,6 +59,7 @@ export default Vue.extend({
       this.loading = true;
       this.$api.genome.getMetadata(accession).then(response => {
         this.isSurveillance = response.data.isNcbiSurveillance;
+        this.surveyAccession = response.data.accession;
       })
         .finally(() => {
           this.loading = false;
