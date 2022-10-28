@@ -10,6 +10,7 @@ const MAX_CHILDREN = 100;
 export interface TreeItem {
   taxon: string
   total?: number
+  nDescChildren?: number,
   children?: TreeItem[],
 
   isGenome?: boolean,
@@ -108,6 +109,7 @@ function treeItemFromTaxonDescendants(item: TaxonDescendants): TreeItem {
   // Taxon
   else {
     out.total = item.total
+    out.nDescChildren = item.nDescChildren
     out.children = []
   }
   return out

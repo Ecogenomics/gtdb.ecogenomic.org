@@ -47,6 +47,7 @@ export interface TaxonDescendants {
   isGenome?: boolean,
   isRep?: boolean,
   typeMaterial?: string
+  nDescChildren?: number
 }
 
 export interface TaxonSearchResponse {
