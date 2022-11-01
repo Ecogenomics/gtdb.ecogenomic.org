@@ -21,6 +21,20 @@
         databases.
       </template>
 
+      <template #multiple-sequence-alignment>
+        Bacterial and archaeal multiple sequence alignments (MSAs) are formed from the concatenation of 120 (bac120)
+        or 53 (arc53) phylogenetically informative markers, respectively. These markers are comprised of
+        proteins or protein domains specified in the Pfam v33.1 or TIGRFAMs v15.0 databases. Details on
+        these markers are available for download (<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/" target="_blank">here</a>). Gene calling is performed with Prodigal v2.6.3,
+        and markers identified and aligned using HMMER v3.1b1. Columns in the MSA with >50% gaps or with a
+        single amino acid spanning <25% or >95% of taxa are removed. In order to reduce computational
+        requirements of the bacterial reference tree, 42 amino acids per marker were randomly selected
+        from the remaining columns to produce a MSA of ~5,000 columns. The final masks applied to the
+        concatenated MSAs are available for download (<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/" target="_blank">here</a>)
+        and the identical filtering approach is implemented in <a href="https://github.com/ecogenomics/gtdbtk" target="_blank">GTDB-Tk</a>.
+      </template>
+
+
       <template #tree-inference>
         <p>
 
@@ -322,6 +336,7 @@ export default Vue.extend({
   data: () => ({
     items: [
       {text: 'Gene identification', ref: 'gene-identification'},
+      {text: 'Multiple sequence alignment', ref: 'multiple-sequence-alignment'},
       {text: 'Tree inference', ref: 'tree-inference'},
       {text: 'Identifying 16S rRNA sequences', ref: 'identifying-16s-rrna-sequences'},
       {text: 'Average nucleotide identity', ref: 'average-nucleotide-identity'},
