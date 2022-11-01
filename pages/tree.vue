@@ -34,6 +34,34 @@
         <TreeLegend
           class="pa-2 mt-5"
         />
+
+        <!-- Annotations selection options -->
+        <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
+          <v-row no-gutters>
+            <b>Counts</b>
+          </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              dense
+              v-model="showDescGenomes"
+              class="font-12px"
+              label="Genomes"
+              hide-details
+            ></v-checkbox>
+          </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              dense
+              color="#9e94ca"
+              v-model="showDescChildren"
+              class="font-12px"
+              label="Children"
+              hide-details
+            ></v-checkbox>
+            <TreePopUpHelp class="ml-3 my-auto"></TreePopUpHelp>
+          </v-row>
+        </div>
+
       </div>
     </v-navigation-drawer>
 
@@ -125,7 +153,7 @@
                       </v-chip>
 
                       <!-- Add the taxon count -->
-                      <v-chip v-if="showDescChildren && item.nDescChildren" x-small color="#9e94ca" class="m-2">
+                      <v-chip v-if="showDescChildren && item.nDescChildren" x-small color="#9e94ca" class="m-2 chip-white">
                         {{ item.nDescChildren.toLocaleString() }}
                       </v-chip>
 
@@ -546,4 +574,8 @@ export default Vue.extend({
 .font-12px .v-label {
   font-size: 13px !important;
 }
+
+/*.chip-white .v-chip__content {*/
+/*  color: white;*/
+/*}*/
 </style>
