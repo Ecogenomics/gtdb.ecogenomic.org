@@ -1,3 +1,15 @@
+# [2.5.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.4.0...v2.5.0) (2022-11-01)
+
+
+### Bug Fixes
+
+* **tree:** Show counts in mobile view. ([20b2ee0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/20b2ee0c004271ba9a08412f2206817623708ebc))
+
+
+### Features
+
+* **methods:** Add multiple sequence alignment information to methods. ([fbc16d4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/fbc16d47efc2e277514bfd959e66630cced82515))
+
 # [2.4.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.3.0...v2.4.0) (2022-10-28)
 
 
