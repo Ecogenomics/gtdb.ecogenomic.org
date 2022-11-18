@@ -48,7 +48,8 @@ export interface TaxonDescendants {
   isRep?: boolean,
   typeMaterial?: string,
   nDescChildren?: number,
-  bergeysUrl?: string
+  bergeysUrl?: string,
+  seqcodeUrl?: string
 }
 
 export interface TaxonSearchResponse {

@@ -85,6 +85,17 @@
               </template>
             </v-checkbox>
           </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              v-model="showSeqcodeUrl"
+              class="font-12px"
+              color="#4b0082"
+              dense
+              hide-details
+              label="SeqCode"
+            >
+            </v-checkbox>
+          </v-row>
         </div>
 
       </div>
@@ -205,6 +216,17 @@
                         </a>
                       </template>
 
+                      <!-- SeqCode URL -->
+                      <template v-if="showSeqcodeUrl && item.seqcodeUrl">
+                        <a :href="item.seqcodeUrl" target="_blank">
+                          <span class="rounded-circle pa-1" style="background-color: #4b0082">
+                        <v-icon small dark>
+                        {{ mdiLinkVariantSvg }}
+                      </v-icon>
+                      </span>
+                        </a>
+                      </template>
+
                     </div>
                   </template>
                 </div>
@@ -301,6 +323,17 @@
                     </template>
                   </v-checkbox>
                 </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    v-model="showSeqcodeUrl"
+                    class="font-12px"
+                    color="#4b0082"
+                    dense
+                    hide-details
+                    label="SeqCode"
+                  >
+                  </v-checkbox>
+                </v-row>
               </div>
 
               <!-- Taxonomy table for the selected taxon -->
@@ -391,7 +424,8 @@ export default Vue.extend({
     // Allow the user to select the following tree annotations
     showDescChildren: false,
     showDescGenomes: true,
-    showBergeysUrl: false
+    showBergeysUrl: false,
+    showSeqcodeUrl: false,
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
