@@ -42,23 +42,48 @@
           </v-row>
           <v-row no-gutters>
             <v-checkbox
-              dense
               v-model="showDescGenomes"
               class="font-12px"
-              label="Genomes"
+              dense
               hide-details
+              label="Genomes"
             ></v-checkbox>
           </v-row>
           <v-row no-gutters>
             <v-checkbox
-              dense
-              color="#9e94ca"
               v-model="showDescChildren"
               class="font-12px"
-              label="Children"
+              color="#9e94ca"
+              dense
               hide-details
-            ></v-checkbox>
-            <TreePopUpHelp class="ml-3 my-auto"></TreePopUpHelp>
+              label="Children"
+            >
+              <template v-slot:append>
+                <TreePopUpHelp class="ml-3 my-auto"></TreePopUpHelp>
+              </template>
+            </v-checkbox>
+
+          </v-row>
+        </div>
+
+        <!-- Link annotation selection options -->
+        <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
+          <v-row no-gutters>
+            <b>External Resources</b>
+          </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              v-model="showBergeysUrl"
+              class="font-12px"
+              color="#cfad46"
+              dense
+              hide-details
+              label="Bergey's Manual"
+            >
+              <template v-slot:append>
+                <TreePopUpBergeysHelp class="ml-3 my-auto"></TreePopUpBergeysHelp>
+              </template>
+            </v-checkbox>
           </v-row>
         </div>
 
@@ -141,19 +166,20 @@
                   <template v-else>
                     <div
                       :class="getActive.includes(item.taxon) ?
-                      `treeNodeActive treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}` :
-                       `treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}`">
+                      `d-inline-block treeNodeActive treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}` :
+                       `d-inline-block treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}`">
 
                       <!-- Add the taxon name -->
                       {{ item.taxon }}
 
                       <!-- Add the genome count -->
-                      <v-chip v-if="showDescGenomes" x-small color="#e3e3e3" class="ml-2">
+                      <v-chip v-if="showDescGenomes" class="ml-2" color="#e3e3e3" x-small>
                         {{ item.total ? item.total.toLocaleString() : 'loading...' }}
                       </v-chip>
 
                       <!-- Add the taxon count -->
-                      <v-chip v-if="showDescChildren && item.nDescChildren" x-small color="#9e94ca" class="m-2 chip-white">
+                      <v-chip v-if="showDescChildren && item.nDescChildren" class="m-2 chip-white" color="#9e94ca"
+                              x-small>
                         {{ item.nDescChildren.toLocaleString() }}
                       </v-chip>
 
@@ -161,6 +187,22 @@
                       <template v-if="taxaNotInLit[item.taxon.substring(3)]">
                         <TaxonNotInLit v-if="taxaNotInLit[item.taxon.substring(3)]"
                                        :tooltip="taxaNotInLit[item.taxon.substring(3)]"/>
+                      </template>
+
+                    </div>
+
+                    <!-- Additional links to the right side -->
+                    <div class="d-inline-block ml-2">
+
+                      <!-- Bergeys URL -->
+                      <template v-if="showBergeysUrl && item.bergeysUrl">
+                        <a :href="item.bergeysUrl" target="_blank">
+                          <span class="rounded-circle pa-1" style="background-color: #cfad46">
+                        <v-icon small>
+                        {{ mdiLinkVariantSvg }}
+                      </v-icon>
+                      </span>
+                        </a>
                       </template>
 
                     </div>
@@ -217,23 +259,47 @@
                 </v-row>
                 <v-row no-gutters>
                   <v-checkbox
-                    dense
                     v-model="showDescGenomes"
                     class="font-12px"
-                    label="Genomes"
+                    dense
                     hide-details
+                    label="Genomes"
                   ></v-checkbox>
                 </v-row>
                 <v-row no-gutters>
                   <v-checkbox
-                    dense
-                    color="#9e94ca"
                     v-model="showDescChildren"
                     class="font-12px"
-                    label="Children"
+                    color="#9e94ca"
+                    dense
                     hide-details
-                  ></v-checkbox>
-                  <TreePopUpHelp class="ml-3 my-auto"></TreePopUpHelp>
+                    label="Children"
+                  >
+                    <template v-slot:append>
+                      <TreePopUpHelp class="ml-3 my-auto"></TreePopUpHelp>
+                    </template>
+                  </v-checkbox>
+                </v-row>
+              </div>
+
+              <!-- Link annotation selection options -->
+              <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
+                <v-row no-gutters>
+                  <b>External Resources</b>
+                </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    v-model="showBergeysUrl"
+                    class="font-12px"
+                    color="#cfad46"
+                    dense
+                    hide-details
+                    label="Bergey's Manual"
+                  >
+                    <template v-slot:append>
+                      <TreePopUpBergeysHelp class="ml-3 my-auto"></TreePopUpBergeysHelp>
+                    </template>
+                  </v-checkbox>
                 </v-row>
               </div>
 
@@ -257,7 +323,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import {TreeItem} from "~/store/tree";
-import {mdiArrowCollapseRight, mdiArrowLeftDropCircle, mdiUndo} from "@mdi/js";
+import {mdiArrowCollapseRight, mdiArrowLeftDropCircle, mdiLinkVariant, mdiUndo} from "@mdi/js";
 import TreeLegend from "~/components/tree/TreeLegend.vue";
 import TaxonSearchAutocomplete from "~/components/shared/TaxonSearchAutocomplete.vue";
 import {TaxonomyOptional} from "~/assets/api/taxonomy";
@@ -265,6 +331,7 @@ import TreeFullTaxonomy from "~/components/tree/TreeFullTaxonomy.vue";
 import {Dict} from "~/assets/ts/interfaces";
 import TaxonNotInLit from "~/components/browse/TaxonNotInLit.vue";
 import TreePopUpHelp from "~/components/tree/TreePopUpHelp.vue";
+import TreePopUpBergeysHelp from "~/components/tree/TreePopUpBergeysHelp.vue";
 
 export default Vue.extend({
   head() {
@@ -279,7 +346,14 @@ export default Vue.extend({
       ]
     }
   },
-  components: {TreePopUpHelp, TreeFullTaxonomy, TaxonSearchAutocomplete, TreeLegend, TaxonNotInLit},
+  components: {
+    TreePopUpHelp,
+    TreePopUpBergeysHelp,
+    TreeFullTaxonomy,
+    TaxonSearchAutocomplete,
+    TreeLegend,
+    TaxonNotInLit
+  },
 
   // Load the initial content to be baked into the page
   async asyncData({$api}) {
@@ -300,6 +374,7 @@ export default Vue.extend({
     mdiUndoSvg: mdiUndo,
     mdiArrowLeftDropCircleSvg: mdiArrowLeftDropCircle,
     mdiArrowCollapseRightSvg: mdiArrowCollapseRight,
+    mdiLinkVariantSvg: mdiLinkVariant,
 
     // Search for taxon input field - value not used, but watched for changes
     searchForTaxon: '',
@@ -315,7 +390,8 @@ export default Vue.extend({
 
     // Allow the user to select the following tree annotations
     showDescChildren: false,
-    showDescGenomes: true
+    showDescGenomes: true,
+    showBergeysUrl: false
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
@@ -565,7 +641,6 @@ export default Vue.extend({
   border-style: solid;
   border-width: 1px;
 }
-
 
 
 </style>
