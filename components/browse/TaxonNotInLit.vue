@@ -4,6 +4,7 @@
       <v-chip
         color="#efefef"
         text-color="black"
+        class="my-auto ml-1"
         style="padding-left: 4px; padding-right: 5px;"
         v-bind="attrs"
         x-small

@@ -75,7 +75,7 @@
             <v-checkbox
               v-model="showBergeysUrl"
               class="font-12px"
-              color="#cfad46"
+              color="#d5a747"
               dense
               hide-details
               label="Bergey's Manual"
@@ -130,6 +130,8 @@
 
           <!-- Left column -->
           <v-col>
+
+            <!-- For each of the items in the treeview, run the slot code below -->
             <v-treeview
               :items="getItems"
               :load-children="getChildren"
@@ -140,9 +142,12 @@
               open-on-click
               transition
             >
+
+              <!-- This block is a template for each of the tree nodes -->
               <template v-slot:prepend="{ item }">
-                <!-- Surround every node with a tooltip -->
-                <div :ref="taxonToTreeNodeRef(item.taxon)">
+
+                <!-- Surround every node with a reference for programmatic use later -->
+                <div :ref="taxonToTreeNodeRef(item.taxon)" class="d-flex">
 
                   <!-- This is a genome (leaf node) -->
                   <template v-if="item.isGenome">
@@ -177,19 +182,20 @@
                   <template v-else>
                     <div
                       :class="getActive.includes(item.taxon) ?
-                      `d-inline-block treeNodeActive treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}` :
-                       `d-inline-block treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}`">
+                      `d-flex treeNodeActive treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}` :
+                       `d-flex treeNode rounded py-1 px-2 ${getTreeNodeClass(item)}`">
 
                       <!-- Add the taxon name -->
                       {{ item.taxon }}
 
                       <!-- Add the genome count -->
-                      <v-chip v-if="showDescGenomes" class="ml-2" color="#e3e3e3" x-small>
+                      <v-chip v-if="showDescGenomes" class="ml-2 my-auto" color="#e3e3e3" x-small>
                         {{ item.total ? item.total.toLocaleString() : 'loading...' }}
                       </v-chip>
 
                       <!-- Add the taxon count -->
-                      <v-chip v-if="showDescChildren && item.nDescChildren" class="m-2 chip-white" color="#9e94ca"
+                      <v-chip v-if="showDescChildren && item.nDescChildren" class="ml-1 my-auto chip-white"
+                              color="#9e94ca"
                               x-small>
                         {{ item.nDescChildren.toLocaleString() }}
                       </v-chip>
@@ -203,27 +209,19 @@
                     </div>
 
                     <!-- Additional links to the right side -->
-                    <div class="d-inline-block ml-2">
+                    <div class="d-flex ml-2 my-auto">
 
                       <!-- Bergeys URL -->
                       <template v-if="showBergeysUrl && item.bergeysUrl">
-                        <a :href="item.bergeysUrl" target="_blank">
-                          <span class="rounded-circle pa-1" style="background-color: #cfad46">
-                        <v-icon small>
-                        {{ mdiLinkVariantSvg }}
-                      </v-icon>
-                      </span>
+                        <a :href="item.bergeysUrl" style="display: contents" target="_blank">
+                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/bergeys_manual.svg" width="28"/>
                         </a>
                       </template>
 
                       <!-- SeqCode URL -->
                       <template v-if="showSeqcodeUrl && item.seqcodeUrl">
-                        <a :href="item.seqcodeUrl" target="_blank">
-                          <span class="rounded-circle pa-1" style="background-color: #4b0082">
-                        <v-icon small dark>
-                        {{ mdiLinkVariantSvg }}
-                      </v-icon>
-                      </span>
+                        <a :href="item.seqcodeUrl" style="display: contents" target="_blank">
+                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/seqcode.svg" width="28"/>
                         </a>
                       </template>
 
@@ -313,7 +311,7 @@
                   <v-checkbox
                     v-model="showBergeysUrl"
                     class="font-12px"
-                    color="#cfad46"
+                    color="#d5a747"
                     dense
                     hide-details
                     label="Bergey's Manual"
