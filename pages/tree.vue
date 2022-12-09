@@ -67,7 +67,7 @@
         </div>
 
         <!-- Link annotation selection options -->
-        <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
+        <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;" v-if="showExternalResourcesTmp">
           <v-row no-gutters>
             <b>External Resources</b>
           </v-row>
@@ -303,7 +303,7 @@
               </div>
 
               <!-- Link annotation selection options -->
-              <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
+              <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;" v-if="showExternalResourcesTmp">
                 <v-row no-gutters>
                   <b>External Resources</b>
                 </v-row>
@@ -424,6 +424,7 @@ export default Vue.extend({
     showDescGenomes: true,
     showBergeysUrl: false,
     showSeqcodeUrl: false,
+    showExternalResourcesTmp: false,
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
