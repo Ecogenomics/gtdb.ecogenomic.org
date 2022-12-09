@@ -54,6 +54,12 @@
               </td>
               <td><a href="https://github.com/wwood/singlem" target="_blank">Homepage</a></td>
             </tr>
+            <tr>
+              <td>sourmash</td>
+              <td>sourmash is a command-line tool and Python library for computing hash sketches from DNA sequences, comparing them to each other, and plotting the results. Prepared databases for GTDB are provided.
+              </td>
+              <td><a href="https://sourmash.readthedocs.io/en/latest/" target="_blank">Homepage</a></td>
+            </tr>
             </tbody>
           </template>
         </v-simple-table>
