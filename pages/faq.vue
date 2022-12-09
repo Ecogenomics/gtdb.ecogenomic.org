@@ -32,14 +32,7 @@
         Alloprevotella. Consequently, we assign it to the placeholder genus g__F0040. If the organism had been assigned
         a binomial species name such as Prevotella oralitaxus str. F0040 we would assign it to the placeholder genus
         g__Prevotella_A to indicate it is not a true Prevotella species, but that there are representative genomes that
-        have been assigned to a species. A strain identifier is used as a placeholder for the genus name when there is
-        no existing genus name and no binomially named representative genome. For example, the genome GCF_000318095.2
-        has the NCBI organism name Prevotella sp. oral taxon 473 str. F0040 and is assigned to the genus Alloprevotella
-        in NCBI. However, this genome appears to be neither assigned to Prevotella, Alloprevotella or another closely
-        related genus Prevotellamassilia in GTDB. Consequently, we assign it to the placeholder genus g__F0040. If the
-        organism had been assigned a binomial species name such as Prevotella oralitaxus str. F0040, and it is not part
-        of true Prevotella in GTDB, we would assign it to the placeholder genus g__Prevotella_A to indicate it is not a
-        true Prevotella species, but that there are representative genomes that have been assigned to a species.
+        have been assigned to a species.
       </template>
 
       <template #why-do-some-genus-and-species-names-end-with-an-alphabetic-suffix>
