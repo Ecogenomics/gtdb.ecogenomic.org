@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.6.0...v2.6.1) (2022-12-09)
+
+
+### Bug Fixes
+
+* **faq:** Fix long titles not wrapping on words, show full FAQ title in nav bar. ([1eb04c5](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1eb04c515c9e98a5ed643fef3e49f5ab4d34026d))
+
 # [2.6.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.5.0...v2.6.0) (2022-12-09)
 
 
