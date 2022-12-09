@@ -58,8 +58,8 @@
             @click="selectItem(i)"
             class="small-list-item"
           >
-            <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
+            <v-list-item-content class="my-1">
+              <v-list-item-title v-text="item.text" class="nav-list-title"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -70,7 +70,7 @@
     <v-col class="col-12 col-md-9">
       <v-card>
 
-        <v-card-title class="text-h5">
+        <v-card-title class="text-h5 card-title">
           <slot name="title"/>
         </v-card-title>
 
@@ -177,6 +177,8 @@ export default Vue.extend({
 
 .sectionTitle {
   background-color: #efefef;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .small-list-item {
@@ -185,4 +187,9 @@ export default Vue.extend({
 .small-list-item .v-list-item__content, .v-list--dense .v-list-item .v-list-item__content {
   padding: 0 !important;
 }
+
+.nav-list-title {
+  white-space: pre-wrap !important;
+}
+
 </style>
