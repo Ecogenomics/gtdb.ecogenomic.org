@@ -371,6 +371,15 @@
       <a href="https://doi.org/10.1101/2021.09.22.461432" target="_blank">(Parks et al., 2021)</a>
     </template>
 
+    <template #why-do-some-names-not-appear-in-the-gtdb-taxonomy>
+      Effectively published Latin names above the rank of genus without designated type material,
+      either a sequenced type strain or MAG, will no longer be incorporated into GTDB, and those that do
+      will only be introduced when the associated type genome is present in GTDB. This change is necessary as
+      establishing the correct interior node in the reference tree for taxa without type material can be ambiguous,
+      particularly when the addition of new genomes or alternative inference methods results in the named taxon
+      becoming polyphyletic in later releases.
+    </template>
+
       <template #references>
         <p>Oren A, et al. (2015). Proposal to include the rank of phylum in the international code
           of nomenclature of
@@ -472,6 +481,10 @@ export default Vue.extend({
       {
         text: "Why doesn't the GTDB contain Shigella species?",
         ref: 'why-doesnt-the-gtdb-contain-shigella-species'
+      },
+      {
+        text: "Why do some published phylum (and other higher rank) names not appear in the GTDB taxonomy?",
+        ref: 'why-do-some-names-not-appear-in-the-gtdb-taxonomy'
       },
       {text: 'References', ref: 'references'},
     ]
