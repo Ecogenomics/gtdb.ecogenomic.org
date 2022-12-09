@@ -1,3 +1,21 @@
+# [2.6.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.5.0...v2.6.0) (2022-12-09)
+
+
+### Bug Fixes
+
+* **faq:** Remove duplication in why-are-some-genus-names-formed-from-a-strain-identifier ([d468e8e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d468e8e22fe16b14ee7d10a5aa3e09e3acdfba8d))
+
+
+### Features
+
+* **about:** Add funding information for FT170100213. ([72ab3af](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/72ab3af490a88f9764f379f2fbeb67e944120a92))
+* **faq:** Add why-do-some-names-not-appear-in-the-gtdb-taxonomy ([ab29ae6](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ab29ae6b5865df7abe11264518bb7a0a0b55bba5))
+* **tools:** Add sourmash as a 3rd party tool. ([5e5444e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5e5444e6692f26e8b23c18e0d53c9a2f704c151f))
+* **tree:** Add Bergey's Manual links. ([680c215](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/680c2152759ddee7097e6ee290881580418e868c))
+* **tree:** Add Bergey's Manual links. ([39cf210](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/39cf210e9938fc76accc9217dad2481f627859cc))
+* **tree:** Add SeqCode links. ([e1035cd](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e1035cdf7d87ef294c628e2a83b2ce4b849f6249))
+* **tree:** Update /tree to contain an icon to Bergey's Manual and SeqCode. ([bc9da44](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/bc9da440eea763146669be0818505c1c3eda2267))
+
 # [2.5.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.4.0...v2.5.0) (2022-11-01)
 
 
