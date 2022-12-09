@@ -32,14 +32,7 @@
         Alloprevotella. Consequently, we assign it to the placeholder genus g__F0040. If the organism had been assigned
         a binomial species name such as Prevotella oralitaxus str. F0040 we would assign it to the placeholder genus
         g__Prevotella_A to indicate it is not a true Prevotella species, but that there are representative genomes that
-        have been assigned to a species. A strain identifier is used as a placeholder for the genus name when there is
-        no existing genus name and no binomially named representative genome. For example, the genome GCF_000318095.2
-        has the NCBI organism name Prevotella sp. oral taxon 473 str. F0040 and is assigned to the genus Alloprevotella
-        in NCBI. However, this genome appears to be neither assigned to Prevotella, Alloprevotella or another closely
-        related genus Prevotellamassilia in GTDB. Consequently, we assign it to the placeholder genus g__F0040. If the
-        organism had been assigned a binomial species name such as Prevotella oralitaxus str. F0040, and it is not part
-        of true Prevotella in GTDB, we would assign it to the placeholder genus g__Prevotella_A to indicate it is not a
-        true Prevotella species, but that there are representative genomes that have been assigned to a species.
+        have been assigned to a species.
       </template>
 
       <template #why-do-some-genus-and-species-names-end-with-an-alphabetic-suffix>
@@ -378,6 +371,15 @@
       <a href="https://doi.org/10.1101/2021.09.22.461432" target="_blank">(Parks et al., 2021)</a>
     </template>
 
+    <template #why-do-some-names-not-appear-in-the-gtdb-taxonomy>
+      Effectively published Latin names above the rank of genus without designated type material,
+      either a sequenced type strain or MAG, will no longer be incorporated into GTDB, and those that do
+      will only be introduced when the associated type genome is present in GTDB. This change is necessary as
+      establishing the correct interior node in the reference tree for taxa without type material can be ambiguous,
+      particularly when the addition of new genomes or alternative inference methods results in the named taxon
+      becoming polyphyletic in later releases.
+    </template>
+
       <template #references>
         <p>Oren A, et al. (2015). Proposal to include the rank of phylum in the international code
           of nomenclature of
@@ -479,6 +481,10 @@ export default Vue.extend({
       {
         text: "Why doesn't the GTDB contain Shigella species?",
         ref: 'why-doesnt-the-gtdb-contain-shigella-species'
+      },
+      {
+        text: "Why do some published phylum (and other higher rank) names not appear in the GTDB taxonomy?",
+        ref: 'why-do-some-names-not-appear-in-the-gtdb-taxonomy'
       },
       {text: 'References', ref: 'references'},
     ]

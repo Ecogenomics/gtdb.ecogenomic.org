@@ -41,7 +41,8 @@
           Research Council</a> via a
           <a href="https://www.uq.edu.au/news/article/2015/06/uq-leads-nation-prestigious-arc-laureate-fellowships"
              target="_blank">Laureate Fellowship</a>
-          (<a href="https://app.dimensions.ai/details/grant/grant.5129370" target="_blank">FL150100038</a>) and
+          (<a href="https://app.dimensions.ai/details/grant/grant.5129370" target="_blank">FL150100038</a>),
+          a Future Fellowship (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/FT170100213" target="_blank">FT170100213</a>), and
           Discovery Project
           (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP220100900" target="_blank">DP220100900</a>),
           with the welcome assistance of <a
