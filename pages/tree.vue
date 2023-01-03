@@ -242,7 +242,7 @@
           <!-- End left column -->
 
           <!-- Right column -->
-          <v-col class="hidden-md-and-down" cols="3">
+          <v-col class="hidden-sm-and-down" cols="3">
 
             <!-- Fix content within column -->
             <div style="position:fixed; min-width: 200px;">
