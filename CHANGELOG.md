@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.6.1...v2.6.2) (2023-01-03)
+
+
+### Bug Fixes
+
+* **tree:** Fix a bug where medium sized breakpoints would not show the tree sidebar. ([0f9946f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/0f9946fd8deb48f8a9bdd26e341cf323097b6c05))
+
 ## [2.6.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.6.0...v2.6.1) (2022-12-09)
 
 
