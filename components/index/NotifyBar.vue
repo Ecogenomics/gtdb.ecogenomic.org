@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isVisible" class="notifyBar py-1 d-flex">
+  <div v-if="isVisible" class="notifyBar d-flex" style="padding-top: 2px; padding-bottom: 2px;">
     <div class="d-flex ml-5" style="min-width: 30px;">
     </div>
     <div class="d-flex mx-auto my-auto body-2">
