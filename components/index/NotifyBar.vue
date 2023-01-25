@@ -32,6 +32,11 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    age: {
+      type: Number,
+      required: false,
+      default: 2147483647
+    }
   },
   computed: {
     cookieKey(): string {
@@ -46,7 +51,7 @@ export default Vue.extend({
     close() {
       this.$cookies.set(this.cookieKey, 'true', {
         path: '/',
-        maxAge: 2147483647,
+        maxAge: this.age,
         sameSite: true,
       });
       this.isVisible = false;
