@@ -14,6 +14,9 @@
         <NotifyBar uid="gtdbtkv2">
           *** Now published: <a href="https://doi.org/10.1093/bioinformatics/btac672" class="mx-1" target="_blank">GTDB-Tk v2: memory friendly classification with the Genome Taxonomy Database</a> ***
         </NotifyBar>
+        <NotifyBar uid="outage-2023-02-14">
+          *** The GTDB will be periodically unavailable between <a href="https://www.worldtimebuddy.com/?qm=1&lid=2174003,1850147,1816670,2950159,2643743,5128581,5368361&h=2174003&date=2023-2-14&sln=9-17&hf=1" target="_blank">2022/02/13 11PM GMT and 2022/02/14 7AM GMT</a> while our host performs critical maintenance. ***
+        </NotifyBar>
       </div>
 
       <!-- First row -->
