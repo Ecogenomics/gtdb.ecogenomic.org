@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isVisible" class="notifyBar py-1 d-flex">
+  <div v-if="isVisible" class="notifyBar d-flex" style="padding-top: 2px; padding-bottom: 2px;">
     <div class="d-flex ml-5" style="min-width: 30px;">
     </div>
     <div class="d-flex mx-auto my-auto body-2">
@@ -32,6 +32,11 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    age: {
+      type: Number,
+      required: false,
+      default: 2147483647
+    }
   },
   computed: {
     cookieKey(): string {
@@ -46,7 +51,7 @@ export default Vue.extend({
     close() {
       this.$cookies.set(this.cookieKey, 'true', {
         path: '/',
-        maxAge: 2147483647,
+        maxAge: this.age,
         sameSite: true,
       });
       this.isVisible = false;
