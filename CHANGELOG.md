@@ -1,3 +1,12 @@
+# [2.7.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.6.2...v2.7.0) (2023-01-26)
+
+
+### Features
+
+* **banner:** Add maintenance window banner. ([5bc4bdb](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5bc4bdb17eb1afee33b373d959e0bff6af0f6af2))
+* **banner:** Add maintenance window banner. ([26b897f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/26b897ff1d1e74ebc8090fedc14589fa0749f806))
+* **banner:** Add maintenance window banner. ([a52ea39](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a52ea39d9f05bdd8db95c5de9efb104776685937))
+
 ## [2.6.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.6.1...v2.6.2) (2023-01-03)
 
 
