@@ -162,7 +162,9 @@ export default {
   publicRuntimeConfig: {
     plausible: {
       domain: process.env.PLAUSIBLE_DOMAIN,
-      apiHost: process.env.PLAUSIBLE_API_HOST
+      apiHost: process.env.PLAUSIBLE_API_HOST,
+      hashMode: true,
+      enableAutoOutboundTracking: true
     }
   }
 
