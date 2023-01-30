@@ -43,7 +43,9 @@ export default {
         iconfont: 'mdiSvg'
       }
     }], // https://typed-vuex.roe.dev
-    'nuxt-typed-vuex'],
+    'nuxt-typed-vuex',
+    'vue-plausible'
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [// https://go.nuxtjs.dev/axios
@@ -152,6 +154,18 @@ export default {
   generate: {
     fallback: 'error.html',
     subFolders: false
+  },
+
+  plausible: { // Use as fallback if no runtime config is available at runtime
+    domain: process.env.PLAUSIBLE_DOMAIN
+  },
+  publicRuntimeConfig: {
+    plausible: {
+      domain: process.env.PLAUSIBLE_DOMAIN,
+      apiHost: process.env.PLAUSIBLE_API_HOST,
+      hashMode: false,
+      enableAutoOutboundTracking: true
+    }
   }
 
 }
