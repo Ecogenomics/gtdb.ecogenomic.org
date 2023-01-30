@@ -163,7 +163,7 @@ export default {
     plausible: {
       domain: process.env.PLAUSIBLE_DOMAIN,
       apiHost: process.env.PLAUSIBLE_API_HOST,
-      hashMode: true,
+      hashMode: false,
       enableAutoOutboundTracking: true
     }
   }
