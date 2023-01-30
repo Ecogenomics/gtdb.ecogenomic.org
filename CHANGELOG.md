@@ -1,3 +1,12 @@
+# [2.8.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.7.0...v2.8.0) (2023-01-30)
+
+
+### Features
+
+* **plausible:** Add plausible analytics. ([bdee130](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/bdee130fc7c08a00cc8057f65fd474971ac8c726))
+* **plausible:** Add plausible analytics. ([23a8e9f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/23a8e9f2b82672b6161f77824d575579850bbd99))
+* **plausible:** Add plausible analytics. ([31f5560](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/31f5560f6c2b9b3dcbf605978d1f238d3295c31b))
+
 # [2.7.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.6.2...v2.7.0) (2023-01-26)
 
 
