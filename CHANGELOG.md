@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.8.0...v2.9.0) (2023-02-14)
+
+
+### Features
+
+* **notify:** Remove outage notification. ([1c32bd6](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1c32bd68566c6d8416e4c7ccd9341b5cd99f227a))
+
 # [2.8.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.7.0...v2.8.0) (2023-01-30)
 
 
