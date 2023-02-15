@@ -2,6 +2,8 @@
 const fs = require('fs')
 const packageJson = fs.readFileSync('./package.json')
 const version = JSON.parse(packageJson).version || ''
+import path from 'path';
+import axios from 'axios';
 
 
 export default {
@@ -106,12 +108,18 @@ export default {
 
     // Make the filenames more verbose for bundles to reduce likelihood of hashing collisions
     filenames: {
-      app: ({ isDev, isModern }) => isDev ? `[name]${isModern ? '.modern' : ''}.js` : `app/[contenthash]${isModern ? '.modern' : ''}.js`,
-      chunk: ({ isDev, isModern }) => isDev ? `[name]${isModern ? '.modern' : ''}.js` : `chunk/[contenthash]${isModern ? '.modern' : ''}.js`,
-      css: ({ isDev }) => isDev ? '[name].css' : `css/[contenthash].css`,
-      img: ({ isDev }) => isDev ? '[path][name].[ext]' : `img/[contenthash].[ext]`,
-      font: ({ isDev }) => isDev ? '[path][name].[ext]' : `fonts/[contenthash].[ext]`,
-      video: ({ isDev }) => isDev ? '[path][name].[ext]' : `videos/[contenthash].[ext]`
+      app: ({
+              isDev,
+              isModern
+            }) => isDev ? `[name]${isModern ? '.modern' : ''}.js` : `app/[contenthash]${isModern ? '.modern' : ''}.js`,
+      chunk: ({
+                isDev,
+                isModern
+              }) => isDev ? `[name]${isModern ? '.modern' : ''}.js` : `chunk/[contenthash]${isModern ? '.modern' : ''}.js`,
+      css: ({isDev}) => isDev ? '[name].css' : `css/[contenthash].css`,
+      img: ({isDev}) => isDev ? '[path][name].[ext]' : `img/[contenthash].[ext]`,
+      font: ({isDev}) => isDev ? '[path][name].[ext]' : `fonts/[contenthash].[ext]`,
+      video: ({isDev}) => isDev ? '[path][name].[ext]' : `videos/[contenthash].[ext]`
     },
 
     terser: {
@@ -166,6 +174,35 @@ export default {
       hashMode: false,
       enableAutoOutboundTracking: true
     }
+  },
+
+  hooks: {
+    generate: {
+      distRemoved(builder) {
+        const outDir = builder.nuxt.options.generate.dir;
+
+        // Write the robots.txt file
+        const robotsPath = path.join(outDir, 'robots.txt')
+
+        if (process.env.ENV_NAME === 'prod') {
+          fs.writeFileSync(robotsPath, 'User-agent: *\nDisallow: /browsers*?\nDisallow: /tree*?\nDisallow: /taxon-history*?\nDisallow: /fastani*?\nDisallow: /advanced*?\nSitemap: https://gtdb.ecogenomic.org/sitemap.xml\n')
+        } else {
+          fs.writeFileSync(robotsPath, 'User-agent: *\nDisallow: /\n')
+        }
+
+        // Write the sitemap.xml files
+        if (process.env.ENV_NAME === 'prod') {
+          axios.get(`${process.env.API_BASE}/sitemap`).then((response) => {
+            console.log(response)
+            for (const [name, content] of Object.entries(response.data)) {
+              fs.writeFileSync(path.join(outDir, name), content)
+            }
+          })
+        }
+
+      }
+    }
   }
+
 
 }
