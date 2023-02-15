@@ -113,7 +113,7 @@
 
 
         <!-- The team -->
-        <div class="d-block mt-10 ">
+        <div class="d-block mt-8">
           <div class="d-block">
             <span class="text-h5">The Team</span>
             <p>
