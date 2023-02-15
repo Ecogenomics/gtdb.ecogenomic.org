@@ -1,0 +1,3 @@
+/stats /stats/r207 301
+/genomes/* /genome/:splat 301
+/taxon_history/* /taxon-history/:splat 301

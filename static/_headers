@@ -1,0 +1,3 @@
+# Set a specific caching policy for webpack files i.e. /_nuxt/...
+/_nuxt/*
+  Cache-Control: max-age=315360000, must-revalidate, proxy-revalidate
