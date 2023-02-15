@@ -61,6 +61,9 @@ export default Vue.extend({
         this.isSurveillance = response.data.isNcbiSurveillance;
         this.surveyAccession = response.data.accession;
       })
+        .catch((err) => {
+          this.$accessor.api.defaultCatch(err);
+        })
         .finally(() => {
           this.loading = false;
         });

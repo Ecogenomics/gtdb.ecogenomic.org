@@ -319,7 +319,10 @@ export default Vue.extend({
       // @ts-ignore
       this.$api.meta.version().then((resp) => {
         this.apiVersion = `${resp.data.major}.${resp.data.minor}.${resp.data.patch}`
+      })  .catch((err: any) => {
+        this.$accessor.api.defaultCatch(err);
       })
+
     },
   },
   mounted() {

@@ -99,6 +99,9 @@ export default Vue.extend({
       this.$api.taxon.getPreviousReleases(searchTaxon).then(response => {
         this.rows = response.data
       })
+        .catch((err) => {
+          this.$accessor.api.defaultCatch(err);
+        })
         .finally(() => {
           this.loading = false;
         });

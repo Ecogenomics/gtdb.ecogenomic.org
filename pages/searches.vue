@@ -302,6 +302,9 @@ export default Vue.extend({
         this.totalRows = response.data.totalRows
         this.rows = response.data.rows
       })
+        .catch((err) => {
+          this.$accessor.api.defaultCatch(err);
+        })
         .finally(() => {
           this.loading = false;
 
