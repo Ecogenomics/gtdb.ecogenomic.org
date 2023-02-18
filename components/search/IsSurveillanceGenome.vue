@@ -21,7 +21,7 @@
         described taxa.</p>
 
       <p class="mb-0">For more information, search the NCBI assembly database: NCBI - <a
-        :href="`https://www.ncbi.nlm.nih.gov/assembly/${surveyAccession}/`" target="_blank">{{ surveyAccession }}</a></p cla>
+        :href="`https://www.ncbi.nlm.nih.gov/data-hub/genome/${surveyAccession}/`" target="_blank">{{ surveyAccession }}</a></p cla>
     </v-card-text>
   </v-card>
 </template>

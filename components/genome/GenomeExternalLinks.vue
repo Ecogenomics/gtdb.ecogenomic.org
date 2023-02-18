@@ -18,7 +18,7 @@
             class="d-flex mx-auto my-auto"
           >
             <a
-              :href="`https://www.ncbi.nlm.nih.gov/assembly/${genomeCard.metadata_ncbi.ncbi_genbank_assembly_accession}`"
+              :href="`https://www.ncbi.nlm.nih.gov/data-hub/genome/${genomeCard.metadata_ncbi.ncbi_genbank_assembly_accession}`"
               target="_blank"
             >
               <img

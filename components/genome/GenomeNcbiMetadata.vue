@@ -29,7 +29,7 @@
               </template>
               <template v-else>
                 <a
-                  :href="`https://www.ncbi.nlm.nih.gov/assembly/${genomeCard.genome.accession}/`"
+                  :href="`https://www.ncbi.nlm.nih.gov/data-hub/genome/${genomeCard.genome.accession}/`"
                   target="_blank"
                 >
                   {{ genomeCard.metadata_ncbi.ncbi_assembly_name }}
@@ -115,7 +115,7 @@
               </template>
               <template v-else>
                 <a
-                  :href="`https://www.ncbi.nlm.nih.gov/assembly/${genomeCard.metadata_ncbi.ncbi_genbank_assembly_accession}/`"
+                  :href="`https://www.ncbi.nlm.nih.gov/data-hub/genome/${genomeCard.metadata_ncbi.ncbi_genbank_assembly_accession}/`"
                   target="_blank"
                 >
                   {{ genomeCard.metadata_ncbi.ncbi_genbank_assembly_accession }}

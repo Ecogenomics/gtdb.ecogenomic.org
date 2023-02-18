@@ -3,7 +3,7 @@
     Database and version numbers have been removed from NCBI accessions (e.g. GCA_002347985.1 becomes G002347985).
     Genomes which had a UBA accession in prior GTDB releases are referenced by their NCBI
     accession once available (e.g. UBA2234 is indicated as
-    <a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_002347985.1" target="_blank">G002347985</a>).
+    <a href="https://www.ncbi.nlm.nih.gov/data-hub/genome/GCA_002347985.1" target="_blank">G002347985</a>).
 
     <!-- Show the skeleton loader when the query is running -->
     <template v-if="loading">
