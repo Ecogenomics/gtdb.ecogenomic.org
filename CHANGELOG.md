@@ -1,3 +1,17 @@
+# [2.10.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.9.0...v2.10.0) (2023-02-24)
+
+
+### Bug Fixes
+
+* **api:** Add API timeout catch blocks. ([c9c9322](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c9c9322170357b3357b54b553fbab81cfd74df08))
+
+
+### Features
+
+* **ncbi:** Update NCBI links to data-hub page. ([a874c9d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a874c9db88469da106aeec565177dbb56ef851aa))
+* **sitemap:** Read from API sitemap endpoint on generation. ([e012d9a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e012d9aa2de62896972e39e25561bfce3d26e09e))
+* **tree:** Add bergeys URL to tree. ([7338feb](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7338feb90f6846eaa3a8c364358437171f952649))
+
 # [2.9.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.8.0...v2.9.0) (2023-02-14)
 
 
