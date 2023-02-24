@@ -67,7 +67,7 @@
         </div>
 
         <!-- Link annotation selection options -->
-        <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;" v-if="showExternalResourcesTmp">
+        <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
           <v-row no-gutters>
             <b>External Resources</b>
           </v-row>
@@ -85,17 +85,17 @@
               </template>
             </v-checkbox>
           </v-row>
-          <v-row no-gutters>
-            <v-checkbox
-              v-model="showSeqcodeUrl"
-              class="font-12px"
-              color="#4b0082"
-              dense
-              hide-details
-              label="SeqCode"
-            >
-            </v-checkbox>
-          </v-row>
+<!--          <v-row no-gutters>-->
+<!--            <v-checkbox-->
+<!--              v-model="showSeqcodeUrl"-->
+<!--              class="font-12px"-->
+<!--              color="#4b0082"-->
+<!--              dense-->
+<!--              hide-details-->
+<!--              label="SeqCode"-->
+<!--            >-->
+<!--            </v-checkbox>-->
+<!--          </v-row>-->
         </div>
 
       </div>
@@ -219,11 +219,11 @@
                       </template>
 
                       <!-- SeqCode URL -->
-                      <template v-if="showSeqcodeUrl && item.seqcodeUrl">
-                        <a :href="item.seqcodeUrl" style="display: contents" target="_blank">
-                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/seqcode.svg" width="28"/>
-                        </a>
-                      </template>
+<!--                      <template v-if="showSeqcodeUrl && item.seqcodeUrl">-->
+<!--                        <a :href="item.seqcodeUrl" style="display: contents" target="_blank">-->
+<!--                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/seqcode.svg" width="28"/>-->
+<!--                        </a>-->
+<!--                      </template>-->
 
                     </div>
                   </template>
@@ -303,7 +303,7 @@
               </div>
 
               <!-- Link annotation selection options -->
-              <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;" v-if="showExternalResourcesTmp">
+              <div class="treeAnnotation rounded-lg mt-5 pa-2" style="font-size: 12px;">
                 <v-row no-gutters>
                   <b>External Resources</b>
                 </v-row>
@@ -321,17 +321,17 @@
                     </template>
                   </v-checkbox>
                 </v-row>
-                <v-row no-gutters>
-                  <v-checkbox
-                    v-model="showSeqcodeUrl"
-                    class="font-12px"
-                    color="#4b0082"
-                    dense
-                    hide-details
-                    label="SeqCode"
-                  >
-                  </v-checkbox>
-                </v-row>
+<!--                <v-row no-gutters>-->
+<!--                  <v-checkbox-->
+<!--                    v-model="showSeqcodeUrl"-->
+<!--                    class="font-12px"-->
+<!--                    color="#4b0082"-->
+<!--                    dense-->
+<!--                    hide-details-->
+<!--                    label="SeqCode"-->
+<!--                  >-->
+<!--                  </v-checkbox>-->
+<!--                </v-row>-->
               </div>
 
               <!-- Taxonomy table for the selected taxon -->
@@ -424,7 +424,6 @@ export default Vue.extend({
     showDescGenomes: true,
     showBergeysUrl: false,
     showSeqcodeUrl: false,
-    showExternalResourcesTmp: false,
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
