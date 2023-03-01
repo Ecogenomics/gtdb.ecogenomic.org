@@ -1,3 +1,12 @@
+# [2.11.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.10.0...v2.11.0) (2023-03-01)
+
+
+### Features
+
+* **semantic-release:** Update version and webhook for publishing. ([f0b70c4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f0b70c4141ae182813fdf09ed5197032fb7df8df))
+* **semantic-release:** Update version and webhook for publishing. ([16ef216](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/16ef2169ef19351a7fe7f8068c19221285d24bfe))
+* **semantic-release:** Update version and webhook for publishing. ([3d8afc7](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3d8afc709c3d7bb0a1cb1782e98865d7ce9b7220))
+
 # [2.10.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.9.0...v2.10.0) (2023-02-24)
 
 
