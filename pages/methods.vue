@@ -193,6 +193,13 @@
         </v-simple-table>
       </template>
 
+      <template #identification-of-strain-identifiers>
+        <p class="mb-0">
+          Strain identifiers are obtained from NCBI by parsing the 'isolate' and 'strains' fields in the assembly_report.txt, wgsmaster.gbff,
+          and genomic.gbff files associated with each genome.
+        </p>
+      </template>
+
 
       <template #updating-name-of-gtdb-species-clusters>
         <p>
@@ -342,6 +349,7 @@ export default Vue.extend({
       {text: 'Average nucleotide identity', ref: 'average-nucleotide-identity'},
       {text: 'Genome QC criteria', ref: 'genome-qc-criteria'},
       {text: 'Updating GTDB species representatives', ref: 'updating-gtdb-species-representatives'},
+      {text: 'Identification of strain identifiers', ref: 'identification-of-strain-identifiers'},
       {text: 'Updating name of GTDB species clusters', ref: 'updating-name-of-gtdb-species-clusters'},
       {text: 'Additional information', ref: 'additional-information'},
       {text: 'References', ref: 'references'}
