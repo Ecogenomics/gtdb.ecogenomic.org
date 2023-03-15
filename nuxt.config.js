@@ -185,7 +185,7 @@ export default {
         const robotsPath = path.join(outDir, 'robots.txt')
 
         if (process.env.ENV_NAME === 'prod') {
-          fs.writeFileSync(robotsPath, 'User-agent: *\nDisallow: /browsers*?\nDisallow: /tree*?\nDisallow: /taxon-history*?\nDisallow: /fastani*?\nDisallow: /advanced*?\nSitemap: https://gtdb.ecogenomic.org/sitemap.xml\n')
+          fs.writeFileSync(robotsPath, 'User-agent: *\nDisallow: /browsers*?\nDisallow: /taxon-history*?\nDisallow: /fastani*?\nDisallow: /advanced*?\nDisallow: /searches*?\nSitemap: https://gtdb.ecogenomic.org/sitemap.xml\n')
         } else {
           fs.writeFileSync(robotsPath, 'User-agent: *\nDisallow: /\n')
         }
