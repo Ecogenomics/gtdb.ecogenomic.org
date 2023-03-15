@@ -1,3 +1,10 @@
+## [2.11.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.11.0...v2.11.1) (2023-03-15)
+
+
+### Bug Fixes
+
+* **robots.txt:** Remove tree page from disallow list. ([fc84711](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/fc8471194522275b88666b480b6ad88f0f5c8192))
+
 # [2.11.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.10.0...v2.11.0) (2023-03-01)
 
 
