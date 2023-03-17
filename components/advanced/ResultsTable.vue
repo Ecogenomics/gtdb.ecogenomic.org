@@ -44,6 +44,8 @@
 
         <ResultsDownload></ResultsDownload>
 
+        <NcbiGenomesDownload></NcbiGenomesDownload>
+
       </v-row>
     </v-card-title>
 
@@ -130,10 +132,11 @@
 <script lang="ts">
 import Vue from "vue";
 import ResultsDownload from "~/components/advanced/ResultsDownload.vue";
+import NcbiGenomesDownload from "~/components/util/NcbiGenomesDownload.vue";
 
 export default Vue.extend({
   name: "ResultsTable",
-  components: {ResultsDownload},
+  components: {NcbiGenomesDownload, ResultsDownload},
   data() {
     return {
       search: '',
