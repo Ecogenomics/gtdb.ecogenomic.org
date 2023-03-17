@@ -1,3 +1,19 @@
-# Set a specific caching policy for webpack files i.e. /_nuxt/...
+# Prevent the dev URL from displaying in search engines
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Set the default caching rules
+/*
+  Cache-Control: max-age=0, must-revalidate, proxy-revalidate
+
 /_nuxt/*
-  Cache-Control: max-age=315360000, must-revalidate, proxy-revalidate
+  ! Cache-Control
+  Cache-Control: max-age=31536000, must-revalidate, proxy-revalidate
+
+/favicon.ico
+  ! Cache-Control
+  Cache-Control: max-age=2592000, must-revalidate, proxy-revalidate
+
+/*.html
+  ! Cache-Control
+  Cache-Control: max-age=86400, must-revalidate, proxy-revalidate
