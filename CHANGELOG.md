@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.11.2...v2.12.0) (2023-03-17)
+
+
+### Features
+
+* **advanced:** Add button to download genomes from advanced search. ([b5a1d89](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/b5a1d89f45c9bcd2265549a53b75bf45a79fa470))
+
 ## [2.11.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.11.1...v2.11.2) (2023-03-17)
 
 
