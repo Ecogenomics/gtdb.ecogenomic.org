@@ -9,6 +9,7 @@ https://:project.pages.dev/*
 /_nuxt/*
   ! Cache-Control
   Cache-Control: max-age=31536000, must-revalidate, proxy-revalidate
+  X-Robots-Tag: noindex
 
 /favicon.ico
   ! Cache-Control
