@@ -182,7 +182,7 @@ export default Vue.extend({
       return this.clusterData.genomes
     },
     species(): string {
-      const species = this.$route.query.id;
+      const species = this.$route.query.id || this.$route.query.s;
       if (species) {
         return species as string;
       } else {

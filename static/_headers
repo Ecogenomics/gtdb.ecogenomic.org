@@ -4,7 +4,7 @@ https://:project.pages.dev/*
 
 # Set the default caching rules
 /*
-  Cache-Control: max-age=0, must-revalidate, proxy-revalidate
+  Cache-Control: max-age=86400, must-revalidate, proxy-revalidate
 
 /_nuxt/*
   ! Cache-Control
@@ -13,7 +13,3 @@ https://:project.pages.dev/*
 /favicon.ico
   ! Cache-Control
   Cache-Control: max-age=2592000, must-revalidate, proxy-revalidate
-
-/*.html
-  ! Cache-Control
-  Cache-Control: max-age=86400, must-revalidate, proxy-revalidate
