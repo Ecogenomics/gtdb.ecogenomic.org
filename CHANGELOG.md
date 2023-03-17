@@ -1,3 +1,18 @@
+## [2.11.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.11.1...v2.11.2) (2023-03-17)
+
+
+### Bug Fixes
+
+* **headers:** Disallow indexing of webpack files. ([453e43e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/453e43e4a6ebdeea260b00576f106e5fca198e8c))
+* **indexing:** Allow indexing of browsers page. ([357340a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/357340afa73fd3a26c9b6d7528c93c113cfab768))
+* **taxsearch:** Add redirect for broken URL /taxsearch ([8b26740](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8b267409da30e6874e1f09f66f6da17a523215a0))
+* **taxsearch:** Add redirect for broken URL /taxsearch ([bbde5b8](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/bbde5b8cf3b6a177983087f02be93fecf9c18055))
+
+
+### Performance Improvements
+
+* **cache:** Update cache rules. ([56bcbdd](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/56bcbddf44243a430b2c21438290d67e80a7b70e))
+
 ## [2.11.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.11.0...v2.11.1) (2023-03-15)
 
 
