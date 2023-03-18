@@ -109,22 +109,22 @@ export default Vue.extend({
   methods: {
     download(method: string) {
       const [expr, args] = this.$accessor.advanced.treeAsEncodedPayload;
-      const urlParams = [];
 
-      urlParams.push(`gff=${encodeURIComponent(String(this.gff))}`)
-      urlParams.push(`rna=${encodeURIComponent(String(this.rna))}`)
-      urlParams.push(`cds=${encodeURIComponent(String(this.cds))}`)
-      urlParams.push(`protein=${encodeURIComponent(String(this.protein))}`)
-      urlParams.push(`genome=${encodeURIComponent(String(this.genome))}`)
-      urlParams.push(`seqReport=${encodeURIComponent(String(this.seqReport))}`)
-      urlParams.push(`method=${encodeURIComponent(String(method))}`)
+      const urlSearchParams = new URLSearchParams();
+      urlSearchParams.append('exp', encodeURIComponent(String(expr)));
+      urlSearchParams.append('gff', encodeURIComponent(String(this.gff)));
+      urlSearchParams.append('rna', encodeURIComponent(String(this.rna)));
+      urlSearchParams.append('cds', encodeURIComponent(String(this.cds)));
+      urlSearchParams.append('protein', encodeURIComponent(String(this.protein)));
+      urlSearchParams.append('genome', encodeURIComponent(String(this.genome)));
+      urlSearchParams.append('seqReport', encodeURIComponent(String(this.seqReport)));
+      urlSearchParams.append('method', encodeURIComponent(String(method)));
 
-      urlParams.push(`exp=${encodeURIComponent(String(expr))}`)
       if (expr.length > 0 && Object.keys(args).length > 0) {
         for (const [k, v] of Object.entries(args)) {
-          urlParams.push(`${k}=${encodeURIComponent(String(v))}`);
+          urlSearchParams.append(k, encodeURIComponent(String(v)));
         }
-        const url = `${process.env.apiBase}/advanced/search/download-genomes?${urlParams.join('&')}`
+        const url = this.$api.advanced.getSearchGenomesDownloadUrl(urlSearchParams);
         window.open(url, "_blank")
       }
     },

@@ -5,6 +5,20 @@ const version = JSON.parse(packageJson).version || ''
 import path from 'path';
 import axios from 'axios';
 
+// async function getCurrentApiVersion() {
+//   console.log('called')
+//   console.log(`${process.env.API_BASE}/meta/version`)
+//   try {
+//     const {data:response} = await axios.get(`${process.env.API_BASE}/meta/version`)
+//     console.log('apidone')
+//     return `${response.major}.${response.minor}.${response.patch}`;
+//   } catch (e) {
+//     console.log('error')
+//     console.log(e)
+//     return new Date().getTime().toString();
+//   }
+// }
+
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -137,6 +151,7 @@ export default {
   env: {
     apiMessageTimeout: 10000,
     apiTimeout: 30000,  // number of ms to wait until api call fails
+    apiCacheKey: new Date().getTime(),  // used to clear the cache
     apiBase: process.env.API_BASE,
     envName: process.env.ENV_NAME,
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search

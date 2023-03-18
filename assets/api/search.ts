@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
-
+const apiCacheKey = process.env.apiCacheKey || 1;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -12,7 +12,8 @@ export class SearchApi {
 
   getGtdbSearchQueryParameters(request: SearchGtdbRequest): string {
     const searchParams: SearchGtdbRequestUrl = {
-      search: request.search
+      search: request.search,
+      cacheKey: apiCacheKey.toString(),
     }
     if (request.page) {
       searchParams.page = request.page.toString()
@@ -50,7 +51,8 @@ export class SearchApi {
   }
 
   getGtdbSearch(request: SearchGtdbRequest) {
-    return axios.get<SearchGtdbResponse>(`${apiBase}/search/gtdb${this.getGtdbSearchQueryParameters(request)}`, {timeout: apiTimeout})
+    return axios.get<SearchGtdbResponse>(`${apiBase}/search/gtdb${this.getGtdbSearchQueryParameters(request)}`,
+      {timeout: apiTimeout})
   }
 
   getGtdbSearchExportUrl(request: SearchGtdbRequest, fmt: string) {
@@ -75,6 +77,7 @@ export interface SearchGtdbRequest {
 }
 
 export interface SearchGtdbRequestUrl {
+  cacheKey: string,
   page?: string,
   itemsPerPage?: string,
   sortBy?: string,

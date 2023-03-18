@@ -2,6 +2,7 @@ import axios from "axios";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
+const apiCacheKey = process.env.apiCacheKey;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -10,16 +11,28 @@ const apiTimeout = parseInt(process.env.apiTimeout || '30000');
 export class GenomeApi {
 
   getMetadata(accession: string) {
-    return axios.get<GenomeMetadata>(`${apiBase}/genome/${encodeURIComponent(accession)}/metadata`, {timeout: apiTimeout})
+    return axios.get<GenomeMetadata>(`${apiBase}/genome/${encodeURIComponent(accession)}/metadata`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   getTaxonHistory(accession: string) {
-    return axios.get<GenomeTaxonHistory[]>(`${apiBase}/genome/${encodeURIComponent(accession)}/taxon-history`, {timeout: apiTimeout})
+    return axios.get<GenomeTaxonHistory[]>(`${apiBase}/genome/${encodeURIComponent(accession)}/taxon-history`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
 
   getCard(accession: string) {
-    return axios.get<GenomeCard>(`${apiBase}/genome/${encodeURIComponent(accession)}/card`, {timeout: apiTimeout})
+    return axios.get<GenomeCard>(`${apiBase}/genome/${encodeURIComponent(accession)}/card`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
 }

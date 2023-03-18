@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
-
+const apiCacheKey = process.env.apiCacheKey;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -11,7 +11,11 @@ const apiTimeout = parseInt(process.env.apiTimeout || '30000');
 export class UtilApi {
 
   sendContactUsEmail(payload: UtilContactEmailRequest) {
-    return axios.post(`${apiBase}/util/contact`, payload, {timeout: apiTimeout})
+    return axios.post(`${apiBase}/util/contact`, payload,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   convertTreeAccessions(payload: UtilConvertTreeAccessionsRequest) {
@@ -30,7 +34,8 @@ export class UtilApi {
       headers: {
         'Content-Type': 'multipart/form-data'
       },
-      responseType: 'blob'
+      responseType: 'blob',
+      params: {cacheKey: apiCacheKey}
     })
   }
 

@@ -3,7 +3,7 @@ import {RqJobStatus} from "~/assets/api/models";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
-
+const apiCacheKey = process.env.apiCacheKey;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -12,23 +12,39 @@ const apiTimeout = parseInt(process.env.apiTimeout || '30000');
 export class FastAniApi {
 
   newJob(payload: FastAniJobRequest) {
-    return axios.post<FastAniJobResult>(`${apiBase}/fastani`, payload)
+    return axios.post<FastAniJobResult>(`${apiBase}/fastani`, payload,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   getJob(jobId: string) {
-    return axios.get<FastAniJobResult>(`${apiBase}/fastani/${jobId}`, {timeout: 60000})
+    return axios.get<FastAniJobResult>(`${apiBase}/fastani/${jobId}`,
+      {
+        timeout: 60000,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   getJobHeatmap(jobId: string, method: string) {
-    return axios.get<FastAniJobHeatmap>(`${apiBase}/fastani/${jobId}/heatmap/${method}`, {timeout: 60000})
+    return axios.get<FastAniJobHeatmap>(`${apiBase}/fastani/${jobId}/heatmap/${method}`,
+      {
+        timeout: 60000,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   getJobCsvUrl(jobId: string) {
-    return `${apiBase}/fastani/${jobId}/csv`
+    return `${apiBase}/fastani/${jobId}/csv?cacheKey=${apiCacheKey}`
   }
 
   getConfig() {
-    return axios.get<FastAniConfig>(`${apiBase}/fastani/config`, {timeout: apiTimeout})
+    return axios.get<FastAniConfig>(`${apiBase}/fastani/config`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
 }

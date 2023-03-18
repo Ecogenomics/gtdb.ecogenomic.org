@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
-
+const apiCacheKey = process.env.apiCacheKey;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -11,7 +11,11 @@ const apiTimeout = parseInt(process.env.apiTimeout || '30000');
 export class SpeciesApi {
 
   getByName(name: string) {
-    return axios.get<SpeciesCluster>(`${apiBase}/species/search/${encodeURIComponent(name)}`, {timeout: apiTimeout})
+    return axios.get<SpeciesCluster>(`${apiBase}/species/search/${encodeURIComponent(name)}`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
 

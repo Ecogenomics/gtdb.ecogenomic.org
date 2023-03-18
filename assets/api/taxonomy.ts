@@ -2,7 +2,7 @@ import axios, {AxiosRequestConfig} from "axios";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
-
+const apiCacheKey = process.env.apiCacheKey || 1;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -11,19 +11,33 @@ const apiTimeout = parseInt(process.env.apiTimeout || '30000');
 export class TaxonomyApi {
 
   partialSearch(taxon: string) {
-    return axios.get<TaxonomyOptional>(`${apiBase}/taxonomy/partial/${taxon}`, {timeout: apiTimeout})
+    return axios.get<TaxonomyOptional>(`${apiBase}/taxonomy/partial/${taxon}`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   partialSearchAllReleases(taxon: string) {
-    return axios.get<TaxonomyOptionalRelease[]>(`${apiBase}/taxonomy/partial/${taxon}/all-releases`, {timeout: apiTimeout})
+    return axios.get<TaxonomyOptionalRelease[]>(`${apiBase}/taxonomy/partial/${taxon}/all-releases`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   notInLit() {
-    return axios.get<TaxaNotInLiterature[]>(`${apiBase}/taxonomy/not-in-literature`, {timeout: apiTimeout})
+    return axios.get<TaxaNotInLiterature[]>(`${apiBase}/taxonomy/not-in-literature`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   taxonomyCountParams(query: TaxonomyCountRequest): string {
-    const searchParams: TaxonomyCountUrl = {}
+    const searchParams: TaxonomyCountUrl = {
+      cacheKey: apiCacheKey.toString()
+    }
     if (query.page) {
       searchParams.page = query.page.toString()
     }
@@ -75,7 +89,10 @@ export class TaxonomyApi {
 
   taxonomyCount(query: TaxonomyCountRequest) {
     const params = this.taxonomyCountParams(query)
-    return axios.get<TaxonomyCountResponse>(`${apiBase}/taxonomy/count${params}`, {timeout: apiTimeout})
+    return axios.get<TaxonomyCountResponse>(`${apiBase}/taxonomy/count${params}`,
+      {
+        timeout: apiTimeout,
+      })
   }
 
   taxonomyCountDownloadUrl(query: TaxonomyCountRequest, fmt: string) {
@@ -156,6 +173,7 @@ export interface TaxonomyCountRequest {
 
 
 export interface TaxonomyCountUrl {
+  cacheKey?: string,
   page?: string,
   "items-per-page"?: string,
   "sort-by"?: string,

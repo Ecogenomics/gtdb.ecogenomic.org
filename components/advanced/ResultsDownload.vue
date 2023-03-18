@@ -3,10 +3,10 @@
     <!-- CSV -->
     <v-tooltip open-delay="150" top transition="slide-x-transition">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on"
-               elevation="0"
-               small
+        <v-btn elevation="0" small
+               v-bind="attrs"
                @click="downloadFile('csv')"
+               v-on="on"
         >
           csv
           <v-icon right>
@@ -20,36 +20,19 @@
     <!-- TSV -->
     <v-tooltip open-delay="150" top transition="slide-x-transition">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on"
-               elevation="0"
-               small
+        <v-btn elevation="0" small
+               v-bind="attrs"
                @click="downloadFile('tsv')"
+               v-on="on"
         >
           tsv
           <v-icon right>
-            {{  mdiKeyboardTabSvg  }}
+            {{ mdiKeyboardTabSvg }}
           </v-icon>
         </v-btn>
       </template>
       <span>Download results in tab-separated format</span>
     </v-tooltip>
-
-<!--    &lt;!&ndash; Excel &ndash;&gt;-->
-<!--    <v-tooltip open-delay="150" top transition="slide-x-transition">-->
-<!--      <template v-slot:activator="{ on, attrs }">-->
-<!--        <v-btn v-bind="attrs" v-on="on"-->
-<!--               elevation="0"-->
-<!--               small-->
-<!--               @click="downloadFile('excel')"-->
-<!--        >-->
-<!--          Excel-->
-<!--          <v-icon right>-->
-<!--            {{  mdiFileExcelSvg }}-->
-<!--          </v-icon>-->
-<!--        </v-btn>-->
-<!--      </template>-->
-<!--      <span>Download results in .xlsx format</span>-->
-<!--    </v-tooltip>-->
   </div>
 </template>
 
@@ -68,14 +51,15 @@ export default Vue.extend({
   methods: {
     downloadFile(format: string) {
       const [expr, args] = this.$accessor.advanced.treeAsEncodedPayload;
-      const urlParams = [];
-      urlParams.push(`exp=${encodeURIComponent(String(expr))}`)
+      const urlSearchParams: URLSearchParams = new URLSearchParams();
+      urlSearchParams.append('exp', encodeURIComponent(String(expr)));
       if (expr.length > 0 && Object.keys(args).length > 0) {
         for (const [k, v] of Object.entries(args)) {
-          urlParams.push(`${k}=${encodeURIComponent(String(v))}`);
+          urlSearchParams.append(k, encodeURIComponent(String(v)));
         }
-        const url = `${process.env.apiBase}/advanced/search/download/${format}?${urlParams.join('&')}`
-        window.open(url, "_blank")
+        const urlNew = this.$api.advanced.getSearchDownloadUrl(urlSearchParams, format);
+        console.log(urlNew);
+        window.open(urlNew, "_blank")
       }
     },
   }

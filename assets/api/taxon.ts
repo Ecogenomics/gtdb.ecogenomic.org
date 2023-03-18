@@ -1,8 +1,8 @@
-import axios, {AxiosRequestConfig} from "axios";
+import axios from "axios";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
-
+const apiCacheKey = process.env.apiCacheKey;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -10,23 +10,43 @@ const apiTimeout = parseInt(process.env.apiTimeout || '30000');
 
 export class TaxonApi {
   getTaxonName(taxon: string) {
-    return axios.get<TaxonDescendants[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}`, {timeout: apiTimeout})
+    return axios.get<TaxonDescendants[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   searchForTaxonByName(taxon: string) {
-    return axios.get<TaxonSearchResponse>(`${apiBase}/taxon/search/${encodeURIComponent(taxon)}`, {timeout: apiTimeout})
+    return axios.get<TaxonSearchResponse>(`${apiBase}/taxon/search/${encodeURIComponent(taxon)}`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   searchForTaxonByNameAllReleases(taxon: string) {
-    return axios.get<TaxonSearchResponse>(`${apiBase}/taxon/search/${encodeURIComponent(taxon)}/all-releases`, {timeout: apiTimeout})
+    return axios.get<TaxonSearchResponse>(`${apiBase}/taxon/search/${encodeURIComponent(taxon)}/all-releases`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   getPreviousReleases(taxon: string) {
-    return axios.get<TaxonPreviousReleases[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/previous-releases`, {timeout: apiTimeout})
+    return axios.get<TaxonPreviousReleases[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/previous-releases`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
   getTaxonGenomes(taxon: string, sp_reps_only: boolean) {
-    return axios.get<string[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes?sp_reps_only=${sp_reps_only}`, {timeout: apiTimeout})
+    return axios.get<string[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes?sp_reps_only=${sp_reps_only}`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
   }
 
 }

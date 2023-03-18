@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiBase = process.env.apiBase;
 const apiTimeout = parseInt(process.env.apiTimeout || '30000');
-
+const apiCacheKey = process.env.apiCacheKey;
 
 // --------------------------------------------------------------------------------------------
 // VIEW
@@ -10,19 +10,12 @@ const apiTimeout = parseInt(process.env.apiTimeout || '30000');
 
 export class SankeyApi {
 
-  getQueryParameters(request: SankeySearchRequest): string {
-    // @ts-ignore
-    const params = new URLSearchParams(request);
-    const paramsStr = params.toString();
-    if (paramsStr) {
-      return `?${paramsStr}`
-    } else {
-      return ''
-    }
-  }
-
   getSankey(request: SankeySearchRequest) {
-    return axios.get<SankeySearchResponse>(`${apiBase}/sankey${this.getQueryParameters(request)}`, {timeout: apiTimeout})
+    return axios.get<SankeySearchResponse>(`${apiBase}/sankey`,
+      {
+        timeout: apiTimeout,
+        params: {...request, ...{cacheKey: apiCacheKey}}
+      })
   }
 }
 
