@@ -406,9 +406,14 @@ export default Vue.extend({
       title: 'FAQ',
       meta: [
         {
-          hid: 'faq',
+          hid: 'description',
           name: 'description',
           content: `Frequently asked questions about the GTDB.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `faq, questions, help, gtdb`
         }
       ]
     }

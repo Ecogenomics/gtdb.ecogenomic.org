@@ -360,12 +360,17 @@ import {isDefined} from "~/assets/ts/common";
 export default Vue.extend({
   head() {
     return {
-      title: 'FastANI calculator',
+      title: 'FastANI Calculator',
       meta: [
         {
-          hid: 'tools/fastani',
+          hid: 'description',
           name: 'description',
-          content: `An interface to calculate ANI of NCBI genomes using FastANI.`
+          content: `An interface to compute pairwise ANI of NCBI genomes using the GTDB taxonomy.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `fastani, ANI, AF, average nucleotide identity, alignment fraction, pairwise, gtdb`
         }
       ]
     }

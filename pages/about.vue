@@ -296,9 +296,14 @@ export default Vue.extend({
       title: 'About',
       meta: [
         {
-          hid: 'about',
+          hid: 'description',
           name: 'description',
-          content: `Information about the Genome Taxonomy Database (GTDB).`
+          content: `Details about the Genome Taxonomy Database (GTDB).`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `about, cite, citation, reference, gtdb, taxonomy`
         }
       ]
     }

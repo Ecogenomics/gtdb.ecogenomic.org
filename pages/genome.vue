@@ -176,6 +176,7 @@ import GenomeNcbiMetadata from "~/components/genome/GenomeNcbiMetadata.vue";
 import GenomeExternalLinks from "~/components/genome/GenomeExternalLinks.vue";
 import BadgeWithTooltip from "~/components/util/BadgeWithTooltip.vue";
 import {mdiArrowCollapseRight} from "@mdi/js";
+import { MetaInfo } from 'vue-meta'
 
 const SCROLL_OFFSET = -30;
 
@@ -186,14 +187,19 @@ export default Vue.extend({
     GenomeExternalLinks,
     GenomeNcbiMetadata, GenomeCharacteristics, GenomeTaxonomicInformation, GenomeTaxonHistory
   },
-  head() {
+  head(): MetaInfo {
     return {
-      title: `${this.$route.query.gid || 'Genome'}`,
+      title: this.gid,
       meta: [
         {
-          hid: 'genomes',
+          hid: 'description',
           name: 'description',
           content: `GTDB and NCBI metadata about this genome.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `${this.gid}, genome, accession, ncbi, genome, inforomation, gid`
         }
       ]
     }

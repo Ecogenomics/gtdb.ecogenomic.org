@@ -333,9 +333,14 @@ export default Vue.extend({
       title: 'Methods',
       meta: [
         {
-          hid: 'methods',
+          hid: 'description',
           name: 'description',
           content: `Methods used in the inference of the GTDB.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `methods, inference, gtdb`
         }
       ]
     }

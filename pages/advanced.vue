@@ -74,9 +74,14 @@ export default Vue.extend({
       title: 'Advanced Search',
       meta: [
         {
-          hid: 'advanced',
+          hid: 'description',
           name: 'description',
-          content: `Perform an advanced search of the GTDB.`
+          content: `Search the Genome Taxonomy Database (GTDB) using an advanced search query interface.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `search, advanced, query, sql, gtdb`
         }
       ]
     }

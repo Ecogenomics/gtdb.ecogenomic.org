@@ -273,12 +273,17 @@ import {isDefined, JsonEqual} from "~/assets/ts/common";
 export default Vue.extend({
   head() {
     return {
-      title: 'Alphabetical table',
+      title: 'Alphabetical Table',
       meta: [
         {
-          hid: 'browsers',
+          hid: 'description',
           name: 'description',
-          content: `A list of all taxa within the GTDB and a link to their species cluster.`
+          content: `A list of all taxa in the GTDB with a link to their respective species cluster.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `table, browse, taxa, gtdb`
         }
       ]
     }

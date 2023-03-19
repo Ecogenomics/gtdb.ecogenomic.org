@@ -106,9 +106,14 @@ export default Vue.extend({
       title: 'Genome Taxonomy Database',
       meta: [
         {
-          hid: 'index',
+          hid: 'description',
           name: 'description',
           content: 'The Genome Taxonomy Database (GTDB) is an initiative to establish a standardised microbial taxonomy based on genome phylogeny.'
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `gtdb, taxonomy, phylogeny, bacteria, archaea, genomes, genome, taxonomic, classification, classification, tree, trees, tree of life, phylogenetic, phylogenetic tree, phylogenetic trees, phylogenetic tree of life`
         }
       ]
     }

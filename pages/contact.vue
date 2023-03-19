@@ -86,9 +86,14 @@ export default Vue.extend({
       title: 'Contact us',
       meta: [
         {
-          hid: 'contact',
+          hid: 'description',
           name: 'description',
-          content: `Contact the GTDB team.`
+          content: `Contact the GTDB team through the form provided on this page.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `contact us, email, contact, gtdb, staff`
         }
       ]
     }

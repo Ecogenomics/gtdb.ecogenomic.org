@@ -91,7 +91,7 @@ export default Vue.extend({
       title: 'GSC21',
       meta: [
         {
-          hid: 'gcs',
+          hid: 'description',
           name: 'description',
           content: `GCS21 conference.`
         }

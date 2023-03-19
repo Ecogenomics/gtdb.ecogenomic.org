@@ -195,9 +195,14 @@ export default Vue.extend({
       title: 'Third-party tools',
       meta: [
         {
-          hid: 'tools/index',
+          hid: 'description',
           name: 'description',
-          content: `A list of third-party tools developed that use/assist in processing the GTDB.`
+          content: `A list of third-party tools that use the GTDB taxonomy.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `scripts, tools, third-party, third party, gtdb, taxonomy`
         }
       ]
     }

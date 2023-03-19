@@ -473,12 +473,17 @@ export default Vue.extend({
   components: {StatsTitle, REDr95, SectionedPage, ImgToggle},
   head() {
     return {
-      title: 'Statistics (R95)',
+      title: 'R95 Statistics',
       meta: [
         {
-          hid: 'stats/r95',
+          hid: 'description',
           name: 'description',
           content: `Statistics describing GTDB release R95.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `R95, statistics, GTDB, release 95, stats`
         }
       ]
     }

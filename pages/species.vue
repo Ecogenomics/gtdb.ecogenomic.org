@@ -110,6 +110,7 @@
 
             <v-icon
               slot="prepend-inner"
+              :disabled="isLoading"
             >
               {{ mdiMagnifySvg }}
             </v-icon>
@@ -140,17 +141,22 @@
 import Vue from 'vue'
 import {SpeciesCluster} from "~/assets/api/species";
 import {mdiMagnify} from "@mdi/js";
-import SpeciesHeatmap from "~/components/species/SpeciesHeatmap.vue";
+import {MetaInfo} from 'vue-meta'
 
 export default Vue.extend({
-  head() {
+  head(): MetaInfo {
     return {
-      title: 'Species Cluster',
+      title: this.species,
       meta: [
         {
-          hid: 'species',
+          hid: 'description',
           name: 'description',
-          content: `A list of all genomes in this species cluster.`
+          content: `A list of all genomes in the ${this.species} species cluster.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `${this.species}, s__${this.species}, species, species cluster, cluster`
         }
       ]
     }
@@ -163,7 +169,7 @@ export default Vue.extend({
     searchString: '',
 
     // If the API call is still running
-    isLoading: false,
+    isLoading: true,
 
     // Species cluster information
     clusterData: ({} as SpeciesCluster),
@@ -186,7 +192,7 @@ export default Vue.extend({
       if (species) {
         return species as string;
       } else {
-        return 'empty'
+        return 'Loading'
       }
     },
   },

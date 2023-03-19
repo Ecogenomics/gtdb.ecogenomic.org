@@ -151,7 +151,12 @@ export default Vue.extend({
         {
           hid: 'searches',
           name: 'description',
-          content: `Results from a basic GTDB search.`
+          content: `Search results from a genome within the GTDB database.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `search, genome, genomes, find, gtdb`
         }
       ]
     }

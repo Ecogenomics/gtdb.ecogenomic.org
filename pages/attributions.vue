@@ -87,9 +87,14 @@ export default Vue.extend({
       title: 'Attributions',
       meta: [
         {
-          hid: 'attributions',
+          hid: 'description',
           name: 'description',
-          content: `Attributions to works used in the development of the GTDB website.`
+          content: `A list of attributions to third-party software used in creating the GTDB website.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `attributions, website, gtdb`
         }
       ]
     }

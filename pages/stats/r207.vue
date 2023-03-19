@@ -490,12 +490,17 @@ export default Vue.extend({
   components: {StatsTitle, REDr207, SectionedPage, ImgToggle},
   head() {
     return {
-      title: 'Statistics (R207)',
+      title: 'R207 Statistics',
       meta: [
         {
-          hid: 'stats/r207',
+          hid: 'description',
           name: 'description',
-          content: `Statistics describing GTDB release R202.`
+          content: `Statistics describing GTDB release R207.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `R207, statistics, GTDB, release 207, stats`
         }
       ]
     }

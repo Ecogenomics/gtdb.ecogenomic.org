@@ -231,9 +231,14 @@ export default Vue.extend({
       title: 'Downloads',
       meta: [
         {
-          hid: 'downloads',
+          hid: 'description',
           name: 'description',
-          content: `Links to download the GTDB and other useful resources.`
+          content: `Download GTDB release files and supplementary data.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `download, release, gtdb`
         }
       ]
     }

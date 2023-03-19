@@ -444,13 +444,18 @@ export default Vue.extend({
   components: {StatsTitle, ImgToggle, REDr89, SectionedPage},
   head() {
     return {
-      title: 'Statistics (R89)',
+      title: 'R89 Statistics',
       meta: [
       {
-        hid: 'stats/r89',
+        hid: 'description',
         name: 'description',
         content: `Statistics describing GTDB release R89.`
-      }
+      },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `R89, statistics, GTDB, release 89, stats`
+        }
     ]
     }
   },

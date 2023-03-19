@@ -54,9 +54,14 @@ export default Vue.extend({
       title: 'Taxon History',
       meta: [
         {
-          hid: 'taxon-history',
+          hid: 'description',
           name: 'description',
           content: 'Explore how a taxon has changed through GTDB releases.'
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `history, change, time, over time, previous, taxon, taxonomy`
         }
       ]
     }

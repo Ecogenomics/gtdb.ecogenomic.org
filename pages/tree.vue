@@ -370,9 +370,14 @@ export default Vue.extend({
       title: 'Tree',
       meta: [
         {
-          hid: 'tree',
+          hid: 'description',
           name: 'description',
           content: `Explore the GTDB tree in the browser.`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `tree, taxonomy, taxa, phylogenetic, gtdb`
         }
       ]
     }
