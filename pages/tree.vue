@@ -379,6 +379,13 @@ export default Vue.extend({
           name: 'keywords',
           content: `tree, taxonomy, taxa, phylogenetic, gtdb`
         }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://gtdb.ecogenomic.org/tree`,
+        }
       ]
     }
   },

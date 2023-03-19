@@ -83,6 +83,13 @@ export default Vue.extend({
           name: 'keywords',
           content: `search, advanced, query, sql, gtdb`
         }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://gtdb.ecogenomic.org/advanced`,
+        }
       ]
     }
   },

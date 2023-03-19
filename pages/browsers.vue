@@ -285,6 +285,13 @@ export default Vue.extend({
           name: 'keywords',
           content: `table, browse, taxa, gtdb`
         }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://gtdb.ecogenomic.org/browsers`,
+        }
       ]
     }
   },

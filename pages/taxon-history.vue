@@ -63,6 +63,13 @@ export default Vue.extend({
           name: 'keywords',
           content: `history, change, time, over time, previous, taxon, taxonomy`
         }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://gtdb.ecogenomic.org/taxon-history`,
+        }
       ]
     }
   },

@@ -372,6 +372,13 @@ export default Vue.extend({
           name: 'keywords',
           content: `fastani, ANI, AF, average nucleotide identity, alignment fraction, pairwise, gtdb`
         }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://gtdb.ecogenomic.org/tools/fastani`,
+        }
       ]
     }
   },

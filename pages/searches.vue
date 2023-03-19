@@ -158,6 +158,13 @@ export default Vue.extend({
           name: 'keywords',
           content: `search, genome, genomes, find, gtdb`
         }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://gtdb.ecogenomic.org/searches`,
+        }
       ]
     }
   },
