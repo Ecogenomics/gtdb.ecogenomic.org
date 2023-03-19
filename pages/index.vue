@@ -113,7 +113,7 @@ export default Vue.extend({
         {
           hid: 'keywords',
           name: 'keywords',
-          content: `gtdb, taxonomy, phylogeny, bacteria, archaea, genomes, genome, taxonomic, classification, classification, tree, trees, tree of life, phylogenetic, phylogenetic tree, phylogenetic trees, phylogenetic tree of life`
+          content: `gtdb, gtdb-tk, gtdbtk, genome taxonomy database, taxonomy, phylogeny, bacteria, archaea, genomes, genome, taxonomic, classification, classification, tree, trees, tree of life, phylogenetic, phylogenetic tree, phylogenetic trees, phylogenetic tree of life`
         }
       ]
     }

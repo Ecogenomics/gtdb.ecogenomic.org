@@ -202,7 +202,7 @@ export default Vue.extend({
         {
           hid: 'keywords',
           name: 'keywords',
-          content: `scripts, tools, third-party, third party, gtdb, taxonomy`
+          content: `gtdbtk, gtdb-tk, gtdb tk, scripts, tools, third-party, third party, gtdb, taxonomy`
         }
       ]
     }
