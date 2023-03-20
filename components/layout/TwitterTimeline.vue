@@ -1,42 +1,83 @@
 <template>
-  <div ref="container" class="fill-height w-100">
-    <template v-if="isLoaded">
-      <a
-        class="twitter-timeline"
-        data-tweet-limit="10"
-        href="https://twitter.com/ace_gtdb?ref_src=twsrc%5Etfw"
-      >
-      </a>
+  <div ref="container" class="w-100 fill-height">
+    <a
+      class="twitter-timeline"
+      data-tweet-limit="10"
+      href="https://twitter.com/ace_gtdb?ref_src=twsrc%5Etfw"
+    >
+    </a>
+    <!--    <template v-if="isLoaded">-->
+    <!--      <a-->
+    <!--        class="twitter-timeline"-->
+    <!--        data-tweet-limit="10"-->
+    <!--        href="https://twitter.com/ace_gtdb?ref_src=twsrc%5Etfw"-->
+    <!--      >-->
+    <!--      </a>-->
+    <!--    </template>-->
+    <template v-if="!isLoaded">
+      <div class="w-100 fill-height">
+        <div class="twitterHeader">Tweets from @ace_gtdb</div>
+        <div>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="article"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="article"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="article"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="article"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="article"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="article"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="article"
+          ></v-skeleton-loader>
+        </div>
+      </div>
     </template>
-    <template v-else>
-      <v-skeleton-loader
-        class="mx-auto"
-        type="card"
-      ></v-skeleton-loader>
-    </template>
-    <script src="https://platform.twitter.com/widgets.js" async></script>
+    <script async src="https://platform.twitter.com/widgets.js"></script>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import {sleep} from "~/assets/ts/common";
 
 export default Vue.extend({
   data: () => ({
     isLoaded: false,
   }),
   mounted() {
-    // const script = document.createElement('script')
-    // script.onload = () => {
-    //   this.isLoaded = true
-    // }
-    // script.async = true
-    // script.src = 'https://platform.twitter.com/widgets.js'
-    // document.head.appendChild(script)
-    this.isLoaded = true;
+    sleep(3000).then(() => {
+      this.isLoaded = true;
+    })
   },
 })
 </script>
 
 <style scoped>
+.twitterHeader {
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 12px;
+  border-bottom-color: rgb(207, 217, 222);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
 </style>

@@ -4,15 +4,18 @@
   <div class="d-flex fill-height flex-column flex-md-row">
 
     <!-- Left column (main) -->
-    <div class="gtdb-main d-flex w-md-80 flex-grow-1 flex-column">
+    <div ref="gtdbmain" class="gtdb-main d-flex w-md-80 flex-grow-1 flex-column">
 
       <!-- First row -->
       <div class="d-flex flex-column">
         <NotifyBar uid="r207">
-          *** GTDB Release 207 is now available 🎉 <NuxtLink to="/downloads" class="mx-1">download files</NuxtLink> ***
+          *** GTDB Release 207 is now available 🎉
+          <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
+          ***
         </NotifyBar>
         <NotifyBar uid="gtdbtkv2">
-          *** Now published: <a href="https://doi.org/10.1093/bioinformatics/btac672" class="mx-1" target="_blank">GTDB-Tk v2: memory friendly classification with the Genome Taxonomy Database</a> ***
+          *** Now published: <a class="mx-1" href="https://doi.org/10.1093/bioinformatics/btac672" target="_blank">GTDB-Tk
+          v2: memory friendly classification with the Genome Taxonomy Database</a> ***
         </NotifyBar>
       </div>
 
@@ -62,7 +65,6 @@
           <div style="width: 50%; height: 50%;">
             <UqLogo/>
           </div>
-
         </div>
 
         <!-- Bottom right -->
@@ -84,8 +86,8 @@
     </div>
 
     <!-- Right column (twitter) -->
-    <div class="d-flex w-md-20 flex-grow-0">
-      <TwitterTimeline style="max-height: 90vh; overflow: hidden;"></TwitterTimeline>
+    <div class="d-flex w-md-20 flex-grow-0 flex-column fill-height" style="background-color: #f7f9f9 !important">
+      <TwitterTimeline style="max-height: 90vh; overflow: auto;"></TwitterTimeline>
     </div>
 
   </div>
@@ -115,7 +117,7 @@ export default Vue.extend({
           name: 'keywords',
           content: `gtdb, gtdb-tk, gtdbtk, genome taxonomy database, taxonomy, phylogeny, bacteria, archaea, genomes, genome, taxonomic, classification, classification, tree, trees, tree of life, phylogenetic, phylogenetic tree, phylogenetic trees, phylogenetic tree of life`
         }
-      ]
+      ],
     }
   },
   data: () => ({
@@ -138,11 +140,10 @@ export default Vue.extend({
     nArcP: 18,
 
     /* Summary stats */
-    nGenomes: 6062+311480,
+    nGenomes: 6062 + 311480,
     releaseVer: '07-RS207',
-    releaseDate: '8th April 2022'
-
-  })
+    releaseDate: '8th April 2022',
+  }),
 })
 </script>
 
