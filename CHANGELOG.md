@@ -1,3 +1,19 @@
+# [2.14.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.13.0...v2.14.0) (2023-03-20)
+
+
+### Bug Fixes
+
+* **seo:** Add canonical tags to dynamic pages. ([e07331b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e07331b5d040f8c273fcbe591ff321220619e468))
+* **seo:** Add convert-accessions page to robots.txt ([077894f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/077894fd1828304f6fff8e2d3be3f92c24c4d78f))
+* **seo:** Add meta tags and keywords for SEO. ([a4e64d1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a4e64d1809ccd40e5f51c1252e94d47975f05974))
+* **seo:** Update keywords. ([1a7fa57](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1a7fa57d2d66655e84b0534e0fbf321aebf64faa))
+* **twitter:** Fix skeleton loader of twitter timeline. ([071e39f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/071e39f603d9127a6ab67738514db8a85a87d99f))
+
+
+### Features
+
+* **404:** Add static 404 page. ([55cbe1f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/55cbe1f44f2857a078d04d0af451cb0d79d2ff42))
+
 # [2.13.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.12.0...v2.13.0) (2023-03-19)
 
 
