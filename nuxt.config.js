@@ -1,24 +1,19 @@
 // Load the version
+const syncRequest = require('sync-request');
+
 const fs = require('fs')
 const packageJson = fs.readFileSync('./package.json')
 const version = JSON.parse(packageJson).version || ''
+
 import path from 'path';
 import axios from 'axios';
 
-// async function getCurrentApiVersion() {
-//   console.log('called')
-//   console.log(`${process.env.API_BASE}/meta/version`)
-//   try {
-//     const {data:response} = await axios.get(`${process.env.API_BASE}/meta/version`)
-//     console.log('apidone')
-//     return `${response.major}.${response.minor}.${response.patch}`;
-//   } catch (e) {
-//     console.log('error')
-//     console.log(e)
-//     return new Date().getTime().toString();
-//   }
-// }
 
+function loadApiVersion() {
+  const res = syncRequest('GET', `${process.env.API_BASE}/meta/version`);
+  const data = JSON.parse(res.getBody('utf8'));
+  return `${data.major}.${data.minor}.${data.patch}`;
+}
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -152,14 +147,15 @@ export default {
   env: {
     apiMessageTimeout: 10000,
     apiTimeout: 30000,  // number of ms to wait until api call fails
-    apiCacheKey: new Date().getTime(),  // used to clear the cache
+    //apiCacheKey: new Date().getTime(),  // used to clear the cache
     apiBase: process.env.API_BASE,
     envName: process.env.ENV_NAME,
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search
     captchaSiteKey: process.env.CAPTCHA_KEY,
     googleAnalyticsId: process.env.GA_TRACKING_ID,
     latestStatsPageUrl: '/stats/r207',  // this is used to point to the latest stats page,
-    nuxtVersion: version
+    nuxtVersion: version,
+    apiCacheKey: loadApiVersion(),
   },
 
   // https://github.com/nuxt/telemetry
