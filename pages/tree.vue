@@ -214,7 +214,7 @@
                       <!-- Bergeys URL -->
                       <template v-if="showBergeysUrl && item.bergeysUrl">
                         <a :href="item.bergeysUrl" style="display: contents" target="_blank">
-                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/bergeys_manual.svg" width="28"/>
+                          <img alt="Bergey's Manual icon" height="24" src="~/assets/images/logos/bergeys_manual.svg" width="24"/>
                         </a>
                       </template>
 
