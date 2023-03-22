@@ -42,10 +42,10 @@ export class TaxonApi {
   }
 
   getTaxonGenomes(taxon: string, sp_reps_only: boolean) {
-    return axios.get<string[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes?sp_reps_only=${sp_reps_only}`,
+    return axios.get<string[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes`,
       {
         timeout: apiTimeout,
-        params: {cacheKey: apiCacheKey}
+        params: {cacheKey: apiCacheKey, sp_reps_only: sp_reps_only}
       })
   }
 
