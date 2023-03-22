@@ -1,3 +1,12 @@
+## [2.14.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.14.0...v2.14.1) (2023-03-22)
+
+
+### Bug Fixes
+
+* **api:** Parameterise query string for taxon API call. ([d64f046](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d64f046c056f7d2213ea49dcd7a169436020725c))
+* **cache:** Add API version instead of time as cache key. ([9491be7](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9491be72acc67914a3704f1b7e835eb114365b29))
+* **tree:** Update Bergey's Manual icon. ([324a53d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/324a53d5c23ad849da08b8fe8a0a91bbb826413d))
+
 # [2.14.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.13.0...v2.14.0) (2023-03-20)
 
 
