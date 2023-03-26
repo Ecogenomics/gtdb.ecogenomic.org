@@ -6,7 +6,7 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          :disabled="loading"
+          :disabled="loading || !hasRows"
           class="white--text overflow-hidden"
           color="#7a8979"
           depressed
@@ -86,7 +86,8 @@ export default Vue.extend({
     ],
     rows: [] as TaxonPreviousReleases[],
     dialog: false,
-    mdiHistorySvg: mdiHistory
+    mdiHistorySvg: mdiHistory,
+    hasRows: false,
   }),
   mounted() {
     this.loadPreviousReleases(this.taxon);
@@ -103,6 +104,7 @@ export default Vue.extend({
           this.$accessor.api.defaultCatch(err);
         })
         .finally(() => {
+          this.hasRows = this.rows.length > 0;
           this.loading = false;
         });
     }
