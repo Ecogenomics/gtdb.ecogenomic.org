@@ -41,6 +41,17 @@ export class TaxonApi {
       })
   }
 
+  getPreviousReleasesPaginated(taxon: string, page: number | null, itemsPerPage: number | null) {
+    return axios.get<TaxonPreviousReleasesPaginated>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/previous-releases/paginated`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey,
+          page: page,
+          itemsPerPage: itemsPerPage
+        }
+      })
+  }
+
   getTaxonGenomes(taxon: string, sp_reps_only: boolean) {
     return axios.get<string[]>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes`,
       {
@@ -60,6 +71,12 @@ export interface TaxonPreviousReleases {
   firstSeen: string,
   lastSeen: string
 }
+
+export interface TaxonPreviousReleasesPaginated {
+  totalRows: number,
+  rows: TaxonPreviousReleases[]
+}
+
 
 export interface TaxonDescendants {
   taxon: string,
