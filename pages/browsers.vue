@@ -380,6 +380,59 @@ export default Vue.extend({
     // Watch for any changes to the query parameters
     '$route.query': {
       handler(after: object, before: object) {
+        // Check what filters are present in the query string and re-apply those filters
+        if (isDefined(after)) {
+          const query = after as Record<string, string>;
+          this.gtdbProposedNamesOnly = query["gtdb-proposed"] === "true";
+          if (query.search) {
+            this.searchString = query.search;
+          } else {
+            this.searchString = '';
+          }
+          if (query["filter-domain"]) {
+            this.filterDomain = query["filter-domain"];
+          }
+          else {
+            this.filterDomain = '';
+          }
+          if (query["filter-phylum"]) {
+            this.filterPhylum = query["filter-phylum"];
+          }
+          else {
+            this.filterPhylum = '';
+          }
+          if (query["filter-class"]) {
+            this.filterClass = query["filter-class"];
+          }
+          else {
+            this.filterClass = '';
+          }
+          if (query["filter-order"]) {
+            this.filterOrder = query["filter-order"];
+          }
+          else {
+            this.filterOrder = '';
+          }
+          if (query["filter-family"]) {
+            this.filterFamily = query["filter-family"];
+          }
+          else {
+            this.filterFamily = '';
+          }
+          if (query["filter-genus"]) {
+            this.filterGenus = query["filter-genus"];
+          }
+          else {
+            this.filterGenus = '';
+          }
+          if (query["filter-species"]) {
+            this.filterSpecies = query["filter-species"];
+          }
+          else {
+            this.filterSpecies = '';
+          }
+        }
+
         if (isDefined(after) && !JsonEqual(after, before)) {
           this.getTaxonomyCount(this.payload);
         }
