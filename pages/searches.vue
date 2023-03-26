@@ -64,7 +64,7 @@
 
           <div class="d-flex flex-row mt-3">
             <v-btn
-              :disabled="loading"
+              :disabled="loading || !hasRows"
               :href="downloadUrlTsv"
               depressed
               small
@@ -76,7 +76,7 @@
             </v-btn>
 
             <v-btn
-              :disabled="loading"
+              :disabled="loading || !hasRows"
               :href="downloadUrlCsv"
               class="ml-3"
               depressed
@@ -101,6 +101,7 @@
             dense
             loading-text="Loading..."
             multi-sort
+            @current-items="onDataTableChange"
           >
 
             <!-- Rows -->
@@ -210,7 +211,9 @@ export default Vue.extend({
     options: ({page: 1} as DataOptions),
     totalRows: 0,
 
-    lastSearchRequest: {} as SearchGtdbRequest
+    lastSearchRequest: {} as SearchGtdbRequest,
+
+    hasRows: false,
 
 
   }),
@@ -259,6 +262,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    onDataTableChange() {
+      this.hasRows = this.rows.length > 0;
+    },
     getParamsFromUrl() {
       // Gets parameters from the URL, note: includes default parameters as well
       // TODO: Define an interface
