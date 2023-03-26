@@ -42,9 +42,9 @@
         <!--        style="max-width: 300px;"-->
         <!--      ></v-text-field>-->
 
-        <ResultsDownload></ResultsDownload>
+        <ResultsDownload :disabled="totalNumberOfItems === 0"></ResultsDownload>
 
-        <NcbiGenomesDownload></NcbiGenomesDownload>
+        <NcbiGenomesDownload :disabled="totalNumberOfItems === 0"></NcbiGenomesDownload>
 
       </v-row>
     </v-card-title>
@@ -176,7 +176,7 @@ export default Vue.extend({
         this.$accessor.advanced.SET_RESULTS_SORT_DESC(value)
       }
     },
-    totalNumberOfItems() {
+    totalNumberOfItems(): number {
       return this.$accessor.advanced.results == null ? 0 : this.$accessor.advanced.results.rows.length
     },
     searchHasBeenRun() {

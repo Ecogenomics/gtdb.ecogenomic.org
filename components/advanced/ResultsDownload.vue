@@ -5,6 +5,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn elevation="0" small
                v-bind="attrs"
+               :disabled="disabled"
                @click="downloadFile('csv')"
                v-on="on"
         >
@@ -22,6 +23,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn elevation="0" small
                v-bind="attrs"
+               :disabled="disabled"
                @click="downloadFile('tsv')"
                v-on="on"
         >
@@ -43,6 +45,12 @@ import {mdiFileDelimited, mdiFileExcel, mdiKeyboardTab} from "@mdi/js";
 
 export default Vue.extend({
   name: "ResultsDownload",
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: () => ({
     mdiFileDelimitedSvg: mdiFileDelimited,
     mdiKeyboardTabSvg: mdiKeyboardTab,

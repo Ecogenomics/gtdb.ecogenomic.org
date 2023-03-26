@@ -4,8 +4,10 @@
       <v-btn
         elevation="0"
         small
+        style="margin-top: 2px; margin-left: 6px;"
         v-bind="attrs"
         @click="dialog = !dialog"
+        :disabled="disabled"
         v-on="on"
       >
         Genomes
@@ -96,6 +98,12 @@ import Vue from 'vue';
 import {mdiDownload} from '@mdi/js';
 
 export default Vue.extend({
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     mdiDownloadSvg: mdiDownload,
     dialog: false,
