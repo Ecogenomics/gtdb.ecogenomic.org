@@ -93,6 +93,13 @@ export default Vue.extend({
       ]
     }
   },
+  watch:{
+    $route (to, from){
+      if (this.$route.query) {
+        this.$accessor.advanced.setInitialStateByEncodedString(this.$route.query)
+      }
+    }
+  },
   data: () => ({
     mdiMagnifySvg: mdiMagnify,
   }),
@@ -113,6 +120,7 @@ export default Vue.extend({
     },
   },
   mounted() {
+
     // Load initial data
     this.$accessor.advanced.fetchColumns()
     this.$accessor.advanced.fetchOperators()
