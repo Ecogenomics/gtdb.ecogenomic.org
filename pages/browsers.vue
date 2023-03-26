@@ -20,12 +20,20 @@
 
           <!-- CSV Download -->
           <div class="d-flex flex-column my-auto">
-            <DownloadSvButton type="csv" @click="downloadFile('csv')"/>
+            <DownloadSvButton
+              :disabled="!hasRows"
+              type="csv"
+              @click="downloadFile('csv')"
+            />
           </div>
 
           <!-- TSV Download -->
           <div class="d-flex flex-column ml-2 my-auto">
-            <DownloadSvButton type="tsv" @click="downloadFile('tsv')"/>
+            <DownloadSvButton
+              :disabled="!hasRows"
+              type="tsv"
+              @click="downloadFile('tsv')"
+            />
           </div>
 
           <!-- Show only GTDB proposed names -->
@@ -209,6 +217,7 @@
           dense
           loading-text="Loading..."
           multi-sort
+          @current-items="onDataTableChange"
         >
 
           <template v-slot:item.d="{ item }">
@@ -363,6 +372,8 @@ export default Vue.extend({
     filterFamily: '',
     filterGenus: '',
     filterSpecies: '',
+
+    hasRows: false,
   }),
 
   watch: {
@@ -487,6 +498,9 @@ export default Vue.extend({
   },
 
   methods: {
+    onDataTableChange(e: TaxonomyCount[]) {
+      this.hasRows = e.length > 0;
+    },
 
     // Opens / closes the filter columns menu
     toggleColumnSearch() {

@@ -7,6 +7,7 @@
         small
         v-bind="attrs"
         @click="buttonClicked"
+        :disabled="disabled"
         v-on="on"
       >
         <template v-if="type === 'csv'">
@@ -43,6 +44,11 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    }
   },
   data: () => ({
     mdiFileDelimitedSvg: mdiFileDelimited,
