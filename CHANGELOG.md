@@ -1,3 +1,20 @@
+# [2.15.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.14.1...v2.15.0) (2023-03-26)
+
+
+### Bug Fixes
+
+* **advanced:** Fix margin issues for the download genome button. ([3817017](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3817017b8f0437a476a26f69516ad40dd0650e5c))
+* **advanced:** Re-run query when route changes. ([272ef7e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/272ef7e9deb22bbfa2dbe5ec657047ee8eb529a9))
+* **browsers:** Disable download buttons when there are no rows. ([cbdaa7b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/cbdaa7b40c9c3627a86021c71d0f7fe088bf7c1a))
+* **browsers:** Update table filters based on forward/backwards navigation. ([35b00fa](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/35b00faaab4579b96b2c2ad8cd04d9e568352366))
+* **searches:** Disable download when no rows are available. ([6d18ef3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6d18ef3bd6c0f75f0391159a6efd35308f541a77))
+* **searches:** Disable results from previous releases when no data are available. ([8347d6e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8347d6e134ffc1617b515a343001d778f63fbfd7))
+
+
+### Features
+
+* **previous-releases:** Add pagination to the previous releases modal. ([785c6fa](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/785c6fa063bba6e27e8255cad19b40a090f43008))
+
 ## [2.14.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.14.0...v2.14.1) (2023-03-22)
 
 
