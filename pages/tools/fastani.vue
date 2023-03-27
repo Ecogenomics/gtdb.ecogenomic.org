@@ -148,6 +148,61 @@
                   </v-card>
                 </v-dialog>
 
+                <!-- FastANI priority queue -->
+                <v-dialog
+                  v-model="modalFastAniPriorityQueueVisible"
+                  width="700"
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      class="ml-3"
+                      color="#5a6855"
+                      dark
+                      depressed
+                      small
+                      v-bind="attrs"
+                      @click="modalFastAniPriorityQueueVisible"
+                      v-on="on"
+                    >
+                      <v-icon left>
+                        {{ mdiExclamationSvg }}
+                      </v-icon>
+                      Priority queue
+                    </v-btn>
+                  </template>
+
+                  <v-card>
+                    <v-card-title class="text-h5 grey lighten-2">
+                      Priority Queue
+                    </v-card-title>
+
+                    <v-card-text>
+                      <div class="mt-4">
+                        If you have been given the priority queue secret key, enter it below:
+                      </div>
+                        <v-text-field
+                          v-model="fastAniPriorityQueueSecret"
+                          class="mt-5"
+                          label="Priority queue secret key"
+                          outlined
+                        />
+                    </v-card-text>
+
+                    <v-divider></v-divider>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        color="primary"
+                        text
+                        @click="savePriorityQueueModal"
+                      >
+                        Save
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+
 
                 <v-row class="mt-5" no-gutters>
                   <v-col class="pr-5" cols="6">
@@ -345,7 +400,7 @@ import FragLength from "~/components/fastani/FragLength.vue";
 import FastAniResults from "~/components/fastani/FastAniResults.vue";
 import {
   mdiChartScatterPlotHexbin,
-  mdiCog,
+  mdiCog, mdiExclamation,
   mdiHandshake,
   mdiMagnify,
   mdiPlusThick,
@@ -413,6 +468,7 @@ export default Vue.extend({
     mdiHandshakeSvg: mdiHandshake,
     mdiPlusThickSvg: mdiPlusThick,
     mdiChartScatterPlotHexbinSvg: mdiChartScatterPlotHexbin,
+    mdiExclamationSvg: mdiExclamation,
 
     // Default form values
     minAlignedFragments: 50,
@@ -448,6 +504,10 @@ export default Vue.extend({
     addGenomesFromTaxonLoading: false,
     addGenomesFromTaxonSpReps: true,
 
+    // FastANI priority queue
+    modalFastAniPriorityQueueVisible: false,
+    fastAniPriorityQueueSecret: '',
+    fastAniPriorityQueueCookieName: 'fastAniPriorityQueueSecret',
   }),
   computed: {
     // Returns True if the form can be submitted
@@ -480,7 +540,7 @@ export default Vue.extend({
           min_frac: this.minAlignmentFraction,
           version: this.fastAniVersion
         },
-        priority: (this.$route.query['secret'] as string) || 'N/A'
+        priority: this.fastAniPriorityQueueSecret
       }
     },
     curNumPairwise(): number {
@@ -587,12 +647,27 @@ export default Vue.extend({
           })
       }
     },
+    savePriorityQueueModal() {
+      this.modalFastAniPriorityQueueVisible = false;
+      this.$cookies.set(this.fastAniPriorityQueueCookieName, this.fastAniPriorityQueueSecret, {
+        path: '/',
+        maxAge: 31536000, // 1 year
+        sameSite: true,
+      });
+    }
   },
   mounted() {
+    // Load the Job ID
     const jobId = this.$route.query['job-id'];
     if (isDefined(jobId) && jobId.length == 36) {
       this.jobId = jobId as string;
       this.getAndSetContentFromJobId();
+    }
+
+    // Load the priority queue (if the cookie is present)
+    const fastAniPriorityQCookie = this.$cookies.get(this.fastAniPriorityQueueCookieName);
+    if (fastAniPriorityQCookie) {
+      this.fastAniPriorityQueueSecret = fastAniPriorityQCookie;
     }
   }
 })
