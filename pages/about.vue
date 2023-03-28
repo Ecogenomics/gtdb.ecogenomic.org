@@ -136,7 +136,7 @@
                   <img alt="Phil Hugenholtz" src="~/assets/images/gtdb-team/phil.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://ecogenomic.org/personnel/prof-phil-hugenholtz" target="_blank">Phil Hugenholtz</a>
+                  <a href="https://scmb.uq.edu.au/profile/324/phil-hugenholtz" target="_blank">Phil Hugenholtz</a>
                 </template>
               </AboutAvatar>
 
@@ -146,7 +146,7 @@
                   <img alt="Maria Chuvochina" src="~/assets/images/gtdb-team/maria.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://ecogenomic.org/personnel/dr-maria-chuvochina" target="_blank">Maria Chuvochina</a>
+                  <a href="https://scmb.uq.edu.au/profile/1458/maria-chuvochina" target="_blank">Maria Chuvochina</a>
                 </template>
               </AboutAvatar>
 
@@ -156,7 +156,7 @@
                   <img alt="Christian Rinke" src="~/assets/images/gtdb-team/chris.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://ecogenomic.org/personnel/dr-christian-rinke" target="_blank">Christian Rinke</a>
+                  <a href="https://scmb.uq.edu.au/profile/513/chris-rinke" target="_blank">Christian Rinke</a>
                 </template>
               </AboutAvatar>
             </div>
@@ -175,7 +175,7 @@
                   <img alt="Donovan Parks" src="~/assets/images/gtdb-team/donovan.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://ecogenomic.org/personnel/dr-donovan-parks" target="_blank">Donovan Parks</a>
+                  <a href="https://scholar.google.com.au/citations?user=A87iE7wAAAAJ" target="_blank">Donovan Parks</a>
                 </template>
               </AboutAvatar>
 
@@ -185,7 +185,7 @@
                   <img alt="Pierre Chaumeil" src="~/assets/images/gtdb-team/pierre.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://ecogenomic.org/personnel/mr-pierre-chaumeil" target="_blank">Pierre Chaumeil</a>
+                  <a href="https://scmb.uq.edu.au/profile/1278/pierre-alain-chaumeil" target="_blank">Pierre Chaumeil</a>
                 </template>
               </AboutAvatar>
 
@@ -195,7 +195,7 @@
                   <img alt="Aaron Mussig" src="~/assets/images/gtdb-team/aaron.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://ecogenomic.org/personnel/mr-aaron-mussig" target="_blank">Aaron Mussig</a>
+                  <a href="https://scholar.google.com.au/citations?user=-wSKhB0AAAAJ" target="_blank">Aaron Mussig</a>
                 </template>
               </AboutAvatar>
             </div>
@@ -214,7 +214,7 @@
                   <img alt="Adam Skarshewski" src="~/assets/images/gtdb-team/adam.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://ecogenomic.org/personnel/mr-adam-skarshewski" target="_blank">Adam Skarshewski</a>
+                  Adam Skarshewski
                 </template>
               </AboutAvatar>
             </div>
