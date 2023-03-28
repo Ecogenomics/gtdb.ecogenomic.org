@@ -1,3 +1,11 @@
+# [2.16.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.15.0...v2.16.0) (2023-03-28)
+
+
+### Features
+
+* **fastani:** Add low priority and fix table sorting. ([80070f4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/80070f4f9f82d62365d29e5ef6cbc59b3e56766b))
+* **fastani:** Add modal to set priority queue secret. ([6122bd1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6122bd137fc39872a3ece40442e388efe6a4f513))
+
 # [2.15.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.14.1...v2.15.0) (2023-03-26)
 
 
