@@ -1,3 +1,15 @@
+# [2.17.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.16.0...v2.17.0) (2023-03-28)
+
+
+### Bug Fixes
+
+* **about:** Broken ecogenomics.org links now redirect to SCMB/google scholar. ([f696eb9](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f696eb97cffbcd667b5189874fef87e482da9016))
+
+
+### Features
+
+* **tree:** Track show Bergey's Manual clicks. ([44d9af6](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/44d9af6f42425944176d909da11e0cbfd36bb277))
+
 # [2.16.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.15.0...v2.16.0) (2023-03-28)
 
 
