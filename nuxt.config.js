@@ -146,7 +146,7 @@ export default {
   // Environment variables
   env: {
     apiMessageTimeout: 10000,
-    apiTimeout: 30000,  // number of ms to wait until api call fails
+    apiTimeout: 60000,  // number of ms to wait until api call fails
     //apiCacheKey: new Date().getTime(),  // used to clear the cache
     apiBase: process.env.API_BASE,
     envName: process.env.ENV_NAME,

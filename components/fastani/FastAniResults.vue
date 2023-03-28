@@ -33,6 +33,8 @@
     <v-btn
       :disabled="!areJobsRunning"
       :loading="isManualRefreshLoading || isRefreshQueryStillRunning"
+      class="white--text"
+      color="#5a6855"
       depressed
       small
       @click="manualRefresh"
@@ -45,7 +47,8 @@
 
     <v-btn
       :href="downloadCsvUrl"
-      class="ml-2"
+      class="ml-2 white--text"
+      color="#5a6855"
       depressed
       small
     >
@@ -124,10 +127,10 @@
 
       <!-- ANI row -->
       <template v-slot:item.ani="{ item }">
-        <template v-if="item.qvr.data.ani">
-          {{ item.qvr.data.ani }}
+        <template v-if="item.ani">
+          {{ item.ani }}
         </template>
-        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
+        <template v-else-if="!isStatusFinished(item.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -141,10 +144,10 @@
 
       <!-- AF row -->
       <template v-slot:item.af="{ item }">
-        <template v-if="item.qvr.data.af">
-          {{ item.qvr.data.af }}
+        <template v-if="item.af">
+          {{ item.af }}
         </template>
-        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
+        <template v-else-if="!isStatusFinished(item.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -159,10 +162,10 @@
 
       <!-- Mapped fragments row -->
       <template v-slot:item.mapped="{ item }">
-        <template v-if="item.qvr.data.mapped">
-          {{ item.qvr.data.mapped }}
+        <template v-if="item.mapped">
+          {{ item.mapped }}
         </template>
-        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
+        <template v-else-if="!isStatusFinished(item.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -178,10 +181,10 @@
       <template v-slot:item.total="{ item }">
 
 
-        <template v-if="item.qvr.data.total">
-          {{ item.qvr.data.total }}
+        <template v-if="item.total">
+          {{ item.total }}
         </template>
-        <template v-else-if="!isStatusFinished(item.qvr.data.status)">
+        <template v-else-if="!isStatusFinished(item.status)">
           <v-chip color="gray" small text-color="black">
             -
           </v-chip>
@@ -199,28 +202,28 @@
 
 
         <!-- Ungrouped results -->
-        <template v-if="isStatusQueued(item.qvr.data.status)">
+        <template v-if="isStatusQueued(item.status)">
           <v-chip color="gray" small text-color="black">
             queued
           </v-chip>
         </template>
-        <template v-else-if="isStatusRunning(item.qvr.data.status)">
+        <template v-else-if="isStatusRunning(item.status)">
           <v-chip color="orange" small text-color="white">
             running
           </v-chip>
         </template>
-        <template v-else-if="isStatusStopped(item.qvr.data.status)">
+        <template v-else-if="isStatusStopped(item.status)">
           <v-chip color="red" small text-color="white">
             failed
           </v-chip>
         </template>
-        <template v-else-if="isStatusFinished(item.qvr.data.status)">
+        <template v-else-if="isStatusFinished(item.status)">
           <v-chip color="green" small text-color="white">
             finished
           </v-chip>
         </template>
         <template v-else>
-          {{ item.qvr.data.status }}
+          {{ item.status }}
         </template>
 
       </template>
@@ -228,8 +231,8 @@
       <!-- logs row -->
       <template v-slot:item.logs="{ item }">
         <FastAniLogsModal
-          :stderr="item.qvr.data.stderr"
-          :cmd="item.qvr.data.cmd"
+          :cmd="item.cmd"
+          :stderr="item.stderr"
           class="ml-1"
         />
       </template>
@@ -325,7 +328,6 @@ import {
   mdiSortNumericAscending,
   mdiSortNumericDescending
 } from "@mdi/js";
-import {FastAniResult, FastAniResultData} from "~/assets/api/fastani";
 import FastAniLogsModal from "~/components/fastani/FastAniLogsModal.vue";
 import {isDefined, sleep} from "~/assets/ts/common";
 
@@ -337,13 +339,19 @@ interface TableRow {
   id: number,
   query: string,
   reference: string,
-  qvr: FastAniResult,
-  rvq: FastAniResult | null,
+  ani: number,
+  af: number,
+  mapped: number,
+  total: number,
+  status: string,
+  stdout: string,
+  stderr: string,
+  cmd: string,
 
 }
 
-const FAIL_STATUS = [RqJobStatus.FAILED, RqJobStatus.DEFERRED, RqJobStatus.STOPPED, RqJobStatus.CANCELED]
-const QUEUE_STATUS = [RqJobStatus.QUEUED, RqJobStatus.SCHEDULED]
+// const FAIL_STATUS = [RqJobStatus.FAILED, RqJobStatus.DEFERRED, RqJobStatus.STOPPED, RqJobStatus.CANCELED]
+// const QUEUE_STATUS = [RqJobStatus.QUEUED, RqJobStatus.SCHEDULED]
 
 
 export default Vue.extend({
@@ -388,110 +396,127 @@ export default Vue.extend({
       {text: "Mapped Fragments", value: "mapped"},
       {text: "Total Fragments", value: "total"},
       {text: "Status", value: "status"},
-      {text: "Logs", value: "logs"}
+      {text: "Logs", value: "logs", sortable: false}
     ],
     results: ([] as TableRow[]),
   }),
   methods: {
 
-    getGroupedMappedFrags(qvr: FastAniResultData, rvq: FastAniResultData): number {
-      let largest: null | FastAniResultData = null;
-      if (qvr.af && rvq.af) {
-        if (qvr.af > rvq.af) {
-          largest = qvr;
-        } else {
-          largest = rvq;
-        }
-      } else if (qvr.af) {
-        largest = qvr
-      } else if (rvq.af) {
-        largest = rvq
-      } else {
-        return 0;
-      }
-      return largest.mapped;
+    customSort(items: TableRow[], index: string[], isDesc: boolean[]) {
+      console.log(items)
+      console.log(index)
+      console.log(isDesc)
+      return items;
+      // items.sort((a, b) => {
+      //   if (index === "date") {
+      //     if (!isDesc) {
+      //       return compare(a.date, b.date);
+      //     } else {
+      //       return compare(b.date, a.date);
+      //     }
+      //   }
+      // });
+      // return items;
     },
 
-    getGroupedTotalFrags(qvr: FastAniResultData, rvq: FastAniResultData): number {
-      let largest: null | FastAniResultData = null;
-      if (qvr.af && rvq.af) {
-        if (qvr.af > rvq.af) {
-          largest = qvr;
-        } else {
-          largest = rvq;
-        }
-      } else if (qvr.af) {
-        largest = qvr
-      } else if (rvq.af) {
-        largest = rvq
-      } else {
-        return 0;
-      }
-      return largest.total;
-    },
-
-    isGroupedStatusFinished(qvr: FastAniResult, rvq: FastAniResult | null): boolean {
-      if (rvq === null) {
-        return this.isStatusFinished(qvr.data.status);
-      } else {
-        return this.isStatusFinished(qvr.data.status) && this.isStatusFinished(rvq.data.status);
-      }
-    },
-
-    // Starts a new auto-refresh interval if it is not already running, otherwise disables it
-    toggleAutoRefresh() {
-      if (!this.isAutoRefreshEnabled) {
-        this.startNewAutoRefreshInterval();
-      }
-      this.isAutoRefreshEnabled = !this.isAutoRefreshEnabled;
-    },
-
-    // Group forward and reverse results together and display the max value
-    toggleGroupResults() {
-      this.shouldGroupResults = !this.shouldGroupResults;
-      this.manualRefresh();
-    },
-
-    groupResults() {
-      const newResults = [] as TableRow[];
-
-      // Generate a mapping from reference to query
-      const queryToRefMap = new Map<string, Map<string, number>>();
-      for (let i = 0; i < this.results.length; i++) {
-        const curResult = this.results[i];
-        if (!queryToRefMap.has(curResult.query)) {
-          queryToRefMap.set(curResult.query, new Map<string, number>());
-        }
-        //@ts-ignore
-        queryToRefMap.get(curResult.query).set(curResult.reference, i);
-      }
-
-      // Group the results
-      const setOfDonePairs = new Set<number>();
-      for (let i = 0; i < this.results.length; i++) {
-        const curResult = this.results[i];
-
-        // Skip those where the rvq has already been stored
-        if (setOfDonePairs.has(i)) {
-          continue;
-        }
-
-        // Get the reverse mapping for this
-        const reverseMap = queryToRefMap.get(curResult.reference);
-        if (reverseMap) {
-          const reverseIdx = reverseMap.get(curResult.query);
-          if (reverseIdx != undefined) {
-            curResult.rvq = this.results[reverseIdx].qvr;
-            setOfDonePairs.add(reverseIdx);
-          }
-        }
-        newResults.push(curResult);
-      }
-
-      // Return the new results
-      console.log(newResults);
-      return newResults;
-    },
+    // getGroupedMappedFrags(qvr: FastAniResultData, rvq: FastAniResultData): number {
+    //   let largest: null | FastAniResultData = null;
+    //   if (qvr.af && rvq.af) {
+    //     if (qvr.af > rvq.af) {
+    //       largest = qvr;
+    //     } else {
+    //       largest = rvq;
+    //     }
+    //   } else if (qvr.af) {
+    //     largest = qvr
+    //   } else if (rvq.af) {
+    //     largest = rvq
+    //   } else {
+    //     return 0;
+    //   }
+    //   return largest.mapped;
+    // },
+    //
+    // getGroupedTotalFrags(qvr: FastAniResultData, rvq: FastAniResultData): number {
+    //   let largest: null | FastAniResultData = null;
+    //   if (qvr.af && rvq.af) {
+    //     if (qvr.af > rvq.af) {
+    //       largest = qvr;
+    //     } else {
+    //       largest = rvq;
+    //     }
+    //   } else if (qvr.af) {
+    //     largest = qvr
+    //   } else if (rvq.af) {
+    //     largest = rvq
+    //   } else {
+    //     return 0;
+    //   }
+    //   return largest.total;
+    // },
+    //
+    // isGroupedStatusFinished(qvr: FastAniResult, rvq: FastAniResult | null): boolean {
+    //   if (rvq === null) {
+    //     return this.isStatusFinished(qvr.data.status);
+    //   } else {
+    //     return this.isStatusFinished(qvr.data.status) && this.isStatusFinished(rvq.data.status);
+    //   }
+    // },
+    //
+    // // Starts a new auto-refresh interval if it is not already running, otherwise disables it
+    // toggleAutoRefresh() {
+    //   if (!this.isAutoRefreshEnabled) {
+    //     this.startNewAutoRefreshInterval();
+    //   }
+    //   this.isAutoRefreshEnabled = !this.isAutoRefreshEnabled;
+    // },
+    //
+    // // Group forward and reverse results together and display the max value
+    // toggleGroupResults() {
+    //   this.shouldGroupResults = !this.shouldGroupResults;
+    //   this.manualRefresh();
+    // },
+    //
+    // groupResults() {
+    //   const newResults = [] as TableRow[];
+    //
+    //   // Generate a mapping from reference to query
+    //   const queryToRefMap = new Map<string, Map<string, number>>();
+    //   for (let i = 0; i < this.results.length; i++) {
+    //     const curResult = this.results[i];
+    //     if (!queryToRefMap.has(curResult.query)) {
+    //       queryToRefMap.set(curResult.query, new Map<string, number>());
+    //     }
+    //     //@ts-ignore
+    //     queryToRefMap.get(curResult.query).set(curResult.reference, i);
+    //   }
+    //
+    //   // Group the results
+    //   const setOfDonePairs = new Set<number>();
+    //   for (let i = 0; i < this.results.length; i++) {
+    //     const curResult = this.results[i];
+    //
+    //     // Skip those where the rvq has already been stored
+    //     if (setOfDonePairs.has(i)) {
+    //       continue;
+    //     }
+    //
+    //     // Get the reverse mapping for this
+    //     const reverseMap = queryToRefMap.get(curResult.reference);
+    //     if (reverseMap) {
+    //       const reverseIdx = reverseMap.get(curResult.query);
+    //       if (reverseIdx != undefined) {
+    //         curResult.rvq = this.results[reverseIdx].qvr;
+    //         setOfDonePairs.add(reverseIdx);
+    //       }
+    //     }
+    //     newResults.push(curResult);
+    //   }
+    //
+    //   // Return the new results
+    //   console.log(newResults);
+    //   return newResults;
+    // },
 
     // Do a manual refresh of the data, force the user to wait a few seconds.
     manualRefresh() {
@@ -540,8 +565,14 @@ export default Vue.extend({
             id: i,
             query: result.query,
             reference: result.reference,
-            qvr: result,
-            rvq: null,
+            ani: result.data.ani,
+            af: result.data.af,
+            mapped: result.data.mapped,
+            total: result.data.total,
+            status: result.data.status,
+            stdout: result.data.stdout,
+            stderr: result.data.stderr,
+            cmd: result.data.cmd,
           } as TableRow;
           newResults.push(curRow);
 

@@ -42,12 +42,13 @@
                   comparison groups.
                 </p>
                 <p>
-                  Note that a maximum of <b>{{ fastAniMaxPairwise }}</b> pairwise comparisons are allowed
-                  ({{ curNumPairwise.toLocaleString() }} used).
+                  Note that requests that use more than <b>{{ fastAniMaxPairwise.toLocaleString() }}</b> pairwise
+                  comparisons will be processed in the low priority queue ({{ curNumPairwise.toLocaleString() }} used).
                 </p>
                 <v-btn
+                  :disabled="isJobLoading"
+                  class="white--text"
                   color="#5a6855"
-                  dark
                   depressed
                   small
                   @click="loadExample"
@@ -64,9 +65,9 @@
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                      class="ml-3"
+                      :disabled="isJobLoading"
+                      class="ml-3 white--text"
                       color="#5a6855"
-                      dark
                       depressed
                       small
                       v-bind="attrs"
@@ -112,8 +113,8 @@
                       </v-row>
                       <v-row no-gutters>
                         <v-checkbox
-                          class="ml-2"
                           v-model="addGenomesFromTaxonSpReps"
+                          class="ml-2"
                           label="Only include species representatives"
                         ></v-checkbox>
                       </v-row>
@@ -155,9 +156,9 @@
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                      class="ml-3"
+                      :disabled="isJobLoading"
+                      class="ml-3 white--text"
                       color="#5a6855"
-                      dark
                       depressed
                       small
                       v-bind="attrs"
@@ -180,12 +181,12 @@
                       <div class="mt-4">
                         If you have been given the priority queue secret key, enter it below:
                       </div>
-                        <v-text-field
-                          v-model="fastAniPriorityQueueSecret"
-                          class="mt-5"
-                          label="Priority queue secret key"
-                          outlined
-                        />
+                      <v-text-field
+                        v-model="fastAniPriorityQueueSecret"
+                        class="mt-5"
+                        label="Priority queue secret key"
+                        outlined
+                      />
                     </v-card-text>
 
                     <v-divider></v-divider>
@@ -208,28 +209,30 @@
                   <v-col class="pr-5" cols="6">
                     <v-textarea
                       v-model="textareaGroupA"
-                      auto-grow
+                      :disabled="isJobLoading"
                       clearable
                       hint="e.g. GCA_000005845.2"
                       label="First comparison group"
                       outlined
+                      rows="10"
                     ></v-textarea>
                   </v-col>
                   <v-col class="pl-5" cols="6">
                     <v-textarea
                       v-model="textareaGroupB"
-                      auto-grow
+                      :disabled="isJobLoading"
                       clearable
                       hint="e.g. GCF_002949675.1"
                       label="Second comparison group"
                       outlined
+                      rows="10"
                     ></v-textarea>
                   </v-col>
                 </v-row>
 
                 <v-row justify="center" no-gutters>
                   <v-btn
-                    :disabled="isSubmitButtonDisabled || !isFormValid"
+                    :disabled="isSubmitButtonDisabled || !isFormValid || isJobLoading"
                     :loading="isSubmitButtonLoading"
                     class="w-20 text--white"
                     depressed
@@ -400,7 +403,8 @@ import FragLength from "~/components/fastani/FragLength.vue";
 import FastAniResults from "~/components/fastani/FastAniResults.vue";
 import {
   mdiChartScatterPlotHexbin,
-  mdiCog, mdiExclamation,
+  mdiCog,
+  mdiExclamation,
   mdiHandshake,
   mdiMagnify,
   mdiPlusThick,
@@ -451,12 +455,24 @@ export default Vue.extend({
 
     // FastANI Config
     const fastAniConfig = await $api.fastani.getConfig();
-    const fastAniMaxPairwise = fastAniConfig.data.maxPairwise.toLocaleString();
+    const fastAniMaxPairwise = fastAniConfig.data.maxPairwise;
 
     // Merge with data
     return {
       fastAniMaxPairwise,
     }
+  },
+
+  watch: {
+    // Watch for any changes to the query parameters
+    '$route.query': {
+      handler(after: object, before: object) {
+        // Check what filters are present in the query string and re-apply those filters
+        if (isDefined(after) && after !== before) {
+          this.getAndSetContentFromJobId();
+        }
+      }
+    },
   },
 
   data: () => ({
@@ -485,6 +501,7 @@ export default Vue.extend({
     // Form management
     isSubmitButtonDisabled: false,
     isSubmitButtonLoading: false,
+    isJobLoading: true,
 
     // Error handling
     snackbar: false,
@@ -494,7 +511,7 @@ export default Vue.extend({
     openSectionIndex: [0],
 
     // Config
-    fastAniMaxPairwise: '1000',
+    fastAniMaxPairwise: 1000,
 
     // Add genomes from taxon button
     modalAddGenomesFromTaxonVisible: false,
@@ -550,16 +567,26 @@ export default Vue.extend({
     }
   },
   methods: {
-    async getAndSetContentFromJobId() {
+    getAndSetContentFromJobId() {
       if (isDefined(this.jobId) && this.jobId.length == 36) {
-        this.openSectionIndex = [3];
+        this.openSectionIndex = [2];
+        this.isJobLoading = true;
+
         this.$api.fastani.getJob(this.jobId).then(resp => {
+
           // Set the input to be the genomes used in the Job
           if (resp.data.group_1) {
             this.textareaGroupA = resp.data.group_1.join('\n');
           }
           if (resp.data.group_2) {
             this.textareaGroupB = resp.data.group_2.join('\n');
+          }
+
+          // Set the target panel to be opened
+          if ((resp.data.group_1.length * resp.data.group_2.length > this.fastAniMaxPairwise) || (resp.data.group_1.length > 100 || resp.data.group_2.length > 100)) {
+            this.openSectionIndex = [2];
+          } else {
+            this.openSectionIndex = [3];
           }
 
           // Set parameters
@@ -585,6 +612,9 @@ export default Vue.extend({
           .catch((err) => {
             this.$accessor.api.defaultCatch(err);
           })
+          .finally(() => {
+            this.isJobLoading = false;
+          });
       }
     },
     textAreaToAccessions(textarea: string): string[] {
@@ -605,13 +635,21 @@ export default Vue.extend({
     submitRequest() {
       this.isSubmitButtonDisabled = true;
       this.isSubmitButtonLoading = true;
+      this.isJobLoading = true;
       this.$api.fastani.newJob(this.payload)
         .then((resp) => {
           // Add the JobID to the current URL
           const encodedExp = encodeURIComponent(String(resp.data.job_id))
           history.pushState({}, "", `${this.$route.path}?job-id=${encodedExp}`);
           this.jobId = resp.data.job_id;
-          this.openSectionIndex = [3];
+
+          // Set the target panel to be opened
+          if ((resp.data.group_1.length * resp.data.group_2.length > this.fastAniMaxPairwise) || (resp.data.group_1.length > 100 || resp.data.group_2.length > 100)) {
+            this.openSectionIndex = [2];
+          } else {
+            this.openSectionIndex = [3];
+          }
+
         })
         .catch((err) => {
           this.$accessor.api.defaultCatch(err);
@@ -619,6 +657,7 @@ export default Vue.extend({
         .finally(() => {
           this.isSubmitButtonDisabled = false;
           this.isSubmitButtonLoading = false;
+          this.isJobLoading = false;
         })
     },
     addGenomesFromTaxonToGroup() {
@@ -662,6 +701,8 @@ export default Vue.extend({
     if (isDefined(jobId) && jobId.length == 36) {
       this.jobId = jobId as string;
       this.getAndSetContentFromJobId();
+    } else {
+      this.isJobLoading = false;
     }
 
     // Load the priority queue (if the cookie is present)
