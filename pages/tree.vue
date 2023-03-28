@@ -315,6 +315,7 @@
                     dense
                     hide-details
                     label="Bergey's Manual"
+                    @click="onShowBergeysUrl"
                   >
                     <template v-slot:append>
                       <TreePopUpBergeysHelp class="ml-3 my-auto"></TreePopUpBergeysHelp>
@@ -578,6 +579,12 @@ export default Vue.extend({
     initFromUrlParams() {
       if (this.$route.query.r) {
         return this.openTreeToTaxon(this.$route.query.r.toString());
+      }
+    },
+
+    onShowBergeysUrl() {
+      if (this.showBergeysUrl) {
+        this.$plausible.trackEvent("Show Bergey's Manual");
       }
     },
   },
