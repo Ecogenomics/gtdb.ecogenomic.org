@@ -43,7 +43,8 @@
                 </p>
                 <p>
                   Note that requests that use more than <b>{{ fastAniMaxPairwise.toLocaleString() }}</b> pairwise
-                  comparisons will be processed in the low priority queue ({{ curNumPairwise.toLocaleString() }} used).
+                  comparisons will be processed in the low priority queue (<b>{{ curNumPairwise.toLocaleString() }}</b> used).<br>
+                  There is a maximum of <b>{{ fastAniMaxPairwiseLow.toLocaleString() }}</b> pairwise comparisons allowed in total.
                 </p>
                 <v-btn
                   :disabled="isJobLoading"
@@ -228,6 +229,15 @@
                       rows="10"
                     ></v-textarea>
                   </v-col>
+                </v-row>
+
+                <v-row justify="center" no-gutters>
+                  <v-text-field
+                    v-model="email"
+                    label="E-mail (optional)"
+                    outlined
+                    clearable
+                  ></v-text-field>
                 </v-row>
 
                 <v-row justify="center" no-gutters>
@@ -456,10 +466,12 @@ export default Vue.extend({
     // FastANI Config
     const fastAniConfig = await $api.fastani.getConfig();
     const fastAniMaxPairwise = fastAniConfig.data.maxPairwise;
+    const fastAniMaxPairwiseLow = fastAniConfig.data.maxPairwiseLow;
 
     // Merge with data
     return {
       fastAniMaxPairwise,
+      fastAniMaxPairwiseLow
     }
   },
 
@@ -512,6 +524,7 @@ export default Vue.extend({
 
     // Config
     fastAniMaxPairwise: 1000,
+    fastAniMaxPairwiseLow: 10000,
 
     // Add genomes from taxon button
     modalAddGenomesFromTaxonVisible: false,
@@ -525,6 +538,8 @@ export default Vue.extend({
     modalFastAniPriorityQueueVisible: false,
     fastAniPriorityQueueSecret: '',
     fastAniPriorityQueueCookieName: 'fastAniPriorityQueueSecret',
+
+    email: '',
   }),
   computed: {
     // Returns True if the form can be submitted
@@ -557,7 +572,8 @@ export default Vue.extend({
           min_frac: this.minAlignmentFraction,
           version: this.fastAniVersion
         },
-        priority: this.fastAniPriorityQueueSecret
+        priority: this.fastAniPriorityQueueSecret,
+        email: this.email
       }
     },
     curNumPairwise(): number {

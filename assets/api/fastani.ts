@@ -58,6 +58,7 @@ export interface FastAniJobRequest {
   reference: string[],
   parameters: FastAniParameters
   priority: string
+  email?: string | null
 }
 
 export interface FastAniParameters {
@@ -96,6 +97,7 @@ export interface FastAniResult {
 
 export interface FastAniConfig {
   maxPairwise: number
+  maxPairwiseLow: number,
 }
 
 export enum FastAniHeatmapDataStatus {
