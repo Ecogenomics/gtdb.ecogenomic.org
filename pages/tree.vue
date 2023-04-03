@@ -85,6 +85,21 @@
               </template>
             </v-checkbox>
           </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              v-model="showLpsnUrl"
+              class="font-12px"
+              color="#9a489c"
+              dense
+              hide-details
+              label="LPSN"
+              @click="onShowLpsnUrl"
+            >
+              <template v-slot:append>
+                <TreePopUpLpsnHelp class="ml-3 my-auto"></TreePopUpLpsnHelp>
+              </template>
+            </v-checkbox>
+          </v-row>
 <!--          <v-row no-gutters>-->
 <!--            <v-checkbox-->
 <!--              v-model="showSeqcodeUrl"-->
@@ -118,7 +133,7 @@
       </v-btn>
     </v-col>
 
-    <v-card style="min-height: 600px;">
+    <v-card style="min-height: 700px;">
       <v-card-title class="text-h4">
         Tree
       </v-card-title>
@@ -214,7 +229,14 @@
                       <!-- Bergeys URL -->
                       <template v-if="showBergeysUrl && item.bergeysUrl">
                         <a :href="item.bergeysUrl" style="display: contents" target="_blank">
-                          <img alt="Bergey's Manual icon" height="24" src="~/assets/images/logos/bergeys_manual.svg" width="24"/>
+                          <img alt="Bergey's Manual icon" height="24" class="mr-1" src="~/assets/images/logos/bergeys_manual.svg" width="24"/>
+                        </a>
+                      </template>
+
+                      <!-- LPSN URL -->
+                      <template v-if="showLpsnUrl && item.lpsnUrl">
+                        <a :href="item.lpsnUrl" style="display: contents" target="_blank">
+                          <img alt="LPSN icon" height="24" src="~/assets/images/logos/lpsn_tree.svg" width="24"/>
                         </a>
                       </template>
 
@@ -322,6 +344,21 @@
                     </template>
                   </v-checkbox>
                 </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    v-model="showLpsnUrl"
+                    class="font-12px"
+                    color="#9a489c"
+                    dense
+                    hide-details
+                    label="LPSN"
+                    @click="onShowLpsnUrl"
+                  >
+                    <template v-slot:append>
+                      <TreePopUpLpsnHelp class="ml-3 my-auto"></TreePopUpLpsnHelp>
+                    </template>
+                  </v-checkbox>
+                </v-row>
 <!--                <v-row no-gutters>-->
 <!--                  <v-checkbox-->
 <!--                    v-model="showSeqcodeUrl"-->
@@ -364,6 +401,7 @@ import {Dict} from "~/assets/ts/interfaces";
 import TaxonNotInLit from "~/components/browse/TaxonNotInLit.vue";
 import TreePopUpHelp from "~/components/tree/TreePopUpHelp.vue";
 import TreePopUpBergeysHelp from "~/components/tree/TreePopUpBergeysHelp.vue";
+import TreePopUpLpsnHelp from "~/components/tree/TreePopUpLpsnHelp.vue";
 
 export default Vue.extend({
   head() {
@@ -391,6 +429,7 @@ export default Vue.extend({
     }
   },
   components: {
+    TreePopUpLpsnHelp,
     TreePopUpHelp,
     TreePopUpBergeysHelp,
     TreeFullTaxonomy,
@@ -436,6 +475,7 @@ export default Vue.extend({
     showDescChildren: false,
     showDescGenomes: true,
     showBergeysUrl: false,
+    showLpsnUrl: false,
     showSeqcodeUrl: false,
   }),
   watch: {
@@ -585,6 +625,11 @@ export default Vue.extend({
     onShowBergeysUrl() {
       if (this.showBergeysUrl) {
         this.$plausible.trackEvent("Show Bergey's Manual");
+      }
+    },
+    onShowLpsnUrl() {
+      if (this.showBergeysUrl) {
+        this.$plausible.trackEvent("Show LPSN URL");
       }
     },
   },
