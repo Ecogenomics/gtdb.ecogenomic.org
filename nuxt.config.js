@@ -156,6 +156,7 @@ export default {
     latestStatsPageUrl: '/stats/r207',  // this is used to point to the latest stats page,
     nuxtVersion: version,
     apiCacheKey: loadApiVersion(),
+    fastAniJobCookieName: 'fastani-jobs'
   },
 
   // https://github.com/nuxt/telemetry

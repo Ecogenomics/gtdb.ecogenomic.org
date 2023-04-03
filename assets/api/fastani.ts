@@ -27,6 +27,17 @@ export class FastAniApi {
       })
   }
 
+  getJobInfo(jobId: string) {
+    return axios.get<FastAniJobInfo>(`${apiBase}/fastani/${jobId}/info`,
+      {
+        timeout: 60000,
+        params: {cacheKey: apiCacheKey},
+        validateStatus: function(status) {
+              return status < 500;
+        }
+      })
+  }
+
   getJobHeatmap(jobId: string, method: string) {
     return axios.get<FastAniJobHeatmap>(`${apiBase}/fastani/${jobId}/heatmap/${method}`,
       {
@@ -123,4 +134,17 @@ export interface FastAniJobHeatmap {
   method: string,
   spReps: string[],
   pctDone: number,
+}
+
+export enum FastAniJobStatus {
+  QUEUED = "queued",
+  RUNNING = "running",
+  FINISHED = "finished",
+  ERROR = "error"
+}
+
+export interface FastAniJobInfo {
+  jobId: string,
+  createdOn: number,
+  status: FastAniJobStatus,
 }
