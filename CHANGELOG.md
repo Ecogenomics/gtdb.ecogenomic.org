@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.18.0...v2.19.0) (2023-04-03)
+
+
+### Features
+
+* **fastani:** Add method to find previous jobs. ([7178db0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7178db0dc38d1aa3e65187b5d634719c8e1259b3))
+
 # [2.18.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.17.0...v2.18.0) (2023-04-02)
 
 
