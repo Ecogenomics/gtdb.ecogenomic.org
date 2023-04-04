@@ -1,3 +1,12 @@
+# [2.20.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.19.0...v2.20.0) (2023-04-04)
+
+
+### Features
+
+* **tree:** Add LPSN url to nodes. ([f4e9ef3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f4e9ef3c79e42b5fe01d1683176ec6dc09f2c1bb))
+* **tree:** Add LPSN url to nodes. ([65ce063](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/65ce063bcab3dc827b873f571c045d33133a92cd))
+* **tree:** Add NCBI url to nodes. ([fca4556](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/fca4556ee0fd61d90c1743e2d41508c9907ef36f))
+
 # [2.19.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.18.0...v2.19.0) (2023-04-03)
 
 
