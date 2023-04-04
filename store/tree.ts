@@ -14,6 +14,7 @@ export interface TreeItem {
   bergeysUrl?: string,
   seqcodeUrl?: string,
   lpsnUrl?: string,
+  ncbiTaxId?: number,
   children?: TreeItem[],
 
   isGenome?: boolean,
@@ -116,6 +117,7 @@ function treeItemFromTaxonDescendants(item: TaxonDescendants): TreeItem {
     out.bergeysUrl = item.bergeysUrl
     out.seqcodeUrl = item.seqcodeUrl
     out.lpsnUrl = item.lpsnUrl
+    out.ncbiTaxId = item.ncbiTaxId
     out.children = []
   }
   return out

@@ -88,6 +88,7 @@ export interface TaxonDescendants {
   bergeysUrl?: string,
   seqcodeUrl?: string,
   lpsnUrl?: string,
+  ncbiTaxId?: number,
 }
 
 export interface TaxonSearchResponse {

@@ -100,17 +100,49 @@
               </template>
             </v-checkbox>
           </v-row>
-<!--          <v-row no-gutters>-->
-<!--            <v-checkbox-->
-<!--              v-model="showSeqcodeUrl"-->
-<!--              class="font-12px"-->
-<!--              color="#4b0082"-->
-<!--              dense-->
-<!--              hide-details-->
-<!--              label="SeqCode"-->
-<!--            >-->
-<!--            </v-checkbox>-->
-<!--          </v-row>-->
+          <v-row no-gutters>
+            <v-checkbox
+              v-model="showNcbiUrl"
+              class="font-12px"
+              color="#21568a"
+              dense
+              hide-details
+              label="NCBI"
+              @click="onShowNcbiUrl"
+            >
+              <template v-slot:append>
+                <TreePopUpShowUrlGeneric
+                  class="ml-3 my-auto"
+                  color="#21568a"
+                >
+                  <template v-slot:title>NCBI</template>
+                  <template v-slot:content>
+                    <p>
+                      Links have been created to NCBI taxonomy based on verbatim name matching, not all taxa have been
+                      matched.
+                    </p>
+                    <p>
+                      A best effort has been made to ensure that all taxa in NCBI are mapped to their corresponding
+                      GTDB taxon. Please
+                      <nuxt-link to="contact">contact us</nuxt-link>
+                      if you notice any mistakes.
+                    </p>
+                  </template>
+                </TreePopUpShowUrlGeneric>
+              </template>
+            </v-checkbox>
+          </v-row>
+          <!--          <v-row no-gutters>-->
+          <!--            <v-checkbox-->
+          <!--              v-model="showSeqcodeUrl"-->
+          <!--              class="font-12px"-->
+          <!--              color="#4b0082"-->
+          <!--              dense-->
+          <!--              hide-details-->
+          <!--              label="SeqCode"-->
+          <!--            >-->
+          <!--            </v-checkbox>-->
+          <!--          </v-row>-->
         </div>
 
       </div>
@@ -227,25 +259,54 @@
                     <div class="d-flex ml-2 my-auto">
 
                       <!-- Bergeys URL -->
-                      <template v-if="showBergeysUrl && item.bergeysUrl">
-                        <a :href="item.bergeysUrl" style="display: contents" target="_blank">
-                          <img alt="Bergey's Manual icon" height="24" class="mr-1" src="~/assets/images/logos/bergeys_manual.svg" width="24"/>
-                        </a>
-                      </template>
+                      <v-btn
+                        v-if="showBergeysUrl && item.bergeysUrl"
+                        target="_blank"
+                        depressed
+                        x-small
+                        class="tree-icon mr-1"
+                        height="24px"
+                        color="#d5a747"
+                        :href="item.bergeysUrl"
+                      >
+                        <span class="tree-icon-text">BM</span>
+                      </v-btn>
 
                       <!-- LPSN URL -->
-                      <template v-if="showLpsnUrl && item.lpsnUrl">
-                        <a :href="item.lpsnUrl" style="display: contents" target="_blank">
-                          <img alt="LPSN icon" height="24" src="~/assets/images/logos/lpsn_tree.svg" width="24"/>
-                        </a>
-                      </template>
+                      <v-btn
+                        v-if="showLpsnUrl && item.lpsnUrl"
+                        target="_blank"
+                        depressed
+                        x-small
+                        class="tree-icon mr-1"
+                        height="24px"
+                        color="#9a499c"
+                        :href="item.lpsnUrl"
+                      >
+                        <span class="tree-icon-text">LPSN</span>
+                      </v-btn>
+
+                      <!-- NCBI URL -->
+                        <v-btn
+                          v-if="showNcbiUrl && item.ncbiTaxId"
+                          target="_blank"
+                          depressed
+                          x-small
+                          class="tree-icon"
+                          height="24px"
+                          color="#21568a"
+                          :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=${item.ncbiTaxId}&lvl=3&lin=f&keep=1&srchmode=1&unlock`"
+                        >
+                         <span class="tree-icon-text">NCBI</span>
+                        </v-btn>
+
 
                       <!-- SeqCode URL -->
-<!--                      <template v-if="showSeqcodeUrl && item.seqcodeUrl">-->
-<!--                        <a :href="item.seqcodeUrl" style="display: contents" target="_blank">-->
-<!--                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/seqcode.svg" width="28"/>-->
-<!--                        </a>-->
-<!--                      </template>-->
+                      <!--                      <template v-if="showSeqcodeUrl && item.seqcodeUrl">-->
+                      <!--                        <a :href="item.seqcodeUrl" style="display: contents" target="_blank">-->
+                      <!--                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/seqcode.svg" width="28"/>-->
+                      <!--                        </a>-->
+                      <!--                      </template>-->
 
                     </div>
                   </template>
@@ -359,17 +420,50 @@
                     </template>
                   </v-checkbox>
                 </v-row>
-<!--                <v-row no-gutters>-->
-<!--                  <v-checkbox-->
-<!--                    v-model="showSeqcodeUrl"-->
-<!--                    class="font-12px"-->
-<!--                    color="#4b0082"-->
-<!--                    dense-->
-<!--                    hide-details-->
-<!--                    label="SeqCode"-->
-<!--                  >-->
-<!--                  </v-checkbox>-->
-<!--                </v-row>-->
+                <v-row no-gutters>
+                  <v-checkbox
+                    v-model="showNcbiUrl"
+                    class="font-12px"
+                    color="#21568a"
+                    dense
+                    hide-details
+                    label="NCBI"
+                    @click="onShowNcbiUrl"
+                  >
+                    <template v-slot:append>
+                      <TreePopUpShowUrlGeneric
+                        class="ml-3 my-auto"
+                        color="#21568a"
+                      >
+                        <template v-slot:title>NCBI</template>
+                        <template v-slot:content>
+                          <p>
+                            Links have been created to NCBI taxonomy based on verbatim name matching, not all taxa have
+                            been matched.
+                          </p>
+                          <p>
+                            A best effort has been made to ensure that all taxa in NCBI are mapped to their
+                            corresponding
+                            GTDB taxon. Please
+                            <nuxt-link to="contact">contact us</nuxt-link>
+                            if you notice any mistakes.
+                          </p>
+                        </template>
+                      </TreePopUpShowUrlGeneric>
+                    </template>
+                  </v-checkbox>
+                </v-row>
+                <!--                <v-row no-gutters>-->
+                <!--                  <v-checkbox-->
+                <!--                    v-model="showSeqcodeUrl"-->
+                <!--                    class="font-12px"-->
+                <!--                    color="#4b0082"-->
+                <!--                    dense-->
+                <!--                    hide-details-->
+                <!--                    label="SeqCode"-->
+                <!--                  >-->
+                <!--                  </v-checkbox>-->
+                <!--                </v-row>-->
               </div>
 
               <!-- Taxonomy table for the selected taxon -->
@@ -402,6 +496,7 @@ import TaxonNotInLit from "~/components/browse/TaxonNotInLit.vue";
 import TreePopUpHelp from "~/components/tree/TreePopUpHelp.vue";
 import TreePopUpBergeysHelp from "~/components/tree/TreePopUpBergeysHelp.vue";
 import TreePopUpLpsnHelp from "~/components/tree/TreePopUpLpsnHelp.vue";
+import TreePopUpShowUrlGeneric from "~/components/tree/TreePopUpShowUrlGeneric.vue";
 
 export default Vue.extend({
   head() {
@@ -434,6 +529,7 @@ export default Vue.extend({
     TreePopUpBergeysHelp,
     TreeFullTaxonomy,
     TaxonSearchAutocomplete,
+    TreePopUpShowUrlGeneric,
     TreeLegend,
     TaxonNotInLit
   },
@@ -477,6 +573,7 @@ export default Vue.extend({
     showBergeysUrl: false,
     showLpsnUrl: false,
     showSeqcodeUrl: false,
+    showNcbiUrl: false,
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
@@ -628,8 +725,13 @@ export default Vue.extend({
       }
     },
     onShowLpsnUrl() {
-      if (this.showBergeysUrl) {
+      if (this.showLpsnUrl) {
         this.$plausible.trackEvent("Show LPSN URL");
+      }
+    },
+    onShowNcbiUrl() {
+      if (this.showNcbiUrl) {
+        this.$plausible.trackEvent("Show NCBI URL");
       }
     },
   },
@@ -749,4 +851,18 @@ export default Vue.extend({
 /*.chip-white .v-chip__content {*/
 /*  color: white;*/
 /*}*/
+</style>
+
+
+<style scoped>
+.tree-icon {
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+}
+.tree-icon-text {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0;
+}
 </style>
