@@ -191,7 +191,7 @@
             >
 
               <!-- This block is a template for each of the tree nodes -->
-              <template v-slot:prepend="{ item }">
+              <template v-slot:label="{ item }">
 
                 <!-- Surround every node with a reference for programmatic use later -->
                 <div :ref="taxonToTreeNodeRef(item.taxon)" class="d-flex">
@@ -261,13 +261,13 @@
                       <!-- Bergeys URL -->
                       <v-btn
                         v-if="showBergeysUrl && item.bergeysUrl"
-                        target="_blank"
-                        depressed
-                        x-small
-                        class="tree-icon mr-1"
-                        height="24px"
-                        color="#d5a747"
                         :href="item.bergeysUrl"
+                        class="tree-icon mr-1"
+                        color="#d5a747"
+                        depressed
+                        height="24px"
+                        target="_blank"
+                        x-small
                       >
                         <span class="tree-icon-text">BM</span>
                       </v-btn>
@@ -275,38 +275,30 @@
                       <!-- LPSN URL -->
                       <v-btn
                         v-if="showLpsnUrl && item.lpsnUrl"
-                        target="_blank"
-                        depressed
-                        x-small
-                        class="tree-icon mr-1"
-                        height="24px"
-                        color="#9a499c"
                         :href="item.lpsnUrl"
+                        class="tree-icon mr-1"
+                        color="#9a499c"
+                        depressed
+                        height="24px"
+                        target="_blank"
+                        x-small
                       >
                         <span class="tree-icon-text">LPSN</span>
                       </v-btn>
 
                       <!-- NCBI URL -->
-                        <v-btn
-                          v-if="showNcbiUrl && item.ncbiTaxId"
-                          target="_blank"
-                          depressed
-                          x-small
-                          class="tree-icon"
-                          height="24px"
-                          color="#21568a"
-                          :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=${item.ncbiTaxId}&lvl=3&lin=f&keep=1&srchmode=1&unlock`"
-                        >
-                         <span class="tree-icon-text">NCBI</span>
-                        </v-btn>
-
-
-                      <!-- SeqCode URL -->
-                      <!--                      <template v-if="showSeqcodeUrl && item.seqcodeUrl">-->
-                      <!--                        <a :href="item.seqcodeUrl" style="display: contents" target="_blank">-->
-                      <!--                          <img alt="SeqCode icon" height="28" src="~/assets/images/logos/seqcode.svg" width="28"/>-->
-                      <!--                        </a>-->
-                      <!--                      </template>-->
+                      <v-btn
+                        v-if="showNcbiUrl && item.ncbiTaxId"
+                        :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=${item.ncbiTaxId}&lvl=3&lin=f&keep=1&srchmode=1&unlock`"
+                        class="tree-icon"
+                        color="#21568a"
+                        depressed
+                        height="24px"
+                        target="_blank"
+                        x-small
+                      >
+                        <span class="tree-icon-text">NCBI</span>
+                      </v-btn>
 
                     </div>
                   </template>
@@ -607,7 +599,8 @@ export default Vue.extend({
         const newR = value[value.length - 1];
         if (newR && query.r !== newR) {
           query.r = newR;
-          this.$router.replace({query})
+          this.$router.replace({query}).catch(() => {
+          });
         }
         // Set the value
         this.$accessor.tree.setOpen(value);
@@ -686,7 +679,26 @@ export default Vue.extend({
       this.removeQueryParameters();
     },
     async getChildren(item: TreeItem) {
-      return this.$accessor.tree.loadChildren(item);
+      console.log(item);
+      await this.$accessor.tree.loadChildren(item);
+
+      // Automatically open all descendants if they are of length 1
+      if (item && item.children && item.children.length === 1) {
+        // Clone the getOpen array
+        const newOpen = [...this.getOpen];
+
+        let curItem = item.children[0];
+        while (true) {
+          await this.$accessor.tree.loadChildren(curItem);
+          newOpen.push(curItem.taxon);
+          if (curItem && curItem.children && curItem.children.length === 1) {
+            curItem = curItem.children[0];
+          } else {
+            break;
+          }
+        }
+        this.getOpen = newOpen;
+      }
     },
     removeActiveTaxon() {
       this.$accessor.tree.setActiveTaxon([])
@@ -859,6 +871,7 @@ export default Vue.extend({
   padding-left: 1px !important;
   padding-right: 1px !important;
 }
+
 .tree-icon-text {
   color: #FFFFFF;
   font-size: 12px;
