@@ -1,4 +1,6 @@
 // Generic dict interface
+import {FastAniParameters} from "~/assets/api/fastani";
+
 export interface Dict<T> {
   [Key: string]: T;
 }
@@ -17,4 +19,13 @@ export interface MenuItem {
 export interface SectionedPageItems {
   text: string,
   ref: string
+}
+
+
+// Returned by the FastAniQuery.vue component
+export interface FastAniQueryPayload {
+  query: string[],
+  reference: string[],
+  priority: string
+  email?: string | null
 }

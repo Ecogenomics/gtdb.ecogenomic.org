@@ -1,209 +1,210 @@
 <template>
-  <div>
+  <v-card flat>
+    <v-card-text>
 
-    <!-- Display when the Jobs are loading -->
-    <template v-if="areJobsRunning">
-      <v-row class="mt-5" no-gutters>
-        <v-col>
-          <h3>Loading...</h3>
-          <p class="mt-2">
-            Press the "Refresh" button below to reload the results.
-          </p>
-        </v-col>
+      <!-- Display when the Jobs are loading -->
+      <template v-if="areJobsRunning">
+        <v-row class="mt-5" no-gutters>
+          <v-col>
+            <h3>Loading...</h3>
+            <p class="mt-2">
+              Press the "Refresh" button below to reload the results.
+            </p>
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col>
+            <v-progress-linear
+              :value="loadingProgressPct"
+              color="#5a6855"
+              height="28"
+              rounded
+            >
+              <strong>{{ Math.ceil(loadingProgressPct) }}%</strong>
+            </v-progress-linear>
+          </v-col>
+          <v-col class="pl-5" cols="2">
+            <v-btn
+              :loading="isManualRefreshLoading || isRefreshQueryStillRunning || isPlotDrawing"
+              color="#e2e2e2"
+              depressed
+              small
+              width="100%"
+              @click="manualRefresh"
+            >
+              Refresh
+              <v-icon right>
+                {{ mdiRefreshSvg }}
+              </v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <p>
+              <b>Note:</b> Comparisons that are still running will appear filled with dots. Large comparisons will take
+              some time (~15
+              minutes).
+            </p>
+          </v-col>
+        </v-row>
+      </template>
+
+      <!-- Display when the Jobs are done -->
+      <template v-else>
+        <!-- Row for result text -->
+        <v-row>
+          <v-col>
+            <p>
+              All jobs have completed.
+            </p>
+            <ul>
+              <li>GTDB Species representatives are bold.</li>
+              <li>To download the raw data see "Tabular results"</li>
+              <li>If data are missing let us know, some genomes may have not synchronised with NCBI.</li>
+            </ul>
+          </v-col>
+        </v-row>
+        <!-- Row for buttons -->
+        <v-row>
+          <v-col>
+            <v-btn
+              :loading="downloadSvgDisabled"
+              depressed
+              small
+              @click="downloadHeatmap"
+            >
+              Download SVG
+              <v-icon right>
+                {{ mdiDownloadSvg }}
+              </v-icon>
+            </v-btn>
+            <v-btn
+              depressed
+              small
+              @click="toggleOpenPlotConfiguration"
+            >
+              Configure
+              <v-icon right>
+                {{ mdiWrenchSvg }}
+              </v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </template>
+
+
+      <!-- Configuration row -->
+      <v-expand-transition>
+        <v-row v-show="showPlotConfig" class="mt-5">
+          <v-card width="100%">
+            <v-card-title>
+              <v-icon left>
+                {{ mdiWrenchSvg }}
+              </v-icon>
+              Plot configuration
+            </v-card-title>
+            <v-card-text>
+              <v-row>
+                <v-col>
+                  <v-select
+                    v-model="clusterBy"
+                    :items="clusterByOptions"
+                    dense
+                    label="Cluster by"
+                    outlined
+                  ></v-select>
+                </v-col>
+                <v-col>
+                  <v-select
+                    v-model="showValues"
+                    :items="showValuesOptions"
+                    dense
+                    label="Show values"
+                    outlined
+                  ></v-select>
+                </v-col>
+                <v-col>
+                  <v-select
+                    v-model="decimalPlaces"
+                    :items="decimalPlacesOptions"
+                    dense
+                    label="Show values (decimal places)"
+                    outlined
+                  ></v-select>
+                </v-col>
+              </v-row>
+
+              <v-row no-gutters>
+                <v-col>
+                  <D3ScaleSelect v-model="scalePalette"></D3ScaleSelect>
+                </v-col>
+              </v-row>
+
+              <v-row no-gutters>
+                <v-col class="px-1" cols="1">
+                  <v-text-field
+                    :value="scaleRange[0]"
+                    class="mt-0 pt-0"
+                    dense
+                    hide-details
+                    single-line
+                    type="number"
+                    @change="$set(scaleRange, 0, $event)"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="8">
+                  <v-range-slider
+                    v-model="scaleRange"
+                    :max="scaleMax"
+                    :min="scaleMin"
+                    :step="scaleStep"
+                    class="align-center"
+                    hide-details
+                  ></v-range-slider>
+                </v-col>
+                <v-col class="px-1" cols="1">
+                  <v-text-field
+                    :value="scaleRange[1]"
+                    class="mt-0 pt-0"
+                    dense
+                    hide-details
+                    single-line
+                    style="width: 100px"
+                    type="number"
+                    @change="$set(scaleRange, 1, $event)"
+                  ></v-text-field>
+                </v-col>
+                <v-col class="px-1" cols="2">
+                  <v-btn
+                    depressed
+                    width="100%"
+                    @click="resetScaleToOptimal"
+                  >
+                    Reset scale
+                    <v-icon right>
+                      {{ mdiScaleBalanceSvg }}
+                    </v-icon>
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-row>
+      </v-expand-transition>
+
+      <!-- Row for graph -->
+      <v-row class="mt-15">
+        <div ref="svgContainer" class="mx-auto" style="max-width: 100%;">
+          <svg ref="svgEle" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+               xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+        </div>
       </v-row>
-      <v-row no-gutters>
-        <v-col>
-          <v-progress-linear
-            :value="loadingProgressPct"
-            color="#5a6855"
-            height="28"
-            rounded
-          >
-            <strong>{{ Math.ceil(loadingProgressPct) }}%</strong>
-          </v-progress-linear>
-        </v-col>
-        <v-col class="pl-5" cols="2">
-          <v-btn
-            :loading="isManualRefreshLoading || isRefreshQueryStillRunning || isPlotDrawing"
-            color="#e2e2e2"
-            depressed
-            small
-            width="100%"
-            @click="manualRefresh"
-          >
-            Refresh
-            <v-icon right>
-              {{ mdiRefreshSvg }}
-            </v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <p>
-            <b>Note:</b> Comparisons that are still running will appear filled with dots. Large comparisons will take
-            some time (~15
-            minutes).
-          </p>
-        </v-col>
-      </v-row>
-    </template>
 
-    <!-- Display when the Jobs are done -->
-    <template v-else>
-      <!-- Row for result text -->
-      <v-row>
-        <v-col>
-          <p>
-            All jobs have completed.
-          </p>
-          <ul>
-            <li>GTDB Species representatives are bold.</li>
-            <li>To download the raw data see "Tabular results"</li>
-            <li>If data are missing let us know, some genomes may have not synchronised with NCBI.</li>
-          </ul>
-        </v-col>
-      </v-row>
-      <!-- Row for buttons -->
-      <v-row>
-        <v-col>
-          <v-btn
-            :loading="downloadSvgDisabled"
-            depressed
-            small
-            @click="downloadHeatmap"
-          >
-            Download SVG
-            <v-icon right>
-              {{ mdiDownloadSvg }}
-            </v-icon>
-          </v-btn>
-          <v-btn
-            depressed
-            small
-            @click="toggleOpenPlotConfiguration"
-          >
-            Configure
-            <v-icon right>
-              {{ mdiWrenchSvg }}
-            </v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </template>
-
-
-    <!-- Configuration row -->
-    <v-expand-transition>
-      <v-row v-show="showPlotConfig" class="mt-5">
-        <v-card width="100%">
-          <v-card-title>
-            <v-icon left>
-              {{ mdiWrenchSvg }}
-            </v-icon>
-            Plot configuration
-          </v-card-title>
-          <v-card-text>
-            <v-row>
-              <v-col>
-                <v-select
-                  v-model="clusterBy"
-                  :items="clusterByOptions"
-                  dense
-                  label="Cluster by"
-                  outlined
-                ></v-select>
-              </v-col>
-              <v-col>
-                <v-select
-                  v-model="showValues"
-                  :items="showValuesOptions"
-                  dense
-                  label="Show values"
-                  outlined
-                ></v-select>
-              </v-col>
-              <v-col>
-                <v-select
-                  v-model="decimalPlaces"
-                  :items="decimalPlacesOptions"
-                  dense
-                  label="Show values (decimal places)"
-                  outlined
-                ></v-select>
-              </v-col>
-            </v-row>
-
-            <v-row no-gutters>
-              <v-col>
-                <D3ScaleSelect v-model="scalePalette"></D3ScaleSelect>
-              </v-col>
-            </v-row>
-
-            <v-row no-gutters>
-              <v-col class="px-1" cols="1">
-                <v-text-field
-                  :value="scaleRange[0]"
-                  class="mt-0 pt-0"
-                  dense
-                  hide-details
-                  single-line
-                  type="number"
-                  @change="$set(scaleRange, 0, $event)"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="8">
-                <v-range-slider
-                  v-model="scaleRange"
-                  :max="scaleMax"
-                  :min="scaleMin"
-                  :step="scaleStep"
-                  class="align-center"
-                  hide-details
-                ></v-range-slider>
-              </v-col>
-              <v-col class="px-1" cols="1">
-                <v-text-field
-                  :value="scaleRange[1]"
-                  class="mt-0 pt-0"
-                  dense
-                  hide-details
-                  single-line
-                  style="width: 100px"
-                  type="number"
-                  @change="$set(scaleRange, 1, $event)"
-                ></v-text-field>
-              </v-col>
-              <v-col class="px-1" cols="2">
-                <v-btn
-                  depressed
-                  width="100%"
-                  @click="resetScaleToOptimal"
-                >
-                  Reset scale
-                  <v-icon right>
-                    {{ mdiScaleBalanceSvg }}
-                  </v-icon>
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-row>
-    </v-expand-transition>
-
-    <!-- Row for graph -->
-    <v-row class="mt-15">
-      <div ref="svgContainer" class="mx-auto" style="max-width: 100%;">
-        <svg ref="svgEle" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
-             xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-      </div>
-    </v-row>
-
-    <!-- Tooltip -->
-    <div ref="tooltipEle" class="tooltipStyle" style="visibility: hidden"></div>
-
-  </div>
+      <!-- Tooltip -->
+      <div ref="tooltipEle" class="tooltipStyle" style="visibility: hidden"></div>
+    </v-card-text>
+  </v-card>
 </template>
 
 

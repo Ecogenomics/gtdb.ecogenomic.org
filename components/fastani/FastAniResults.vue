@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <v-card flat>
+    <v-card-text>
     <div v-if="areJobsRunning">
       <p>
         Press the "Refresh" button below to reload the results.
@@ -311,7 +312,8 @@
       <!--      </template>-->
 
     </v-data-table>
-  </div>
+    </v-card-text>
+  </v-card>
 </template>
 
 

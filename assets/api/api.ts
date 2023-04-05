@@ -10,10 +10,12 @@ import {TaxonApi} from "~/assets/api/taxon";
 import {AdvancedApi} from "~/assets/api/advanced";
 import {UtilApi} from "~/assets/api/util";
 import {MetaApi} from "~/assets/api/meta";
+import {GenomesApi} from "~/assets/api/genomes";
 
 export class API {
   fastani = new FastAniApi();
   genome = new GenomeApi();
+  genomes = new GenomesApi();
   sankey = new SankeyApi();
   search = new SearchApi();
   species = new SpeciesApi();

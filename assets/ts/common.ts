@@ -84,3 +84,8 @@ export function pickTextColorBasedOnBgColorSimple(bgColor: string, lightColor: s
   return (((r * 0.299) + (g * 0.587) + (b * 0.114)) > 186) ?
     darkColor : lightColor;
 }
+
+
+export function isValidGenomeId(genomeId: string) {
+  return genomeId.match(/^GC[AF]_\d{9}\.\d+$/) !== null;
+}

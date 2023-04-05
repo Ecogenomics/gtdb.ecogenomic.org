@@ -21,17 +21,15 @@
         </v-btn>
       </template>
       <v-card>
-
-        <v-card-title>
-          <v-icon left>
+        <v-card-title class="text-h5 white--text" style="background-color: #5a6855">
+          <v-icon left dark>
             {{ svgHistory }}
           </v-icon>
           Previous Jobs
 
           <v-spacer></v-spacer>
           <v-btn
-            color="#5a6955"
-            dark
+            color="#FFFFFF"
             icon
             outlined
             small
@@ -43,7 +41,7 @@
           </v-btn>
         </v-card-title>
 
-        <v-card-text class="text--primary">
+        <v-card-text class="text--primary pt-5">
 
           The most recent 50 jobs are shown below. Click on a job ID to view the results.
 
@@ -113,6 +111,17 @@ import {mdiClose, mdiHistory, mdiTrashCanOutline} from "@mdi/js";
 
 
 export default Vue.extend({
+  props: {
+    update: {
+      type: String,
+      default: '',
+    }
+  },
+  watch: {
+    update(after, before) {
+      after && !this.isLoading && before !== after && this.loadRecentJobs();
+    }
+  },
   data: () => ({
     svgRemoveRow: mdiTrashCanOutline,
     svgHistory: mdiHistory,
@@ -164,7 +173,15 @@ export default Vue.extend({
       if (this.fastAniJobCookieName) {
         const cookie = this.$cookies.get(this.fastAniJobCookieName);
         if (cookie) {
-          return cookie.split(',');
+          const jobIds = cookie.split(',');
+          const out = [];
+          const jobUnq = new Set<string>(jobIds);
+          for (const jobId of jobIds) {
+            if(jobUnq.has(jobId)) {
+              out.push(jobId);
+            }
+          }
+          return out;
         }
       }
       return [];
