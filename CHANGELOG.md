@@ -1,3 +1,10 @@
+## [2.20.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.20.0...v2.20.1) (2023-04-05)
+
+
+### Bug Fixes
+
+* **tree:** Automatically open descendant nodes if they are of length 1. ([eb5d22e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/eb5d22e3a27ee86fa1ca30d809439923f44c62e9))
+
 # [2.20.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.19.0...v2.20.0) (2023-04-04)
 
 
