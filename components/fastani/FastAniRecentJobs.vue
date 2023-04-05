@@ -43,7 +43,23 @@
 
         <v-card-text class="text--primary pt-5">
 
+          <p>
           The most recent 50 jobs are shown below. Click on a job ID to view the results.
+          </p>
+
+          <v-btn
+            small
+            color="#5a6855"
+            class="white--text"
+            depressed
+            :disabled="isLoading"
+            @click="loadRecentJobs"
+          >
+            <v-icon left>
+              {{ svgRefresh }}
+            </v-icon>
+            Refresh
+          </v-btn>
 
           <v-data-table
             :headers="tableHeaders"
@@ -107,7 +123,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {FastAniJobInfo} from "~/assets/api/fastani";
-import {mdiClose, mdiHistory, mdiTrashCanOutline} from "@mdi/js";
+import {mdiClose, mdiHistory, mdiRefresh, mdiTrashCanOutline} from "@mdi/js";
 
 
 export default Vue.extend({
@@ -124,6 +140,7 @@ export default Vue.extend({
   },
   data: () => ({
     svgRemoveRow: mdiTrashCanOutline,
+    svgRefresh: mdiRefresh,
     svgHistory: mdiHistory,
     svgClose: mdiClose,
     isLoading: true,
