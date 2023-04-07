@@ -1,3 +1,10 @@
+## [2.20.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.20.1...v2.20.2) (2023-04-07)
+
+
+### Bug Fixes
+
+* **plausible:** Remove outbound link tracking to fix links not opening in new tab. ([d263c49](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d263c493f77c111c7d50486f99157b8e3121ed53))
+
 ## [2.20.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.20.0...v2.20.1) (2023-04-05)
 
 
