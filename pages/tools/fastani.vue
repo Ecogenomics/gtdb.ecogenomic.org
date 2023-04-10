@@ -222,6 +222,16 @@ export default Vue.extend({
             this.tabModel = 2
           }
 
+          // Track this event
+          this.$plausible.trackEvent("FastANI job created",
+            {
+              props: {
+                comparisons: resp.data.group_1.length * resp.data.group_2.length,
+                email: isDefined(payload.email)
+              }
+            },
+          );
+
         })
         .catch((err) => {
           this.$accessor.api.defaultCatch(err);
