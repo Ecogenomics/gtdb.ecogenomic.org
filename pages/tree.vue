@@ -132,6 +132,38 @@
               </template>
             </v-checkbox>
           </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              v-model="showSeqCodeUrl"
+              class="font-12px"
+              color="#4b0082"
+              dense
+              hide-details
+              label="SeqCode"
+              @click="onShowSeqCodeUrl"
+            >
+              <template v-slot:append>
+                <TreePopUpShowUrlGeneric
+                  class="ml-3 my-auto"
+                  color="#4b0082"
+                >
+                  <template v-slot:title>SeqCode</template>
+                  <template v-slot:content>
+                    <p>
+                      Links have been created to SeqCode taxa based on verbatim name matching, not all taxa have
+                      been matched.
+                    </p>
+                    <p>
+                      A best effort has been made to ensure that all taxa in SeqCode are mapped to their
+                      corresponding GTDB taxon. Please
+                      <nuxt-link to="contact">contact us</nuxt-link>
+                      if you notice any mistakes.
+                    </p>
+                  </template>
+                </TreePopUpShowUrlGeneric>
+              </template>
+            </v-checkbox>
+          </v-row>
           <!--          <v-row no-gutters>-->
           <!--            <v-checkbox-->
           <!--              v-model="showSeqcodeUrl"-->
@@ -300,6 +332,20 @@
                         <span class="tree-icon-text">NCBI</span>
                       </v-btn>
 
+                      <!-- SeqCode URL -->
+                      <v-btn
+                        v-if="showSeqCodeUrl && item.seqcodeUrl"
+                        :href="item.seqcodeUrl"
+                        class="tree-icon"
+                        color="#4b0082"
+                        depressed
+                        height="24px"
+                        target="_blank"
+                        x-small
+                      >
+                        <span class="tree-icon-text">SC</span>
+                      </v-btn>
+
                     </div>
                   </template>
                 </div>
@@ -445,6 +491,38 @@
                     </template>
                   </v-checkbox>
                 </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    v-model="showSeqCodeUrl"
+                    class="font-12px"
+                    color="#4b0082"
+                    dense
+                    hide-details
+                    label="SeqCode"
+                    @click="onShowSeqCodeUrl"
+                  >
+                    <template v-slot:append>
+                      <TreePopUpShowUrlGeneric
+                        class="ml-3 my-auto"
+                        color="#4b0082"
+                      >
+                        <template v-slot:title>SeqCode</template>
+                        <template v-slot:content>
+                          <p>
+                            Links have been created to SeqCode taxa based on verbatim name matching, not all taxa have
+                            been matched.
+                          </p>
+                          <p>
+                            A best effort has been made to ensure that all taxa in SeqCode are mapped to their
+                            corresponding GTDB taxon. Please
+                            <nuxt-link to="contact">contact us</nuxt-link>
+                            if you notice any mistakes.
+                          </p>
+                        </template>
+                      </TreePopUpShowUrlGeneric>
+                    </template>
+                  </v-checkbox>
+                </v-row>
                 <!--                <v-row no-gutters>-->
                 <!--                  <v-checkbox-->
                 <!--                    v-model="showSeqcodeUrl"-->
@@ -566,6 +644,7 @@ export default Vue.extend({
     showLpsnUrl: false,
     showSeqcodeUrl: false,
     showNcbiUrl: false,
+    showSeqCodeUrl: false,
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
@@ -744,6 +823,11 @@ export default Vue.extend({
     onShowNcbiUrl() {
       if (this.showNcbiUrl) {
         this.$plausible.trackEvent("Show NCBI URL");
+      }
+    },
+    onShowSeqCodeUrl() {
+      if (this.showSeqCodeUrl) {
+        this.$plausible.trackEvent("Show SeqCode URL");
       }
     },
   },
