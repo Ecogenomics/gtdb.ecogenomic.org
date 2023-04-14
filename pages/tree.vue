@@ -322,7 +322,7 @@
                       <v-btn
                         v-if="showNcbiUrl && item.ncbiTaxId"
                         :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=${item.ncbiTaxId}&lvl=3&lin=f&keep=1&srchmode=1&unlock`"
-                        class="tree-icon"
+                        class="tree-icon mr-1"
                         color="#21568a"
                         depressed
                         height="24px"
@@ -336,7 +336,7 @@
                       <v-btn
                         v-if="showSeqCodeUrl && item.seqcodeUrl"
                         :href="item.seqcodeUrl"
-                        class="tree-icon"
+                        class="tree-icon mr-1"
                         color="#4b0082"
                         depressed
                         height="24px"
