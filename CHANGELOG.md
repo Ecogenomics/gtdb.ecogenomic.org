@@ -1,3 +1,16 @@
+# [2.21.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.20.2...v2.21.0) (2023-04-14)
+
+
+### Bug Fixes
+
+* **tree:** Add margin to NCBI external resource button. ([b8e4f4f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/b8e4f4fc8d991fed8d3838c518daaa555581c8c6))
+
+
+### Features
+
+* **fastani:** Add tracking to FastANI job creation ([04e36fb](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/04e36fb54567843565ece5badfbc1f3c930e1f0f))
+* **tree:** Add SeqCode url to tree. ([1e5345d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1e5345dcffb21c34ce55066216c1d300a1bc0d96))
+
 ## [2.20.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.20.1...v2.20.2) (2023-04-07)
 
 
