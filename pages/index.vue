@@ -8,8 +8,8 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-        <NotifyBar uid="r207">
-          *** GTDB Release 207 is now available 🎉
+        <NotifyBar uid="r214">
+          *** GTDB Release 214 is now available 🎉
           <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
           ***
         </NotifyBar>
@@ -141,8 +141,8 @@ export default Vue.extend({
 
     /* Summary stats */
     nGenomes: 6062 + 311480,
-    releaseVer: '07-RS207',
-    releaseDate: '8th April 2022',
+    releaseVer: '08-RS214',
+    releaseDate: 'XXXTBA April 2022',
   }),
 })
 </script>
