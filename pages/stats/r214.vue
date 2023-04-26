@@ -430,10 +430,19 @@
       </template>
 
       <template #comparison-of-gtdb-and-ncbi-taxa>
+        <p>
         Comparison of GTDB and NCBI taxonomic assignments across GTDB species representative genomes and all GTDB
         genomes which have an assigned NCBI taxonomy. For each taxonomic rank, a taxon was classified as being unchanged
         if its name was identical in both taxonomies, passively changed if the GTDB taxonomy provided name information
         absent in the NCBI taxonomy, or actively changed if the name was different between the two taxonomies.
+        </p>
+        <p>
+          Phylum names have been updated to follow the valid publication of 42 names in
+          <a href="https://pubmed.ncbi.nlm.nih.gov/34694987/" target="_blank">IJSEM</a>. This has resulted in a large
+          number of active phylum name changes relative to NCBI classifications at the time of this release.
+          NCBI is also
+          <a href="https://www.nlm.nih.gov/pubs/techbull/ma23/ma23_ncbi_taxonomy_names.html" target="_blank">adopting these new phyla names</a>.
+        </p>
         <ImgToggle
           :full="require('~/assets/images/stats/r214/ncbi-compare-species.svg')"
           :preview="require('~/assets/images/stats/r214/ncbi-compare-species.svg')"
