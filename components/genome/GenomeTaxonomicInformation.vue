@@ -68,7 +68,7 @@
                 >
                   <template v-if="item.taxonId">
                     <a
-                      :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${item.taxonId}`"
+                      :href="`https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/${item.taxonId}/`"
                       target="_blank">
                       {{ item.taxon }}<template v-if="index !== genomeCard.ncbiTaxonomyFiltered.length - 1">;</template>
                     </a>
@@ -134,7 +134,7 @@
                 >
                   <template v-if="item.taxonId">
                     <a
-                      :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${item.taxonId}`"
+                      :href="`https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/${item.taxonId}/`"
                       target="_blank">
                       {{ item.taxon }}<template
                       v-if="index !== genomeCard.ncbiTaxonomyUnfiltered.length - 1">;</template>

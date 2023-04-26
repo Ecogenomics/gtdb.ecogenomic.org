@@ -321,7 +321,7 @@
                       <!-- NCBI URL -->
                       <v-btn
                         v-if="showNcbiUrl && item.ncbiTaxId"
-                        :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=${item.ncbiTaxId}&lvl=3&lin=f&keep=1&srchmode=1&unlock`"
+                        :href="`https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/${item.ncbiTaxId}/`"
                         class="tree-icon mr-1"
                         color="#21568a"
                         depressed

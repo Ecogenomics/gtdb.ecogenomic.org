@@ -267,7 +267,7 @@
               </template>
               <template v-else>
                 <a
-                  :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${genomeCard.metadata_ncbi.ncbi_species_taxid}`"
+                  :href="`https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/${genomeCard.metadata_ncbi.ncbi_species_taxid}/`"
                   target="_blank">
                   {{ genomeCard.metadata_ncbi.ncbi_species_taxid }}
                 </a>
@@ -307,7 +307,7 @@
               </template>
               <template v-else>
                 <a
-                  :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${genomeCard.metadata_ncbi.ncbi_taxid}`"
+                  :href="`https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/${genomeCard.metadata_ncbi.ncbi_taxid}/`"
                   target="_blank">
                   {{ genomeCard.metadata_ncbi.ncbi_taxid }}
                 </a>
