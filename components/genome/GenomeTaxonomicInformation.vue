@@ -88,7 +88,7 @@
                     {{ mdiHelpCircleSvg }}
                   </v-icon>
                 </template>
-                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP. &#013;
+                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP at the time of download. &#013;
 							This taxonomy was standardized to seven ranks (domain to species) by removing non-standard ranks and identifying missing standard ranks with rank prefixes. &#013;
 							Standard ranks were also prefixed with rank identifiers as previously described (McDonald et al., 2012).</span>
               </v-tooltip>
@@ -107,7 +107,7 @@
                     {{ mdiHelpCircleSvg }}
                   </v-icon>
                 </template>
-                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP. &#013;
+                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP at the time of download. &#013;
 							This taxonomy was standardized to seven ranks (domain to species) by removing non-standard ranks and identifying missing standard ranks with rank prefixes. &#013;
 							Standard ranks were also prefixed with rank identifiers as previously described (McDonald et al., 2012).</span>
               </v-tooltip>
