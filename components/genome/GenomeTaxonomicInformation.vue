@@ -274,4 +274,7 @@ export default Vue.extend({
 .first-table-col {
   width: 250px !important;
 }
+a:hover {
+  font-weight: bold;
+}
 </style>
