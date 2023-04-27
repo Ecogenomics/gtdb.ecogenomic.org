@@ -4,7 +4,7 @@
     <SectionedPage :items="items">
 
       <template #title>
-        <StatsTitle date="XXXTBA, 2022" release="214"/>
+        <StatsTitle date="28th April, 2023" release="214"/>
       </template>
 
       <template #taxon-overview>
