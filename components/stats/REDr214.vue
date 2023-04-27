@@ -1,10 +1,10 @@
 <template>
   <div class="mt-2">
     <h3>Bacteria</h3>
-    <div id="mpld3_bacteria_r207"></div>
+    <div id="mpld3_bacteria_r214"></div>
 
     <h3>Archaea</h3>
-    <div id="mpld3_archaea_r207"></div>
+    <div id="mpld3_archaea_r214"></div>
 
   </div>
 </template>
@@ -16,8 +16,8 @@ import * as d3 from 'd3v5';
 //@ts-ignore
 import mpld3 from 'mpld3';
 
-const archaea = require('~/assets/data/stats/r207/red-archaea.json')
-const bacteria = require('~/assets/data/stats/r207/red-bacteria.json')
+const archaea = require('~/assets/data/stats/r214/red-archaea.json')
+const bacteria = require('~/assets/data/stats/r214/red-bacteria.json')
 
 export default Vue.extend({
   mounted() {
@@ -45,8 +45,8 @@ export default Vue.extend({
     };
 
     // @ts-ignore
-    mpld3.draw_figure("mpld3_archaea_r207", archaea);
-    mpld3.draw_figure("mpld3_bacteria_r207", bacteria);
+    mpld3.draw_figure("mpld3_archaea_r214", archaea);
+    mpld3.draw_figure("mpld3_bacteria_r214", bacteria);
   }
 })
 </script>

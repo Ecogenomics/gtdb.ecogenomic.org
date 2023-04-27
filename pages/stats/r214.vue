@@ -394,13 +394,13 @@
         intervals for normalizing taxa at taxonomic ranks was operationally defined as the median RED value
         (indicated by a blue bar) at each rank ±0.1 (indicated by grey bars).
 
-<!--        <v-switch-->
-<!--          v-if="$vuetify.breakpoint.mdAndUp"-->
-<!--          v-model="showRedAsD3"-->
-<!--          :label="`Interactive: ${showRedAsD3.toString()}`"-->
-<!--          color="blue"-->
-<!--          inset-->
-<!--        ></v-switch>-->
+        <v-switch
+          v-if="$vuetify.breakpoint.mdAndUp"
+          v-model="showRedAsD3"
+          :label="`Interactive: ${showRedAsD3.toString()}`"
+          color="blue"
+          inset
+        ></v-switch>
         <template v-if="showRedAsD3">
           <REDr214></REDr214>
         </template>
