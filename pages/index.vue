@@ -13,9 +13,8 @@
           <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
           ***
         </NotifyBar>
-        <NotifyBar uid="gtdbtkv2">
-          *** Now published: <a class="mx-1" href="https://doi.org/10.1093/bioinformatics/btac672" target="_blank">GTDB-Tk
-          v2: memory friendly classification with the Genome Taxonomy Database</a> ***
+        <NotifyBar uid="r214-gtdbtk-waiting">
+          *** GTDB-Tk for R214 will follow next week ⌛ ***
         </NotifyBar>
       </div>
 
