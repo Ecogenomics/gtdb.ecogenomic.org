@@ -92,20 +92,6 @@
 							This taxonomy was standardized to seven ranks (domain to species) by removing non-standard ranks and identifying missing standard ranks with rank prefixes. &#013;
 							Standard ranks were also prefixed with rank identifiers as previously described (McDonald et al., 2012).</span>
               </v-tooltip>
-
-              <v-tooltip bottom max-width="400px">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon
-                    small
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    {{ mdiHelpCircleSvg }}
-                  </v-icon>
-                </template>
-                <span>Reflects NCBI Taxonomy at time of download for release. External links to NCBI may have updated information.</span>
-              </v-tooltip>
-
             </td>
             <td v-else>
               Undefined
@@ -173,6 +159,19 @@
             </td>
             <td v-else>
               Undefined
+
+              <v-tooltip bottom max-width="400px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    small
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    {{ mdiHelpCircleSvg }}
+                  </v-icon>
+                </template>
+                <span>Reflects NCBI Taxonomy at time of download for release. External links to NCBI may have updated information.</span>
+              </v-tooltip>
             </td>
           </template>
         </tr>
