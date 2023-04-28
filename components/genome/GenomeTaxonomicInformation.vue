@@ -52,7 +52,7 @@
 
         <!-- Filtered NCBI taxonomy -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col">Filtered NCBI Taxonomy</td>
+          <td class="gtdb-green-bg-table first-table-col">Filtered NCBI Taxonomy </td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
@@ -68,7 +68,7 @@
                 >
                   <template v-if="item.taxonId">
                     <a
-                      :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${item.taxonId}`"
+                      :href="`https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/${item.taxonId}/`"
                       target="_blank">
                       {{ item.taxon }}<template v-if="index !== genomeCard.ncbiTaxonomyFiltered.length - 1">;</template>
                     </a>
@@ -88,11 +88,10 @@
                     {{ mdiHelpCircleSvg }}
                   </v-icon>
                 </template>
-                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP. &#013;
+                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP at the time of download. &#013;
 							This taxonomy was standardized to seven ranks (domain to species) by removing non-standard ranks and identifying missing standard ranks with rank prefixes. &#013;
 							Standard ranks were also prefixed with rank identifiers as previously described (McDonald et al., 2012).</span>
               </v-tooltip>
-
             </td>
             <td v-else>
               Undefined
@@ -107,7 +106,7 @@
                     {{ mdiHelpCircleSvg }}
                   </v-icon>
                 </template>
-                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP. &#013;
+                <span>The NCBI taxonomy associated with the reference genomes was obtained from the NCBI Taxonomy FTP at the time of download. &#013;
 							This taxonomy was standardized to seven ranks (domain to species) by removing non-standard ranks and identifying missing standard ranks with rank prefixes. &#013;
 							Standard ranks were also prefixed with rank identifiers as previously described (McDonald et al., 2012).</span>
               </v-tooltip>
@@ -134,7 +133,7 @@
                 >
                   <template v-if="item.taxonId">
                     <a
-                      :href="`https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${item.taxonId}`"
+                      :href="`https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/${item.taxonId}/`"
                       target="_blank">
                       {{ item.taxon }}<template
                       v-if="index !== genomeCard.ncbiTaxonomyUnfiltered.length - 1">;</template>
@@ -144,9 +143,35 @@
                     {{ item.taxon }}<template v-if="index !== genomeCard.ncbiTaxonomyUnfiltered.length - 1">;</template>
                   </template>
                 </span>
+
+              <v-tooltip bottom max-width="400px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    small
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    {{ mdiHelpCircleSvg }}
+                  </v-icon>
+                </template>
+                <span>Reflects NCBI Taxonomy at time of download for release. External links to NCBI may have updated information.</span>
+              </v-tooltip>
             </td>
             <td v-else>
               Undefined
+
+              <v-tooltip bottom max-width="400px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    small
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    {{ mdiHelpCircleSvg }}
+                  </v-icon>
+                </template>
+                <span>Reflects NCBI Taxonomy at time of download for release. External links to NCBI may have updated information.</span>
+              </v-tooltip>
             </td>
           </template>
         </tr>
@@ -273,5 +298,8 @@ export default Vue.extend({
 <style scoped>
 .first-table-col {
   width: 250px !important;
+}
+a:hover {
+  font-weight: bold;
 }
 </style>

@@ -227,7 +227,8 @@ export default Vue.extend({
             {
               props: {
                 comparisons: resp.data.group_1.length * resp.data.group_2.length,
-                email: isDefined(payload.email)
+                // @ts-ignore
+                email: isDefined(payload.email) && payload.email.length > 3,
               }
             },
           );

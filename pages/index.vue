@@ -8,14 +8,13 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-        <NotifyBar uid="r207">
-          *** GTDB Release 207 is now available 🎉
+        <NotifyBar uid="r214">
+          *** GTDB Release 214 is now available 🎉
           <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
           ***
         </NotifyBar>
-        <NotifyBar uid="gtdbtkv2">
-          *** Now published: <a class="mx-1" href="https://doi.org/10.1093/bioinformatics/btac672" target="_blank">GTDB-Tk
-          v2: memory friendly classification with the Genome Taxonomy Database</a> ***
+        <NotifyBar uid="r214-gtdbtk-waiting">
+          *** GTDB-Tk for R214 will follow next week ⌛ ***
         </NotifyBar>
       </div>
 
@@ -122,27 +121,27 @@ export default Vue.extend({
   },
   data: () => ({
     /* Bacterial stats */
-    nBacTot: 311480,
-    nBacS: 62291,
-    nBacG: 15342,
-    nBacF: 3614,
-    nBacO: 1439,
-    nBacC: 425,
-    nBacP: 148,
+    nBacTot: 394932,
+    nBacS: 80789,
+    nBacG: 19153,
+    nBacF: 4264,
+    nBacO: 1624,
+    nBacC: 488,
+    nBacP: 161,
 
     /* Archaeal stats */
-    nArcTot: 6062,
-    nArcS: 3412,
-    nArcG: 1344,
-    nArcF: 456,
-    nArcO: 132,
-    nArcC: 52,
-    nArcP: 18,
+    nArcTot: 7777,
+    nArcS: 4416,
+    nArcG: 1586,
+    nArcF: 508,
+    nArcO: 148,
+    nArcC: 60,
+    nArcP: 20,
 
     /* Summary stats */
-    nGenomes: 6062 + 311480,
-    releaseVer: '07-RS207',
-    releaseDate: '8th April 2022',
+    nGenomes: 402709,
+    releaseVer: '08-RS214',
+    releaseDate: '28th April 2023',
   }),
 })
 </script>
