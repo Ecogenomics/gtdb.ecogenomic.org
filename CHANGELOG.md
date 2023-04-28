@@ -1,3 +1,29 @@
+# [2.22.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.21.0...v2.22.0) (2023-04-28)
+
+
+### Bug Fixes
+
+* **genome:** Remove duplicated tooltip for taxonomic information. ([c16ad58](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c16ad58ea1fcf514f230abfb34688329d6c2e8cd))
+* **plausible:** Make sure FastANI email is defined and has content. ([f636283](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f63628388e72a971a68a6a40e80e84afbae89be4))
+* **R214:** Add date of release. ([bf5fa2a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/bf5fa2acf524215473713bd48dcd636ba1a9ec8b))
+* **R214:** Fix incorrect number of species. ([dfe91fd](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/dfe91fd3df691767fbe716ce1560ffc26b7f6685))
+* **R214:** GTDB R214 stats page - hide RED until ready. ([db34121](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/db3412144b703050619fc02293d1f607018893eb))
+* **R214:** Update link to taxon history to default to R214. ([a5318e1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a5318e10522fa8727bddf03cdfedd2955286762c))
+
+
+### Features
+
+* **genome:** Add bold hover to genome page links. ([6facb06](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6facb06ced926e713f1a61bfa614da7ac8b8fbb8))
+* **genome:** Add bold hover to genome page links. ([5652e8d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5652e8de43173ce7ebc2736f590658646e857d7c))
+* **genome:** Add tooltip for taxonomic information. ([e0af1fb](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e0af1fb13b10eb49698a3a6d766fcc413dba8688))
+* **R214:** Add additional information to the comparison of GTDB and NCBI taxa. ([719a413](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/719a413bc31a5f07f2a712aae7b8aa00b3747852))
+* **R214:** Add interactive RED plot. ([520eef5](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/520eef5b03722a32893227dd3344c7e0a37cf0ca))
+* **R214:** Add Tk notice banner. ([8da47ec](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8da47ec87a251f65e40592c76374b948c269dd0d))
+* **R214:** GTDB R214 add counts to index page. ([14ddcb8](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/14ddcb8cbbf71eeb0a3a6de6331cfdb0198c6f48))
+* **R214:** GTDB R214 preview. ([ee74a9f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ee74a9f50061508a51f6537258e46e1206681db8))
+* **R214:** GTDB R214 stats page. ([bd89199](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/bd89199db143c2a6b5289fec8d4acca2c3d79aef))
+* **R214:** Update NCBI taxonomy browser links to data-hub. ([5008939](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5008939c21ba0cee399fcd401d3262a9befbe5ef))
+
 # [2.21.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.20.2...v2.21.0) (2023-04-14)
 
 
