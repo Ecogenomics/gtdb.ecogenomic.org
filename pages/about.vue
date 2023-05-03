@@ -42,7 +42,8 @@
           <a href="https://www.uq.edu.au/news/article/2015/06/uq-leads-nation-prestigious-arc-laureate-fellowships"
              target="_blank">Laureate Fellowship</a>
           (<a href="https://app.dimensions.ai/details/grant/grant.5129370" target="_blank">FL150100038</a>),
-          a Future Fellowship (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/FT170100213" target="_blank">FT170100213</a>), and
+          a Future Fellowship (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/FT170100213" target="_blank">FT170100213</a>),
+          and
           Discovery Project
           (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP220100900" target="_blank">DP220100900</a>),
           with the welcome assistance of <a
@@ -185,7 +186,8 @@
                   <img alt="Pierre Chaumeil" src="~/assets/images/gtdb-team/pierre.jpg">
                 </template>
                 <template v-slot:name>
-                  <a href="https://scmb.uq.edu.au/profile/1278/pierre-alain-chaumeil" target="_blank">Pierre Chaumeil</a>
+                  <a href="https://scmb.uq.edu.au/profile/1278/pierre-alain-chaumeil" target="_blank">Pierre
+                    Chaumeil</a>
                 </template>
               </AboutAvatar>
 
@@ -227,30 +229,30 @@
 
         <div class="d-block mt-8">
           <div class="d-block">
-            <span class="text-h5">GTDB Scientific Advisory Board</span>
+            <span class="text-h5">Scientific Advisory Board</span>
           </div>
 
           <div class="d-flex mt-5 flex-wrap" style="max-width: 100%;">
-          <v-card
-            class="mx-auto mt-2"
-            max-width="400"
-            outlined
-          >
-            <v-card-title>
-              Robert Lanfear
-            </v-card-title>
-            <v-card-subtitle>
-              <a href="https://www.robertlanfear.com/" target="_blank">https://www.robertlanfear.com/</a>
-            </v-card-subtitle>
-            <v-card-text>
-              Ph.D., Professor, Research School of Biology, The Australian National University, Australia
-            </v-card-text>
-          </v-card>
+            <v-card
+              class="mx-2 mt-2"
+              min-height="170" outlined
+              width="400"
+            >
+              <v-card-title>
+                Robert Lanfear
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="https://www.robertlanfear.com/" target="_blank">https://www.robertlanfear.com/</a>
+              </v-card-subtitle>
+              <v-card-text>
+                Ph.D., Professor, Research School of Biology, The Australian National University, Australia
+              </v-card-text>
+            </v-card>
 
             <v-card
-              class="mx-auto mt-2"
-              max-width="400"
-              outlined
+              class="mx-2 mt-2"
+              min-height="170" outlined
+              width="400"
             >
               <v-card-title>
                 Per Halkjær Nielsen
@@ -264,9 +266,9 @@
             </v-card>
 
             <v-card
-              class="mx-auto mt-2"
-              max-width="400"
-              outlined
+              class="mx-2 mt-2"
+              min-height="170" outlined
+              width="400"
             >
               <v-card-title>
                 Jeff Christiansen
@@ -281,9 +283,9 @@
             </v-card>
 
             <v-card
-              class="mx-auto mt-2"
-              max-width="400"
-              outlined
+              class="mx-2 mt-2"
+              min-height="170" outlined
+              width="400"
             >
               <v-card-title>
                 Lorna Richardson
@@ -298,15 +300,16 @@
             </v-card>
 
             <v-card
-              class="mx-auto mt-2"
-              max-width="400"
-              outlined
+              class="mx-2 mt-2"
+              min-height="170" outlined
+              width="400"
             >
               <v-card-title>
                 Conrad Schoch
               </v-card-title>
               <v-card-subtitle>
-                <a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank">https://www.ncbi.nlm.nih.gov/taxonomy</a>
+                <a href="https://www.ncbi.nlm.nih.gov/taxonomy"
+                   target="_blank">https://www.ncbi.nlm.nih.gov/taxonomy</a>
               </v-card-subtitle>
               <v-card-text>
                 Ph.D., NCBI Taxonomy Team lead, National Library of Medicine (NLM), National Institute for
@@ -315,9 +318,9 @@
             </v-card>
 
             <v-card
-              class="mx-auto mt-2"
-              max-width="400"
-              outlined
+              class="mx-2 mt-2"
+              min-height="170" outlined
+              width="400"
             >
               <v-card-title>
                 Jörg Overmann
@@ -332,9 +335,10 @@
             </v-card>
 
             <v-card
-              class="mx-auto mt-2"
-              max-width="400"
+              class="mx-2 mt-2"
+              min-height="170"
               outlined
+              width="400"
             >
               <v-card-title>
                 Mauricio Chalita
@@ -348,9 +352,10 @@
             </v-card>
 
             <v-card
-              class="mx-auto mt-2"
-              max-width="400"
+              class="mx-2 mt-2"
+              min-height="170"
               outlined
+              width="400"
             >
               <v-card-title>
                 Tobias Guldberg Frøslev
@@ -413,7 +418,8 @@
           <p class="mt-5">If you use the GTDB-Tk please cite:</p>
           <ul>
             <li class="mt-3">
-              Chaumeil, P.-A, et al. (2022). "<a href="https://doi.org/10.1093/bioinformatics/btac672" target="_blank">GTDB-Tk v2: memory friendly classification with the Genome Taxonomy Database</a>"
+              Chaumeil, P.-A, et al. (2022). "<a href="https://doi.org/10.1093/bioinformatics/btac672" target="_blank">GTDB-Tk
+              v2: memory friendly classification with the Genome Taxonomy Database</a>"
               <i>Bioinformatics</i>, <b>btac672</b>: https://doi.org/10.1093/bioinformatics/btac672.
             </li>
             <li class="mt-3">
@@ -471,7 +477,7 @@ export default Vue.extend({
       // @ts-ignore
       this.$api.meta.version().then((resp) => {
         this.apiVersion = `${resp.data.major}.${resp.data.minor}.${resp.data.patch}`
-      })  .catch((err: any) => {
+      }).catch((err: any) => {
         this.$accessor.api.defaultCatch(err);
       })
 
