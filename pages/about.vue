@@ -222,6 +222,153 @@
         </div>
         <!-- End the team -->
 
+
+        <v-divider></v-divider>
+
+        <div class="d-block mt-8">
+          <div class="d-block">
+            <span class="text-h5">GTDB Scientific Advisory Board</span>
+          </div>
+
+          <div class="d-flex mt-5 flex-wrap" style="max-width: 100%;">
+          <v-card
+            class="mx-auto mt-2"
+            max-width="400"
+            outlined
+          >
+            <v-card-title>
+              Robert Lanfear
+            </v-card-title>
+            <v-card-subtitle>
+              <a href="https://www.robertlanfear.com/" target="_blank">https://www.robertlanfear.com/</a>
+            </v-card-subtitle>
+            <v-card-text>
+              Ph.D., Professor, Research School of Biology, The Australian National University, Australia
+            </v-card-text>
+          </v-card>
+
+            <v-card
+              class="mx-auto mt-2"
+              max-width="400"
+              outlined
+            >
+              <v-card-title>
+                Per Halkjær Nielsen
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="http://www.cmc.aau.dk" target="_blank">http://www.cmc.aau.dk</a>
+              </v-card-subtitle>
+              <v-card-text>
+                Ph.D., Professor, Head of Centre for Microbial Communities, Aalborg University, Denmark
+              </v-card-text>
+            </v-card>
+
+            <v-card
+              class="mx-auto mt-2"
+              max-width="400"
+              outlined
+            >
+              <v-card-title>
+                Jeff Christiansen
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="https://www.biocommons.org.au/" target="_blank">https://www.biocommons.org.au/</a>
+              </v-card-subtitle>
+              <v-card-text>
+                Ph.D., Deputy Director, Associate Director (Engagements and Operations), Australian
+                BioCommons, Australia
+              </v-card-text>
+            </v-card>
+
+            <v-card
+              class="mx-auto mt-2"
+              max-width="400"
+              outlined
+            >
+              <v-card-title>
+                Lorna Richardson
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="https://www.ebi.ac.uk/" target="_blank">https://www.ebi.ac.uk/</a>
+              </v-card-subtitle>
+              <v-card-text>
+                M.Sc., Microbiome Resources Coordinator, European Molecular Biology Laboratory,
+                European Bioinformatics Institute (EMBL-EBI), United Kingdom
+              </v-card-text>
+            </v-card>
+
+            <v-card
+              class="mx-auto mt-2"
+              max-width="400"
+              outlined
+            >
+              <v-card-title>
+                Conrad Schoch
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank">https://www.ncbi.nlm.nih.gov/taxonomy</a>
+              </v-card-subtitle>
+              <v-card-text>
+                Ph.D., NCBI Taxonomy Team lead, National Library of Medicine (NLM), National Institute for
+                Biotechnology Information (NCBI), United States of America
+              </v-card-text>
+            </v-card>
+
+            <v-card
+              class="mx-auto mt-2"
+              max-width="400"
+              outlined
+            >
+              <v-card-title>
+                Jörg Overmann
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="https://www.dsmz.de/" target="_blank">https://www.dsmz.de/</a>
+              </v-card-subtitle>
+              <v-card-text>
+                Ph.D., Professor, Scientific Director, Leibniz Institute DSMZ-German Collection of
+                Microorganisms and Cell Cultures, Germany
+              </v-card-text>
+            </v-card>
+
+            <v-card
+              class="mx-auto mt-2"
+              max-width="400"
+              outlined
+            >
+              <v-card-title>
+                Mauricio Chalita
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="https://www.ezbiocloud.net/" target="_blank">https://www.ezbiocloud.net/</a>
+              </v-card-subtitle>
+              <v-card-text>
+                Ph.D., Seoul National University, Korea
+              </v-card-text>
+            </v-card>
+
+            <v-card
+              class="mx-auto mt-2"
+              max-width="400"
+              outlined
+            >
+              <v-card-title>
+                Tobias Guldberg Frøslev
+              </v-card-title>
+              <v-card-subtitle>
+                <a href="https://www.gbif.org/" target="_blank">https://www.gbif.org/</a>
+              </v-card-subtitle>
+              <v-card-text>
+                Ph.D., Programme Officer for Science Support in the Global Biodiversity Information Facility
+                (GBIF), Denmark
+              </v-card-text>
+            </v-card>
+
+
+          </div>
+
+        </div>
+
         <v-flex class="mt-10">
           <span class="text-h5">Cite GTDB</span>
           <p>If you find the GTDB useful in your work please cite:</p>
