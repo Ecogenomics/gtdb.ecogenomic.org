@@ -224,7 +224,6 @@
         </div>
         <!-- End the team -->
 
-
         <v-divider></v-divider>
 
         <div class="d-block mt-8">
@@ -239,11 +238,8 @@
               width="400"
             >
               <v-card-title>
-                Robert Lanfear
+                <a href="https://biology.anu.edu.au/people/academics/robert-lanfear" target="_blank">Robert Lanfear</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="https://www.robertlanfear.com/" target="_blank">https://www.robertlanfear.com/</a>
-              </v-card-subtitle>
               <v-card-text>
                 Ph.D., Professor, Research School of Biology, The Australian National University, Australia
               </v-card-text>
@@ -255,11 +251,8 @@
               width="400"
             >
               <v-card-title>
-                Per Halkjær Nielsen
+                <a href="https://vbn.aau.dk/en/persons/105842" target="_blank"> Per Halkjær Nielsen</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="http://www.cmc.aau.dk" target="_blank">http://www.cmc.aau.dk</a>
-              </v-card-subtitle>
               <v-card-text>
                 Ph.D., Professor, Head of Centre for Microbial Communities, Aalborg University, Denmark
               </v-card-text>
@@ -271,11 +264,8 @@
               width="400"
             >
               <v-card-title>
-                Jeff Christiansen
+                <a href="https://www.linkedin.com/in/jeff-christiansen-96588327/" target="_blank">Jeff Christiansen</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="https://www.biocommons.org.au/" target="_blank">https://www.biocommons.org.au/</a>
-              </v-card-subtitle>
               <v-card-text>
                 Ph.D., Deputy Director, Associate Director (Engagements and Operations), Australian
                 BioCommons, Australia
@@ -288,31 +278,25 @@
               width="400"
             >
               <v-card-title>
-                Lorna Richardson
+                <a href="https://www.ebi.ac.uk/people/person/lorna-richardson/" target="_blank">Lorna Richardson</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="https://www.ebi.ac.uk/" target="_blank">https://www.ebi.ac.uk/</a>
-              </v-card-subtitle>
               <v-card-text>
-                M.Sc., Microbiome Resources Coordinator, European Molecular Biology Laboratory,
+                M.Sc., Microbiome Resources Coordinator, European Molecular Biology Laboratory,
                 European Bioinformatics Institute (EMBL-EBI), United Kingdom
               </v-card-text>
             </v-card>
 
             <v-card
               class="mx-2 mt-2"
-              min-height="170" outlined
+              min-height="170"
+              outlined
               width="400"
             >
               <v-card-title>
-                Conrad Schoch
+                <a href="https://www.linkedin.com/in/conrad-schoch-3859266a/" target="_blank">Conrad Schoch</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="https://www.ncbi.nlm.nih.gov/taxonomy"
-                   target="_blank">https://www.ncbi.nlm.nih.gov/taxonomy</a>
-              </v-card-subtitle>
               <v-card-text>
-                Ph.D., NCBI Taxonomy Team lead, National Library of Medicine (NLM), National Institute for
+                Ph.D., NCBI Taxonomy Team lead, National Library of Medicine (NLM), National Institute for
                 Biotechnology Information (NCBI), United States of America
               </v-card-text>
             </v-card>
@@ -323,11 +307,8 @@
               width="400"
             >
               <v-card-title>
-                Jörg Overmann
+                <a href="https://www.dsmz.de/dsmz/portrait/management" target="_blank">Jörg Overmann</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="https://www.dsmz.de/" target="_blank">https://www.dsmz.de/</a>
-              </v-card-subtitle>
               <v-card-text>
                 Ph.D., Professor, Scientific Director, Leibniz Institute DSMZ-German Collection of
                 Microorganisms and Cell Cultures, Germany
@@ -341,11 +322,8 @@
               width="400"
             >
               <v-card-title>
-                Mauricio Chalita
+                <a href="https://www.linkedin.com/in/machalita/?originalSubdomain=kr" target="_blank">Mauricio Chalita</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="https://www.ezbiocloud.net/" target="_blank">https://www.ezbiocloud.net/</a>
-              </v-card-subtitle>
               <v-card-text>
                 Ph.D., Seoul National University, Korea
               </v-card-text>
@@ -358,14 +336,26 @@
               width="400"
             >
               <v-card-title>
-                Tobias Guldberg Frøslev
+                <a href="https://scholar.google.com.au/citations?user=3RjyxAoAAAAJ" target="_blank">Tobias Guldberg Frøslev</a>
               </v-card-title>
-              <v-card-subtitle>
-                <a href="https://www.gbif.org/" target="_blank">https://www.gbif.org/</a>
-              </v-card-subtitle>
               <v-card-text>
                 Ph.D., Programme Officer for Science Support in the Global Biodiversity Information Facility
                 (GBIF), Denmark
+              </v-card-text>
+            </v-card>
+
+
+            <v-card
+              class="mx-2 mt-2"
+              min-height="170"
+              outlined
+              width="400"
+            >
+              <v-card-title>
+                <a href="http://ynlab.info/members/yn/" target="_blank">Yasukazu Nakamura</a>
+              </v-card-title>
+              <v-card-text>
+                Ph.D., Professor, DNA Data Bank of Japan (DDBJ) Division Head (International Affairs), Japan
               </v-card-text>
             </v-card>
 
