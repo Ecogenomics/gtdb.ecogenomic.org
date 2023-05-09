@@ -297,7 +297,7 @@
             <p>
               <a href="https://www.linkedin.com/in/machalita/?originalSubdomain=kr" target="_blank">Mauricio Chalita</a>
               <br>
-              Ph.D., Seoul National University, Korea
+              Ph.D., EzBioCloud database team lead, Seoul National University, Korea
             </p>
 
             <p>
