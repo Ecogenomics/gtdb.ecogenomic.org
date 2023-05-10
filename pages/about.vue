@@ -95,7 +95,7 @@
               reference
               source of new taxonomic opinions including new names.
               The 16S rRNA-based <a href="http://greengenes.secondgenome.com" target="_blank">Greengenes</a> and <a
-              href="https://www.arb-silva.de/" target="_blank">SILVA</a> taxonomies were intially used to supplement the
+              href="https://www.arb-silva.de/" target="_blank">SILVA</a> taxonomies were initially used to supplement the
               taxonomy
               particularly in regions of the tree with no cultured representatives, however genome assembly
               identifiers are now used to create placeholder names for uncultured taxa.
@@ -104,7 +104,7 @@
             <p>
               <a href="https://lpsn.dsmz.de/" target="_blank">LPSN</a> is used as the
               primary nomenclatural reference for establishing naming priorities and nomenclature types.
-              All taxonomic ranks except species are normalised using <a href="https://github.com/dparks1134/PhyloRank"
+              All taxonomic ranks except species are normalized using <a href="https://github.com/dparks1134/PhyloRank"
                                                                          target="_blank">PhyloRank</a> and the taxonomy
               manually curated to
               remove polyphyletic groups.
