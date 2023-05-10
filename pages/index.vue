@@ -13,8 +13,8 @@
           <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
           ***
         </NotifyBar>
-        <NotifyBar uid="r214-gtdbtk-waiting">
-          *** GTDB-Tk for R214 will follow next week ⌛ ***
+        <NotifyBar uid="r214-gtdbtk">
+          *** GTDB-Tk has been updated to use the R214 taxonomy from <span class="mx-1"><a href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.3.0</a></span>***
         </NotifyBar>
       </div>
 
