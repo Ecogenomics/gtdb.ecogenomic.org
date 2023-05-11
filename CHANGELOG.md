@@ -1,3 +1,10 @@
+# [2.23.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.22.0...v2.23.0) (2023-05-10)
+
+
+### Features
+
+* **R214:** Updated main page to include the GTDB-Tk R214 banner. ([a83efcc](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a83efcc38c45a08b09f2f75837dfdfc46bbeac21))
+
 # [2.22.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.21.0...v2.22.0) (2023-04-28)
 
 
