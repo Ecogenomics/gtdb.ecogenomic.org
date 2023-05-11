@@ -1,3 +1,15 @@
+# [2.24.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.23.0...v2.24.0) (2023-05-11)
+
+
+### Features
+
+* **about:** Add GTDB scientific advisory board ([4c50e73](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/4c50e7312f81a21db96cc31bbac4e6cf9d06445a))
+* **about:** Advisory board formatting ([9d37eb3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9d37eb3fe739c2edcfbed052b9bd99d27aebd9ee))
+* **about:** Advisory board formatting ([c2b3121](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c2b3121f8210c7172979925893c076390a04c126))
+* **about:** Advisory board formatting ([c2fcf17](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c2fcf175dcbda17b56bd8fcb31dd18044d6ac21b))
+* **about:** Advisory board formatting ([06e317e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/06e317e046fffb5e0a55d0cfd2f065df0c08a9d5))
+* **about:** Advisory board formatting ([1d23539](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1d23539adb7ac0118243b6ec1c6baaf9fd6faa0a))
+
 # [2.23.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.22.0...v2.23.0) (2023-05-10)
 
 
