@@ -1,3 +1,10 @@
+## [2.24.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.0...v2.24.1) (2023-05-15)
+
+
+### Bug Fixes
+
+* **about:** Update link for SAB. ([5462d5d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5462d5dfa80eee9d5e900a3c886985c7b1be0afb))
+
 # [2.24.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.23.0...v2.24.0) (2023-05-11)
 
 
