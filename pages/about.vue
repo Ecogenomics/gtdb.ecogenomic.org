@@ -309,7 +309,7 @@
             </p>
 
             <p>
-              <a href="http://ynlab.info/members/yn/" target="_blank">Yasukazu Nakamura</a>
+              <a href="https://researchmap.jp/yaskaz?lang=en " target="_blank">Yasukazu Nakamura</a>
               <br>
               Ph.D., Professor, DNA Data Bank of Japan (DDBJ) Division Head (International Affairs), Japan
             </p>
