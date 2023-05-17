@@ -205,14 +205,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    gid(): string {
-      const gid = this.$route.query.gid;
-      if (gid) {
-        return gid as string;
-      } else {
-        return 'N/A'
-      }
-    },
     sourceBadgeText(): string {
       if (this.genomeCard.metadata_ncbi) {
         if (this.genomeCard.metadata_ncbi.ncbi_genome_category === 'derived from metagenome') {
@@ -278,6 +270,7 @@ export default Vue.extend({
     '$route.query': {
       handler(after, before) {
         if (before == null || (after && after.gid !== before.gid)) {
+          this.gid = after.gid;
           this.getGenomeCard();
         }
       },
@@ -288,6 +281,8 @@ export default Vue.extend({
   data: () => ({
     // Icons
     mdiArrowCollapseRightSvg: mdiArrowCollapseRight,
+
+    gid: 'Loading...',
 
     // The base model
     genomeCard: {} as GenomeCard,
@@ -311,6 +306,10 @@ export default Vue.extend({
   },
 
   mounted() {
+    // Load the genome ID from the route
+    //@ts-ignore
+    this.gid = this.$route.query.gid;
+
     // Load the genome card information
     this.getGenomeCard();
 
