@@ -202,11 +202,11 @@
           <tr>
             <td class="gtdb-green-bg-table first-table-col">Molecule Count</td>
             <td>
-              <template v-if="genomeCard.metadata_ncbi.ncbi_lat_lon == null">
+              <template v-if="genomeCard.metadata_ncbi.ncbi_molecule_count == null">
                 <NullChip/>
               </template>
               <template v-else>
-                {{ genomeCard.metadata_ncbi.ncbi_lat_lon.toLocaleString() }}
+                {{ genomeCard.metadata_ncbi.ncbi_molecule_count.toLocaleString() }}
               </template>
             </td>
           </tr>
