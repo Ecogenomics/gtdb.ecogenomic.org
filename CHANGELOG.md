@@ -1,3 +1,10 @@
+## [2.24.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.2...v2.24.3) (2023-05-26)
+
+
+### Bug Fixes
+
+* **genome:** Fix lat/long displaying for molecule count. ([717fa4c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/717fa4c25b1c34f20ca8290c6e758eee0e1a4eb9))
+
 ## [2.24.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.1...v2.24.2) (2023-05-17)
 
 
