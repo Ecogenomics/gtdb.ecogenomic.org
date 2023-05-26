@@ -1,3 +1,10 @@
+## [2.24.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.1...v2.24.2) (2023-05-17)
+
+
+### Bug Fixes
+
+* **genome:** Genome would appear as N/A if opened in a new tab. ([3c85cec](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3c85cec8e6c38cb0b6bf524fca900cb2de315261))
+
 ## [2.24.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.0...v2.24.1) (2023-05-15)
 
 
