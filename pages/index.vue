@@ -9,7 +9,7 @@
       <!-- First row -->
       <div class="d-flex flex-column">
         <NotifyBar uid="r214">
-          *** GTDB Release 214 is now available 🎉
+          *** GTDB Release 214.1 is now available 🎉
           <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
           ***
         </NotifyBar>
