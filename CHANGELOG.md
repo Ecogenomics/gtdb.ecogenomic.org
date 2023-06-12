@@ -1,3 +1,10 @@
+## [2.24.4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.3...v2.24.4) (2023-06-12)
+
+
+### Bug Fixes
+
+* **index:** Add R214.1 link to main page. ([79eb94a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/79eb94a2464576732a7d9c73e815a1010bed9aea))
+
 ## [2.24.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.2...v2.24.3) (2023-05-26)
 
 
