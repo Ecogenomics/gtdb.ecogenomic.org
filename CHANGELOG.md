@@ -1,3 +1,10 @@
+## [2.24.5](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.4...v2.24.5) (2023-07-06)
+
+
+### Bug Fixes
+
+* **twitter:** Remove twitter timeline from website. ([ff7abbd](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ff7abbd68dd647def04a8da6b458f97932bbae84))
+
 ## [2.24.4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.3...v2.24.4) (2023-06-12)
 
 
