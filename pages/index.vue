@@ -85,9 +85,9 @@
     </div>
 
     <!-- Right column (twitter) -->
-    <div class="d-flex w-md-20 flex-grow-0 flex-column fill-height" style="background-color: #f7f9f9 !important">
-      <TwitterTimeline style="max-height: 90vh; overflow: auto;"></TwitterTimeline>
-    </div>
+<!--    <div class="d-flex w-md-20 flex-grow-0 flex-column fill-height" style="background-color: #f7f9f9 !important">-->
+<!--      <TwitterTimeline style="max-height: 90vh; overflow: auto;"></TwitterTimeline>-->
+<!--    </div>-->
 
   </div>
 </template>
