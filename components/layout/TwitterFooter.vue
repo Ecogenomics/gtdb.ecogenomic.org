@@ -25,7 +25,7 @@ export default Vue.extend({
 
 <style scoped>
 .twitter-footer {
-  background-color: #000000;
+  background-color: #1E1E1E;
   color: #b7b7b7;
 }
 
