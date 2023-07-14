@@ -1,10 +1,10 @@
 <template>
 
-  <!-- make this flex column when small -->
-  <div class="d-flex fill-height flex-column flex-md-row">
+  <!-- Default container for all content on the main page -->
+  <div class="fill-height w-100 d-flex flex-column align-stretch">
 
-    <!-- Left column (main) -->
-    <div ref="gtdbmain" class="gtdb-main d-flex w-md-80 flex-grow-1 flex-column">
+    <!-- Main content -->
+    <div ref="gtdbmain" class="gtdb-main d-flex w-100 flex-grow-1 flex-column" style="min-height: 200px;">
 
       <!-- First row -->
       <div class="d-flex flex-column">
@@ -14,7 +14,8 @@
           ***
         </NotifyBar>
         <NotifyBar uid="r214-gtdbtk">
-          *** GTDB-Tk has been updated to use the R214 taxonomy from <span class="mx-1"><a href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.3.0</a></span>***
+          *** GTDB-Tk has been updated to use the R214 taxonomy from <span class="mx-1"><a
+          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.3.0</a></span>***
         </NotifyBar>
       </div>
 
@@ -85,11 +86,17 @@
     </div>
 
     <!-- Right column (twitter) -->
-<!--    <div class="d-flex w-md-20 flex-grow-0 flex-column fill-height" style="background-color: #f7f9f9 !important">-->
-<!--      <TwitterTimeline style="max-height: 90vh; overflow: auto;"></TwitterTimeline>-->
-<!--    </div>-->
+    <!--    <div class="d-flex w-md-20 flex-grow-0 flex-column fill-height" style="background-color: #f7f9f9 !important">-->
+    <!--      <TwitterTimeline style="max-height: 90vh; overflow: auto;"></TwitterTimeline>-->
+    <!--    </div>-->
+
+    <!-- Twitter footer -->
+    <div style="height: 40px;" class="d-block">
+      <TwitterFooter/>
+    </div>
 
   </div>
+
 </template>
 
 <script lang="ts">
@@ -99,9 +106,10 @@ import UqLogo from "~/components/layout/UqLogo.vue";
 import TwitterTimeline from "~/components/layout/TwitterTimeline.vue";
 import GtdbRankHistogram from "~/components/index/GtdbRankHistogram.vue";
 import NotifyBar from "~/components/index/NotifyBar.vue";
+import TwitterFooter from "~/components/layout/TwitterFooter.vue";
 
 export default Vue.extend({
-  components: {GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
+  components: {TwitterFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
   head() {
     return {
       title: 'Genome Taxonomy Database',
