@@ -330,7 +330,7 @@ export default Vue.extend({
 
     // Config
     fastAniMaxPairwise: 1000,
-    fastAniMaxPairwiseLow: 10000,
+    fastAniMaxPairwiseLow: 5000,
 
     textareaGroupA: '',
     textareaGroupB: '',
