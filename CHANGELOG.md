@@ -1,3 +1,18 @@
+# [2.25.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.5...v2.25.0) (2023-09-28)
+
+
+### Features
+
+* **FastANI:** Reduce maximum number of FastANI jobs to 5000. ([8f737f9](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8f737f91bd3917d3edbbc2d27b26a974641ff858))
+* **licenses:** Add information page on the licenses used. ([2114424](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/2114424b353e34312303d64b568017e488435961))
+* **twitter:** Add twitter footer to main page ([814b49c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/814b49c3039eec9c582a231c8c861bfc772300ef))
+* **twitter:** Add twitter footer to main page ([ee49dd6](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ee49dd672e2ee67a37cd98dc55c59185dd900f7e))
+
+
+### Reverts
+
+* **downloads:** Undo downloads deletion. ([66a7b0a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/66a7b0a1c7bbbe1de9dd44f9d79757009991c847))
+
 ## [2.24.5](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.4...v2.24.5) (2023-07-06)
 
 
