@@ -294,6 +294,13 @@ export default {
         },
         {
           icon: 'mdi-apps',
+          title: 'Licenses',
+          to: '/licenses',
+          nuxt: true,
+          external: false,
+        },
+        {
+          icon: 'mdi-apps',
           title: 'Status',
           to: 'https://stats.uptimerobot.com/gZZr2fq81O',
           nuxt: false,
