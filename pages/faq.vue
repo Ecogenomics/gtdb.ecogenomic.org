@@ -1,7 +1,7 @@
 <template>
   <v-container class="gtdb-container">
 
-  <SectionedPage :items="items">
+    <SectionedPage :items="items">
 
       <template #title>
         Frequently Asked Questions
@@ -98,7 +98,9 @@
           Bacterial and archaeal multiple sequence alignments (MSAs) are formed from the concatenation of 120 (bac120)
           or 53 (arc53) phylogenetically informative markers, respectively. These markers are comprised of proteins or
           protein domains specified in the Pfam v33.1 or TIGRFAMs v15.0 databases. Details on these markers are
-          available for download (<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/" target="_blank">here</a>). Gene calling is performed with Prodigal v2.6.3, and markers identified
+          available for download (<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/"
+                                     target="_blank">here</a>). Gene calling is performed with Prodigal v2.6.3, and
+          markers identified
           and aligned using HMMER v3.1b1. Columns in the MSA with >50% gaps or with a single amino acid spanning
           <25% or >95% of taxa are removed. In order to reduce computational requirements of the bacterial reference
           tree, 42 amino acids per marker were randomly selected from the remaining columns to produce a MSA of
@@ -231,61 +233,61 @@
           representative to be of increasingly higher
           quality (as defined by the quality score) the more dissimilar it is from the current
           representative (as defined by the ANI score).
-        <p>
-        <p>
-          Representatives are also updated to account for genome assemblies being removed from
-          NCBI and representatives are updated whenever the underlying assembly is updated at
-          NCBI.</p>
+          <p>
+            <p>
+              Representatives are also updated to account for genome assemblies being removed from
+              NCBI and representatives are updated whenever the underlying assembly is updated at
+              NCBI.</p>
 
-        <b>Table 1</b>. Criteria used to establish quality score of an assembly
-        <v-simple-table class="gtdb-table mt-2" dense style="max-width: 800px;">
-          <template v-slot:default>
-            <thead>
-            <tr>
-              <th class="text-left">CRITERIA</th>
-              <th class="text-left">SCORE</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>Type species of genome</td>
-              <td>100,000</td>
-            </tr>
-            <tr>
-              <td>Effective type strain of species according to NCBI</td>
-              <td>10,000</td>
-            </tr>
-            <tr>
-              <td>NCBI representative of species</td>
-              <td>1,000</td>
-            </tr>
-            <tr>
-              <td>Complete genome</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>CheckM quality estimate</td>
-              <td>completeness - 5*contamination</td>
-            </tr>
-            <tr>
-              <td>MAG or SAG</td>
-              <td>-100</td>
-            </tr>
-            <tr>
-              <td>Contig count</td>
-              <td>-5 * (no. contigs/100)</td>
-            </tr>
-            <tr>
-              <td>Undetermined bases</td>
-              <td>-5 * (no. undetermined bases/10,000)</td>
-            </tr>
-            <tr>
-              <td>Full length 16S rRNA gene</td>
-              <td>10</td>
-            </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
+            <b>Table 1</b>. Criteria used to establish quality score of an assembly
+            <v-simple-table class="gtdb-table mt-2" dense style="max-width: 800px;">
+              <template v-slot:default>
+                <thead>
+                <tr>
+                  <th class="text-left">CRITERIA</th>
+                  <th class="text-left">SCORE</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Type species of genome</td>
+                  <td>100,000</td>
+                </tr>
+                <tr>
+                  <td>Effective type strain of species according to NCBI</td>
+                  <td>10,000</td>
+                </tr>
+                <tr>
+                  <td>NCBI representative of species</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>Complete genome</td>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <td>CheckM quality estimate</td>
+                  <td>completeness - 5*contamination</td>
+                </tr>
+                <tr>
+                  <td>MAG or SAG</td>
+                  <td>-100</td>
+                </tr>
+                <tr>
+                  <td>Contig count</td>
+                  <td>-5 * (no. contigs/100)</td>
+                </tr>
+                <tr>
+                  <td>Undetermined bases</td>
+                  <td>-5 * (no. undetermined bases/10,000)</td>
+                </tr>
+                <tr>
+                  <td>Full length 16S rRNA gene</td>
+                  <td>10</td>
+                </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
       </template>
 
       <template #how-are-the-names-of-gtdb-species-clusters-updated-with-each-release>
@@ -366,19 +368,50 @@
         at: <a href="https://data.gtdb.ecogenomic.org/releases/latest/METHODS" target="_blank">https://data.gtdb.ecogenomic.org/releases/latest/METHODS</a>
       </template>
 
-    <template #why-doesnt-the-gtdb-contain-shigella-species>
-      Shigella species are considered heterotypic synonyms of E. coli
-      <a href="https://doi.org/10.1101/2021.09.22.461432" target="_blank">(Parks et al., 2021)</a>
-    </template>
+      <template #why-doesnt-the-gtdb-contain-shigella-species>
+        Shigella species are considered heterotypic synonyms of E. coli
+        <a href="https://doi.org/10.1101/2021.09.22.461432" target="_blank">(Parks et al., 2021)</a>
+      </template>
 
-    <template #why-do-some-names-not-appear-in-the-gtdb-taxonomy>
-      Effectively published Latin names above the rank of genus without designated type material,
-      either a sequenced type strain or MAG, will no longer be incorporated into GTDB, and those that do
-      will only be introduced when the associated type genome is present in GTDB. This change is necessary as
-      establishing the correct interior node in the reference tree for taxa without type material can be ambiguous,
-      particularly when the addition of new genomes or alternative inference methods results in the named taxon
-      becoming polyphyletic in later releases.
-    </template>
+      <template #why-do-some-names-not-appear-in-the-gtdb-taxonomy>
+        Effectively published Latin names above the rank of genus without designated type material,
+        either a sequenced type strain or MAG, will no longer be incorporated into GTDB, and those that do
+        will only be introduced when the associated type genome is present in GTDB. This change is necessary as
+        establishing the correct interior node in the reference tree for taxa without type material can be ambiguous,
+        particularly when the addition of new genomes or alternative inference methods results in the named taxon
+        becoming polyphyletic in later releases.
+      </template>
+
+      <template #why-is-my-taxon-of-interest-not-present-in-the-gtdb-taxonomy>
+        The most common reason why a given taxon does not appear in GTDB is due to
+        <nuxt-link to="/methods#red-normalization">rank normalization</nuxt-link>
+        that can result
+        in splitting or lumping of taxa depending on their relative evolutionary divergence (RED). For example,
+        the class <a href="https://lpsn.dsmz.de/class/cytophagia" target="_blank"><i>Cytophagia</i></a> does not exist
+        in GTDB because it is too shallow for a class according to RED and has
+        been united with the class
+        <nuxt-link to="/tree?r=c__Bacteroidia"><i>Bacteroidia</i></nuxt-link>
+        . Ultimately, the GTDB reflects the taxonomic opinion of the GTDB
+        curators who adhere to the principle of taxonomic freedom enshrined in all nomenclatural codes.
+      </template>
+
+      <template #can-i-obtain-an-ncbi-taxonomy-string-for-ncbi-submission>
+        <p>
+          Submission of genomes to NCBI or other INSDC repositories requires genomes to be classified according to the
+          NCBI Taxonomy. There is no direct translation from GTDB taxa to NCBI taxa. For example, GTDB may have merged
+          two families defined in the NCBI Taxonomy into a single family, or split a family in the NCBI Taxonomy into
+          two families. However, we would like to facilitate the process of submitting genomes to an INSDC repository to
+          the extent possible.
+        </p>
+        <p>
+          We recommend processing genomes through the GTDB-Tk “classify_wf” which will place each of your genomes in a
+          GTDB-Tk reference tree. An NCBI classification can then be determined by considering the NCBI classification
+          of all reference genomes descendant from the parent node of your genome. GTDB-Tk provides a script
+          “gtdb_to_ncbi_majority_vote.py” that can be run on GTDB-Tk output to produce an NCBI classification for your
+          genome based on a majority vote of these NCBI classifications.
+        </p>
+      </template>
+
 
       <template #references>
         <p>Oren A, et al. (2015). Proposal to include the rank of phylum in the international code
@@ -490,6 +523,14 @@ export default Vue.extend({
       {
         text: "Why do some published phylum (and other higher rank) names not appear in the GTDB taxonomy?",
         ref: 'why-do-some-names-not-appear-in-the-gtdb-taxonomy'
+      },
+      {
+        text: "Why is my taxon of interest not present in the GTDB taxonomy?",
+        ref: 'why-is-my-taxon-of-interest-not-present-in-the-gtdb-taxonomy'
+      },
+      {
+        text: "Can I obtain an NCBI taxonomy string for my genomes to facilitate submitting them to NCBI?",
+        ref: 'can-i-obtain-an-ncbi-taxonomy-string-for-ncbi-submission'
       },
       {text: 'References', ref: 'references'},
     ]

@@ -25,13 +25,17 @@
         Bacterial and archaeal multiple sequence alignments (MSAs) are formed from the concatenation of 120 (bac120)
         or 53 (arc53) phylogenetically informative markers, respectively. These markers are comprised of
         proteins or protein domains specified in the Pfam v33.1 or TIGRFAMs v15.0 databases. Details on
-        these markers are available for download (<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/" target="_blank">here</a>). Gene calling is performed with Prodigal v2.6.3,
+        these markers are available for download (<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/"
+                                                     target="_blank">here</a>). Gene calling is performed with Prodigal
+        v2.6.3,
         and markers identified and aligned using HMMER v3.1b1. Columns in the MSA with >50% gaps or with a
         single amino acid spanning <25% or >95% of taxa are removed. In order to reduce computational
         requirements of the bacterial reference tree, 42 amino acids per marker were randomly selected
         from the remaining columns to produce a MSA of ~5,000 columns. The final masks applied to the
-        concatenated MSAs are available for download (<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/" target="_blank">here</a>)
-        and the identical filtering approach is implemented in <a href="https://github.com/ecogenomics/gtdbtk" target="_blank">GTDB-Tk</a>.
+        concatenated MSAs are available for download (<a
+        href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/" target="_blank">here</a>)
+        and the identical filtering approach is implemented in <a href="https://github.com/ecogenomics/gtdbtk"
+                                                                  target="_blank">GTDB-Tk</a>.
       </template>
 
 
@@ -45,7 +49,8 @@
         <p class="mb-0">
           Archaea reference tree is inferred with IQ-Tree v2.1.2 under the PMSF model
           from the concatenated alignment of 53 archaeal genes based on a subset of the "top-ranked marker proteins"
-          from a recent evaluation based on minimizing horizontal gene transfer and optimising the recovery of monophyletic lineages
+          from a recent evaluation based on minimizing horizontal gene transfer and optimising the recovery of
+          monophyletic lineages
           <a href="https://doi.org/10.1038/s41467-020-17408-w" target="_blank">(Rinke & Spang et al., 2020)</a>,
           using FastTree v2.1.10 to infer an initial guide tree.
         </p>
@@ -85,18 +90,20 @@
         <p class="mb-0">
           Filtered genomes are manually inspected and exceptions are made for genomes of high
           nomenclatural or taxonomic significance, e.g. the isolate genome
-          <nuxt-link to="/tree?r=s__Ktedonobacter%20racemifer" target="_blank">Ktedonobacter racemifer</nuxt-link>
+          <nuxt-link target="_blank" to="/tree?r=s__Ktedonobacter%20racemifer">Ktedonobacter racemifer</nuxt-link>
           representing the class
-          <nuxt-link to="/tree?r=c__Ktedonobacteria" target="_blank">Ktedonobacteria</nuxt-link>
+          <nuxt-link target="_blank" to="/tree?r=c__Ktedonobacteria">Ktedonobacteria</nuxt-link>
           in the phylum
-          <nuxt-link to="/tree?r=p__Chloroflexota" target="_blank">Chloroflexota</nuxt-link>
+          <nuxt-link target="_blank" to="/tree?r=p__Chloroflexota">Chloroflexota</nuxt-link>
           has a contamination
           estimate of 11%. Genomes with CheckM contamination between 10% and 20% which pass criteria
           i and iv to vii are also retained if >80% of all duplicate marker genes are 100% identical
           as this suggest a large legitimate genome duplication event, e.g.
-          <nuxt-link to="/genome?gid=GCF_004799645.1" target="_blank">GCF_004799645.1</nuxt-link>, a
+          <nuxt-link target="_blank" to="/genome?gid=GCF_004799645.1">GCF_004799645.1</nuxt-link>
+          , a
           complete isolate genome from the type strain of
-          <nuxt-link to="/tree?r=s__Natronorubrum%20bangense" target="_blank">Natronorubrum bangense</nuxt-link>.
+          <nuxt-link target="_blank" to="/tree?r=s__Natronorubrum%20bangense">Natronorubrum bangense</nuxt-link>
+          .
         </p>
       </template>
 
@@ -195,7 +202,8 @@
 
       <template #identification-of-strain-identifiers>
         <p class="mb-0">
-          Strain identifiers are obtained from NCBI by parsing the 'isolate' and 'strains' fields in the assembly_report.txt, wgsmaster.gbff,
+          Strain identifiers are obtained from NCBI by parsing the 'isolate' and 'strains' fields in the
+          assembly_report.txt, wgsmaster.gbff,
           and genomic.gbff files associated with each genome.
         </p>
       </template>
@@ -233,6 +241,48 @@
         </p>
       </template>
 
+      <template #red-normalization>
+        <p>
+          Relative evolutionary divergence (RED; Parks et al., 2018) is used to help delineate taxa above the rank of
+          species. The conceptual idea of RED is that taxa of the same rank should have arisen at the same time in the
+          past. Development of a time-standardized classification was previously proposed for eukaryotes using the
+          fossil record to calibrate taxonomic ranks (Avise and Johns, 1999).
+        </p>
+        <p>
+          For prokaryotes, establishing the absolute time of divergence for nodes in a phylogenetic tree is challenging
+          as there are few known dates on which to constrain such inferences. Therefore, GTDB uses RED to normalize the
+          relative dates of ranks using an approach similar to that proposed by Wu et al., 2013.
+        </p>
+        <p>
+          RED provides an operational approximation of relative time with extant taxa existing in the present (RED = 1),
+          the last common ancestor occurring at a fixed time in the past (RED = 0) and internal nodes being linearly
+          interpolated between these values according to lineage-specific rates of evolution (see Figure). RED intervals
+          (equivalent to temporal bands in Avise and Johns, 1999) are defined as the median RED value for taxa at each
+          rank ± 0.1. This approach represents a compromise between strict normalization and the need to define taxa as
+          reproducible monophyletic groups in the reference tree.
+        </p>
+        <p>
+          <img src="~/assets/images/methods/methods-red.png" style="max-width: 600px;"/>
+        </p>
+        <p>
+          Example of RED calculation. Numbers on branches indicate their length, and numbers below each node indicate
+          their RED value. The root of the tree is defined to have a RED of zero, and leaf nodes have a RED of one.
+          The RED of an internal node n is linearly interpolated from the branch lengths comprising its lineage,
+          as defined by p + (d/u) × (1 – p), where p is the RED of its parent, d is the branch length to its parent,
+          and u is the average branch length from the parent node to all extant taxa descendant from n. For example,
+          the parent node of leaves C and D has a RED value of 0.75 (0.42 + (2/3.5) × (1 – 0.42)), because its parent
+          has a RED of p = 0.42, the branch length to the parent node is d = 2, and the average branch length from the
+          parent node to C and D is u = (3+4)/2 = 3.5. (b) Bacterial genome tree inferred from 120 concatenated proteins
+          and contoured with the RED interval assigned to each taxonomic rank. Adjacent ranks overlap in some instances,
+          because this permits existing group names to be placed on well-supported interior nodes.
+          The tree is rooted on the phylum <i>Candidatus</i> Bipolaricaulota for illustrative purposes. RED values used
+          for rank normalization are averaged over multiple plausible rootings (see Methods in Parks et al., 2018).
+          (c) The bacterial tree with branch lengths scaled by RED values, illustrating that rank normalization
+          follows concentric rings that provide an operational approximation of the relative time of divergence.
+          (Figure from Parks et al., 2018).
+        </p>
+
+      </template>
 
       <template #additional-information>
         <p>
@@ -310,10 +360,22 @@
             substantially expands the tree of life. Nat Microbiol 2: 1533-42.
           </a>
         </p>
-        <p class="mb-0">
+        <p>
           <a href="https://doi.org/10.1093/bioinformatics/btt403" target="_blank">
             Wheeler TJ, Eddy SR. 2013. nhmmer: DNA homology search with profile HMMs.
             Bioinformatics. 2013 Oct 1;29(19):2487-9.
+          </a>
+        </p>
+        <p>
+          <a href="https://doi.org/10.1073/pnas.96.13.7358" target="_blank">
+            Avise JC and Johns GC. 1999. Proposal for a standardized temporal scheme of biological classification for
+            extant species. Proc Natl Acad Sci USA, 96, 7358-7363.
+          </a>
+        </p>
+        <p>
+          <a href="https://arxiv.org/abs/1308.6333" target="_blank">
+            Wu D, Doroud L, and Eisen JA. 2013. TreeOTU: operational taxonomic unit classification based on phylogenetic
+            trees. Preprint at https://arxiv.org/abs/1308.6333.
           </a>
         </p>
       </template>
@@ -356,6 +418,7 @@ export default Vue.extend({
       {text: 'Updating GTDB species representatives', ref: 'updating-gtdb-species-representatives'},
       {text: 'Identification of strain identifiers', ref: 'identification-of-strain-identifiers'},
       {text: 'Updating name of GTDB species clusters', ref: 'updating-name-of-gtdb-species-clusters'},
+      {text: 'RED normalization', ref: 'red-normalization'},
       {text: 'Additional information', ref: 'additional-information'},
       {text: 'References', ref: 'references'}
     ]
