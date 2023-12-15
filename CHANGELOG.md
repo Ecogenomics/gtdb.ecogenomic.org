@@ -1,3 +1,10 @@
+# [2.26.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.25.0...v2.26.0) (2023-12-15)
+
+
+### Features
+
+* **faq/methods:** Add RED to methods and FAQ, and taxon submission info to FAQ. ([d76c440](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d76c440d5dc1cc8f48ff4df7b29c6fd42dc5cecb))
+
 # [2.25.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.24.5...v2.25.0) (2023-09-28)
 
 
