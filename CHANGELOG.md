@@ -1,3 +1,10 @@
+## [2.26.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.26.0...v2.26.1) (2023-12-15)
+
+
+### Bug Fixes
+
+* **fastani:** Add message to explain FastANI unavailable. ([b81f8b0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/b81f8b0673ca42c125ad19d46ce884b7be179910))
+
 # [2.26.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.25.0...v2.26.0) (2023-12-15)
 
 
