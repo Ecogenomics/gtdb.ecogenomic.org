@@ -21,67 +21,73 @@
         </p>
 
         <!-- Show the recently created jobs (loaded by cookie) -->
-        <FastAniRecentJobs :update="jobId"/>
+<!--        <FastAniRecentJobs :update="jobId"/>-->
+
+        <p class="mt-5">
+          Sorry, the GTDB FastANI calculator is temporarily unavailable. We expect to have it back up and running
+          by the 7th of January 2024.
+        </p>
 
 
-        <!-- Show the new / previous job form -->
-        <v-card
-          class="mt-5"
-          outlined
-        >
-          <v-tabs
-            v-model="tabModel"
-            background-color="#7a8a79"
-            centered
-            dark
-            fixed-tabs
-            icons-and-text
-            show-arrows
-          >
-            <v-tab>
-              Query
-              <v-icon left>
-                {{ mdiMagnifySvg }}
-              </v-icon>
-            </v-tab>
 
-            <v-tab
-              :disabled="!hasJobId"
-            >
-              Tabular results
-              <v-icon left>
-                {{ mdiTableSvg }}
-              </v-icon>
-            </v-tab>
+<!--        &lt;!&ndash; Show the new / previous job form &ndash;&gt;-->
+<!--        <v-card-->
+<!--          class="mt-5"-->
+<!--          outlined-->
+<!--        >-->
+<!--          <v-tabs-->
+<!--            v-model="tabModel"-->
+<!--            background-color="#7a8a79"-->
+<!--            centered-->
+<!--            dark-->
+<!--            fixed-tabs-->
+<!--            icons-and-text-->
+<!--            show-arrows-->
+<!--          >-->
+<!--            <v-tab>-->
+<!--              Query-->
+<!--              <v-icon left>-->
+<!--                {{ mdiMagnifySvg }}-->
+<!--              </v-icon>-->
+<!--            </v-tab>-->
 
-            <v-tab
-              :disabled="!hasJobId"
-            >
-              Heatmap
-              <v-icon left>
-                {{ mdiChartScatterPlotHexbinSvg }}
-              </v-icon>
-            </v-tab>
-          </v-tabs>
+<!--            <v-tab-->
+<!--              :disabled="!hasJobId"-->
+<!--            >-->
+<!--              Tabular results-->
+<!--              <v-icon left>-->
+<!--                {{ mdiTableSvg }}-->
+<!--              </v-icon>-->
+<!--            </v-tab>-->
 
-          <v-tabs-items v-model="tabModel">
-            <v-tab-item>
-              <FastAniQuery
-                :disabled="isCreateJobRunning"
-                :job-id="jobId"
-                @submit="submitRequest"
-              ></FastAniQuery>
-            </v-tab-item>
-            <v-tab-item>
-              <FastAniResults :job-id="computedJobId"/>
-            </v-tab-item>
-            <v-tab-item>
-              <FastAniHeatmap :job-id="computedJobId"/>
-            </v-tab-item>
-          </v-tabs-items>
+<!--            <v-tab-->
+<!--              :disabled="!hasJobId"-->
+<!--            >-->
+<!--              Heatmap-->
+<!--              <v-icon left>-->
+<!--                {{ mdiChartScatterPlotHexbinSvg }}-->
+<!--              </v-icon>-->
+<!--            </v-tab>-->
+<!--          </v-tabs>-->
+
+<!--          <v-tabs-items v-model="tabModel">-->
+<!--            <v-tab-item>-->
+<!--              <FastAniQuery-->
+<!--                :disabled="isCreateJobRunning"-->
+<!--                :job-id="jobId"-->
+<!--                @submit="submitRequest"-->
+<!--              ></FastAniQuery>-->
+<!--            </v-tab-item>-->
+<!--            <v-tab-item>-->
+<!--              <FastAniResults :job-id="computedJobId"/>-->
+<!--            </v-tab-item>-->
+<!--            <v-tab-item>-->
+<!--              <FastAniHeatmap :job-id="computedJobId"/>-->
+<!--            </v-tab-item>-->
+<!--          </v-tabs-items>-->
 
 
-        </v-card>
+<!--        </v-card>-->
 
 
       </v-card-text>
@@ -134,17 +140,17 @@ export default Vue.extend({
   },
 
 
-  watch: {
-    // Watch for any changes to the query parameters
-    '$route.query': {
-      handler(after: object, before: object) {
-        // Check what filters are present in the query string and re-apply those filters
-        if (isDefined(after) && after !== before) {
-          this.getAndSetContentFromJobId();
-        }
-      }
-    },
-  },
+  // watch: {
+  //   // Watch for any changes to the query parameters
+  //   '$route.query': {
+  //     handler(after: object, before: object) {
+  //       // Check what filters are present in the query string and re-apply those filters
+  //       if (isDefined(after) && after !== before) {
+  //         this.getAndSetContentFromJobId();
+  //       }
+  //     }
+  //   },
+  // },
 
   data: () => ({
     // Icons
@@ -163,94 +169,94 @@ export default Vue.extend({
     isCreateJobRunning: false,
 
   }),
-  computed: {
-    // Returns the JobID
-    computedJobId(): string {
-      return this.jobId;
-    },
+  // computed: {
+  //   // Returns the JobID
+  //   computedJobId(): string {
+  //     return this.jobId;
+  //   },
+  //
+  //   hasJobId(): boolean {
+  //     return this.jobId != null && this.jobId !== '';
+  //   },
+  //
+  // },
+  // methods: {
+  //   getAndSetContentFromJobId() {
+  //     if (isDefined(this.jobId) && this.jobId.length == 36) {
+  //       this.tabModel = 1;
+  //     }
+  //   },
+  //
+  //
+  //   submitRequest(payload: FastAniJobRequest) {
+  //
+  //     this.isCreateJobRunning = true;
+  //     this.$api.fastani.newJob(payload)
+  //       .then((resp) => {
+  //         // Add the JobID to the current URL
+  //         const encodedExp = encodeURIComponent(String(resp.data.job_id))
+  //         history.pushState({}, "", `${this.$route.path}?job-id=${encodedExp}`);
+  //         this.jobId = resp.data.job_id;
+  //
+  //         // Create / update the cookie
+  //         if (this.fastAniJobCookieName) {
+  //           // Check if the cookie exists and get the existing content
+  //           const existingCookie = this.$cookies.get(this.fastAniJobCookieName);
+  //           let existingCookieContent: string[] = [];
+  //           if (existingCookie) {
+  //             existingCookieContent = existingCookie.split(',');
+  //           }
+  //           // add the job id to the front
+  //           existingCookieContent.unshift(this.jobId);
+  //
+  //           // remove duplicates
+  //           existingCookieContent = existingCookieContent.filter((v, i, a) => a.indexOf(v) === i);
+  //
+  //           // return the first 50 items in the queue
+  //           existingCookieContent = existingCookieContent.slice(0, 50);
+  //
+  //           this.$cookies.set(this.fastAniJobCookieName, existingCookieContent.join(','), {
+  //             path: '/',
+  //             maxAge: 60 * 60 * 24 * 365
+  //           });
+  //         }
+  //
+  //         // Set the target panel to be opened
+  //         if ((resp.data.group_1.length > 100 || resp.data.group_2.length > 100)) {
+  //           this.tabModel = 1
+  //         } else {
+  //           this.tabModel = 2
+  //         }
+  //
+  //         // Track this event
+  //         this.$plausible.trackEvent("FastANI job created",
+  //           {
+  //             props: {
+  //               comparisons: resp.data.group_1.length * resp.data.group_2.length,
+  //               // @ts-ignore
+  //               email: isDefined(payload.email) && payload.email.length > 3,
+  //             }
+  //           },
+  //         );
+  //
+  //       })
+  //       .catch((err) => {
+  //         this.$accessor.api.defaultCatch(err);
+  //       })
+  //       .finally(() => {
+  //         this.isCreateJobRunning = false;
+  //       })
+  //   },
+  // },
 
-    hasJobId(): boolean {
-      return this.jobId != null && this.jobId !== '';
-    },
-
-  },
-  methods: {
-    getAndSetContentFromJobId() {
-      if (isDefined(this.jobId) && this.jobId.length == 36) {
-        this.tabModel = 1;
-      }
-    },
-
-
-    submitRequest(payload: FastAniJobRequest) {
-
-      this.isCreateJobRunning = true;
-      this.$api.fastani.newJob(payload)
-        .then((resp) => {
-          // Add the JobID to the current URL
-          const encodedExp = encodeURIComponent(String(resp.data.job_id))
-          history.pushState({}, "", `${this.$route.path}?job-id=${encodedExp}`);
-          this.jobId = resp.data.job_id;
-
-          // Create / update the cookie
-          if (this.fastAniJobCookieName) {
-            // Check if the cookie exists and get the existing content
-            const existingCookie = this.$cookies.get(this.fastAniJobCookieName);
-            let existingCookieContent: string[] = [];
-            if (existingCookie) {
-              existingCookieContent = existingCookie.split(',');
-            }
-            // add the job id to the front
-            existingCookieContent.unshift(this.jobId);
-
-            // remove duplicates
-            existingCookieContent = existingCookieContent.filter((v, i, a) => a.indexOf(v) === i);
-
-            // return the first 50 items in the queue
-            existingCookieContent = existingCookieContent.slice(0, 50);
-
-            this.$cookies.set(this.fastAniJobCookieName, existingCookieContent.join(','), {
-              path: '/',
-              maxAge: 60 * 60 * 24 * 365
-            });
-          }
-
-          // Set the target panel to be opened
-          if ((resp.data.group_1.length > 100 || resp.data.group_2.length > 100)) {
-            this.tabModel = 1
-          } else {
-            this.tabModel = 2
-          }
-
-          // Track this event
-          this.$plausible.trackEvent("FastANI job created",
-            {
-              props: {
-                comparisons: resp.data.group_1.length * resp.data.group_2.length,
-                // @ts-ignore
-                email: isDefined(payload.email) && payload.email.length > 3,
-              }
-            },
-          );
-
-        })
-        .catch((err) => {
-          this.$accessor.api.defaultCatch(err);
-        })
-        .finally(() => {
-          this.isCreateJobRunning = false;
-        })
-    },
-  },
-
-  mounted() {
-    // Load the Job ID
-    const jobId = this.$route.query['job-id'];
-    if (isDefined(jobId) && jobId.length == 36) {
-      this.jobId = jobId as string;
-      this.getAndSetContentFromJobId();
-    }
-  }
+  // mounted() {
+  //   // Load the Job ID
+  //   const jobId = this.$route.query['job-id'];
+  //   if (isDefined(jobId) && jobId.length == 36) {
+  //     this.jobId = jobId as string;
+  //     this.getAndSetContentFromJobId();
+  //   }
+  // }
 })
 </script>
 
