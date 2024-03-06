@@ -1,3 +1,10 @@
+# [2.27.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.26.1...v2.27.0) (2024-03-06)
+
+
+### Features
+
+* **fastani:** Re-enable FastANI calculator. ([3e0e6a5](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3e0e6a5342fd21a49244deb2935ea35e8a218d03))
+
 ## [2.26.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.26.0...v2.26.1) (2023-12-15)
 
 
