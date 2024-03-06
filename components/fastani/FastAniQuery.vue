@@ -21,10 +21,10 @@
           rounded
           style="pointer-events: none"
         >
-          <template v-slot:default>
-            <strong>{{ curNumPairwise.toLocaleString() }}/{{ fastAniMaxPairwiseLow.toLocaleString() }}
-              ({{ Math.ceil(curPctPairwise) }})%</strong>
-          </template>
+<!--          <template v-slot:default>-->
+<!--            <strong>{{ curNumPairwise.toLocaleString() }}/{{ fastAniMaxPairwiseLow.toLocaleString() }}-->
+<!--              ({{ Math.ceil(curPctPairwise) }})%</strong>-->
+<!--          </template>-->
         </v-progress-linear>
       </p>
 
@@ -226,8 +226,8 @@ export default Vue.extend({
       type: Object as PropType<FastAniJobRequest>
     },
     jobId: {
-      type: String,
-      default: '',
+      type: Number,
+      default: 0,
     }
   },
 
@@ -237,12 +237,10 @@ export default Vue.extend({
     // FastANI Config
     const fastAniConfig = await $api.fastani.getConfig();
     const fastAniMaxPairwise = fastAniConfig.data.maxPairwise;
-    const fastAniMaxPairwiseLow = fastAniConfig.data.maxPairwiseLow;
 
     // Merge with data
     return {
-      fastAniMaxPairwise,
-      fastAniMaxPairwiseLow
+      fastAniMaxPairwise
     }
   },
 
@@ -431,7 +429,7 @@ export default Vue.extend({
     },
 
     getAndSetContentFromJobId() {
-      if (isDefined(this.jobId) && this.jobId.length == 36) {
+      if (isDefined(this.jobId)) {
         if (this.isGetApiQueryRunning) {
           return;
         }

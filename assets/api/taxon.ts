@@ -60,6 +60,15 @@ export class TaxonApi {
       })
   }
 
+  getTaxonGenomesDetail(taxon: string, sp_reps_only: boolean) {
+    return axios.get<TaxonGenomesDetailResponse>(`${apiBase}/taxon/${encodeURIComponent(taxon)}/genomes-detail`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey, sp_reps_only: sp_reps_only}
+      })
+  }
+
+
 }
 
 // --------------------------------------------------------------------------------------------
@@ -93,4 +102,19 @@ export interface TaxonDescendants {
 
 export interface TaxonSearchResponse {
   matches: string[]
+}
+
+export interface TaxonGenomesDetailRow {
+  gid: string,
+  gtdbIsRep: boolean,
+  gtdbDomain: string,
+  gtdbPhylum: string,
+  gtdbClass: string,
+  gtdbOrder: string,
+  gtdbFamily: string,
+  gtdbGenus: string,
+  gtdbSpecies: string,
+}
+export interface TaxonGenomesDetailResponse {
+  rows: TaxonGenomesDetailRow[]
 }

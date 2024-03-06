@@ -64,8 +64,11 @@ import {mdiExclamation} from "@mdi/js";
 
 export default Vue.extend({
   components: {FastAniVersion},
-
   props: {
+    input: {
+      type: String,
+      default: ''
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -89,6 +92,7 @@ export default Vue.extend({
         maxAge: 31536000, // 1 year
         sameSite: true,
       });
+      this.$emit('input', this.fastAniPriorityQueueSecret);
     },
 
   },
@@ -98,6 +102,7 @@ export default Vue.extend({
     const fastAniPriorityQCookie = this.$cookies.get(this.fastAniPriorityQueueCookieName);
     if (fastAniPriorityQCookie) {
       this.fastAniPriorityQueueSecret = fastAniPriorityQCookie;
+      this.$emit('input', this.fastAniPriorityQueueSecret);
     }
   }
 

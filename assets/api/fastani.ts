@@ -19,7 +19,7 @@ export class FastAniApi {
       })
   }
 
-  getJob(jobId: string) {
+  getJob(jobId: number) {
     return axios.get<FastAniJobResult>(`${apiBase}/fastani/${jobId}`,
       {
         timeout: 60000,
@@ -27,7 +27,7 @@ export class FastAniApi {
       })
   }
 
-  getJobInfo(jobId: string) {
+  getJobInfo(jobId: number) {
     return axios.get<FastAniJobInfo>(`${apiBase}/fastani/${jobId}/info`,
       {
         timeout: 60000,
@@ -38,7 +38,7 @@ export class FastAniApi {
       })
   }
 
-  getJobHeatmap(jobId: string, method: string) {
+  getJobHeatmap(jobId: number, method: string) {
     return axios.get<FastAniJobHeatmap>(`${apiBase}/fastani/${jobId}/heatmap/${method}`,
       {
         timeout: 60000,
@@ -46,12 +46,29 @@ export class FastAniApi {
       })
   }
 
-  getJobCsvUrl(jobId: string) {
+  getJobCsvUrl(jobId: number) {
     return `${apiBase}/fastani/${jobId}/csv?cacheKey=${apiCacheKey}`
   }
 
   getConfig() {
     return axios.get<FastAniConfig>(`${apiBase}/fastani/config`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
+  }
+
+  validateGenomes(payload: FastAniGenomeValidationRequest) {
+    return axios.post<FastAniGenomeValidationResponse[]>(`${apiBase}/fastani/validate/genomes`, payload,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
+  }
+
+
+  getFastAniJobMetadata(jobId: number) {
+    return axios.get<FastAniJobMetadata>(`${apiBase}/fastani/${jobId}/metadata`,
       {
         timeout: apiTimeout,
         params: {cacheKey: apiCacheKey}
@@ -81,7 +98,7 @@ export interface FastAniParameters {
 }
 
 export interface FastAniJobResult {
-  job_id: string,
+  job_id: number,
   group_1: string[],
   group_2: string[],
   parameters: FastAniParameters,
@@ -108,7 +125,6 @@ export interface FastAniResult {
 
 export interface FastAniConfig {
   maxPairwise: number
-  maxPairwiseLow: number,
 }
 
 export enum FastAniHeatmapDataStatus {
@@ -144,7 +160,29 @@ export enum FastAniJobStatus {
 }
 
 export interface FastAniJobInfo {
-  jobId: string,
+  jobId: number,
   createdOn: number,
   status: FastAniJobStatus,
+}
+
+export interface FastAniGenomeValidationRequest {
+  genomes: string[]
+}
+
+export interface FastAniGenomeValidationResponse {
+  accession: string,
+  isSpRep: boolean | null,
+  gtdbDomain: string | null,
+  gtdbPhylum: string | null,
+  gtdbClass: string | null,
+  gtdbOrder: string | null,
+  gtdbFamily: string | null,
+  gtdbGenus: string | null,
+  gtdbSpecies: string | null,
+}
+
+export interface FastAniJobMetadata {
+  query: FastAniGenomeValidationResponse[]
+  reference: FastAniGenomeValidationResponse[]
+  parameters: FastAniParameters
 }

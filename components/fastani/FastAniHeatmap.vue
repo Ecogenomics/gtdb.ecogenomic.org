@@ -235,7 +235,7 @@ function round(n: number, places: number) {
 
 export default Vue.extend({
   props: {
-    jobId: String
+    jobId: Number
   },
   components: {D3ScaleSelect, FastAniLogsModal, HelpTooltip},
   data: () => ({
@@ -291,6 +291,9 @@ export default Vue.extend({
 
     // Load the heatmap data from the API and re-draw
     loadData() {
+      if (!isDefined(this.jobId) || this.jobId < 1) {
+        return;
+      }
       this.$api.fastani.getJobHeatmap(this.jobId, this.clusterBy).then(res => {
         this.drawHeatmap(res.data);
       })

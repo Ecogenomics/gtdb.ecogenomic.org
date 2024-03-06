@@ -4,11 +4,11 @@
     :items="itemsWithTaxon"
     :label="label"
     :search-input.sync="search"
+    :disabled="disabled"
     clearable
     dense
     hide-details
     outlined
-    style="max-width: 500px;"
     @click:clear="clearItems"
   >
     <!-- Display when no data present / user is searching -->
@@ -44,6 +44,10 @@ export default Vue.extend({
     release: {
       type: String,
       default: 'current', // supports: 'current', 'all'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({

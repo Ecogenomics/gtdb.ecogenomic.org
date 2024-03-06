@@ -358,7 +358,7 @@ interface TableRow {
 
 export default Vue.extend({
   props: {
-    jobId: String
+    jobId: Number
   },
   components: {FastAniLogsModal, HelpTooltip},
   data: () => ({
@@ -398,7 +398,7 @@ export default Vue.extend({
       {text: "Mapped Fragments", value: "mapped"},
       {text: "Total Fragments", value: "total"},
       {text: "Status", value: "status"},
-      {text: "Logs", value: "logs", sortable: false}
+      // {text: "Logs", value: "logs", sortable: false}
     ],
     results: ([] as TableRow[]),
   }),
@@ -640,7 +640,7 @@ export default Vue.extend({
   },
   computed: {
     hasJobId(): boolean {
-      return isDefined(this.jobId) && this.jobId.length > 0;
+      return isDefined(this.jobId) && this.jobId > 0;
     },
     downloadCsvUrl(): string {
       return this.$api.fastani.getJobCsvUrl(this.jobId)

@@ -186,16 +186,17 @@ export default Vue.extend({
 
   methods: {
     // Return job ids from cookie
-    getJobIdsFromCookie(): string[] {
+    getJobIdsFromCookie(): number[] {
       if (this.fastAniJobCookieName) {
         const cookie = this.$cookies.get(this.fastAniJobCookieName);
         if (cookie) {
           const jobIds = cookie.split(',');
           const out = [];
-          const jobUnq = new Set<string>(jobIds);
+          const jobUnq = new Set<number>(jobIds);
           for (const jobId of jobIds) {
-            if(jobUnq.has(jobId)) {
-              out.push(jobId);
+            const curJobId = parseInt(jobId);
+            if(jobUnq.has(curJobId)) {
+              out.push(curJobId);
             }
           }
           return out;
@@ -251,11 +252,11 @@ export default Vue.extend({
       }
     },
 
-    removeJob(jobId: string): void {
+    removeJob(jobId: number): void {
       console.log(jobId)
 
       // Remove the job from the rows
-      this.rows = this.rows.filter((row) => row.jobId !== jobId);
+      this.rows = this.rows.filter((row) => row.jobId.toString() !== jobId.toString());
 
       // Remove the job from the cookie
       this.updateCookieFromRows();
