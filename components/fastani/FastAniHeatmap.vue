@@ -441,7 +441,7 @@ export default Vue.extend({
       const tickSize = 3;
       const rectRounding = 3;
       const pageXOffset = 130;
-      const pageYOffset = 420;
+      const pageYOffset = 300;
 
       // Create a colour scale for the species
       const allSpecies = [...new Set(xSpecies.concat(ySpecies))];

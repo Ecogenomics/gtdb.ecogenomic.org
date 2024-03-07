@@ -16,11 +16,12 @@
           We have provided a interface to <a href="https://github.com/ParBLiSS/FastANI" target="_blank">FastANI</a>
           (<a href="https://doi.org/10.1038/s41467-018-07641-9" target="_blank">Jain, C., Rodriguez-R, L.M., Phillippy,
           A.M. et al.</a>)
-          to assist in exploring prokaryotic NCBI genomes. We periodically download new genomes from NCBI, missing genomes will be
+          to assist in exploring prokaryotic NCBI genomes. We periodically download new genomes from NCBI, missing
+          genomes will be
           ignored.
         </p>
 
-        <FastAniNavigationBar :job-id="jobId" />
+        <FastAniNavigationBar :job-id="jobId"/>
 
         <FastAniHeatmap :job-id="jobId"/>
 
@@ -32,13 +33,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import FastAniResults from "~/components/fastani/FastAniResults.vue";
-import {mdiChartScatterPlotHexbin, mdiMagnify, mdiTable} from "@mdi/js";
-import {FastAniJobRequest} from "~/assets/api/fastani";
 import FastAniHeatmap from "~/components/fastani/FastAniHeatmap.vue";
 import {isDefined} from "~/assets/ts/common";
-import FastAniRecentJobs from "~/components/fastani/FastAniRecentJobs.vue";
-import FastAniQuery from "~/components/fastani/FastAniQuery.vue";
 import FastAniNavigationBar from "~/components/fastani/navigation/FastAniNavigationBar.vue";
 
 export default Vue.extend({
@@ -69,30 +65,11 @@ export default Vue.extend({
   components: {
     FastAniNavigationBar,
     FastAniHeatmap
-
-  },
-
-
-  watch: {
-
   },
 
   data: () => ({
     jobId: 0,
-
-
   }),
-  computed: {
-
-
-  },
-  methods: {
-
-    loadJob() {
-
-    }
-
-  },
 
   mounted() {
     // When the application loads, check if the ?job-id=x parameter is present.
@@ -104,7 +81,6 @@ export default Vue.extend({
       // The default value is 0, ignore it if it's the case
       if (jobIdParsed > 0) {
         this.jobId = jobIdParsed;
-        this.loadJob();
       }
     }
   }
