@@ -53,6 +53,19 @@
         >
         </FastAniPriorityQueue>
 
+        <v-btn
+          class="white--text"
+          color="#a26464"
+          depressed
+          small
+          href="/tools/fastani"
+        >
+          <v-icon left>
+            {{ restartSvg }}
+          </v-icon>
+          New query
+        </v-btn>
+
       </v-card>
 
 
@@ -101,7 +114,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {mdiHandshake, mdiProgressCheck} from "@mdi/js";
+import {mdiHandshake, mdiProgressCheck, mdiRestart} from "@mdi/js";
 import {isDefined} from "~/assets/ts/common";
 import {FastAniAddGenomesFromUserInput, FastAniQueryRow} from "~/assets/models/fastani";
 import FastAniQueryTable from "~/components/fastani/FastAniQueryTable.vue";
@@ -142,6 +155,7 @@ export default Vue.extend({
     // Icons
     loadExampleSvg: mdiHandshake,
     submitIconSvg: mdiProgressCheck,
+    restartSvg: mdiRestart,
 
     // Config
     fastAniMaxPairwise: 1000,

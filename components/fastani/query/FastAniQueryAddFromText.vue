@@ -29,12 +29,15 @@
         Add genomes from text
       </v-card-title>
 
-      <v-card-text>
+      <v-card-text class="pt-3">
         <v-row no-gutters>
+          <p>
+            Genome accessions will automatically be extracted from the text entered below, regardless of format.
+          </p>
           <v-textarea
             v-model="userInput"
             :disabled="isDisabled"
-            class="ml-2 mt-3"
+            class="ml-2"
             clearable
             dense
             hide-details
