@@ -1,3 +1,15 @@
+# [2.28.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.27.0...v2.28.0) (2024-03-10)
+
+
+### Bug Fixes
+
+* **fastani:** Fix tooltip positioning for heatmap. ([95e2e6e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/95e2e6e773c5a5830f9fde262a65e781e493e6c6))
+
+
+### Features
+
+* **fastani:** Add new query button. ([b999989](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/b9999895a20b7a174cd7e51d671fd4636eddbd98))
+
 # [2.27.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.26.1...v2.27.0) (2024-03-06)
 
 
