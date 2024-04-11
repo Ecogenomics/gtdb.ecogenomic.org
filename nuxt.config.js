@@ -153,7 +153,7 @@ export default {
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search
     captchaSiteKey: process.env.CAPTCHA_KEY,
     googleAnalyticsId: process.env.GA_TRACKING_ID,
-    latestStatsPageUrl: '/stats/r214',  // this is used to point to the latest stats page,
+    latestStatsPageUrl: '/stats/r220',  // this is used to point to the latest stats page,
     nuxtVersion: version,
     apiCacheKey: loadApiVersion(),
     fastAniJobCookieName: 'fastani-jobs'

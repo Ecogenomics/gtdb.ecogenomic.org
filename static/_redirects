@@ -1,5 +1,5 @@
-/stats /stats/r214 301
-/stats/ /stats/r214 301
+/stats /stats/r220 301
+/stats/ /stats/r220 301
 /genomes* /genome:splat 301
 /taxon_history* /taxon-history:splat 301
 /taxsearch* /species:splat 301

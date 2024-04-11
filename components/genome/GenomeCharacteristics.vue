@@ -62,6 +62,63 @@
           </tr>
 
           <tr>
+            <td class="gtdb-green-bg-table first-table-col">CheckM2 Completeness</td>
+            <td>
+              <template v-if="isLoading">
+                <v-skeleton-loader
+                  type="text"
+                ></v-skeleton-loader>
+              </template>
+              <template v-else>
+                <template v-if="genomeCard.metadata_gene.checkm2_completeness == null">
+                  <NullChip/>
+                </template>
+                <template v-else>
+                  {{ genomeCard.metadata_gene.checkm2_completeness.toLocaleString() }}%
+                </template>
+              </template>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="gtdb-green-bg-table first-table-col">CheckM2 Contamination</td>
+            <td>
+              <template v-if="isLoading">
+                <v-skeleton-loader
+                  type="text"
+                ></v-skeleton-loader>
+              </template>
+              <template v-else>
+                <template v-if="genomeCard.metadata_gene.checkm2_contamination == null">
+                  <NullChip/>
+                </template>
+                <template v-else>
+                  {{ genomeCard.metadata_gene.checkm2_contamination.toLocaleString() }}%
+                </template>
+              </template>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="gtdb-green-bg-table first-table-col">CheckM2 Model</td>
+            <td>
+              <template v-if="isLoading">
+                <v-skeleton-loader
+                  type="text"
+                ></v-skeleton-loader>
+              </template>
+              <template v-else>
+                <template v-if="genomeCard.metadata_gene.checkm2_model == null">
+                  <NullChip/>
+                </template>
+                <template v-else>
+                  {{ genomeCard.metadata_gene.checkm2_model }}
+                </template>
+              </template>
+            </td>
+          </tr>
+
+          <tr>
             <td class="gtdb-green-bg-table first-table-col">5S Count</td>
             <td>
               <template v-if="isLoading">
