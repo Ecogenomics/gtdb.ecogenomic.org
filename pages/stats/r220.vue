@@ -70,7 +70,8 @@
       </template>
 
       <template #species-overview>
-        GTDB R220 is comprised of 584,382 bacterial and 12,477 archaeal genomes organized into 107,235 bacterial and 5,869
+        GTDB R220 is comprised of 584,382 bacterial and 12,477 archaeal genomes organized into 107,235 bacterial and
+        5,869
         archaeal species clusters.
         <v-simple-table class="gtdb-table mt-3" dense>
           <template v-slot:default>
@@ -401,24 +402,23 @@
         nodes being linearly interpolated between these values according to lineage-specific rates of evolution. RED
         intervals for normalizing taxa at taxonomic ranks was operationally defined as the median RED value
         (indicated by a blue bar) at each rank ±0.1 (indicated by grey bars).
-
-        <h1>TODO</h1>
-
-        <v-switch
-          v-if="$vuetify.breakpoint.mdAndUp"
-          v-model="showRedAsD3"
-          :label="`Interactive: ${showRedAsD3.toString()}`"
-          color="blue"
-          inset
-        ></v-switch>
+        <br>
+        <br>
+        <!--        <v-switch-->
+        <!--          v-if="$vuetify.breakpoint.mdAndUp"-->
+        <!--          v-model="showRedAsD3"-->
+        <!--          :label="`Interactive: ${showRedAsD3.toString()}`"-->
+        <!--          color="blue"-->
+        <!--          inset-->
+        <!--        ></v-switch>-->
         <template v-if="showRedAsD3">
           <REDr220></REDr220>
         </template>
         <template v-else>
           <h2>Bacteria</h2>
           <ImgToggle
-            :full="require('~/assets/images/stats/r214/red-bacteria.png')"
-            :preview="require('~/assets/images/stats/r214/red-bacteria-small.png')"
+            :full="require('~/assets/images/stats/r220/red-bacteria.png')"
+            :preview="require('~/assets/images/stats/r220/red-bacteria-small.png')"
             class="mt-2"
             preview-max-width="800px;"
             preview-width="75%"
@@ -429,8 +429,8 @@
 
           <h2>Archaea</h2>
           <ImgToggle
-            :full="require('~/assets/images/stats/r214/red-archaea.png')"
-            :preview="require('~/assets/images/stats/r214/red-archaea-small.png')"
+            :full="require('~/assets/images/stats/r220/red-archaea.png')"
+            :preview="require('~/assets/images/stats/r220/red-archaea-small.png')"
             class="mt-3"
             preview-max-width="800px;"
             preview-width="75%"
