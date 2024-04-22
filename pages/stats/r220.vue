@@ -182,10 +182,12 @@
         The quality of the genomes selected as GTDB species representatives is given below.
         Genome completeness and contamination were estimated using
         <a href="https://github.com/Ecogenomics/CheckM" target="_blank">CheckM</a> and are colored based
-        on the <a href="https://dx.doi.org/10.1038/nbt.3893" target="_blank">MIMAG genome standards</a>. In general,
-        representative genomes were restricted to having a
-        quality satisfying completeness - 5*contamination >50. A few exceptions exist in order to retain
-        well-known species with abnormal CheckM quality estimates.
+        on the <a href="https://dx.doi.org/10.1038/nbt.3893" target="_blank">MIMAG genome standards</a>.
+
+        In general, representative genomes were restricted to having a quality satisfying <code>completeness - 5*contamination >50</code>,
+        unless a large portion of contamination could be attributed to strain heterogeneity.
+        A few exceptions exist in order to retain well-known species with abnormal CheckM quality estimates, where contamination exceeds 10%.
+
         <ImgToggle
           :full="require('~/assets/images/stats/r220/genome-quality-species.png')"
           :preview="require('~/assets/images/stats/r220/genome-quality-species-small.jpg')"
