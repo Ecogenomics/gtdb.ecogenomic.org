@@ -63,8 +63,19 @@ export default {
   modules: [// https://go.nuxtjs.dev/axios
     '@nuxtjs/axios', // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa', // https://pwa.nuxtjs.org/
-    'cookie-universal-nuxt' // https://www.npmjs.com/package/cookie-universal-nuxt
+    'cookie-universal-nuxt', // https://www.npmjs.com/package/cookie-universal-nuxt
+    'nuxt-umami'
   ],
+
+  // Umami configuration
+  umami: {
+    autoTrack: true,
+    doNotTrack: false,
+    cache: false,
+    domains: 'gtdb.ecogenomic.org,gtdb-dev.ecogenomic.org',
+    websiteId: process.env.UMAMI_WEBSITE_ID,
+    scriptUrl: 'https://gtdb-stats-test.ecogenomic.org/script.js'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -153,7 +164,7 @@ export default {
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search
     captchaSiteKey: process.env.CAPTCHA_KEY,
     googleAnalyticsId: process.env.GA_TRACKING_ID,
-    latestStatsPageUrl: '/stats/r214',  // this is used to point to the latest stats page,
+    latestStatsPageUrl: '/stats/r220',  // this is used to point to the latest stats page,
     nuxtVersion: version,
     apiCacheKey: loadApiVersion(),
     fastAniJobCookieName: 'fastani-jobs'

@@ -67,9 +67,9 @@
 
       <template #average-nucleotide-identity>
         <p class="mb-0">
-          Average nucleotide identity (ANI) and alignment fraction (AF) values were calculated
-          with FastANI v1.3
-          <a href="https://doi.org/10.1038/s41467-018-07641-9" target="_blank">(Jain et al., 2018)</a>.
+          From release 220, Average nucleotide identity (ANI) and alignment fraction (AF) values were calculated
+          with skani v0.2.1
+          <a href="https://doi.org/10.1038/s41592-023-02018-3" target="_blank">(Shaw and Yu, 2023)</a>.
         </p>
       </template>
 

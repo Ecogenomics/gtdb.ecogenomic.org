@@ -176,20 +176,29 @@ function sortText(a: string, b: string): number {
 }
 
 function sortColumns(a: Column, b: Column): number {
-  // Sort based on group (override)
-  if (a.group == b.group) {
-    return sortText(a.display, b.display)
+  // Priority order for groups
+  const order = ['General', 'Taxonomic Information', 'Genome Characteristics', 'NCBI Metadata'];
+
+  // If both columns are in the same group, sort by display text
+  if (a.group === b.group) {
+    return sortText(a.display, b.display);
   } else {
-    if (a.group == 'General') {
-      return 1
-    } else if (a.group == 'Taxonomic Information') {
-      return 1
-    } else if (a.group == 'Genome Characteristics') {
-      return 1
-    } else if (a.group == 'NCBI Metadata') {
-      return 1
+    // Compare the groups by predefined order
+    const indexA = order.indexOf(a.group);
+    const indexB = order.indexOf(b.group);
+
+    // If both groups are found in the order array
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB;
+    } else if (indexA !== -1) {
+      // Group A is in order array, but Group B is not
+      return -1;
+    } else if (indexB !== -1) {
+      // Group B is in order array, but Group A is not
+      return 1;
     } else {
-      return sortText(a.group, b.group)
+      // Neither group is in the order array, sort alphabetically
+      return sortText(a.group, b.group);
     }
   }
 }

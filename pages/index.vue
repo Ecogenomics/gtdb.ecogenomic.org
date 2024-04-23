@@ -8,14 +8,14 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-        <NotifyBar uid="r214">
-          *** GTDB Release 214.1 is now available 🎉
+        <NotifyBar uid="r220">
+          *** GTDB Release 220 is now available 🎉
           <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
           ***
         </NotifyBar>
         <NotifyBar uid="r214-gtdbtk">
-          *** GTDB-Tk has been updated to use the R214 taxonomy from <span class="mx-1"><a
-          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.3.0</a></span>***
+          *** GTDB-Tk has been updated to use the R220 taxonomy from <span class="mx-1"><a
+          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.4.0</a></span>***
         </NotifyBar>
       </div>
 
@@ -91,7 +91,7 @@
     <!--    </div>-->
 
     <!-- Twitter footer -->
-    <div style="height: 40px;" class="d-block">
+    <div class="d-block" style="height: 40px;">
       <TwitterFooter/>
     </div>
 
@@ -129,27 +129,27 @@ export default Vue.extend({
   },
   data: () => ({
     /* Bacterial stats */
-    nBacTot: 394932,
-    nBacS: 80789,
-    nBacG: 19153,
-    nBacF: 4264,
-    nBacO: 1624,
-    nBacC: 488,
-    nBacP: 161,
+    nBacTot: 584382,
+    nBacS: 107235,
+    nBacG: 23112,
+    nBacF: 4870,
+    nBacO: 1840,
+    nBacC: 538,
+    nBacP: 175,
 
     /* Archaeal stats */
-    nArcTot: 7777,
-    nArcS: 4416,
-    nArcG: 1586,
-    nArcF: 508,
-    nArcO: 148,
-    nArcC: 60,
-    nArcP: 20,
+    nArcTot: 12477,
+    nArcS: 5869,
+    nArcG: 1847,
+    nArcF: 564,
+    nArcO: 166,
+    nArcC: 64,
+    nArcP: 19,
 
     /* Summary stats */
-    nGenomes: 402709,
-    releaseVer: '08-RS214',
-    releaseDate: '28th April 2023',
+    nGenomes: 596859,
+    releaseVer: '09-RS220',
+    releaseDate: '24th April 2024',
   }),
 })
 </script>

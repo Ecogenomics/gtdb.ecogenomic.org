@@ -41,7 +41,7 @@
             <td v-if="currentTaxonIndex >= 0"
             >
               <!-- If this is the current release, link to the tree -->
-              <template v-if="item.release === 'R214' && item.taxonomy.d.length > 3">
+              <template v-if="item.release === 'R220' && item.taxonomy.d.length > 3">
                 <nuxt-link :to="`/tree?r=${item.taxonomy.d}`">
                   {{ item.taxonomy.d }}
                 </nuxt-link>
@@ -53,7 +53,7 @@
             </td>
             <td v-if="currentTaxonIndex >= 1">
               <!-- If this is the current release, link to the tree -->
-              <template v-if="item.release === 'R214' && item.taxonomy.p.length > 3">
+              <template v-if="item.release === 'R220' && item.taxonomy.p.length > 3">
                 <nuxt-link :to="`/tree?r=${item.taxonomy.p}`">
                   {{ item.taxonomy.p }}
                 </nuxt-link>
@@ -65,7 +65,7 @@
             </td>
             <td v-if="currentTaxonIndex >= 2">
               <!-- If this is the current release, link to the tree -->
-              <template v-if="item.release === 'R214' && item.taxonomy.c.length > 3">
+              <template v-if="item.release === 'R220' && item.taxonomy.c.length > 3">
                 <nuxt-link :to="`/tree?r=${item.taxonomy.c}`">
                   {{ item.taxonomy.c }}
                 </nuxt-link>
@@ -77,7 +77,7 @@
             </td>
             <td v-if="currentTaxonIndex >= 3">
               <!-- If this is the current release, link to the tree -->
-              <template v-if="item.release === 'R214' && item.taxonomy.o.length > 3">
+              <template v-if="item.release === 'R220' && item.taxonomy.o.length > 3">
                 <nuxt-link :to="`/tree?r=${item.taxonomy.o}`">
                   {{ item.taxonomy.o }}
                 </nuxt-link>
@@ -89,7 +89,7 @@
             </td>
             <td v-if="currentTaxonIndex >= 4">
               <!-- If this is the current release, link to the tree -->
-              <template v-if="item.release === 'R214' && item.taxonomy.f.length > 3">
+              <template v-if="item.release === 'R220' && item.taxonomy.f.length > 3">
                 <nuxt-link :to="`/tree?r=${item.taxonomy.f}`">
                   {{ item.taxonomy.f }}
                 </nuxt-link>
@@ -101,7 +101,7 @@
             </td>
             <td v-if="currentTaxonIndex >= 5">
               <!-- If this is the current release, link to the tree -->
-              <template v-if="item.release === 'R214' && item.taxonomy.g.length > 3">
+              <template v-if="item.release === 'R220' && item.taxonomy.g.length > 3">
                 <nuxt-link :to="`/tree?r=${item.taxonomy.g}`">
                   {{ item.taxonomy.g }}
                 </nuxt-link>
@@ -113,7 +113,7 @@
             </td>
             <td v-if="currentTaxonIndex >= 6">
               <!-- If this is the current release, link to the tree -->
-              <template v-if="item.release === 'R214' && item.taxonomy.s.length > 3">
+              <template v-if="item.release === 'R220' && item.taxonomy.s.length > 3">
                 <nuxt-link :to="`/tree?r=${item.taxonomy.s}`">
                   {{ item.taxonomy.s }}
                 </nuxt-link>

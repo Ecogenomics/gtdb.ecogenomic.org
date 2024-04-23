@@ -94,6 +94,9 @@ export interface GenomeMetadataGene {
   checkm_completeness: number
   checkm_contamination: number
   checkm_strain_heterogeneity: number
+  checkm2_completeness: number
+  checkm2_contamination: number
+  checkm2_model: string
   lsu_5s_count: number
   ssu_count: number
   lsu_23s_count: number
