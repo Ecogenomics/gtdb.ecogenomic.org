@@ -1,3 +1,14 @@
+# [2.29.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.28.0...v2.29.0) (2024-04-23)
+
+
+### Features
+
+* **R220:** Update the website for R220. ([676fa6b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/676fa6b6a5d733ef73ffc3513eb5ca41a1adbf2c))
+* **R220:** Update the website for R220. ([e47c15d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e47c15d8df7cbe4f481ec39b588143e87339cc1f))
+* **R220:** Update the website for R220. ([08b7ddb](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/08b7ddb4973db3a3cb75927610f49e1f31d3659e))
+* **R220:** Update the website for R220. ([b89e13d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/b89e13dad6d33e876c14059d44975c314c14f24f))
+* **R220:** Update the website for R220. ([22c40e3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/22c40e33ba8fa2395a26cb6535f455331c72d01d))
+
 # [2.28.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.27.0...v2.28.0) (2024-03-10)
 
 
