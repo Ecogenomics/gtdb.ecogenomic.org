@@ -63,8 +63,19 @@ export default {
   modules: [// https://go.nuxtjs.dev/axios
     '@nuxtjs/axios', // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa', // https://pwa.nuxtjs.org/
-    'cookie-universal-nuxt' // https://www.npmjs.com/package/cookie-universal-nuxt
+    'cookie-universal-nuxt', // https://www.npmjs.com/package/cookie-universal-nuxt
+    'nuxt-umami'
   ],
+
+  // Umami configuration
+  umami: {
+    autoTrack: true,
+    doNotTrack: false,
+    cache: false,
+    domains: 'gtdb.ecogenomic.org,gtdb-dev.ecogenomic.org',
+    websiteId: process.env.UMAMI_WEBSITE_ID,
+    scriptUrl: 'https://gtdb-stats-test.ecogenomic.org/script.js'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
