@@ -149,7 +149,7 @@ export default Vue.extend({
     /* Summary stats */
     nGenomes: 596859,
     releaseVer: '09-RS220',
-    releaseDate: 'TODO April 2023',
+    releaseDate: '24th April 2024',
   }),
 })
 </script>
