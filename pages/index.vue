@@ -13,9 +13,12 @@
           <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
           ***
         </NotifyBar>
-        <NotifyBar uid="r214-gtdbtk">
+        <NotifyBar uid="r220-gtdbtk">
           *** GTDB-Tk has been updated to use the R220 taxonomy from <span class="mx-1"><a
           href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.4.0</a></span>***
+        </NotifyBar>
+        <NotifyBar uid="outage">
+          GTDB is currently experiencing an outage. We are working to resolve the issue as soon as possible.
         </NotifyBar>
       </div>
 
