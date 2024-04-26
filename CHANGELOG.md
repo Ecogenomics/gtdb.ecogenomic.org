@@ -1,3 +1,10 @@
+# [2.30.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.29.0...v2.30.0) (2024-04-25)
+
+
+### Features
+
+* **R220:** Add outage banner. ([4d5e82c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/4d5e82c5bc75b7f0c882e39d5c490dde7ce8f82f))
+
 # [2.29.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.28.0...v2.29.0) (2024-04-23)
 
 
