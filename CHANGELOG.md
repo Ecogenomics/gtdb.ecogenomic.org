@@ -1,3 +1,15 @@
+# [2.31.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.30.0...v2.31.0) (2024-04-29)
+
+
+### Bug Fixes
+
+* **banner:** Remove outage banner. ([ac046f0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ac046f0d4e3807aba9c949a96dc4205590eb360d))
+
+
+### Features
+
+* **umami:** Remove umami analytics. ([98cfd11](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/98cfd11bb1fa3f6e15a5cf38213c568c4cce3930))
+
 # [2.30.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.29.0...v2.30.0) (2024-04-25)
 
 
