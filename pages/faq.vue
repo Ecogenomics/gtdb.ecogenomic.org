@@ -152,7 +152,7 @@
             >97% are synonyms within the
             GTDB. Species assignments use an AF of 50% as of R07-RS207 and 65% prior to this release.
             ANI and AF values are calculated with <a
-              href="https://github.com/ParBLiSS/FastANI" target="_blank">FastANI</a> v1.3.
+              href="https://github.com/bluenote-1577/skani" target="_blank">skani</a> v0.2.1.
           </li>
           <li>Remaining genomes are formed into <i>de novo</i> species clusters using a greedy
             clustering approach that emphasizes
