@@ -1,3 +1,10 @@
+## [2.31.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.0...v2.31.1) (2024-05-01)
+
+
+### Bug Fixes
+
+* **faq:** Replace FastANI with Skani. ([0c458a1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/0c458a1b4512066c413fc40929ffb574637821b0))
+
 # [2.31.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.30.0...v2.31.0) (2024-04-29)
 
 
