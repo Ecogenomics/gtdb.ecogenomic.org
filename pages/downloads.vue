@@ -38,10 +38,10 @@
                 Source
               </th>
               <th class="text-left">
-                Primary
+                Primary (Australia)
               </th>
               <th class="text-left">
-                Mirror
+                Mirror (Rest of the world)
               </th>
             </tr>
             </thead>
