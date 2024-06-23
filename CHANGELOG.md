@@ -1,3 +1,10 @@
+## [2.31.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.1...v2.31.2) (2024-06-23)
+
+
+### Bug Fixes
+
+* **downloads:** Add location notes for download. ([ed777e8](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ed777e8cb462b3ca19caabc7441c9d8571053424))
+
 ## [2.31.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.0...v2.31.1) (2024-05-01)
 
 
