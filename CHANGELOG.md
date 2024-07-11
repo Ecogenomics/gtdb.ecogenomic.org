@@ -1,3 +1,10 @@
+## [2.31.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.2...v2.31.3) (2024-07-11)
+
+
+### Bug Fixes
+
+* **version:** Bump version. ([fb9c26b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/fb9c26ba77b5673adce7a567af9c16d780eff5fa))
+
 ## [2.31.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.1...v2.31.2) (2024-06-23)
 
 
