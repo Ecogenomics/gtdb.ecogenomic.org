@@ -1,6 +1,7 @@
 <template>
-  <a href="https://www.uq.edu.au/" target="_blank">
-    <div class="logo"></div>
+  <a href="https://www.arc.gov.au/" target="_blank">
+    <div class="logo">
+    </div>
   </a>
 </template>
 
@@ -8,13 +9,12 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: "UqLogo"
 })
 </script>
 
 <style scoped>
 .logo {
-  background: url("~/assets/images/uq-logo-white.svg") no-repeat top left;
+  background: url("~/assets/images/logos/arc.svg") no-repeat top left;
   width: 100%;
   height: 100%;
   background-size: contain;

@@ -61,8 +61,11 @@
       <div class="d-flex mb-5 mx-5">
 
         <!-- Bottom left -->
-        <div class="d-flex align-end w-50">
-          <div style="width: 50%; height: 50%;">
+        <div class="d-block text-left w-50">
+          <div class="w-100 pb-2 pl-md-16" style="height: 50%;">
+            <ArcLogo/>
+          </div>
+          <div class="w-100 pt-2 pl-md-16" style="height: 50%;">
             <UqLogo/>
           </div>
         </div>
@@ -102,6 +105,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import AceLogo from "~/components/layout/AceLogo.vue";
+import ArcLogo from "~/components/layout/ArcLogo.vue";
 import UqLogo from "~/components/layout/UqLogo.vue";
 import TwitterTimeline from "~/components/layout/TwitterTimeline.vue";
 import GtdbRankHistogram from "~/components/index/GtdbRankHistogram.vue";
@@ -109,7 +113,7 @@ import NotifyBar from "~/components/index/NotifyBar.vue";
 import TwitterFooter from "~/components/layout/TwitterFooter.vue";
 
 export default Vue.extend({
-  components: {TwitterFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
+  components: {ArcLogo, TwitterFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
   head() {
     return {
       title: 'Genome Taxonomy Database',
