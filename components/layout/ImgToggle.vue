@@ -25,7 +25,7 @@
           height="100%"
           max-height="80vh"
           width="100%"
-          max-width="80vw"
+          max-width="80%"
           class="mx-auto"
         ></v-img>
       </v-card-text>
@@ -69,5 +69,11 @@ export default Vue.extend({
 <style scoped>
 .img-toggle {
   cursor: pointer;
+}
+</style>
+
+<style>
+.v-image__image--cover {
+  background-size: contain !important;
 }
 </style>

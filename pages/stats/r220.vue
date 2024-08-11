@@ -157,7 +157,7 @@
           :full="require('~/assets/images/stats/r220/genome-category-per-rank.svg')"
           :preview="require('~/assets/images/stats/r220/genome-category-per-rank.svg')"
           class="mt-2"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
@@ -172,7 +172,7 @@
           :full="require('~/assets/images/stats/r220/sp-rep-type.svg')"
           :preview="require('~/assets/images/stats/r220/sp-rep-type.svg')"
           class="mt-2"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
@@ -192,7 +192,7 @@
           :full="require('~/assets/images/stats/r220/genome-quality-species.png')"
           :preview="require('~/assets/images/stats/r220/genome-quality-species-small.jpg')"
           class="mt-2"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
@@ -422,7 +422,7 @@
             :full="require('~/assets/images/stats/r220/red-bacteria.png')"
             :preview="require('~/assets/images/stats/r220/red-bacteria-small.png')"
             class="mt-2"
-            preview-max-width="800px;"
+            preview-max-width="800px"
             preview-width="75%"
           >
           </ImgToggle>
@@ -434,7 +434,7 @@
             :full="require('~/assets/images/stats/r220/red-archaea.png')"
             :preview="require('~/assets/images/stats/r220/red-archaea-small.png')"
             class="mt-3"
-            preview-max-width="800px;"
+            preview-max-width="800px"
             preview-width="75%"
           >
           </ImgToggle>
@@ -461,7 +461,7 @@
           :full="require('~/assets/images/stats/r220/ncbi-compare-species.svg')"
           :preview="require('~/assets/images/stats/r220/ncbi-compare-species.svg')"
           class="mt-2"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
@@ -470,7 +470,7 @@
           :full="require('~/assets/images/stats/r220/ncbi-compare-genomes.svg')"
           :preview="require('~/assets/images/stats/r220/ncbi-compare-genomes.svg')"
           class="mt-3"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
@@ -484,7 +484,7 @@
           :full="require('~/assets/images/stats/r220/genomic-stats-genomes.svg')"
           :preview="require('~/assets/images/stats/r220/genomic-stats-genomes.svg')"
           class="mt-2"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
@@ -496,7 +496,7 @@
           :full="require('~/assets/images/stats/r220/genomic-stats-species.svg')"
           :preview="require('~/assets/images/stats/r220/genomic-stats-species.svg')"
           class="mt-3"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
@@ -596,7 +596,7 @@
           :full="require('~/assets/images/stats/r220/nomenclatural-per-rank.svg')"
           :preview="require('~/assets/images/stats/r220/nomenclatural-per-rank.svg')"
           class="mt-2"
-          preview-max-width="800px;"
+          preview-max-width="800px"
           preview-width="75%"
         >
         </ImgToggle>
