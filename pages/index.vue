@@ -61,13 +61,18 @@
       <div class="d-flex mb-5 mx-5">
 
         <!-- Bottom left -->
-        <div class="d-block text-left w-50">
-          <div class="w-100 pb-2 pl-md-16" style="height: 50%;">
-            <ArcLogo/>
-          </div>
-          <div class="w-100 pt-2 pl-md-16" style="height: 50%;">
+        <div class=" d-block d-md-flex w-50">
+          <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 50%">
             <UqLogo/>
           </div>
+          <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 50%">
+            <ArcLogo/>
+          </div>
+
+<!--          <div class="w-100 pb-2 pl-md-16" style="height: 50%;">-->
+<!--          </div>-->
+<!--          <div class="w-100 pt-2 pl-md-16" style="height: 50%;">-->
+<!--          </div>-->
         </div>
 
         <!-- Bottom right -->

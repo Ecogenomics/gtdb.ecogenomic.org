@@ -605,7 +605,7 @@
 
       <template #phylum-pd>
 
-        The following tables show the percentage of branch lengths in the phylogenetic tree that are unique to each phylum in both the unscaled, and RED scaled reference trees.
+        The following tables show the Phylogenetic Diversity (PD) expressed as a percentage of branch lengths in the phylogenetic tree that are unique to each phylum in both the unscaled, and RED scaled reference trees.
         <br><br>
 
         <h3>Archaea:</h3>
