@@ -1,5 +1,6 @@
 <template>
   <v-data-table
+    :custom-sort="customSort"
     :headers="headers"
     :items="rowsToDisplay"
     class="gtdb-table"
@@ -21,7 +22,7 @@
     </template>
 
     <template v-slot:item.abs="{ item }">
-      {{ parseFloat((item.unscaled-item.scaled).toFixed(2)) }}
+      {{ parseFloat((item.scaled - item.unscaled).toFixed(2)) }}
     </template>
 
   </v-data-table>
@@ -40,6 +41,7 @@ interface PhylumPdRow {
 function round(n: number, places: number) {
   return parseFloat(n.toFixed(places));
 }
+
 
 export default Vue.extend({
   props: {
@@ -109,6 +111,45 @@ export default Vue.extend({
         {text: 'Difference', value: 'abs'}
       ],
       collapsePhyla: false
+    }
+  },
+  methods: {
+    customSort(items: any, index: any, isDescending: any) {
+
+      // Check if any of the values are undefined or null
+      if (index === undefined || index === null || isDescending === undefined || isDescending === null) {
+        console.log('nothing to do, returning all items')
+        return items;
+      }
+
+      const isDesc = isDescending[0] === true;
+      const column = index[0];
+
+      items.sort((a: any, b: any) => {
+        if (column === 'abs') {
+          const aDelta = a.scaled - a.unscaled;
+          const bDelta = b.scaled - b.unscaled;
+          if (isDesc) {
+            return bDelta - aDelta;
+          } else {
+            return aDelta - bDelta;
+          }
+        } else if (column === 'scaled') {
+          if (isDesc) {
+            return b.scaled - a.scaled;
+          } else {
+            return a.scaled - b.scaled;
+          }
+        } else if (column === 'unscaled') {
+          if (isDesc) {
+            return b.unscaled - a.unscaled;
+          } else {
+            return a.unscaled - b.unscaled;
+          }
+        }
+      });
+
+      return items;
     }
   }
 })
