@@ -19,6 +19,11 @@
         ></v-switch>
       </div>
     </template>
+
+    <template v-slot:item.abs="{ item }">
+      {{ parseFloat((item.unscaled-item.scaled).toFixed(2)) }}
+    </template>
+
   </v-data-table>
 </template>
 
@@ -30,7 +35,6 @@ interface PhylumPdRow {
   taxon: string;
   scaled: number;
   unscaled: number;
-  abs: number;
 }
 
 function round(n: number, places: number) {
@@ -64,18 +68,16 @@ export default Vue.extend({
           }
 
           if (!taxonDict[cur_taxon]) {
-            // If the taxon already exists then add the exact row
+            // If the taxon does not exist then add the exact row
             taxonDict[cur_taxon] = {
               taxon: cur_taxon,
               scaled: row.scaled,
               unscaled: row.unscaled,
-              abs: row.abs
             };
           } else {
             // If the taxon is already in the dictionary, add the values
             taxonDict[cur_taxon].scaled += row.scaled;
             taxonDict[cur_taxon].unscaled += row.unscaled;
-            taxonDict[cur_taxon].abs += row.abs;
           }
         });
 
@@ -86,7 +88,6 @@ export default Vue.extend({
             taxon: row.taxon,
             scaled: round(row.scaled, 2),
             unscaled: round(row.unscaled, 2),
-            abs: round(row.abs, 2)
           });
         });
         return out;
@@ -105,7 +106,7 @@ export default Vue.extend({
         {text: 'Phylum', value: 'taxon'},
         {text: 'Original (%)', value: 'unscaled'},
         {text: 'RED-normalised (%)', value: 'scaled'},
-        {text: 'Abs. difference', value: 'abs'}
+        {text: 'Difference', value: 'abs'}
       ],
       collapsePhyla: false
     }
