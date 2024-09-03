@@ -1,3 +1,19 @@
+# [2.32.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.4...v2.32.0) (2024-09-03)
+
+
+### Bug Fixes
+
+* **logo:** Updated ARC/UQ logos to be inline. ([12770c3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/12770c3259cd3396dfc097d17955f602b6cb6f9f))
+* **stats:** Add correct RED scaled values for PD. ([e1886e2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e1886e276d171715d526ca6442e9fd1bb1e2082f))
+* **stats:** Fix img previews not being scaled within container. ([9316eed](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9316eedc258975ff74c342450eab57793691a027))
+* **stats:** Update Phylum PD wording. ([9c5a6f0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9c5a6f0ee9c52b6539f470fa169519231394c246))
+
+
+### Features
+
+* **ARC:** Add ARC logo. ([bc444f0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/bc444f0fe6595a9c44fdf55213ea4aaf45a23b30))
+* **stats:** Add PhylumPD to the stats page. ([406dba6](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/406dba691c79d47cbefd9d5c00386ecd25941002))
+
 ## [2.31.4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.3...v2.31.4) (2024-07-14)
 
 
