@@ -103,8 +103,8 @@ export default Vue.extend({
     return {
       headers: [
         {text: 'Phylum', value: 'taxon'},
-        {text: 'Scaled (%)', value: 'scaled'},
-        {text: 'Unscaled (%)', value: 'unscaled'},
+        {text: 'Original (%)', value: 'unscaled'},
+        {text: 'RED-normalised (%)', value: 'scaled'},
         {text: 'Abs. difference', value: 'abs'}
       ],
       collapsePhyla: false

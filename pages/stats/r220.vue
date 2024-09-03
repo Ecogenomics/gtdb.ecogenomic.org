@@ -605,7 +605,8 @@
 
       <template #phylum-pd>
 
-        The following tables show the Phylogenetic Diversity (PD) expressed as a percentage of branch lengths in the phylogenetic tree that are unique to each phylum in both the unscaled, and RED scaled reference trees.
+        The following tables show the percentage contribution of each phylum to the Phylogenetic Diversity (PD) of the original and RED-normalised GTDB reference trees.<br><br>
+        Phyla that are polyphyletic in the reference tree (suffixed as _A, _B, etc) can be collapsed using the toggle at the top right of each table. Click on headers to sort by column.
         <br><br>
 
         <h3>Archaea:</h3>
@@ -667,7 +668,7 @@ export default Vue.extend({
       {text: 'Comparison of GTDB and NCBI taxa', ref: 'comparison-of-gtdb-and-ncbi-taxa'},
       {text: 'Genomic statistics', ref: 'genomic-statistics'},
       {text: 'Nomenclatural types per rank', ref: 'nomenclatural-types-per-rank'},
-      {text: 'Phylum PD', ref: 'phylum-pd'}
+      {text: 'Phylum phylogenetic diversity', ref: 'phylum-pd'}
     ],
 
     phylumPdArc: [
