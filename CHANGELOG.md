@@ -1,3 +1,10 @@
+## [2.32.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.2...v2.32.3) (2024-09-03)
+
+
+### Bug Fixes
+
+* **ncbi_type_material:** Update the column used for determining NCBI type material. ([e913132](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e913132ef119d542cb7ba49f8b6dfd229eacc1ff))
+
 ## [2.32.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.1...v2.32.2) (2024-09-03)
 
 
