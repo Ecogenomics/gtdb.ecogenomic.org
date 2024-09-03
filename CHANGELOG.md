@@ -1,3 +1,10 @@
+## [2.32.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.1...v2.32.2) (2024-09-03)
+
+
+### Bug Fixes
+
+* **stats:** Fix sorting. ([46a0ef8](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/46a0ef8a5b9574c602471454f02d6ebb46f824a6))
+
 ## [2.32.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.0...v2.32.1) (2024-09-03)
 
 
