@@ -1,3 +1,10 @@
+## [2.32.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.0...v2.32.1) (2024-09-03)
+
+
+### Bug Fixes
+
+* **stats:** Update absolute value calculation. ([5674dfd](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5674dfd6fb623b6c28a5d12fbb6f089d341a3053))
+
 # [2.32.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.31.4...v2.32.0) (2024-09-03)
 
 
