@@ -82,7 +82,7 @@ export interface GenomeMetadataTaxonomy {
   gtdbSpecies: string
   gtdb_representative: boolean
   gtdb_genome_representative: string
-
+  ncbi_type_material_designation: string | null,
 }
 
 export interface GenomeNcbiTaxon {
@@ -146,7 +146,6 @@ export interface GenomeMetadataNcbi {
   ncbi_total_gap_length: number
   ncbi_translation_table: number
   ncbi_trna_count: number
-  ncbi_type_material_designation: string
   ncbi_unspanned_gaps: number
   ncbi_version_status: string
   ncbi_wgs_master: string

@@ -358,11 +358,11 @@
           <tr>
             <td class="gtdb-green-bg-table first-table-col">Type Material</td>
             <td>
-              <template v-if="genomeCard.metadata_ncbi.ncbi_type_material_designation == null">
+              <template v-if="genomeCard.metadataTaxonomy.ncbi_type_material_designation == null">
                 <NullChip/>
               </template>
               <template v-else>
-                {{ genomeCard.metadata_ncbi.ncbi_type_material_designation }}
+                {{ genomeCard.metadataTaxonomy.ncbi_type_material_designation }}
               </template>
             </td>
           </tr>
