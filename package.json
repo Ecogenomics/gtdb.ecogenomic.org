@@ -1,6 +1,6 @@
 {
   "name": "gtdb.ecogenomic.org",
-  "version": "2.32.3",
+  "version": "2.33.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",

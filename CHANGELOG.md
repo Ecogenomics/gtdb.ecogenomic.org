@@ -1,3 +1,11 @@
+# [2.33.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.3...v2.33.0) (2024-10-25)
+
+
+### Features
+
+* **iTOL:** Add iTOL links from external tools. ([102661f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/102661f4887e95cce792c69c89bd5203d2e926ab))
+* **iTOL:** Add iTOL links from external tools. ([fb1260a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/fb1260a5a80b0d98e37bcb47c9997aab0116023e))
+
 ## [2.32.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.2...v2.32.3) (2024-09-03)
 
 
