@@ -37,6 +37,14 @@
               <td><a href="http://annotree.uwaterloo.ca/" target="_blank">Homepage</a></td>
             </tr>
             <tr>
+              <td>iTOL</td>
+              <td>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic and other trees.</td>
+              <td>
+                <a href="https://itol.embl.de/" target="_blank">Homepage</a><br>
+                <a href="https://itol.embl.de/shared/ecogenomics" target="_blank">GTDB trees</a>
+              </td>
+            </tr>
+            <tr>
               <td>IDTAXA</td>
               <td>A novel approach to taxonomic classification that employs principles from machine learning to reduce
                 over classification errors
@@ -59,14 +67,6 @@
               <td>sourmash is a command-line tool and Python library for computing hash sketches from DNA sequences, comparing them to each other, and plotting the results. Prepared databases for GTDB are provided.
               </td>
               <td><a href="https://sourmash.readthedocs.io/en/latest/" target="_blank">Homepage</a></td>
-            </tr>
-            <tr>
-              <td>iTOL</td>
-              <td>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic and other trees.</td>
-              <td>
-                <a href="https://itol.embl.de/" target="_blank">Homepage</a><br>
-                <a href="https://itol.embl.de/shared/ecogenomics" target="_blank">GTDB trees</a>
-              </td>
             </tr>
             </tbody>
           </template>
