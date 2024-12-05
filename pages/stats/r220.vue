@@ -4,7 +4,18 @@
     <SectionedPage :items="items">
 
       <template #title>
-        <StatsTitle date="24th April, 2024" release="220"/>
+          <v-row no-gutters>
+            <v-col>
+              <StatsTitle date="24th April, 2024" release="220" />
+            </v-col>
+            <v-col cols="3" ><v-switch
+        v-model="cdv_switch"
+        class="switch align-content-end"
+        label="Colour vision deficiency"
+        color="#7e8e7d"
+      /></v-col>
+          </v-row>
+
       </template>
 
       <template #taxon-overview>
@@ -153,14 +164,25 @@
         (SAGs). The following plot indicates the proportion of taxa at each taxonomic rank comprised exclusively of
         isolate genomes, exclusively of environmental genomes (i.e. MAGs/SAGs), or both isolate and environmental
         genomes.
+               <template v-if="cdv_switch">
         <ImgToggle
-          :full="require('~/assets/images/stats/r220/genome-category-per-rank.svg')"
-          :preview="require('~/assets/images/stats/r220/genome-category-per-rank.svg')"
+          :full="require('~/assets/images/stats/r220/genome-category-per-rank-cvd.svg')"
+          :preview="require('~/assets/images/stats/r220/genome-category-per-rank-cvd.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
-        >
-        </ImgToggle>
+        />
+      </template>
+      <template v-else>
+        <ImgToggle
+          :full="require('~/assets/images/stats/r220/genome-category-per-rank.svg')"
+          :preview="require('~/assets/images/stats/r220/genome-category-per-rank.svg')"
+
+          class="mt-2"
+          preview-max-width="800px"
+          preview-width="75%"
+        />
+      </template>
       </template>
 
       <template #gtdb-species-representatives>
@@ -168,14 +190,24 @@
         species were selected where possible, though the majority of species clusters are currently assigned only
         placeholder names. The proportion of representatives which are isolates, MAGs, or SAGs is given for each
         category.
+        <template v-if="cdv_switch">
+        <ImgToggle
+          :full="require('~/assets/images/stats/r220/sp-rep-type_cvd.svg')"
+          :preview="require('~/assets/images/stats/r220/sp-rep-type_cvd.svg')"
+          class="mt-2"
+          preview-max-width="800px"
+          preview-width="75%"
+        />
+      </template>
+      <template v-else>
         <ImgToggle
           :full="require('~/assets/images/stats/r220/sp-rep-type.svg')"
           :preview="require('~/assets/images/stats/r220/sp-rep-type.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
-        >
-        </ImgToggle>
+        />
+      </template>
       </template>
 
       <template #quality-of-gtdb-representative-genomes>
@@ -187,15 +219,24 @@
         In general, representative genomes were restricted to having a quality satisfying <code>completeness - 5*contamination >50</code>,
         unless a large portion of contamination could be attributed to strain heterogeneity.
         A few exceptions exist in order to retain well-known species with abnormal CheckM quality estimates, where contamination exceeds 10%.
-
+        <template v-if="cdv_switch">
+        <ImgToggle
+          :full="require('~/assets/images/stats/r220/genome-quality-species-cvd.png')"
+          :preview="require('~/assets/images/stats/r220/genome-quality-species-cvd-small.jpg')"
+          class="mt-2"
+          preview-max-width="800px"
+          preview-width="75%"
+        />
+      </template>
+      <template v-else>
         <ImgToggle
           :full="require('~/assets/images/stats/r220/genome-quality-species.png')"
           :preview="require('~/assets/images/stats/r220/genome-quality-species-small.jpg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
-        >
-        </ImgToggle>
+        />
+      </template>
       </template>
 
       <template #taxa-with-the-largest-number-of-species>
@@ -457,6 +498,26 @@
           <a href="https://www.nlm.nih.gov/pubs/techbull/ma23/ma23_ncbi_taxonomy_names.html" target="_blank">adopting
             these new phyla names</a>.
         </p>
+        <template v-if="cdv_switch">
+        <ImgToggle
+          :full="require('~/assets/images/stats/r220/ncbi-compare-species-cvd.svg')"
+          :preview="require('~/assets/images/stats/r220/ncbi-compare-species-cvd.svg')"
+          class="mt-2"
+          preview-max-width="800px"
+          preview-width="75%"
+        >
+        </ImgToggle>
+        <hr>
+        <ImgToggle
+          :full="require('~/assets/images/stats/r220/ncbi-compare-genomes-cvd.svg')"
+          :preview="require('~/assets/images/stats/r220/ncbi-compare-genomes-cvd.svg')"
+          class="mt-3"
+          preview-max-width="800px"
+          preview-width="75%"
+        >
+        </ImgToggle>
+      </template>
+      <template v-else>
         <ImgToggle
           :full="require('~/assets/images/stats/r220/ncbi-compare-species.svg')"
           :preview="require('~/assets/images/stats/r220/ncbi-compare-species.svg')"
@@ -474,6 +535,7 @@
           preview-width="75%"
         >
         </ImgToggle>
+      </template>
       </template>
 
       <template #genomic-statistics>
@@ -592,14 +654,25 @@
           </template>
         </v-simple-table>
 
+
+                <template v-if="cdv_switch">
+        <ImgToggle
+          :full="require('~/assets/images/stats/r220/nomenclatural-per-rank-cvd.svg')"
+          :preview="require('~/assets/images/stats/r220/nomenclatural-per-rank-cvd.svg')"
+          class="mt-2"
+          preview-max-width="800px"
+          preview-width="75%"
+        />
+      </template>
+      <template v-else>
         <ImgToggle
           :full="require('~/assets/images/stats/r220/nomenclatural-per-rank.svg')"
           :preview="require('~/assets/images/stats/r220/nomenclatural-per-rank.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
-        >
-        </ImgToggle>
+        />
+      </template>
 
       </template>
 
@@ -897,6 +970,7 @@ export default Vue.extend({
 
 
     showRedAsD3: false,
+    cdv_switch: false,
   }),
 })
 </script>

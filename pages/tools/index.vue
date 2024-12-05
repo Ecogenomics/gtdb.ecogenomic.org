@@ -139,6 +139,14 @@
                     href="https://github.com/shenwei356/kmcp"
                     target="_blank">GitHub</a></td>
             </tr>
+            <tr>
+                <td>mOTUs</td>
+                <td>Microbial genome database.</td>
+                <td>Marija Dmitrijeva and colleagues.</td>
+                <td><a
+                    href="https://github.com/motu-tool/mOTUs"
+                    target="_blank">GitHub</a></td>
+            </tr>
             </tbody>
           </template>
         </v-simple-table>
