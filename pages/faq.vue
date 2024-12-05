@@ -35,17 +35,27 @@
         have been assigned to a species.
       </template>
 
-      <template #why-are-some-higher-taxon-names-formed-from-a-strain-identifier>
+      <template #why-are-some-higher-taxon-names-formed-from-a-culture-collection-strain-identifier>
+        <p>
         A culture collection strain identifier is used as a placeholder for the taxon names above the rank of genus when
-        i) there is no existing taxon name (e.g., family or order) for a parent taxon that contains children with validly
-        or effectively published names based on isolates, or ii) it is based on the genus name formed from the strain
-        identifier.In the first case, some of the children may have a parent with an existing name, but their
+        </p>
+        <ol type="i">
+          <li>There is no existing taxon name (e.g., family or order) for a parent taxon that contains children with validly
+        or effectively published names based on isolates, or </li>
+          <br>
+          <li>It is based on the genus name formed from the strain
+        identifier.</li>
+        </ol>
+                <br>
+        <p>
+          In the first case, some of the children may have a parent with an existing name, but their
         classification (parent taxon) is different in GTDB. For example, the order o__DSM-8532 contains the family
-        f__DSM-8532, which has seven children, including the genus Thermoclostridium. This genus was originally assigned
+          f__DSM-8532, which has seven children, including the genus <i>Thermoclostridium</i>. This genus was originally assigned
         to the family Hungateiclostridiaceae (currently illegitimate) and later to the family Oscillospiraceae. However,
         it is classified as a separate family in GTDB, necessitating the creation of a new parent name.
         The latter has been formed based on the type strain identifier of the type species of the genus
-        Thermoclostridium to indicate that this family includes representatives with cultured strains.
+        <i>Thermoclostridium</i> to indicate that this family includes representatives with cultured strains.
+          </p>
       </template>
 
       <template #why-do-some-genus-and-species-names-end-with-an-alphabetic-suffix>
@@ -480,8 +490,8 @@ export default Vue.extend({
         ref: 'why-are-some-genus-names-formed-from-a-strain-identifier'
       },
       {
-        text: 'Why are some higher taxon names formed from a strain identifier?',
-        ref: 'why-are-some-higher-taxon-names-formed-from-a-strain-identifier'
+        text: 'Why are some higher taxon names formed from a culture collection strain identifier?',
+        ref: 'why-are-some-higher-taxon-names-formed-from-a-culture-collection-strain-identifier'
       },
       {
         text: 'Why do some genus and species names end with an alphabetic suffix?',
