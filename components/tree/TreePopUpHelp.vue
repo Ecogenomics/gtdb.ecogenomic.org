@@ -30,7 +30,7 @@
             </p>
             <p>
               For more information, see the
-              <nuxt-link to="faq#why-do-some-family-and-higher-rank-names-end-with-an-alphabetic-suffix">FAQ</nuxt-link>.
+              <nuxt-link to="faq#why-do-some-family-and-other-higher-taxon-names-end-with-an-alphabetic-suffix">FAQ</nuxt-link>.
             </p>
           </div>
         </v-card-text>

@@ -35,6 +35,29 @@
         have been assigned to a species.
       </template>
 
+      <template #why-are-some-higher-taxon-names-formed-from-a-culture-collection-strain-identifier>
+        <p>
+        A culture collection strain identifier is used as a placeholder for the taxon names above the rank of genus when
+        </p>
+        <ol type="i">
+          <li>There is no existing taxon name (e.g., family or order) for a parent taxon that contains children with validly
+        or effectively published names based on isolates, or </li>
+          <br>
+          <li>It is based on the genus name formed from the strain
+        identifier.</li>
+        </ol>
+                <br>
+        <p>
+          In the first case, some of the children may have a parent with an existing name, but their
+        classification (parent taxon) is different in GTDB. For example, the order o__DSM-8532 contains the family
+          f__DSM-8532, which has seven children, including the genus <i>Thermoclostridium</i>. This genus was originally assigned
+          to the family <i>Hungateiclostridiaceae</i> (currently illegitimate) and later to the family <i>Oscillospiraceae</i>. However,
+        it is classified as a separate family in GTDB, necessitating the creation of a new parent name.
+        The latter has been formed based on the type strain identifier of the type species of the genus
+        <i>Thermoclostridium</i> to indicate that this family includes representatives with cultured strains.
+          </p>
+      </template>
+
       <template #why-do-some-genus-and-species-names-end-with-an-alphabetic-suffix>
         <p>
           Genus names ending with an alphabetic suffix indicate genera that are i) polyphyletic according to the current
@@ -54,7 +77,7 @@
         </p>
       </template>
 
-      <template #why-do-some-family-and-higher-rank-names-end-with-an-alphabetic-suffix>
+      <template #why-do-some-family-and-other-higher-taxon-names-end-with-an-alphabetic-suffix>
         <p>
           Taxon names above the rank of genus appended with an alphabetic suffix indicate groups that are under the
           following category: i) groups that are not monophyletic in the GTDB reference tree, but for which there exists
@@ -233,7 +256,7 @@
           representative to be of increasingly higher
           quality (as defined by the quality score) the more dissimilar it is from the current
           representative (as defined by the ANI score).
-          <p>
+          </p>
             <p>
               Representatives are also updated to account for genome assemblies being removed from
               NCBI and representatives are updated whenever the underlying assembly is updated at
@@ -467,12 +490,16 @@ export default Vue.extend({
         ref: 'why-are-some-genus-names-formed-from-a-strain-identifier'
       },
       {
+        text: 'Why are some higher taxon names formed from a culture collection strain identifier?',
+        ref: 'why-are-some-higher-taxon-names-formed-from-a-culture-collection-strain-identifier'
+      },
+      {
         text: 'Why do some genus and species names end with an alphabetic suffix?',
         ref: 'why-do-some-genus-and-species-names-end-with-an-alphabetic-suffix'
       },
       {
-        text: 'Why do some family and higher rank names end with an alphabetic suffix?',
-        ref: 'why-do-some-family-and-higher-rank-names-end-with-an-alphabetic-suffix'
+        text: 'Why do some family and other higher taxon names end with an alphabetic suffix?',
+        ref: 'why-do-some-family-and-other-higher-taxon-names-end-with-an-alphabetic-suffix'
       },
       {
         text: 'What criteria are used to select genomes for inclusion in the GTDB?',

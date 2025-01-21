@@ -37,12 +37,10 @@
               <td><a href="http://annotree.uwaterloo.ca/" target="_blank">Homepage</a></td>
             </tr>
             <tr>
-              <td>iTOL</td>
-              <td>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic and other trees.</td>
-              <td>
-                <a href="https://itol.embl.de/" target="_blank">Homepage</a><br>
-                <a href="https://itol.embl.de/shared/ecogenomics" target="_blank">GTDB trees</a>
+              <td>AnnoView</td>
+              <td>AnnoView is an online tool for genome visualization and exploration of gene neighborhoods.
               </td>
+              <td><a href="http://annoview.uwaterloo.ca/annoview/" target="_blank">Homepage</a></td>
             </tr>
             <tr>
               <td>IDTAXA</td>
@@ -52,6 +50,14 @@
                         target="_blank">manuscript</a>).
               </td>
               <td><a href="http://www2.decipher.codes/Classification.html" target="_blank">Homepage</a></td>
+            </tr>
+            <tr>
+              <td>iTOL</td>
+              <td>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic and other trees.</td>
+              <td>
+                <a href="https://itol.embl.de/" target="_blank">Homepage</a><br>
+                <a href="https://itol.embl.de/shared/ecogenomics" target="_blank">GTDB trees</a>
+              </td>
             </tr>
             <tr>
               <td>SingleM</td>
@@ -137,6 +143,14 @@
                 <td>Wei Shen</td>
                 <td><a
                     href="https://github.com/shenwei356/kmcp"
+                    target="_blank">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>mOTUs</td>
+                <td>Microbial genome database.</td>
+                <td>Hans-Joachim Ruscheweyh and colleagues.</td>
+                <td><a
+                    href="https://github.com/motu-tool/mOTUs"
                     target="_blank">GitHub</a></td>
             </tr>
             </tbody>
