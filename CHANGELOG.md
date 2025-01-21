@@ -1,3 +1,11 @@
+# [2.34.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.33.0...v2.34.0) (2025-01-21)
+
+
+### Features
+
+* **reformat FAQ:** Add Annoview, italicize names ([41ccbac](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/41ccbaceadf07596c3dda20e8788c73b8189ff64))
+* **reformat FAQ:** Change reformat for one question ([a59d89d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a59d89dc68464a8e5e3412092d3bd1ccebd5bd49))
+
 # [2.33.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.3...v2.33.0) (2024-10-25)
 
 
