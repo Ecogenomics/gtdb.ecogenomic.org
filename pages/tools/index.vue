@@ -37,6 +37,12 @@
               <td><a href="http://annotree.uwaterloo.ca/" target="_blank">Homepage</a></td>
             </tr>
             <tr>
+              <td>AnnoView</td>
+              <td>AnnoView is an online tool for genome visualization and exploration of gene neighborhoods.
+              </td>
+              <td><a href="http://annoview.uwaterloo.ca/annoview/" target="_blank">Homepage</a></td>
+            </tr>
+            <tr>
               <td>IDTAXA</td>
               <td>A novel approach to taxonomic classification that employs principles from machine learning to reduce
                 over classification errors
@@ -44,6 +50,14 @@
                         target="_blank">manuscript</a>).
               </td>
               <td><a href="http://www2.decipher.codes/Classification.html" target="_blank">Homepage</a></td>
+            </tr>
+            <tr>
+              <td>iTOL</td>
+              <td>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic and other trees.</td>
+              <td>
+                <a href="https://itol.embl.de/" target="_blank">Homepage</a><br>
+                <a href="https://itol.embl.de/shared/ecogenomics" target="_blank">GTDB trees</a>
+              </td>
             </tr>
             <tr>
               <td>SingleM</td>
@@ -59,14 +73,6 @@
               <td>sourmash is a command-line tool and Python library for computing hash sketches from DNA sequences, comparing them to each other, and plotting the results. Prepared databases for GTDB are provided.
               </td>
               <td><a href="https://sourmash.readthedocs.io/en/latest/" target="_blank">Homepage</a></td>
-            </tr>
-            <tr>
-              <td>iTOL</td>
-              <td>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic and other trees.</td>
-              <td>
-                <a href="https://itol.embl.de/" target="_blank">Homepage</a><br>
-                <a href="https://itol.embl.de/shared/ecogenomics" target="_blank">GTDB trees</a>
-              </td>
             </tr>
             </tbody>
           </template>
@@ -142,7 +148,7 @@
             <tr>
                 <td>mOTUs</td>
                 <td>Microbial genome database.</td>
-                <td>Marija Dmitrijeva and colleagues.</td>
+                <td>Hans-Joachim Ruscheweyh and colleagues.</td>
                 <td><a
                     href="https://github.com/motu-tool/mOTUs"
                     target="_blank">GitHub</a></td>

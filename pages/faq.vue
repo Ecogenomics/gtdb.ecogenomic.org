@@ -51,7 +51,7 @@
           In the first case, some of the children may have a parent with an existing name, but their
         classification (parent taxon) is different in GTDB. For example, the order o__DSM-8532 contains the family
           f__DSM-8532, which has seven children, including the genus <i>Thermoclostridium</i>. This genus was originally assigned
-        to the family Hungateiclostridiaceae (currently illegitimate) and later to the family Oscillospiraceae. However,
+          to the family <i>Hungateiclostridiaceae</i> (currently illegitimate) and later to the family <i>Oscillospiraceae</i>. However,
         it is classified as a separate family in GTDB, necessitating the creation of a new parent name.
         The latter has been formed based on the type strain identifier of the type species of the genus
         <i>Thermoclostridium</i> to indicate that this family includes representatives with cultured strains.
