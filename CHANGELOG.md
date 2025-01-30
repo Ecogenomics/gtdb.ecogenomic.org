@@ -1,3 +1,10 @@
+## [2.34.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.34.0...v2.34.1) (2025-01-30)
+
+
+### Bug Fixes
+
+* **alphabetical table fix:** Fix the issue where the table was freezing when searching a space ([511ad2d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/511ad2dee222418ab4414468521025bf22615ec0))
+
 # [2.34.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.33.0...v2.34.0) (2025-01-21)
 
 
