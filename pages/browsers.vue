@@ -614,7 +614,7 @@ export default Vue.extend({
         newQuery["sort-desc"] = this.options.sortDesc.slice(0, this.options.sortBy.length).toString();
       }
       if (this.searchString && this.searchString.length > 0) {
-        newQuery.search = encodeURIComponent(this.searchString);
+        newQuery.search = this.searchString;
       }
       if (this.gtdbProposedNamesOnly) {
         newQuery["gtdb-proposed"] = "true";
