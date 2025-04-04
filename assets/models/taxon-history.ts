@@ -10,6 +10,7 @@ export enum TaxonHistoryRelease {
   R207 = "207",
   R214 = "214",
   R220 = "220",
+  R226 = "226",
   NCBI = "NCBI"
 }
 
@@ -24,6 +25,7 @@ export const TaxonHistoryReleases = [
   TaxonHistoryRelease.R207,
   TaxonHistoryRelease.R214,
   TaxonHistoryRelease.R220,
+  TaxonHistoryRelease.R226,
   TaxonHistoryRelease.NCBI
 ]
 

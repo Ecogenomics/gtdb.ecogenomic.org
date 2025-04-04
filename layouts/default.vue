@@ -222,6 +222,13 @@ export default {
       navStatistics: [
         {
           icon: 'mdi-apps',
+          title: 'Release 226',
+          to: '/stats/r226',
+          nuxt: true,
+          external: false,
+        },
+        {
+          icon: 'mdi-apps',
           title: 'Release 220',
           to: '/stats/r220',
           nuxt: true,
