@@ -15,7 +15,7 @@
         </NotifyBar>
         <NotifyBar uid="r226-gtdbtk">
           *** GTDB-Tk has been updated to use the R226 taxonomy from <span class="mx-1"><a
-          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">vXXX</a></span>***
+          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.4.1</a></span>***
         </NotifyBar>
       </div>
 
@@ -158,7 +158,7 @@ export default Vue.extend({
     /* Summary stats */
     nGenomes: 732475,
     releaseVer: '10-RS226',
-    releaseDate: 'XXX April 2025',
+    releaseDate: '16th April 2025',
   }),
 })
 </script>
