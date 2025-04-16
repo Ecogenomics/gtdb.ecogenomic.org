@@ -15,7 +15,7 @@
         </NotifyBar>
         <NotifyBar uid="r226-gtdbtk">
           *** GTDB-Tk has been updated to use the R226 taxonomy from <span class="mx-1"><a
-          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">vXXX</a></span>***
+          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.4.1</a></span>***
         </NotifyBar>
       </div>
 
