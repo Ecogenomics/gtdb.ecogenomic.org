@@ -177,7 +177,7 @@ export default Vue.extend({
   methods: {
     // Compute the taxon history URL for the current taxon
     getHistUrl(taxon: string) {
-      return `/taxon-history?from=R80&to=R220&query=${encodeURIComponent(taxon)}`
+      return `/taxon-history?from=R95&to=R226&query=${encodeURIComponent(taxon)}`
     },
 
     // Retrieve the taxon history for this accession
