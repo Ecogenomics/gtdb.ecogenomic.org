@@ -1,3 +1,15 @@
+# [2.36.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.35.0...v2.36.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* **R226:** Update release date for R226. ([7a42c90](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7a42c9013140de47a72bc57b99a45cb5263979f8))
+
+
+### Features
+
+* **R226:** Update for R226. ([9b7d93b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9b7d93b99c638501377a0dd3445126d953f96f98))
+
 # [2.35.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.34.1...v2.35.0) (2025-04-16)
 
 
