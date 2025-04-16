@@ -1,3 +1,11 @@
+# [2.35.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.34.1...v2.35.0) (2025-04-16)
+
+
+### Features
+
+* **R226:** Update for R226. ([f1d39fc](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f1d39fca270713073571223cfcd29fcd725110c4))
+* **Remove Phylum diversity from R226 page:** This data needs to be processed ([ab8f516](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ab8f5162e120b6741c318ca73be9e30eb7aaefcd))
+
 ## [2.34.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.34.0...v2.34.1) (2025-01-30)
 
 
