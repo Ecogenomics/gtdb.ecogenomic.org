@@ -6,7 +6,7 @@
       <template #title>
           <v-row no-gutters>
             <v-col>
-              <StatsTitle date="XXX April, 2025" release="226" />
+              <StatsTitle date="16th April, 2025" release="226" />
             </v-col>
             <v-col cols="3" ><v-switch
         v-model="cdv_switch"

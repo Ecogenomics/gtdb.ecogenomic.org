@@ -158,7 +158,7 @@ export default Vue.extend({
     /* Summary stats */
     nGenomes: 732475,
     releaseVer: '10-RS226',
-    releaseDate: 'XXX April 2025',
+    releaseDate: '16th April 2025',
   }),
 })
 </script>
