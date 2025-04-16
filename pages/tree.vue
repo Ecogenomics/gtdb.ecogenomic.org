@@ -164,6 +164,38 @@
               </template>
             </v-checkbox>
           </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              v-model="showSandPiperUrl"
+              class="font-12px"
+              color="#485fc7"
+              dense
+              hide-details
+              label="SandPiper"
+              @click="onShowSandPiperUrl"
+            >
+              <template v-slot:append>
+                <TreePopUpShowUrlGeneric
+                  class="ml-3 my-auto"
+                  color="#485fc7"
+                >
+                  <template v-slot:title>SeqCode</template>
+                  <template v-slot:content>
+                    <p>
+                      Links have been created to SandPiper taxa based on verbatim name matching, not all taxa have
+                      been matched.
+                    </p>
+                    <p>
+                      A best effort has been made to ensure that all taxa in SandPiper are mapped to their
+                      corresponding GTDB taxon. Please
+                      <nuxt-link to="contact">contact us</nuxt-link>
+                      if you notice any mistakes.
+                    </p>
+                  </template>
+                </TreePopUpShowUrlGeneric>
+              </template>
+            </v-checkbox>
+          </v-row>
           <!--          <v-row no-gutters>-->
           <!--            <v-checkbox-->
           <!--              v-model="showSeqcodeUrl"-->
@@ -346,6 +378,20 @@
                         <span class="tree-icon-text">SC</span>
                       </v-btn>
 
+                      <!-- SandPiper URL -->
+                      <v-btn
+                        v-if="showSandPiperUrl && item.sandpiperUrl"
+                        :href="item.sandpiperUrl"
+                        class="tree-icon mr-1"
+                        color="#485fc7"
+                        depressed
+                        height="24px"
+                        target="_blank"
+                        x-small
+                      >
+                        <span class="tree-icon-text">SP</span>
+                      </v-btn>
+
                     </div>
                   </template>
                 </div>
@@ -366,9 +412,10 @@
           <v-col class="hidden-sm-and-down" cols="3">
 
             <!-- Fix content within column -->
-            <div style="position:fixed; min-width: 200px;">
+            <div style="position:fixed; min-width: 200px; top: 160px; bottom: 0; padding-bottom: 20px; padding-right: 20px; overflow-y: auto;">
 
-              <!-- Reset tree button -->
+
+            <!-- Reset tree button -->
               <v-btn
                 depressed
                 @click="resetTree"
@@ -523,6 +570,38 @@
                     </template>
                   </v-checkbox>
                 </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    v-model="showSandPiperUrl"
+                    class="font-12px"
+                    color="#485fc7"
+                    dense
+                    hide-details
+                    label="Sandpiper"
+                    @click="onShowSandPiperUrl"
+                  >
+                    <template v-slot:append>
+                      <TreePopUpShowUrlGeneric
+                        class="ml-3 my-auto"
+                        color="#485fc7"
+                      >
+                        <template v-slot:title>SeqCode</template>
+                        <template v-slot:content>
+                          <p>
+                            Links have been created to Sandpiper taxa based on verbatim name matching, not all taxa have
+                            been matched.
+                          </p>
+                          <p>
+                            A best effort has been made to ensure that all taxa in SeqCode are mapped to their
+                            corresponding GTDB taxon. Please
+                            <nuxt-link to="contact">contact us</nuxt-link>
+                            if you notice any mistakes.
+                          </p>
+                        </template>
+                      </TreePopUpShowUrlGeneric>
+                    </template>
+                  </v-checkbox>
+                </v-row>
                 <!--                <v-row no-gutters>-->
                 <!--                  <v-checkbox-->
                 <!--                    v-model="showSeqcodeUrl"-->
@@ -645,6 +724,7 @@ export default Vue.extend({
     showSeqcodeUrl: false,
     showNcbiUrl: false,
     showSeqCodeUrl: false,
+    showSandPiperUrl: false,
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
@@ -828,6 +908,11 @@ export default Vue.extend({
     onShowSeqCodeUrl() {
       if (this.showSeqCodeUrl) {
         this.$plausible.trackEvent("Show SeqCode URL");
+      }
+    },
+    onShowSandPiperUrl() {
+      if (this.showSandPiperUrl) {
+        this.$plausible.trackEvent("Show Sandpiper URL");
       }
     },
   },

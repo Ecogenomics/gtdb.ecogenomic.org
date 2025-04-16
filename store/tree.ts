@@ -15,6 +15,7 @@ export interface TreeItem {
   seqcodeUrl?: string,
   lpsnUrl?: string,
   ncbiTaxId?: number,
+  sandpiperUrl?: string,
   children?: TreeItem[],
 
   isGenome?: boolean,
@@ -118,6 +119,7 @@ function treeItemFromTaxonDescendants(item: TaxonDescendants): TreeItem {
     out.seqcodeUrl = item.seqcodeUrl
     out.lpsnUrl = item.lpsnUrl
     out.ncbiTaxId = item.ncbiTaxId
+    out.sandpiperUrl = item.sandpiperUrl
     out.children = []
   }
   return out

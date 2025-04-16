@@ -98,6 +98,7 @@ export interface TaxonDescendants {
   seqcodeUrl?: string,
   lpsnUrl?: string,
   ncbiTaxId?: number,
+  sandpiperUrl?: string,
 }
 
 export interface TaxonSearchResponse {

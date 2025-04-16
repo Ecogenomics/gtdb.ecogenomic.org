@@ -119,7 +119,7 @@
             <p>
               The GTDB taxonomy can be queried and downloaded through a number of tools on this website. Classification
               of
-              new genomes based on GTDB framework can be done via
+              new genomes based on the GTDB framework can be done via
               <a href="https://github.com/Ecogenomics/GTDBTk" target="_blank">GTDB-Tk</a>.
             </p>
           </v-card-text>
