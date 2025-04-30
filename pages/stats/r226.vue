@@ -18,6 +18,7 @@
 
       </template>
 
+
       <template #taxon-overview>
         GTDB R226 spans 732,475 genomes organized into 143,614 species clusters.
         <v-simple-table class="gtdb-table mt-3" dense style="max-width: 500px;">

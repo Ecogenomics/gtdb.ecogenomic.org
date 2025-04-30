@@ -102,6 +102,10 @@
 <!--    <div class="d-block" style="height: 40px;">-->
 <!--      <TwitterFooter/>-->
 <!--    </div>-->
+    <!-- Bluesky footer -->
+    <div class="d-block" style="height: 40px;">
+      <BlueskyFooter/>
+    </div>
 
   </div>
 
@@ -116,9 +120,10 @@ import TwitterTimeline from "~/components/layout/TwitterTimeline.vue";
 import GtdbRankHistogram from "~/components/index/GtdbRankHistogram.vue";
 import NotifyBar from "~/components/index/NotifyBar.vue";
 import TwitterFooter from "~/components/layout/TwitterFooter.vue";
+import BlueskyFooter from "~/components/layout/BlueskyFooter.vue";
 
 export default Vue.extend({
-  components: {ArcLogo, TwitterFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
+  components: {ArcLogo, TwitterFooter,BlueskyFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
   head() {
     return {
       title: 'Genome Taxonomy Database',
