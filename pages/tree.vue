@@ -229,7 +229,7 @@
       </v-btn>
     </v-col>
 
-    <v-card style="min-height: 700px;">
+    <v-card style="min-height: 750px;">
       <v-card-title class="text-h4">
         Tree
       </v-card-title>
