@@ -99,10 +99,17 @@
           <li>CheckM contamination estimate &lt;10%</li>
           <li>quality score, defined as completeness - 5*contamination, &gt;50</li>
           <li>contain &gt;40% of the bac120 or arc53 marker genes</li>
-          <li>contain &lt;1000 contigs</li>
+          <li>Contain <2,000 contigs (raised from 1,000 in R08-RS214 to match RefSeq filtering criteria)</li>
           <li>have an N50 &gt;5kb</li>
           <li>contain &lt;100,000 ambiguous bases</li>
         </ol>
+        <br>
+        <p>
+        Starting with GTDB R10-RS226, CheckM v2 genome quality estimates have been incorporated into the QC process.
+        Genomes must now satisfy all three quality metrics (completeness, contamination, and quality score)
+        for both CheckM v1 and v2. The exception is genomes with <10 contigs, which are retained if they pass
+        QC according to either CheckM v1 or v2.</p>
+        <p>
         Filtered genomes are manually inspected and exceptions are made for genomes of high
         nomenclatural or taxonomic
         significance, e.g. the isolate genome <i>Ktedonobacter racemifer</i> representing the class
@@ -113,7 +120,7 @@
         as this suggest a large legitimate
         genome duplication event, e.g. GCF_004799645.1, a complete isolate genome from the type
         strain of <i>Natronorubrum bangense</i>.
-        <br>
+        </p>
       </template>
 
       <template #how-are-the-bacterial-and-archaeal-multiple-sequence-alignments-constructed>
