@@ -35,22 +35,31 @@
             <thead>
             <tr>
               <th class="text-left">
-                Source
+                Location
               </th>
               <th class="text-left">
-                Primary (Australia)
+                Link
               </th>
               <th class="text-left">
-                Mirror (Rest of the world)
+                Recommended
               </th>
             </tr>
             </thead>
             <tbody>
             <tr>
-              <td>GTDB repository</td>
+              <td>Europe (Denmark)</td>
+              <td><a href="https://data.gtdb.aau.ecogenomic.org/" target="_blank">https://data.gtdb.aau.ecogenomic.org/</a></td>
+              <td>Worlwide</td>
+            </tr>
+            <tr>
+              <td>Asia-Pacific 1 (Australia)</td>
               <td><a href="https://data.gtdb.ecogenomic.org/" target="_blank">https://data.gtdb.ecogenomic.org/</a></td>
-              <td><a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/" target="_blank">https://data.ace.uq.edu.au/public/gtdb/data/releases/</a>
-              </td>
+              <td>Australia</td>
+            </tr>
+            <tr>
+              <td>Asia-Pacific 2 (Australia)</td>
+              <td><a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/" target="_blank">https://data.ace.uq.edu.au/public/gtdb/data/releases/</a></td>
+              <td>Worldwide</td>
             </tr>
             </tbody>
           </template>
