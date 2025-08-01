@@ -48,12 +48,12 @@
             <tbody>
             <tr>
               <td>Europe (Denmark)</td>
-              <td><a href="https://data.gtdb.aau.ecogenomic.org/" target="_blank">https://data.gtdb.aau.ecogenomic.org/</a></td>
+              <td><a href="https://data.gtdb.aau.ecogenomic.org/" target="_blank">https://data.gtdb.aau.ecogenomic.org/releases/</a></td>
               <td>Worlwide</td>
             </tr>
             <tr>
               <td>Asia-Pacific 1 (Australia)</td>
-              <td><a href="https://data.gtdb.ecogenomic.org/" target="_blank">https://data.gtdb.ecogenomic.org/</a></td>
+              <td><a href="https://data.gtdb.ecogenomic.org/" target="_blank">https://data.gtdb.ecogenomic.org/releases/</a></td>
               <td>Australia</td>
             </tr>
             <tr>
