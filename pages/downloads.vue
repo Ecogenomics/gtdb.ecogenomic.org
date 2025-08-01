@@ -48,7 +48,7 @@
             <tbody>
             <tr>
               <td>Europe (Denmark)</td>
-              <td><a href="https://data.gtdb.aau.ecogenomic.org/" target="_blank">https://data.gtdb.aau.ecogenomic.org/</a></td>
+              <td><a href="https://data.gtdb.aau.ecogenomic.org/" target="_blank">https://data.gtdb.aau.ecogenomic.org/releases/</a></td>
               <td>Worldwide</td>
             </tr>
             <tr>
