@@ -699,7 +699,7 @@ export default Vue.extend({
           //@ts-ignore
           .text(d => this.showValues === 'ani' ? round(d.ani, this.decimalPlaces) : round(d.af, this.decimalPlaces))
           .style("text-anchor", "middle")
-          .style("font-size", 8)
+          .style("font-size", "10px")
           .style("fill", (d) => {
             return pickTextColorBasedOnBgColorSimple(this.getRectColour(d), '#FFFFFF', '#000000')
           })
