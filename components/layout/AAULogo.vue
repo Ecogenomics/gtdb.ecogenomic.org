@@ -1,5 +1,5 @@
 <template>
-  <a href="https://www.uq.edu.au/" target="_blank">
+  <a href="https://www.en.aau.dk/" target="_blank">
     <div class="logo"></div>
   </a>
 </template>
@@ -8,13 +8,13 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: "UqLogo"
+  name: "AAULogo"
 })
 </script>
 
 <style scoped>
 .logo {
-  background: url("~/assets/images/uq-logo-white.svg") no-repeat top center;
+  background: url("~/assets/images/aau-logo-left-white.png") no-repeat top center;
   width: 100%;
   height: 100%;
   background-size: contain;

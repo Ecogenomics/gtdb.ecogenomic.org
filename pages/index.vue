@@ -39,8 +39,11 @@
 
         <!-- Top right -->
         <div class="d-flex w-50">
-          <div style="height: 70%; width: 100%;">
-            <AceLogo></AceLogo>
+          <div class="w-100 w-md-50" style="height: 50%">
+            <UqLogo/>
+          </div>
+          <div class="w-100 w-md-50" style="height: 50%">
+            <AAULogo/>
           </div>
         </div>
 
@@ -62,10 +65,10 @@
 
         <!-- Bottom left -->
         <div class=" d-block d-md-flex w-50">
-          <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 50%">
-            <UqLogo/>
+          <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 70%">
+            <AceLogo/>
           </div>
-          <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 50%">
+          <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 70%">
             <ArcLogo/>
           </div>
 
@@ -116,6 +119,7 @@ import Vue from 'vue'
 import AceLogo from "~/components/layout/AceLogo.vue";
 import ArcLogo from "~/components/layout/ArcLogo.vue";
 import UqLogo from "~/components/layout/UqLogo.vue";
+import AAULogo from "~/components/layout/AAULogo.vue";
 import TwitterTimeline from "~/components/layout/TwitterTimeline.vue";
 import GtdbRankHistogram from "~/components/index/GtdbRankHistogram.vue";
 import NotifyBar from "~/components/index/NotifyBar.vue";
@@ -123,7 +127,9 @@ import TwitterFooter from "~/components/layout/TwitterFooter.vue";
 import BlueskyFooter from "~/components/layout/BlueskyFooter.vue";
 
 export default Vue.extend({
-  components: {ArcLogo, TwitterFooter,BlueskyFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
+  components: {
+    AAULogo,
+    ArcLogo, TwitterFooter,BlueskyFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
   head() {
     return {
       title: 'Genome Taxonomy Database',
