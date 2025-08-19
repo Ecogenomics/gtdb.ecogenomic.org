@@ -14,7 +14,7 @@ export default Vue.extend({
 
 <style scoped>
 .logo {
-  background: url("~/assets/images/aau-logo-left-white.png") no-repeat top center;
+  background: url("~/assets/images/aau-logo-left-white-denmark.svg") no-repeat top center;
   width: 100%;
   height: 100%;
   background-size: contain;
