@@ -65,7 +65,7 @@
 
         <!-- Bottom left -->
         <div class=" d-block d-md-flex w-50">
-          <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 70%">
+          <div class="w-50 w-md-50 mb-0 mt-auto" style="height: 70%">
             <AceLogo/>
           </div>
           <div class="w-100 w-md-50 mb-0 mt-auto" style="height: 70%">
