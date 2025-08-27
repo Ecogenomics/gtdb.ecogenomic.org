@@ -1,3 +1,10 @@
+# [2.38.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.37.0...v2.38.0) (2025-08-27)
+
+
+### Features
+
+* **bump:** Bumping version to match new API version for external tree links. ([5a11851](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5a118511cfb5a8207284f9108ea4a4160abac0ba))
+
 # [2.37.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.36.1...v2.37.0) (2025-08-26)
 
 
