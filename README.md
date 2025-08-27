@@ -31,3 +31,4 @@ npm run start
 ## Troubleshooting
 
 If you are getting (this as any) errors (or property doesn't exist on this). Then you have untyped computed properties.
+
