@@ -94,7 +94,8 @@
             <slot :name="item.ref"/>
           </v-card-text>
         </v-card>
-
+  <!-- Spacer ensures last section can scroll fully -->
+  <div style="height: 200px;"></div>
         </v-card-text>
       </v-card>
 
@@ -126,27 +127,45 @@ export default Vue.extend({
       this.selectedIndex = index;
       this.scrollToSelected();
     },
-    scrollToSelected() {
-      const curEle = (this.$refs[this.items[this.selectedIndex].ref] as Vue[]);
-      this.$vuetify.goTo(curEle[0], {offset: 10})
-    },
-    onScroll() {
-      for (let i = 0; i < this.items.length; i++) {
-        const curEle = (this.$refs[this.items[i].ref] as Vue[]);
-        if (curEle && curEle[0]) {
-          const curRect = (curEle[0].$el as Element).getBoundingClientRect();
-          const topX = curRect.top + SCROLL_OFFSET;
-          const botX = topX + curRect.height + SCROLL_OFFSET;
-          if (topX > 0 || botX > 0) {
-            if (this.selectedIndex !== i) {
-              this.selectedIndex = i;
-              // window.location.hash = `#${this.items[i].ref}`
-            }
-            break;
-          }
+    // scrollToSelected() {
+    //   const curEle = (this.$refs[this.items[this.selectedIndex].ref] as Vue[]);
+    //   this.$vuetify.goTo(curEle[0], {offset: 10})
+    // },
+scrollToSelected() {
+  const item = this.items[this.selectedIndex];
+  if (!item) return;
+
+  const curEle = this.$refs[item.ref] as Vue[];
+  if (!curEle || !curEle[0]) return;
+
+  // Disable onScroll updates
+  this.isScrolling = true;
+
+  this.$vuetify.goTo(curEle[0], { offset: 110 }).then(() => {
+    // Re-enable after scroll is finished
+    setTimeout(() => {
+      this.isScrolling = false;
+    }, 50); // small buffer to ensure scroll settles
+  });
+},
+onScroll() {
+  if (this.isScrolling) return; // skip updates while programmatic scrolling
+
+  for (let i = 0; i < this.items.length; i++) {
+    const curEle = this.$refs[this.items[i].ref] as Vue[];
+    if (curEle && curEle[0]) {
+      const curRect = (curEle[0].$el as Element).getBoundingClientRect();
+      const topX = curRect.top + SCROLL_OFFSET;
+      const botX = topX + curRect.height + SCROLL_OFFSET;
+      if (topX > 0 || botX > 0) {
+        if (this.selectedIndex !== i) {
+          this.selectedIndex = i;
         }
+        break;
       }
     }
+  }
+}
   },
   mounted() {
     // Scroll to the ref if present in the URL
