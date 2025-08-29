@@ -1,3 +1,59 @@
+# [2.38.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.37.0...v2.38.0) (2025-08-27)
+
+
+### Features
+
+* **bump:** Bumping version to match new API version for external tree links. ([5a11851](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/5a118511cfb5a8207284f9108ea4a4160abac0ba))
+
+# [2.37.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.36.1...v2.37.0) (2025-08-26)
+
+
+### Features
+
+* **bump:** Bumping version to match new API version for external tree links. ([60bad5f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/60bad5fbfcb2702b623440b87e7be2fe48579aa1))
+
+## [2.36.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.36.0...v2.36.1) (2025-04-30)
+
+
+### Bug Fixes
+
+* **R226:** Bump version for release. ([c89d45e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c89d45eab0ff3fb1382334dfa566be488f30eccb))
+
+# [2.36.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.35.0...v2.36.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* **R226:** Update release date for R226. ([7a42c90](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7a42c9013140de47a72bc57b99a45cb5263979f8))
+
+
+### Features
+
+* **R226:** Update for R226. ([9b7d93b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9b7d93b99c638501377a0dd3445126d953f96f98))
+
+# [2.35.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.34.1...v2.35.0) (2025-04-16)
+
+
+### Features
+
+* **R226:** Update for R226. ([f1d39fc](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/f1d39fca270713073571223cfcd29fcd725110c4))
+* **Remove Phylum diversity from R226 page:** This data needs to be processed ([ab8f516](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ab8f5162e120b6741c318ca73be9e30eb7aaefcd))
+
+## [2.34.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.34.0...v2.34.1) (2025-01-30)
+
+
+### Bug Fixes
+
+* **alphabetical table fix:** Fix the issue where the table was freezing when searching a space ([511ad2d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/511ad2dee222418ab4414468521025bf22615ec0))
+
+# [2.34.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.33.0...v2.34.0) (2025-01-21)
+
+
+### Features
+
+* **reformat FAQ:** Add Annoview, italicize names ([41ccbac](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/41ccbaceadf07596c3dda20e8788c73b8189ff64))
+* **reformat FAQ:** Change reformat for one question ([a59d89d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a59d89dc68464a8e5e3412092d3bd1ccebd5bd49))
+
 # [2.33.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.32.3...v2.33.0) (2024-10-25)
 
 
