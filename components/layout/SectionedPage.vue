@@ -131,30 +131,97 @@ export default Vue.extend({
     //   const curEle = (this.$refs[this.items[this.selectedIndex].ref] as Vue[]);
     //   this.$vuetify.goTo(curEle[0], {offset: 10})
     // },
+// Debug version - replace your scrollToSelected method with this:
 scrollToSelected() {
   const item = this.items[this.selectedIndex];
   if (!item) return;
-
-  const curEle = this.$refs[item.ref] as Vue[];
-  if (!curEle || !curEle[0]) return;
-
-  // Disable onScroll updates
   this.isScrolling = true;
 
-  this.$vuetify.goTo(curEle[0], { offset: 110 }).then(() => {
-    // Re-enable after scroll is finished
-    setTimeout(() => {
+  this.$nextTick(() => {
+    const curEle = this.$refs[item.ref] as Vue[];
+    if (!curEle || !curEle[0]) {
       this.isScrolling = false;
-    }, 50); // small buffer to ensure scroll settles
+      return;
+    }
+
+    const el = curEle[0].$el as HTMLElement;
+    // Monitor height changes
+    let previousHeight = el.offsetHeight;
+    let heightStableCount = 0;
+
+    const checkStability = () => {
+      const currentHeight = el.offsetHeight;
+      const currentPos = el.getBoundingClientRect();
+
+      if (currentHeight === previousHeight) {
+        heightStableCount++;
+      } else {
+        heightStableCount = 0;
+        previousHeight = currentHeight;
+      }
+
+      // If height has been stable for 3 checks (300ms), scroll
+      if (heightStableCount >= 3) {
+        this.performActualScroll(el);
+      } else if (heightStableCount < 20) { // Max 2 seconds of checking
+        setTimeout(checkStability, 100);
+      } else {
+        this.performActualScroll(el);
+      }
+    };
+
+    // Start checking after a brief delay
+    setTimeout(checkStability, 100);
   });
 },
+
+// WAIT for any ongoing scroll to complete first, then calculate:
+performActualScroll(el: HTMLElement) {
+  const SCROLL_OFFSET = 110;
+  let attempts = 0;
+
+  const scrollUntilInView = () => {
+    const rect = el.getBoundingClientRect();
+    const currentScroll = window.scrollY;
+    const absoluteElementTop = rect.top + currentScroll;
+    const targetPosition = absoluteElementTop - SCROLL_OFFSET;
+
+    console.log("Attempt", attempts, {
+      rectTop: rect.top,
+      currentScroll,
+      targetPosition,
+    });
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+
+    attempts++;
+
+    // Check again until the element is really in view OR max attempts
+    setTimeout(() => {
+      const stillOff =
+        Math.abs(el.getBoundingClientRect().top - SCROLL_OFFSET) > 5;
+
+      if (stillOff && attempts < 10) {
+        scrollUntilInView();
+      } else {
+        console.log("Final position:", window.pageYOffset);
+        this.isScrolling = false;
+      }
+    }, 300); // wait for smooth scroll + rendering
+  };
+
+  scrollUntilInView();
+},
 onScroll() {
-  if (this.isScrolling) return; // skip updates while programmatic scrolling
+  if (this.isScrolling) return; // skip updates during programmatic scrolling
 
   for (let i = 0; i < this.items.length; i++) {
     const curEle = this.$refs[this.items[i].ref] as Vue[];
     if (curEle && curEle[0]) {
-      const curRect = (curEle[0].$el as Element).getBoundingClientRect();
+      const curRect = (curEle[0].$el as HTMLElement).getBoundingClientRect();
       const topX = curRect.top + SCROLL_OFFSET;
       const botX = topX + curRect.height + SCROLL_OFFSET;
       if (topX > 0 || botX > 0) {
@@ -165,10 +232,10 @@ onScroll() {
       }
     }
   }
-}
-  },
-  mounted() {
-    // Scroll to the ref if present in the URL
+},
+mounted() {
+  // Add a small delay to ensure all content is rendered
+  setTimeout(() => {
     const hash = this.$route.hash;
     if (hash) {
       for (let i = 0; i < this.items.length; i++) {
@@ -179,13 +246,14 @@ onScroll() {
         }
       }
     }
-    // Track where the user is on the page
-    window.addEventListener('scroll', this.onScroll);
-  },
+  }, 100);
+
+  window.addEventListener('scroll', this.onScroll);
+},
   destroyed() {
     window.removeEventListener('scroll', this.onScroll);
   },
-})
+}})
 </script>
 
 <style scoped>
