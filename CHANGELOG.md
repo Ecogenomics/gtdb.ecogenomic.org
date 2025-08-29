@@ -1,3 +1,22 @@
+# [2.39.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.38.0...v2.39.0) (2025-08-29)
+
+
+### Bug Fixes
+
+* **download:** Typo in AAU mirror. ([cc587ba](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/cc587ba925a6413033c04bcdda403f741984dcb1))
+* **fastani:** Update the heatmap font size per square. ([57fb84f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/57fb84f789296e9d52ca144d6a2d743e704c0442))
+
+
+### Features
+
+* **Add extra links in Download:** add AAU links ([a569a97](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a569a977a42b69b28369808c763c5152192615e9))
+* **change aau_logo:** update the AAU logo to add Denmark ([38332dc](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/38332dc8a21f489e5cfe1b2618826c24a74d2ae0))
+* **change banner:** update banner to list Europe mirror ([ecb9e86](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ecb9e86dbd4e24cecfb53840b907236d26fb1274))
+* **change frontpage logos:** reoganise logo and add AAU logo ([2758a9f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/2758a9ff652bf5eb9810af5c1918243033b2905f))
+* **change the data urls:** point to releases folder ([d4f1068](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d4f1068c4a43e2c31464a10dc01e6b82682098b5))
+* **change the data urls:** point to releases folder ([7b4c98d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7b4c98d8c5102295c75ec10d3308de1beb6aa94f))
+* **shift logo:** realign bottom logos ([2f5dd29](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/2f5dd29b8ddd97683351052def79d21804146c43))
+
 # [2.38.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.37.0...v2.38.0) (2025-08-27)
 
 
