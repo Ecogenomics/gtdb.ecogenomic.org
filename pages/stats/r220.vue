@@ -8,7 +8,7 @@
             <v-col>
               <StatsTitle date="24th April, 2024" release="220" />
             </v-col>
-            <v-col cols="3" ><v-switch
+            <v-col cols="4" ><v-switch
         v-model="cdv_switch"
         class="switch align-content-end"
         label="Colour vision deficiency"

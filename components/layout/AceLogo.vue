@@ -14,7 +14,7 @@ export default Vue.extend({
 
 <style scoped>
 .logo {
-  background: url("~/assets/images/ace-logo-white.svg") no-repeat top right;
+  background: url("~/assets/images/ace-logo-white.svg") no-repeat top center;
   width: 100%;
   height: 100%;
   background-size: contain;
