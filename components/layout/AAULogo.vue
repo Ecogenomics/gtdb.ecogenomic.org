@@ -1,5 +1,9 @@
 <template>
-  <a href="https://www.en.aau.dk/" target="_blank">
+  <a
+    href="https://www.en.aau.dk/"
+    target="_blank"
+    @click="trackClick"
+  >
     <div class="logo"></div>
   </a>
 </template>
@@ -8,9 +12,15 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: "AAULogo"
+  name: "AAULogo",
+  methods: {
+    trackClick() {
+      this.$plausible.trackEvent("AAU Logo Click", { props: { location: "header" } });
+    }
+  }
 })
 </script>
+
 
 <style scoped>
 .logo {
