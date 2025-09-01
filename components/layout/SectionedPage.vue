@@ -46,7 +46,10 @@
 
     <!-- Fixed navigation columns (for medium+ devices) -->
     <v-col class="hidden-sm-and-down pr-5" cols="3">
-      <v-list class="mt-14" dense rounded style="position: sticky; top: 100px;">
+  <div class="sticky-wrapper">
+    <div class="scrollable-sidebar">
+      <div class="inner-padding"> <!-- this creates visual spacing -->
+        <v-list dense rounded>
         <v-list-item-group
           v-model="selectedIndex"
           color="primary"
@@ -64,6 +67,7 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
+      </div></div></div>
     </v-col>
 
     <!-- Main content (for all devices) -->
@@ -277,6 +281,20 @@ mounted() {
 
 .nav-list-title {
   white-space: pre-wrap !important;
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 100px; /* sticky offset */
+}
+
+.scrollable-sidebar {
+  max-height: calc(100vh - 110px); /* full viewport minus sticky */
+  overflow-y: auto;                /* scrollable */
+}
+
+.inner-padding {
+  padding-top: 56px; /* visual spacing instead of margin */
 }
 
 </style>
