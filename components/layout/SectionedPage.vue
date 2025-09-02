@@ -293,8 +293,8 @@ mounted() {
   overflow-y: auto;                /* scrollable */
 }
 
-.inner-padding {
-  padding-top: 56px; /* visual spacing instead of margin */
-}
+/*.inner-padding { */
+/*  padding-top: 56px; /* visual spacing instead of margin */
+/*}*/
 
 </style>
