@@ -125,6 +125,7 @@ export default Vue.extend({
     isScrolling: false,
     drawer: false,
     mdiArrowCollapseRightSvg: mdiArrowCollapseRight,
+    _onScrollHandler: null,
   }),
   methods: {
     selectItem(index: number) {
@@ -220,12 +221,12 @@ performActualScroll(el: HTMLElement) {
   scrollUntilInView();
 },
 onScroll() {
-  if (this.isScrolling) return; // skip updates during programmatic scrolling
+  if (this.isScrolling) return; // skip updates while programmatic scrolling
 
   for (let i = 0; i < this.items.length; i++) {
     const curEle = this.$refs[this.items[i].ref] as Vue[];
     if (curEle && curEle[0]) {
-      const curRect = (curEle[0].$el as HTMLElement).getBoundingClientRect();
+      const curRect = (curEle[0].$el as Element).getBoundingClientRect();
       const topX = curRect.top + SCROLL_OFFSET;
       const botX = topX + curRect.height + SCROLL_OFFSET;
       if (topX > 0 || botX > 0) {
@@ -236,10 +237,11 @@ onScroll() {
       }
     }
   }
-},
-mounted() {
-  // Add a small delay to ensure all content is rendered
-  setTimeout(() => {
+}
+  },
+
+  mounted() {
+    // Scroll to the ref if present in the URL
     const hash = this.$route.hash;
     if (hash) {
       for (let i = 0; i < this.items.length; i++) {
@@ -250,14 +252,14 @@ mounted() {
         }
       }
     }
-  }, 100);
-
-  window.addEventListener('scroll', this.onScroll);
-},
+    // Track where the user is on the page
+    window.addEventListener('scroll', this.onScroll);
+  },
   destroyed() {
     window.removeEventListener('scroll', this.onScroll);
   },
-}})
+
+})
 </script>
 
 <style scoped>
