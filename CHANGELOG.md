@@ -1,3 +1,10 @@
+## [2.39.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.39.0...v2.39.1) (2025-09-03)
+
+
+### Bug Fixes
+
+* **Fix the scrolling issue on the stat page:** Round 2, the page scrolls down, check if everything is rendered and scroll down again if the card we want is displayed ([c528d36](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c528d362a8dd087be673269feaaad4cce1d02126))
+
 # [2.39.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.38.0...v2.39.0) (2025-08-29)
 
 
