@@ -694,8 +694,7 @@
         The following tables show the percentage contribution of each phylum to the Phylogenetic Diversity (PD) of the original and RED-normalised GTDB reference trees.<br><br>
         Phyla that are polyphyletic in the reference tree (suffixed as _A, _B, etc) can be collapsed using the toggle at the top right of each table. Click on headers to sort by column.
         <br><br>
-        <p><strong>Note:</strong> RED-normalised values represent the median phylogenetic diversity (PD) across RED-scaled trees, each rooted with a phylum containing at least two classes.
-</p>
+        <p><strong>Note:</strong> RED-normalised values represent the median phylogenetic diversity (PD) across RED-scaled trees, each rooted with a phylum containing at least two classes.</p>
 
         <h3>Archaea:</h3>
         <PhylumPd :rows="phylumPdArc"></PhylumPd>

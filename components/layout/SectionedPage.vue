@@ -46,7 +46,10 @@
 
     <!-- Fixed navigation columns (for medium+ devices) -->
     <v-col class="hidden-sm-and-down pr-5" cols="3">
-      <v-list class="mt-14" dense rounded style="position: sticky; top: 100px;">
+  <div class="sticky-wrapper">
+    <div class="scrollable-sidebar">
+      <div class="inner-padding"> <!-- this creates visual spacing -->
+        <v-list dense rounded>
         <v-list-item-group
           v-model="selectedIndex"
           color="primary"
@@ -64,6 +67,7 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
+      </div></div></div>
     </v-col>
 
     <!-- Main content (for all devices) -->
@@ -121,6 +125,7 @@ export default Vue.extend({
     isScrolling: false,
     drawer: false,
     mdiArrowCollapseRightSvg: mdiArrowCollapseRight,
+    _onScrollHandler: null,
   }),
   methods: {
     selectItem(index: number) {
@@ -131,22 +136,89 @@ export default Vue.extend({
     //   const curEle = (this.$refs[this.items[this.selectedIndex].ref] as Vue[]);
     //   this.$vuetify.goTo(curEle[0], {offset: 10})
     // },
+// Debug version - replace your scrollToSelected method with this:
 scrollToSelected() {
   const item = this.items[this.selectedIndex];
   if (!item) return;
-
-  const curEle = this.$refs[item.ref] as Vue[];
-  if (!curEle || !curEle[0]) return;
-
-  // Disable onScroll updates
   this.isScrolling = true;
 
-  this.$vuetify.goTo(curEle[0], { offset: 110 }).then(() => {
-    // Re-enable after scroll is finished
-    setTimeout(() => {
+  this.$nextTick(() => {
+    const curEle = this.$refs[item.ref] as Vue[];
+    if (!curEle || !curEle[0]) {
       this.isScrolling = false;
-    }, 50); // small buffer to ensure scroll settles
+      return;
+    }
+
+    const el = curEle[0].$el as HTMLElement;
+    // Monitor height changes
+    let previousHeight = el.offsetHeight;
+    let heightStableCount = 0;
+
+    const checkStability = () => {
+      const currentHeight = el.offsetHeight;
+      const currentPos = el.getBoundingClientRect();
+
+      if (currentHeight === previousHeight) {
+        heightStableCount++;
+      } else {
+        heightStableCount = 0;
+        previousHeight = currentHeight;
+      }
+
+      // If height has been stable for 3 checks (300ms), scroll
+      if (heightStableCount >= 3) {
+        this.performActualScroll(el);
+      } else if (heightStableCount < 20) { // Max 2 seconds of checking
+        setTimeout(checkStability, 100);
+      } else {
+        this.performActualScroll(el);
+      }
+    };
+
+    // Start checking after a brief delay
+    setTimeout(checkStability, 100);
   });
+},
+
+// WAIT for any ongoing scroll to complete first, then calculate:
+performActualScroll(el: HTMLElement) {
+  const SCROLL_OFFSET = 110;
+  let attempts = 0;
+
+  const scrollUntilInView = () => {
+    const rect = el.getBoundingClientRect();
+    const currentScroll = window.scrollY;
+    const absoluteElementTop = rect.top + currentScroll;
+    const targetPosition = absoluteElementTop - SCROLL_OFFSET;
+
+    console.log("Attempt", attempts, {
+      rectTop: rect.top,
+      currentScroll,
+      targetPosition,
+    });
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+
+    attempts++;
+
+    // Check again until the element is really in view OR max attempts
+    setTimeout(() => {
+      const stillOff =
+        Math.abs(el.getBoundingClientRect().top - SCROLL_OFFSET) > 5;
+
+      if (stillOff && attempts < 10) {
+        scrollUntilInView();
+      } else {
+        console.log("Final position:", window.pageYOffset);
+        this.isScrolling = false;
+      }
+    }, 300); // wait for smooth scroll + rendering
+  };
+
+  scrollUntilInView();
 },
 onScroll() {
   if (this.isScrolling) return; // skip updates while programmatic scrolling
@@ -167,6 +239,7 @@ onScroll() {
   }
 }
   },
+
   mounted() {
     // Scroll to the ref if present in the URL
     const hash = this.$route.hash;
@@ -185,6 +258,7 @@ onScroll() {
   destroyed() {
     window.removeEventListener('scroll', this.onScroll);
   },
+
 })
 </script>
 
@@ -210,5 +284,19 @@ onScroll() {
 .nav-list-title {
   white-space: pre-wrap !important;
 }
+
+.sticky-wrapper {
+  position: sticky;
+  top: 100px; /* sticky offset */
+}
+
+.scrollable-sidebar {
+  max-height: calc(100vh - 110px); /* full viewport minus sticky */
+  overflow-y: auto;                /* scrollable */
+}
+
+/*.inner-padding { */
+/*  padding-top: 56px; /* visual spacing instead of margin */
+/*}*/
 
 </style>
