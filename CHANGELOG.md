@@ -1,3 +1,10 @@
+# [2.40.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.39.1...v2.40.0) (2025-09-11)
+
+
+### Features
+
+* **Add maintenance date:** maintenance for AAU ([4a83ecd](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/4a83ecd477b6412ca867b4d85d1441f1120a3357))
+
 ## [2.39.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.39.0...v2.39.1) (2025-09-03)
 
 
