@@ -49,7 +49,7 @@
             <tr>
               <td>Europe (Denmark - Maintenance Sep 16, 2025)</td>
               <td><a href="https://data.gtdb.aau.ecogenomic.org/" target="_blank">https://data.gtdb.aau.ecogenomic.org/releases/</a></td>
-              <td>Worldwide</td>
+              <td>Worldwide</td> 
             </tr>
             <tr>
               <td>Asia-Pacific 1 (Australia)</td>
