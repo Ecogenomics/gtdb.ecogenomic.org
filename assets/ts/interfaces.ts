@@ -29,3 +29,4 @@ export interface FastAniQueryPayload {
   priority: string
   email?: string | null
 }
+

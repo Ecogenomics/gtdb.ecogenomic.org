@@ -9,11 +9,20 @@ import path from 'path';
 import axios from 'axios';
 
 
+/*
+On each build of the website, the following functions will be run to collect
+information from the API to be embedded into the website.
+ */
+
 function loadApiVersion() {
   const res = syncRequest('GET', `${process.env.API_BASE}/meta/version`);
   const data = JSON.parse(res.getBody('utf8'));
   return `${data.major}.${data.minor}.${data.patch}`;
 }
+
+/*
+Server configuration
+ */
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -41,11 +50,16 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/api.ts',
-    '~/plugins/vue-gtag' // https://github.com/MatteoGabriele/vue-gtag/tree/1.0
+    '~/plugins/vue-gtag', // https://github.com/MatteoGabriele/vue-gtag/tree/1.0
+    '~/plugins/plotly.client.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
+
+  compilerOptions: {
+    "typeRoots": ["./types", "./node_modules/@types"]
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [// https://go.nuxtjs.dev/typescript
@@ -59,7 +73,7 @@ export default {
     'vue-plausible'
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
+  // Modules: https://gwo.nuxtjs.dev/config-modules
   modules: [// https://go.nuxtjs.dev/axios
     '@nuxtjs/axios', // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa', // https://pwa.nuxtjs.org/
@@ -95,9 +109,24 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
 
   build: {
+    transpile: [
+      /plotly.js/,       // transpile Plotly so Webpack can handle optional chaining, ||=, etc
+      /color-parse/,     // its dependencies
+      /color-rgba/
+    ],
+    babel: {
+      // ensure modern JS features are handled
+      plugins: [
+        '@babel/plugin-proposal-optional-chaining',
+        '@babel/plugin-transform-logical-assignment-operators'
+      ],
+      compact: false
+    },
+
     extractCSS: {
       ignoreOrder: true
     },
+
 
     html: {
       minify: {
@@ -153,7 +182,7 @@ export default {
     advancedMaxHistory: 50,  // Maximum number of history states to retain in advanced search
     captchaSiteKey: process.env.CAPTCHA_KEY,
     googleAnalyticsId: process.env.GA_TRACKING_ID,
-    latestStatsPageUrl: '/stats/r220',  // this is used to point to the latest stats page,
+    latestStatsPageUrl: '/stats/r226',  // this is used to point to the latest stats page,
     nuxtVersion: version,
     apiCacheKey: loadApiVersion(),
     fastAniJobCookieName: 'fastani-jobs'

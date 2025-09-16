@@ -13,7 +13,7 @@ export class SankeyApi {
   getSankey(request: SankeySearchRequest) {
     return axios.get<SankeySearchResponse>(`${apiBase}/sankey`,
       {
-        timeout: apiTimeout,
+        timeout: apiTimeout * 5,
         params: {...request, ...{cacheKey: apiCacheKey}}
       })
   }

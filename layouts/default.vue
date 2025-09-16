@@ -213,8 +213,8 @@ export default {
         },
         {
           icon: 'mdi-apps',
-          title: 'FastANI calculator',
-          to: '/tools/fastani',
+          title: 'ANI calculator',
+          to: '/tools/skani',
           nuxt: true,
           external: false
         },
