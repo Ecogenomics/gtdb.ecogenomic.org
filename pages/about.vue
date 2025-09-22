@@ -176,7 +176,7 @@
                     <img alt="Christian Rinke" src="~/assets/images/gtdb-team/chris.jpg">
                   </template>
                   <template v-slot:name>
-                    <a href="https://scmb.uq.edu.au/profile/513/chris-rinke" target="_blank">Christian Rinke</a>
+                    <a href="https://www.uibk.ac.at/de/microbiology/team/christian-rinke/" target="_blank">Christian Rinke</a>
                   </template>
                 </AboutAvatar>
               </div>
