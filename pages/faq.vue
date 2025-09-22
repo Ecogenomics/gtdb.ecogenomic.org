@@ -37,25 +37,31 @@
 
       <template #why-are-some-higher-taxon-names-formed-from-a-culture-collection-strain-identifier>
         <p>
-        A culture collection strain identifier is used as a placeholder for the taxon names above the rank of genus when
+          A culture collection strain identifier is used as a placeholder for the taxon names above the rank of genus
+          when
         </p>
         <ol type="i">
-          <li>There is no existing taxon name (e.g., family or order) for a parent taxon that contains children with validly
-        or effectively published names based on isolates, or </li>
+          <li>There is no existing taxon name (e.g., family or order) for a parent taxon that contains children with
+            validly
+            or effectively published names based on isolates, or
+          </li>
           <br>
           <li>It is based on the genus name formed from the strain
-        identifier.</li>
+            identifier.
+          </li>
         </ol>
-                <br>
+        <br>
         <p>
           In the first case, some of the children may have a parent with an existing name, but their
-        classification (parent taxon) is different in GTDB. For example, the order o__DSM-8532 contains the family
-          f__DSM-8532, which has seven children, including the genus <i>Thermoclostridium</i>. This genus was originally assigned
-          to the family <i>Hungateiclostridiaceae</i> (currently illegitimate) and later to the family <i>Oscillospiraceae</i>. However,
-        it is classified as a separate family in GTDB, necessitating the creation of a new parent name.
-        The latter has been formed based on the type strain identifier of the type species of the genus
-        <i>Thermoclostridium</i> to indicate that this family includes representatives with cultured strains.
-          </p>
+          classification (parent taxon) is different in GTDB. For example, the order o__DSM-8532 contains the family
+          f__DSM-8532, which has seven children, including the genus <i>Thermoclostridium</i>. This genus was originally
+          assigned
+          to the family <i>Hungateiclostridiaceae</i> (currently illegitimate) and later to the family <i>Oscillospiraceae</i>.
+          However,
+          it is classified as a separate family in GTDB, necessitating the creation of a new parent name.
+          The latter has been formed based on the type strain identifier of the type species of the genus
+          <i>Thermoclostridium</i> to indicate that this family includes representatives with cultured strains.
+        </p>
       </template>
 
       <template #why-do-some-genus-and-species-names-end-with-an-alphabetic-suffix>
@@ -105,21 +111,21 @@
         </ol>
         <br>
         <p>
-        Starting with GTDB R10-RS226, CheckM v2 genome quality estimates have been incorporated into the QC process.
-        Genomes must now satisfy all three quality metrics (completeness, contamination, and quality score)
-        for both CheckM v1 and v2. The exception is genomes with <10 contigs, which are retained if they pass
-        QC according to either CheckM v1 or v2.</p>
+          Starting with GTDB R10-RS226, CheckM v2 genome quality estimates have been incorporated into the QC process.
+          Genomes must now satisfy all three quality metrics (completeness, contamination, and quality score)
+          for both CheckM v1 and v2. The exception is genomes with <10 contigs, which are retained if they pass
+          QC according to either CheckM v1 or v2.</p>
         <p>
-        Filtered genomes are manually inspected and exceptions are made for genomes of high
-        nomenclatural or taxonomic
-        significance, e.g. the isolate genome <i>Ktedonobacter racemifer</i> representing the class
-        Ktedonobacteria in the phylum
-        Chloroflexota has a contamination estimate of 11%. Genomes with CheckM contamination between
-        10% and 20% which pass critieria
-        i and iv to vii are also retained if >80% of all duplicate marker genes are 100% identical
-        as this suggest a large legitimate
-        genome duplication event, e.g. GCF_004799645.1, a complete isolate genome from the type
-        strain of <i>Natronorubrum bangense</i>.
+          Filtered genomes are manually inspected and exceptions are made for genomes of high
+          nomenclatural or taxonomic
+          significance, e.g. the isolate genome <i>Ktedonobacter racemifer</i> representing the class
+          Ktedonobacteria in the phylum
+          Chloroflexota has a contamination estimate of 11%. Genomes with CheckM contamination between
+          10% and 20% which pass critieria
+          i and iv to vii are also retained if >80% of all duplicate marker genes are 100% identical
+          as this suggest a large legitimate
+          genome duplication event, e.g. GCF_004799645.1, a complete isolate genome from the type
+          strain of <i>Natronorubrum bangense</i>.
         </p>
       </template>
 
@@ -263,61 +269,61 @@
           representative to be of increasingly higher
           quality (as defined by the quality score) the more dissimilar it is from the current
           representative (as defined by the ANI score).
-          </p>
-            <p>
-              Representatives are also updated to account for genome assemblies being removed from
-              NCBI and representatives are updated whenever the underlying assembly is updated at
-              NCBI.</p>
+        </p>
+        <p>
+          Representatives are also updated to account for genome assemblies being removed from
+          NCBI and representatives are updated whenever the underlying assembly is updated at
+          NCBI.</p>
 
-            <b>Table 1</b>. Criteria used to establish quality score of an assembly
-            <v-simple-table class="gtdb-table mt-2" dense style="max-width: 800px;">
-              <template v-slot:default>
-                <thead>
-                <tr>
-                  <th class="text-left">CRITERIA</th>
-                  <th class="text-left">SCORE</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>Type species of genome</td>
-                  <td>100,000</td>
-                </tr>
-                <tr>
-                  <td>Effective type strain of species according to NCBI</td>
-                  <td>10,000</td>
-                </tr>
-                <tr>
-                  <td>NCBI representative of species</td>
-                  <td>1,000</td>
-                </tr>
-                <tr>
-                  <td>Complete genome</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>CheckM quality estimate</td>
-                  <td>completeness - 5*contamination</td>
-                </tr>
-                <tr>
-                  <td>MAG or SAG</td>
-                  <td>-100</td>
-                </tr>
-                <tr>
-                  <td>Contig count</td>
-                  <td>-5 * (no. contigs/100)</td>
-                </tr>
-                <tr>
-                  <td>Undetermined bases</td>
-                  <td>-5 * (no. undetermined bases/10,000)</td>
-                </tr>
-                <tr>
-                  <td>Full length 16S rRNA gene</td>
-                  <td>10</td>
-                </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
+        <b>Table 1</b>. Criteria used to establish quality score of an assembly
+        <v-simple-table class="gtdb-table mt-2" dense style="max-width: 800px;">
+          <template v-slot:default>
+            <thead>
+            <tr>
+              <th class="text-left">CRITERIA</th>
+              <th class="text-left">SCORE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Type species of genome</td>
+              <td>100,000</td>
+            </tr>
+            <tr>
+              <td>Effective type strain of species according to NCBI</td>
+              <td>10,000</td>
+            </tr>
+            <tr>
+              <td>NCBI representative of species</td>
+              <td>1,000</td>
+            </tr>
+            <tr>
+              <td>Complete genome</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>CheckM quality estimate</td>
+              <td>completeness - 5*contamination</td>
+            </tr>
+            <tr>
+              <td>MAG or SAG</td>
+              <td>-100</td>
+            </tr>
+            <tr>
+              <td>Contig count</td>
+              <td>-5 * (no. contigs/100)</td>
+            </tr>
+            <tr>
+              <td>Undetermined bases</td>
+              <td>-5 * (no. undetermined bases/10,000)</td>
+            </tr>
+            <tr>
+              <td>Full length 16S rRNA gene</td>
+              <td>10</td>
+            </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
       </template>
 
       <template #how-are-the-names-of-gtdb-species-clusters-updated-with-each-release>
@@ -439,6 +445,64 @@
           of all reference genomes descendant from the parent node of your genome. GTDB-Tk provides a script
           “gtdb_to_ncbi_majority_vote.py” that can be run on GTDB-Tk output to produce an NCBI classification for your
           genome based on a majority vote of these NCBI classifications.
+        </p>
+      </template>
+
+      <template #how-can-i-download-data-from-ncbi>
+        <p>
+          Here we discuss three ways to obtain genomic data from NCBI for genomes in GTDB:
+        </p>
+        <ol>
+          <li>
+            Genomic FASTA files for GTDB species representative genomes are available from the GTDB FTP sites.
+            Specifically, the file gtdb_genomes_reps_.tar.gz in the genomic_files_reps directory.
+          </li>
+          <li>
+            If you only require this data and already have the GTDB-Tk reference data on your system, you can find these
+            genomic FASTA files in the skani directory. The genome_paths.tsv file indicates the relative path to each
+            FASTA file for each genome.
+            <br>
+            For small numbers of genomes (<1,000), the GTDB Advance Search interface can be used. This allows searching
+            for a specific set of genomes by taxonomy, genomic features, and/or other genome metadata. The GENOMES
+            button can then by used to download a script that allows different genomic data files to be downloaded via
+            curl or the NCBI Datasets tool.
+          </li>
+          <li>
+            For larger numbers of genomes (>1,000), we suggest using the NCBI Datasets tool and the dehydrate /
+            rehydrate approach recommended by NCBI. This allows efficient downloading of large numbers of genomes. This
+            can be done by creating a text file listing the NCBI accession numbers of all genomes to download, e.g.:
+            <br>
+            <div class="mt-2 codeBlock">
+              GCF_000290775.1<br>
+              GCF_000633475.1<br>
+              GCF_000783055.1<br>
+              …
+            </div>
+          </li>
+        </ol>
+        <p class="mt-3">
+          For example, the following commands can be used to obtain the genomic FASTA files for genomes specified in a
+          file named genomes.lst:
+        </p>
+
+        <div class="codeBlock">
+          > datasets download genome accession --dehydrated --include genome --inputfile genomes.lst --filename
+          my-genomes.zip<br>
+          > unzip my-genomes.zip -d my-genomes<br>
+          > datasets rehydrate --directory my-genomes<br>
+        </div>
+
+        <p class="mt-3">
+          In addition to the genomic FASTA file for each genome, you can download additional data files such as protein
+          or CDS sequences. The desired file types are specified with the --include parameter (see: the CLI help).
+        </p>
+        <p>
+          Genomic data files for genomes that are suppressed at NCBI are no longer available for download. This can
+          occur when a genome has been removed at the submitter's request because the corresponding paper has not yet
+          been published (e.g. GCF_024053485.1). Genomes can also be suppressed for other reasons, including a newer
+          version being available (e.g. GCA_026184055.1). Unfortunately, it is possible that such genomes were available
+          when a given GTDB release was created and thus are included in the release. We are working with NCBI to see if
+          this situation can be resolved as we appreciate it causes complications for GTDB users.
         </p>
       </template>
 
@@ -566,6 +630,10 @@ export default Vue.extend({
         text: "Can I obtain an NCBI taxonomy string for my genomes to facilitate submitting them to NCBI?",
         ref: 'can-i-obtain-an-ncbi-taxonomy-string-for-ncbi-submission'
       },
+      {
+        text: "How can I download data from NCBI?",
+        ref: "how-can-i-download-data-from-ncbi",
+      },
       {text: 'References', ref: 'references'},
     ]
   }),
@@ -573,6 +641,10 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
+.codeBlock {
+  background-color: #ececec;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
 
 </style>
