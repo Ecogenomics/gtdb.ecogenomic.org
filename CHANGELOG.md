@@ -1,3 +1,15 @@
+# [2.41.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.40.0...v2.41.0) (2025-09-22)
+
+
+### Bug Fixes
+
+* **about:** Update Chris' affiliation. Resolves [#44](https://github.com/Ecogenomics/gtdb.ecogenomic.org/issues/44) ([a1a7809](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a1a78096373968798eea0e3cd98714666199b76e))
+
+
+### Features
+
+* **faq:** Add FAQ on downloading data from NCBI. Resolves [#45](https://github.com/Ecogenomics/gtdb.ecogenomic.org/issues/45) ([826518c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/826518ce661457307de3bc20f31dc3cb76ad9950))
+
 # [2.40.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.39.1...v2.40.0) (2025-09-11)
 
 
