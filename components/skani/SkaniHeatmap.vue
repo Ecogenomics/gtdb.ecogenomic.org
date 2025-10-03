@@ -1097,7 +1097,7 @@ export default Vue.extend({
   height: 100%;
 }
 
-// Override loading for skeleton
+/* Override loading for skeleton */
 .v-skeleton-loader:has(.v-skeleton-loader__image) {
   height: 150px;
   overflow: hidden;
