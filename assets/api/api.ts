@@ -11,6 +11,8 @@ import {AdvancedApi} from "~/assets/api/advanced";
 import {UtilApi} from "~/assets/api/util";
 import {MetaApi} from "~/assets/api/meta";
 import {GenomesApi} from "~/assets/api/genomes";
+import {AniApi} from "~/assets/api/ani";
+import {SkaniApi} from "~/assets/api/skani";
 
 export class API {
   fastani = new FastAniApi();
@@ -24,6 +26,8 @@ export class API {
   advanced = new AdvancedApi();
   util = new UtilApi();
   meta = new MetaApi();
+  ani = new AniApi();
+  skani = new SkaniApi();
 }
 
 export function getApiErrorMessage(error: Error | AxiosError): string[] {
