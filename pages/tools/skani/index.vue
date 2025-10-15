@@ -42,7 +42,7 @@
                   class="white--text"
                   color="#5a6855"
                   depressed
-                  to="/tools/ani/heatmap?job-id=1"
+                  to="/tools/skani/heatmap?job-id=12345678"
               >
                 <v-icon left>
                   {{ mdiHandshakeSvg }}
