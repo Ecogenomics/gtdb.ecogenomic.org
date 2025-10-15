@@ -12,12 +12,15 @@
 
         <SkaniNavigationBar :job-id="jobId"/>
 
-        <v-card class="rounded-t-0 rounded-b" outlined>
+        <SkaniNoJobError v-if="noJob" />
+
+
+        <v-card class="rounded-t-0 rounded-b" outlined v-else>
           <v-card-text>
 
             <!-- Introduction to this page -->
             <v-row no-gutters>
-              <SkaniResultTable :job-id="jobId"/>
+              <SkaniResultTable :job-id="jobId" @update="noJob = $event" />
             </v-row>
 
           </v-card-text>
@@ -73,7 +76,8 @@ export default Vue.extend({
   methods: {},
 
   data: () => ({
-    jobId: ''
+    jobId: '',
+    noJob: false,
   }),
   mounted() {
     // When the application loads, check if the ?job-id=x parameter is present.
@@ -82,6 +86,8 @@ export default Vue.extend({
     if (queryJobId != null) {
       // @ts-ignore
       this.jobId = queryJobId;
+    } else {
+      this.noJob = true;
     }
   }
 })

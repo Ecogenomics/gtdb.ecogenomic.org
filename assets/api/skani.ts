@@ -67,13 +67,14 @@ export class SkaniApi {
             })
     }
 
-    getJobTablePage(jobId: string, showNa: boolean) {
+    getJobTablePage(jobId: string, showNa: boolean, showSelf: boolean) {
         return axios.get<SkaniJobDataTableResponse>(`${apiBase}/skani/job/${jobId}/table`,
             {
                 timeout: apiTimeout,
                 params: {
                   cacheKey: apiCacheKey,
-                    showNa: showNa ? 'true' : 'false'
+                    showNa: showNa ? 'true' : 'false',
+                    showSelf: showSelf ? 'true' : 'false'
                 }
             })
     }
@@ -87,6 +88,10 @@ export class SkaniApi {
           clusterBy: clusterBy
         }
       })
+  }
+
+  getJobCsvUrl(jobId: string, showNa: boolean, showSelf: boolean) {
+    return `${apiBase}/skani/job/${jobId}/table/download?cacheKey=${apiCacheKey}&showNa=${showNa ? 'true' : 'false'}&showSelf=${showSelf ? 'true' : 'false'}`;
   }
 
 

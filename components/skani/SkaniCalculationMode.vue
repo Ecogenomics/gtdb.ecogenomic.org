@@ -29,7 +29,7 @@ export default Vue.extend({
   computed: {},
   data: () => ({
     selectedItem: SkaniCalculationMode.QVR,
-    calculationMode: [SkaniCalculationMode.QVR, SkaniCalculationMode.TRIANGLE]
+    calculationMode: [{ text: 'Query vs Reference', value: SkaniCalculationMode.QVR}, { text: 'All vs All', value: SkaniCalculationMode.TRIANGLE}],
   }),
   methods: {
     onChange() {

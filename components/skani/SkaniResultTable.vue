@@ -31,12 +31,25 @@
 
         <v-checkbox
           v-model="showNa"
+          :disabled="isManualRefreshLoading"
+          class="checkboxStyle ml-2 pa-1 my-auto"
           color="green"
           dense
           hide-details
-          :disabled="isManualRefreshLoading"
-          @change="manualRefresh"
           label="Show N/A rows (distant hits)"
+          @change="manualRefresh"
+        >
+        </v-checkbox>
+
+        <v-checkbox
+          v-model="showSelf"
+          :disabled="isManualRefreshLoading"
+          class="checkboxStyle ml-2 pa-1 my-auto"
+          color="green"
+          dense
+          hide-details
+          label="Show self comparisons"
+          @change="manualRefresh"
         >
         </v-checkbox>
       </v-row>
@@ -45,10 +58,10 @@
         :footer-props="{'items-per-page-options': [20, 50, 100, 250, 500, -1]}"
         :headers="tableHeaders"
         :items="tableRows"
+        :loading="isRefreshQueryStillRunning"
         class="gtdb-table w-100 mt-5"
         dense
         item-key="id"
-        :loading="isRefreshQueryStillRunning"
         multi-sort
       >
 
@@ -150,6 +163,7 @@ export default Vue.extend({
     tableRows: [] as SkaniResultTableRow[],
 
     showNa: false,
+    showSelf: false,
 
 
     tableHeaders: [
@@ -169,7 +183,7 @@ export default Vue.extend({
     },
 
     downloadCsvUrl(): string {
-      return "";
+      return this.$api.skani.getJobCsvUrl(this.jobId, this.showNa, this.showSelf);
     },
 
   },
@@ -180,7 +194,7 @@ export default Vue.extend({
         return;
       }
       this.isRefreshQueryStillRunning = true;
-      this.$api.skani.getJobTablePage(this.jobId, this.showNa).then((resp) => {
+      this.$api.skani.getJobTablePage(this.jobId, this.showNa, this.showSelf).then((resp) => {
         // Add a unique id to each row for the table
         for (let i = 0; i < resp.data.rows.length; i++) {
           resp.data.rows[i].id = i;
@@ -189,6 +203,7 @@ export default Vue.extend({
 
       }).catch((err) => {
         this.$accessor.api.defaultCatch(err);
+        this.$emit('update', true);
       })
         .finally(() => {
           this.isRefreshQueryStillRunning = false;
@@ -219,5 +234,8 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
+.checkboxStyle {
+  border: #7a8979 1px solid;
+  border-radius: 5px;
+}
 </style>

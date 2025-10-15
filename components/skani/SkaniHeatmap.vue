@@ -241,6 +241,7 @@ export default Vue.extend({
       })
         .catch((err) => {
           this.$accessor.api.defaultCatch(err);
+          this.$emit('update', true);
         })
         .finally(() => {
           this.isRefreshQueryStillRunning = false;

@@ -14,7 +14,9 @@
 
         <SkaniNavigationBar :job-id="jobId"/>
 
-        <SkaniHeatmap :job-id="jobId" />
+        <SkaniNoJobError v-if="noJob" />
+
+        <SkaniHeatmap :job-id="jobId" @update="noJob = $event" v-else />
 
 
       </v-card-text>
@@ -57,6 +59,7 @@ export default Vue.extend({
 
   data: () => ({
     jobId: '',
+    noJob: false,
   }),
 
   mounted() {
@@ -67,6 +70,8 @@ export default Vue.extend({
     if (queryJobId != null) {
       // @ts-ignore
       this.jobId = queryJobId;
+    } else {
+      this.noJob = true;
     }
   }
 })
