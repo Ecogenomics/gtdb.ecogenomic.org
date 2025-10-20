@@ -241,13 +241,8 @@ export default Vue.extend({
         this.drawHeatmapMethodCanvas();
       })
         .catch((err) => {
-          const errParsed = axiosErrorToApiMessage(err);
           this.$accessor.api.defaultCatch(err);
-          if (errParsed?.message == "Not enough data to cluster by ANI.") {
-            this.$emit('datainvalid', true);
-          } else {
-            this.$emit('update', true);
-          }
+          this.$emit('update', true);
         })
         .finally(() => {
           this.isRefreshQueryStillRunning = false;

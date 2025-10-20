@@ -20,14 +20,12 @@
             <!-- Introduction to this page -->
             <v-row no-gutters>
               <p>
-                We have provided a interface to assist in exploring prokaryotic NCBI genomes using third-party programs.
-                We periodically download new
-                genomes from NCBI, missing genomes will be ignored.
-              </p>
-              <p>
                 For more information on skani, consult the
                 <a href="https://doi.org/10.1038/s41592-023-02018-3" target="_blank">manuscript</a>
                 or the <a href="https://github.com/bluenote-1577/skani" target="_blank">documentation</a>.
+              </p>
+              <p>
+                We download new genomes from NCBI annually in April. NCBI genomes not in the GTDB database will be ignored, but can be uploaded if required.
               </p>
             </v-row>
 
