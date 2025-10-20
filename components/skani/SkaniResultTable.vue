@@ -162,8 +162,8 @@ export default Vue.extend({
 
     tableRows: [] as SkaniResultTableRow[],
 
-    showNa: false,
-    showSelf: false,
+    showNa: true,
+    showSelf: true,
 
 
     tableHeaders: [

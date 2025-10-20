@@ -38,11 +38,11 @@
 
               <!-- Button to load an example and submit the form -->
               <v-btn
-                  :disabled="isFormDisabled"
-                  class="white--text"
-                  color="#5a6855"
-                  depressed
-                  to="/tools/skani/heatmap?job-id=12345678"
+                :disabled="isFormDisabled"
+                class="white--text"
+                color="#5a6855"
+                depressed
+                to="/tools/skani/heatmap?job-id=12345678"
               >
                 <v-icon left>
                   {{ mdiHandshakeSvg }}
@@ -52,33 +52,33 @@
 
               <!-- Program & version selection -->
               <SkaniProgramDropdown
-                  v-model="skaniVersion"
-                  :disabled="isFormDisabled || skaniVersion == null"
-                  :supported-programs="serverConfig?.supportedPrograms"
-                  class="ml-2"
-                  style="max-width: 200px;"
+                v-model="skaniVersion"
+                :disabled="isFormDisabled || skaniVersion == null"
+                :supported-programs="serverConfig?.supportedPrograms"
+                class="ml-2"
+                style="max-width: 200px;"
               />
 
               <SkaniCalculationMode
-                  v-model="calculationMode"
-                  class="ml-2"
-                  style="max-width: 250px;"
+                v-model="calculationMode"
+                class="ml-2"
+                style="max-width: 250px;"
               />
 
               <!-- Parameters for the current version -->
               <SkaniParameters
-                  v-model="parameters"
-                  :disabled="isFormDisabled"
-                  :mode="calculationMode"
-                  :version="skaniVersion"
+                v-model="parameters"
+                :disabled="isFormDisabled"
+                :mode="calculationMode"
+                :version="skaniVersion"
               />
 
               <!-- New query -->
               <v-btn
-                  class="white--text ml-2"
-                  color="#a26464"
-                  depressed
-                  href="/tools/skani"
+                class="white--text ml-2"
+                color="#a26464"
+                depressed
+                href="/tools/skani"
               >
                 <v-icon left>
                   {{ mdiRestartSvg }}
@@ -91,35 +91,52 @@
             <!-- Parameter code block -->
             <v-row no-gutters>
               <SkaniCodeBlock
-                  v-model="parameters"
-                  :mode="calculationMode"
-                  :program="skaniVersion"
+                v-model="parameters"
+                :mode="calculationMode"
+                :program="skaniVersion"
               />
             </v-row>
 
             <v-divider></v-divider>
 
+            <v-card
+              v-if="showReUploadMessage"
+              color="#ffdede"
+              outlined
+              style="border-color: #f45454"
+            >
+              <v-card-title>
+                <v-icon left>
+                  {{ mdiAlertCircleOutlineSvg }}
+                </v-icon>
+                Read-only
+              </v-card-title>
+              <v-card-text>
+                Since we do not store user genomes, a new query must be created and the genomes re-uploaded.
+              </v-card-text>
+            </v-card>
 
-            <v-row no-gutters class="mt-5">
+
+            <v-row class="mt-5" no-gutters>
 
               <v-col class="mr-1">
                 <SkaniGenomeInput
-                    v-model="aniQryList"
-                    :allow-upload="true"
-                    :disabled="isFormDisabled"
-                    :server-config="serverConfig"
-                    :title="showRefGenomeInputTable ? 'Query Genomes': 'Input Genomes'"
-                    @newFiles="processNewFiles"
+                  v-model="aniQryList"
+                  :allow-upload="true"
+                  :disabled="isFormDisabled"
+                  :server-config="serverConfig"
+                  :title="showRefGenomeInputTable ? 'Query Genomes': 'Input Genomes'"
+                  @newFiles="processNewFiles"
                 />
               </v-col>
               <v-col v-if="showRefGenomeInputTable" class="ml-1">
                 <SkaniGenomeInput
-                    v-model="aniRefList"
-                    :allow-upload="true"
-                    :disabled="isFormDisabled"
-                    :server-config="serverConfig"
-                    title="Reference Genomes"
-                    @newFiles="processNewFiles"
+                  v-model="aniRefList"
+                  :allow-upload="true"
+                  :disabled="isFormDisabled"
+                  :server-config="serverConfig"
+                  title="Reference Genomes"
+                  @newFiles="processNewFiles"
                 />
               </v-col>
             </v-row>
@@ -127,24 +144,23 @@
             <!-- Actions -->
             <v-row class="mt-5" justify="center" no-gutters>
               <v-text-field
-                  v-model="email"
-                  :disabled="isFormDisabled"
-                  clearable
-                  label="E-mail to be notified on completion (optional)"
-                  outlined
+                v-model="email"
+                :disabled="isFormDisabled"
+                clearable
+                label="E-mail to be notified on completion (optional)"
+                outlined
               ></v-text-field>
             </v-row>
 
-
             <v-row justify="center" no-gutters>
               <v-btn
-                  :disabled="isFormDisabled || isSubmitDisabled"
-                  :loading="isJobBeingCreated"
-                  class="w-20 white--text"
-                  color="#5a6855"
-                  depressed
-                  large
-                  @click="createJob"
+                :disabled="isFormDisabled || isSubmitDisabled"
+                :loading="isJobBeingCreated"
+                class="w-20 white--text"
+                color="#5a6855"
+                depressed
+                large
+                @click="createJob"
               >
                 Submit
                 <v-icon right>
@@ -164,6 +180,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import {
+  mdiAlertCircleOutline,
   mdiChartScatterPlotHexbin,
   mdiCog,
   mdiHandshake,
@@ -183,6 +200,7 @@ import {
 } from "~/assets/api/skani";
 import {parseSkaniJobId, SkaniTableRow} from "~/assets/ts/skani";
 import {SkaniAddGenomesFromUploadOutput} from "~/components/skani/SkaniAddGenomesFromUpload.vue";
+import {ApiMessageStatus} from "~/store/api";
 
 export default Vue.extend({
   head() {
@@ -214,6 +232,7 @@ export default Vue.extend({
 
   data: () => ({
     jobId: '',
+    showReUploadMessage: false,
 
     // Icons
     mdiMagnifySvg: mdiMagnify,
@@ -223,6 +242,7 @@ export default Vue.extend({
     mdiHandshakeSvg: mdiHandshake,
     mdiRestartSvg: mdiRestart,
     mdiProgressCheckSvg: mdiProgressCheck,
+    mdiAlertCircleOutlineSvg: mdiAlertCircleOutline,
 
     skaniVersion: SkaniVersion.SKANI_0_3_0,
     aniQryList: [] as SkaniTableRow[],
@@ -284,7 +304,7 @@ export default Vue.extend({
     },
 
     isFormDisabled(): boolean {
-      return this.isJobBeingCreated || this.isJobLoading;
+      return this.isJobBeingCreated || this.isJobLoading || this.showReUploadMessage;
     },
 
     isSubmitDisabled(): boolean {
@@ -307,6 +327,32 @@ export default Vue.extend({
   },
 
   methods: {
+
+    getMissingUploadedUserFiles(): string[] {
+      // Prevent creating jobs if uploaded genomes are not present in userFiles
+      const userGenomeFileNames: Set<string> = new Set<string>();
+      this.userFiles.forEach(file => {
+        userGenomeFileNames.add(file.name);
+      });
+      const missingUserGenomes: string[] = [];
+      this.aniQryList.forEach(item => {
+        if (item.isUser && !userGenomeFileNames.has(item.name)) {
+          missingUserGenomes.push(item.name);
+        }
+      });
+      this.aniRefList.forEach(item => {
+        if (item.isUser && !userGenomeFileNames.has(item.name)) {
+          missingUserGenomes.push(item.name);
+        }
+      });
+      if (missingUserGenomes.length > 0) {
+        this.$accessor.api.addMessage({
+          status: ApiMessageStatus.ERROR,
+          message: `The following uploaded genome files must be uploaded again: ${missingUserGenomes.join(", ")}`
+        });
+      }
+      return missingUserGenomes;
+    },
 
     // Retrieve the server-side rules
     loadServerConfig() {
@@ -357,6 +403,17 @@ export default Vue.extend({
         refList.push(item["name"])
       })
 
+      // Prevent creating jobs if uploaded genomes are not present in userFiles
+      const missingUploadedFiles = this.getMissingUploadedUserFiles();
+      if (missingUploadedFiles.length > 0) {
+        this.$accessor.api.addMessage({
+          status: ApiMessageStatus.ERROR,
+          message: `The following uploaded genome files must be uploaded again: ${missingUploadedFiles.join(", ")}`
+        });
+        this.isJobBeingCreated = false;
+        return;
+      }
+
       const payload = {
         query: qryList,
         reference: refList,
@@ -368,20 +425,20 @@ export default Vue.extend({
 
       // Create the job in the database
       this.$api.skani.createJob(payload, this.userFiles, this.uploadMetadata)
-          .then((resp) => {
-            this.$router.push({
-              path: '/tools/skani/status',
-              query: {
-                'job-id': resp.data.jobId
-              }
-            })
+        .then((resp) => {
+          this.$router.push({
+            path: '/tools/skani/status',
+            query: {
+              'job-id': resp.data.jobId
+            }
           })
-          .catch((err) => {
-            this.$accessor.api.defaultCatch(err);
-          })
-          .finally(() => {
-            this.isJobBeingCreated = false;
-          });
+        })
+        .catch((err) => {
+          this.$accessor.api.defaultCatch(err);
+        })
+        .finally(() => {
+          this.isJobBeingCreated = false;
+        });
     },
 
   },
@@ -409,6 +466,9 @@ export default Vue.extend({
         // Process genomes
         const newQryList: SkaniTableRow[] = [];
         for (const q of data.query) {
+          if (q.isUser) {
+            this.showReUploadMessage = true;
+          }
           newQryList.push({
             name: q.accession,
             isUser: q.isUser,
@@ -426,6 +486,9 @@ export default Vue.extend({
 
         const newRefList: SkaniTableRow[] = [];
         for (const r of data.reference) {
+          if (r.isUser) {
+            this.showReUploadMessage = true;
+          }
           newRefList.push({
             name: r.accession,
             isUser: r.isUser,

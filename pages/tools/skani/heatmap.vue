@@ -14,10 +14,24 @@
 
         <SkaniNavigationBar :job-id="jobId"/>
 
+        <v-card
+          class="mx-auto mt-5"
+          max-width="900px"
+          outlined
+          v-if="dataInvalid"
+        >
+          <v-card-title>
+            Not enough data
+          </v-card-title>
+          <v-card-text>
+            The heatmap must contain at least two distinct genomes to be displayed. Please use the
+            <nuxt-link :to="`/tools/skani/result?job-id=${jobId}`">tabular results</nuxt-link> instead.
+          </v-card-text>
+        </v-card>
+
         <SkaniNoJobError v-if="noJob" />
 
-        <SkaniHeatmap :job-id="jobId" @update="noJob = $event" v-else />
-
+        <SkaniHeatmap :job-id="jobId" @update="noJob = $event" @datainvalid="dataInvalid = $event" v-if="!noJob && !dataInvalid" />
 
       </v-card-text>
     </v-card>
@@ -60,6 +74,7 @@ export default Vue.extend({
   data: () => ({
     jobId: '',
     noJob: false,
+    dataInvalid: false,
   }),
 
   mounted() {

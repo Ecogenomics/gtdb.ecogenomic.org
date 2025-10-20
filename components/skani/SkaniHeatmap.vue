@@ -148,6 +148,7 @@ import D3ScaleSelect from "~/components/d3/D3ScaleSelect.vue";
 import {SkaniJobDataHeatmapResponse, SkaniJobHeatmapData} from "~/assets/api/skani";
 import {generateHeatmapForSkani, SkaniColourRangePickerOutput} from "~/assets/ts/skani";
 import SkaniColourRangePicker from "~/components/skani/SkaniColourRangePicker.vue";
+import {axiosErrorToApiMessage} from "~/store/api";
 
 
 function round(n: number, places: number) {
@@ -240,8 +241,13 @@ export default Vue.extend({
         this.drawHeatmapMethodCanvas();
       })
         .catch((err) => {
+          const errParsed = axiosErrorToApiMessage(err);
           this.$accessor.api.defaultCatch(err);
-          this.$emit('update', true);
+          if (errParsed?.message == "Not enough data to cluster by ANI.") {
+            this.$emit('datainvalid', true);
+          } else {
+            this.$emit('update', true);
+          }
         })
         .finally(() => {
           this.isRefreshQueryStillRunning = false;
