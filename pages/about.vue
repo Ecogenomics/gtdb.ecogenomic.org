@@ -158,6 +158,9 @@
                   <template v-slot:name>
                     <a href="https://scmb.uq.edu.au/profile/324/phil-hugenholtz" target="_blank">Phil Hugenholtz</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-uq mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Maria -->
@@ -168,6 +171,9 @@
                   <template v-slot:name>
                     <a href="https://scmb.uq.edu.au/profile/1458/maria-chuvochina" target="_blank">Maria Chuvochina</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-aau mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Chris -->
@@ -177,6 +183,9 @@
                   </template>
                   <template v-slot:name>
                     <a href="https://www.uibk.ac.at/de/microbiology/team/christian-rinke/" target="_blank">Christian Rinke</a>
+                  </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-uibk mt-1"></div>
                   </template>
                 </AboutAvatar>
               </div>
@@ -198,6 +207,9 @@
                     <a href="https://scholar.google.com.au/citations?user=A87iE7wAAAAJ" target="_blank">Donovan
                       Parks</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-aau mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Pierre -->
@@ -209,6 +221,9 @@
                     <a href="https://scmb.uq.edu.au/profile/1278/pierre-alain-chaumeil" target="_blank">Pierre
                       Chaumeil</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-aau mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Aaron -->
@@ -219,28 +234,31 @@
                   <template v-slot:name>
                     <a href="https://scholar.google.com.au/citations?user=-wSKhB0AAAAJ" target="_blank">Aaron Mussig</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-uq mt-1"></div>
+                  </template>
                 </AboutAvatar>
               </div>
             </div>
 
             <!-- Alumni -->
-            <div class="d-inline-block mt-2 about-block pa-2 rounded">
-              <div class="d-block">
-                <span style="font-size: 16px; font-weight: 500;">Alumni</span>
-              </div>
+<!--            <div class="d-inline-block mt-2 about-block pa-2 rounded">-->
+<!--              <div class="d-block">-->
+<!--                <span style="font-size: 16px; font-weight: 500;">Alumni</span>-->
+<!--              </div>-->
 
-              <div class="d-block">
-                <!-- Adam -->
-                <AboutAvatar>
-                  <template v-slot:image>
-                    <img alt="Adam Skarshewski" src="~/assets/images/gtdb-team/adam.jpg">
-                  </template>
-                  <template v-slot:name>
-                    Adam Skarshewski
-                  </template>
-                </AboutAvatar>
-              </div>
-            </div>
+<!--              <div class="d-block">-->
+<!--                &lt;!&ndash; Adam &ndash;&gt;-->
+<!--                <AboutAvatar>-->
+<!--                  <template v-slot:image>-->
+<!--                    <img alt="Adam Skarshewski" src="~/assets/images/gtdb-team/adam.jpg">-->
+<!--                  </template>-->
+<!--                  <template v-slot:name>-->
+<!--                    Adam Skarshewski-->
+<!--                  </template>-->
+<!--                </AboutAvatar>-->
+<!--              </div>-->
+<!--            </div>-->
           </v-card-text>
         </v-card>
 
@@ -458,4 +476,24 @@ export default Vue.extend({
   text-decoration: none;
 }
 
+.logo-aau {
+  background: url("~/assets/images/aau-logo-blue.svg") no-repeat top center;
+  width: 110px;
+  height: 40px;
+  background-size: contain;
+}
+
+.logo-uibk {
+  background: url("~/assets/images/uibk-logo.svg") no-repeat top center;
+  width: 110px;
+  height: 40px;
+  background-size: contain;
+}
+
+.logo-uq {
+  background: url("~/assets/images/uq-logo-purple.svg") no-repeat top center;
+  width: 110px;
+  height: 40px;
+  background-size: contain;
+}
 </style>
