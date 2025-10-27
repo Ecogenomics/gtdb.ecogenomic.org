@@ -1,3 +1,10 @@
+# [2.42.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.41.0...v2.42.0) (2025-10-27)
+
+
+### Features
+
+* **about:** Add affiliation logos. ([8c0b831](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8c0b831d2f06dedad273ff7db4576e2e0ae6567f))
+
 # [2.41.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.40.0...v2.41.0) (2025-09-22)
 
 
