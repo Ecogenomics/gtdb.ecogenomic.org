@@ -15,6 +15,7 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     name: Build and Deploy
     runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'PROD' || 'DEV' }}
 
     steps:
       - name: Checkout Source Code
@@ -33,6 +34,14 @@ jobs:
 
       - name: Generate Static Site
         run: npm run generate
+        env:
+          API_BASE: ${{ vars.API_BASE }}
+          CAPTCHA_KEY: ${{ vars.CAPTCHA_KEY }}
+          ENV_NAME: ${{ vars.ENV_NAME }}
+          GA_TRACKING_ID: ${{ vars.GA_TRACKING_ID }}
+          PLAUSIBLE_API_HOST: ${{ vars.PLAUSIBLE_API_HOST }}
+          PLAUSIBLE_DOMAIN: ${{ vars.PLAUSIBLE_DOMAIN }}
+          UMAMI_WEBSITE_ID: ${{ vars.UMAMI_WEBSITE_ID }}
 
       - name: Setup Node 20 (Deploy Env)
         uses: actions/setup-node@v3
