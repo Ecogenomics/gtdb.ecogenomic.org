@@ -1,0 +1,47 @@
+name: Deploy to CF Pages
+
+on:
+  # Trigger 1: Automatically after Release
+  workflow_run:
+    workflows: ["Release"]
+    types:
+      - completed
+  # Trigger 2: Manual button click
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    # Run if it's a Manual trigger OR if the upstream Release workflow succeeded
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || '' }}
+
+      - name: Setup Node 16 (Build Env)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Generate Static Site
+        run: npm run generate
+
+      - name: Setup Node 20 (Deploy Env)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./dist --project-name=gtdb-web
