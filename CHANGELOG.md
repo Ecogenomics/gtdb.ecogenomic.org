@@ -1,3 +1,10 @@
+## [2.42.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.0...v2.42.1) (2025-11-12)
+
+
+### Bug Fixes
+
+* **taxon:** Update taxon page to remove incorrectly labelled type species s__Haloarcula marismortui ([c091690](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c091690ab40df67976eda21d86f70377e7ebdcf9))
+
 # [2.42.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.41.0...v2.42.0) (2025-10-27)
 
 
