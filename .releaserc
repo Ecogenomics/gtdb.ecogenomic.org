@@ -25,12 +25,6 @@
     ],
     [
       "@semantic-release/github"
-    ],
-    [
-      "@semantic-release/exec",
-      {
-        "successCmd": "curl --silent --output /dev/null -X POST $CLOUDFLARE_DEPLOY_MAIN"
-      }
     ]
   ]
 }
