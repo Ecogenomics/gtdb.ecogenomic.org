@@ -1,3 +1,10 @@
+## [2.42.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.2...v2.42.3) (2025-11-27)
+
+
+### Bug Fixes
+
+* **bump:** Pages migration. ([b81bc8b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/b81bc8b69f3e88de427f6a107af07aed73a9bb5f))
+
 ## [2.42.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.1...v2.42.2) (2025-11-27)
 
 
