@@ -1,7 +1,0 @@
-onlyBuiltDependencies:
-  - core-js
-  - esbuild
-  - fsevents
-  - nuxt
-  - sharp
-  - workerd
