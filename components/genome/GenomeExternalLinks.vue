@@ -46,6 +46,21 @@
             </a>
           </div>
 
+          <div
+            class="d-flex mx-auto my-auto"
+          >
+            <a
+              :href="`https://www.ebi.ac.uk/ena/browser/view/${genomeCard.metadata_ncbi.ncbi_genbank_assembly_accession}`"
+              target="_blank"
+            >
+              <img
+                alt="ENA logo"
+                height="80"
+                width="100"
+                src="~/assets/images/logos/ena.svg"
+              />
+            </a>
+          </div>
 
         </template>
         <template v-else>

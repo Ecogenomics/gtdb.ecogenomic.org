@@ -196,6 +196,37 @@
               </template>
             </v-checkbox>
           </v-row>
+          <v-row no-gutters>
+            <v-checkbox
+              v-model="showEnaUrl"
+              class="font-12px"
+              color="#00953b"
+              dense
+              hide-details
+              label="ENA"
+              @click="onShowEnaUrl"
+            >
+              <template v-slot:append>
+                <TreePopUpShowUrlGeneric
+                  class="ml-3 my-auto"
+                  color="#00953b"
+                >
+                  <template v-slot:title>ENA</template>
+                  <template v-slot:content>
+                    <p>
+                      Links have been created to taxa in the European Nucleotide Archive based on NCBI taxonomy IDs.
+                    </p>
+                    <p>
+                      A best effort has been made to ensure that all taxa in ENA are mapped to their
+                      corresponding GTDB taxon. Please
+                      <nuxt-link to="contact">contact us</nuxt-link>
+                      if you notice any mistakes.
+                    </p>
+                  </template>
+                </TreePopUpShowUrlGeneric>
+              </template>
+            </v-checkbox>
+          </v-row>
           <!--          <v-row no-gutters>-->
           <!--            <v-checkbox-->
           <!--              v-model="showSeqcodeUrl"-->
@@ -390,6 +421,20 @@
                         x-small
                       >
                         <span class="tree-icon-text">SP</span>
+                      </v-btn>
+
+                      <!-- ENA URL -->
+                      <v-btn
+                        v-if="showEnaUrl && item.ncbiTaxId"
+                        :href="`https://www.ebi.ac.uk/ena/browser/view/${item.ncbiTaxId}`"
+                        class="tree-icon mr-1"
+                        color="#00953b"
+                        depressed
+                        height="24px"
+                        target="_blank"
+                        x-small
+                      >
+                        <span class="tree-icon-text">ENA</span>
                       </v-btn>
 
                     </div>
@@ -602,6 +647,37 @@
                     </template>
                   </v-checkbox>
                 </v-row>
+                <v-row no-gutters>
+                  <v-checkbox
+                    v-model="showEnaUrl"
+                    class="font-12px"
+                    color="#00953b"
+                    dense
+                    hide-details
+                    label="ENA"
+                    @click="onShowEnaUrl"
+                  >
+                    <template v-slot:append>
+                      <TreePopUpShowUrlGeneric
+                        class="ml-3 my-auto"
+                        color="#00953b"
+                      >
+                        <template v-slot:title>ENA</template>
+                        <template v-slot:content>
+                          <p>
+                            Links have been created to taxa in the European Nucleotide Archive based on NCBI taxonomy IDs.
+                          </p>
+                          <p>
+                            A best effort has been made to ensure that all taxa in ENA are mapped to their
+                            corresponding GTDB taxon. Please
+                            <nuxt-link to="contact">contact us</nuxt-link>
+                            if you notice any mistakes.
+                          </p>
+                        </template>
+                      </TreePopUpShowUrlGeneric>
+                    </template>
+                  </v-checkbox>
+                </v-row>
                 <!--                <v-row no-gutters>-->
                 <!--                  <v-checkbox-->
                 <!--                    v-model="showSeqcodeUrl"-->
@@ -725,6 +801,7 @@ export default Vue.extend({
     showNcbiUrl: false,
     showSeqCodeUrl: false,
     showSandPiperUrl: false,
+    showEnaUrl: false,
   }),
   watch: {
     // If the user searches for a taxon, manipulate the tree
@@ -913,6 +990,11 @@ export default Vue.extend({
     onShowSandPiperUrl() {
       if (this.showSandPiperUrl) {
         this.$plausible.trackEvent("Show Sandpiper URL");
+      }
+    },
+    onShowEnaUrl() {
+      if (this.showEnaUrl) {
+        this.$plausible.trackEvent("Show ENA URL");
       }
     },
   },
