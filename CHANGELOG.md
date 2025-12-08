@@ -1,3 +1,10 @@
+# [2.43.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.3...v2.43.0) (2025-12-08)
+
+
+### Features
+
+* **ENA:** Add ENA links for taxonomy tree and genome page. ([d252200](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d25220074f94b5674f563480bdd0c484a01d8146))
+
 ## [2.42.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.2...v2.42.3) (2025-11-27)
 
 
