@@ -1,3 +1,11 @@
+# [2.45.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.44.0...v2.45.0) (2025-12-11)
+
+
+### Features
+
+* **banner:** Updated Tk banner ([8248a48](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8248a4830db8673cedf2b530ea6c8f5c6eb1a37c))
+* **Xmas Theme:** Xmas Theme ([88792ac](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/88792ac7b201755987fa67498827fc2198e23800))
+
 # [2.44.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.43.0...v2.44.0) (2025-12-11)
 
 
