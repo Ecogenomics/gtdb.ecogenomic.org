@@ -81,7 +81,7 @@ export const actions = actionTree({state, getters, mutations}, {
 // HELPER FUNCTIONS
 // ---------------------------------------------------------------------------------------------------------------------
 
-function axiosErrorToApiMessage(error: Error | AxiosError): ApiMessage | null {
+export function axiosErrorToApiMessage(error: Error | AxiosError): ApiMessage | null {
 
   // Requests that are cancelled are not errors, return without issue
   if (axios.isCancel(error)) {

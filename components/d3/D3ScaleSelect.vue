@@ -88,7 +88,7 @@ export default Vue.extend({
   props: {
     value: {
       type: String,
-      default: 'viridis',
+      default: 'Greens',
     },
   },
   data: () => ({
@@ -117,7 +117,7 @@ export default Vue.extend({
       {text: "Purples", value: "Purples"},
       {text: "Reds", value: "Reds"},
     ],
-    scalePalette: "viridis",
+    scalePalette: "Greens",
   }),
 
   computed: {

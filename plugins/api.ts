@@ -22,6 +22,7 @@ declare module '@nuxt/types' {
   }
 }
 
+//@ts-ignore
 declare module 'vuex/types/index' {
   // this.$api inside Vuex stores
   interface Store<S> {

@@ -66,26 +66,112 @@ export function JsonEqual(a: object, b: object): boolean {
   return JSON.stringify(a) === JSON.stringify(b);
 }
 
-export function isDefined(value: any): boolean {
-  return value !== undefined && value !== null;
+export function isDefined<T>(value: T | null | undefined): boolean {
+  return value !== undefined && value != null;
 }
 
-
+export function isNumeric(value: any): boolean {
+  return (typeof value === 'number' && Number.isFinite(value)) ||
+    (typeof value === 'string' && value.trim() !== '' && !isNaN(Number(value)));
+}
 
 export const COLOURS = ['#189b72', '#47188e', '#2e689b', '#e8a4e2', '#ea989c', '#447704', '#840630', '#2c237f', '#e069cc', '#83eaa2', '#56a2b5', '#ea8c99', '#cc3b69', '#e1b7f7', '#fa7bfc', '#8cba03', '#7c13d8', '#bf8e2b', '#32449e', '#66e86a', '#75ff77', '#65228e', '#56d8cd', '#57d15b', '#72e0c6', '#bdf97c', '#f7bbe2', '#f4d83a', '#f9c1b1', '#1ad8bf', '#abf945', '#77f4d7', '#199689', '#774ee0', '#f5bafc', '#910d30', '#8f63ce', '#dbf497', '#a8dded', '#f49adb', '#bc2b37', '#cbc9ff', '#af94dd', '#0e5d7c', '#ba281d', '#020059', '#f7add8', '#f26896', '#b51c38', '#9ab5f4'];
 
 
+//
+// export function pickTextColorBasedOnBgColorSimple(bgColor: string, lightColor: string, darkColor: string) {
+//   console.log(bgColor);
+//
+//   const color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
+//   const r = parseInt(color.substring(0, 2), 16); // hexToR
+//   const g = parseInt(color.substring(2, 4), 16); // hexToG
+//   const b = parseInt(color.substring(4, 6), 16); // hexToB
+//   return (((r * 0.299) + (g * 0.587) + (b * 0.114)) > 186) ?
+//     darkColor : lightColor;
+// }
 
 export function pickTextColorBasedOnBgColorSimple(bgColor: string, lightColor: string, darkColor: string) {
-  const color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
-  const r = parseInt(color.substring(0, 2), 16); // hexToR
-  const g = parseInt(color.substring(2, 4), 16); // hexToG
-  const b = parseInt(color.substring(4, 6), 16); // hexToB
-  return (((r * 0.299) + (g * 0.587) + (b * 0.114)) > 186) ?
-    darkColor : lightColor;
+  let r: number, g: number, b: number;
+
+  // Hex format
+  if (bgColor.startsWith('#')) {
+    let color = bgColor.slice(1);
+    if (color.length === 3) color = color.split('').map(c => c + c).join('');
+    if (color.length !== 6) throw new Error('Invalid hex color.');
+    r = parseInt(color.substring(0, 2), 16);
+    g = parseInt(color.substring(2, 4), 16);
+    b = parseInt(color.substring(4, 6), 16);
+  }
+  // rgb() or rgba()
+  else if (bgColor.startsWith('rgb')) {
+    const match = bgColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    if (!match) throw new Error('Invalid rgb/rgba color.');
+    r = parseInt(match[1], 10);
+    g = parseInt(match[2], 10);
+    b = parseInt(match[3], 10);
+  }
+  else {
+    throw new Error('Unsupported color format.');
+  }
+
+  // Calculate relative luminance (0–255)
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+  // Use a threshold tuned for better contrast
+  return luminance > 128 ? darkColor : lightColor;
 }
 
 
 export function isValidGenomeId(genomeId: string) {
   return genomeId.match(/^GC[AF]_\d{9}\.\d+$/) !== null;
+}
+
+
+export function maybeUseInt(value: any): number | null {
+  if (isDefined(value)) {
+    let maybe = parseInt(value);
+    if (isDefined(maybe)) {
+      return maybe;
+    }
+  }
+  return null;
+}
+
+export function maybeUseFloat(value: any): number | null {
+  if (isDefined(value)) {
+    let maybe = parseFloat(value);
+    if (isDefined(maybe)) {
+      return maybe;
+    }
+  }
+  return null;
+}
+
+
+export function timeAgo(unixTimestamp: number) {
+  const now = Date.now();
+  const diffMs = now - unixTimestamp * 1000; // convert seconds → ms
+  const diffSec = Math.floor(diffMs / 1000);
+
+  if (diffSec < 60) {
+    return `${diffSec} second${diffSec !== 1 ? "s" : ""} ago`;
+  }
+
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) {
+    return `${diffMin} minute${diffMin !== 1 ? "s" : ""} ago`;
+  }
+
+  const diffHrs = Math.floor(diffMin / 60);
+  if (diffHrs < 24) {
+    return `${diffHrs} hour${diffHrs !== 1 ? "s" : ""} ago`;
+  }
+
+  const diffDays = Math.floor(diffHrs / 24);
+  if (diffDays < 7) {
+    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+  }
+
+  const diffWeeks = Math.floor(diffDays / 7);
+  return `${diffWeeks} week${diffWeeks !== 1 ? "s" : ""} ago`;
 }
