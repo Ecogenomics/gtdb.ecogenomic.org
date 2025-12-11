@@ -176,7 +176,8 @@ export default Vue.extend({
 
 <style scoped>
 .gtdb-main {
-  background: url('~/assets/images/bg-lake-tree/bg-lake-tree.jpg') no-repeat center;
+  //background: url('~/assets/images/bg-lake-tree/bg-lake-tree.jpg') no-repeat center;
+  background: url('~/assets/images/bg-xmas-tree/bg-xmas-tree.jpg') no-repeat center;
   background-size: cover;
   transition: all 0.25s ease-out;
 }
