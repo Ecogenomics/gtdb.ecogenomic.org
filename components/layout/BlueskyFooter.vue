@@ -3,7 +3,7 @@
     <a href="https://bsky.app/profile/ace-gtdb.bsky.social" target="_blank" class="no-link d-flex align-center">
       <img src="@/assets/images/bluesky.svg" alt="Bluesky Logo" class="bluesky-icon" />
       <span class="ml-1">
-        @ace-gtdb.bsky.social
+        @ace-gtdb.bsky.social 🦌🛷
       </span>
     </a>
   </div>
