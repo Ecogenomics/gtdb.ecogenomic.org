@@ -1,3 +1,18 @@
+# [2.44.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.43.0...v2.44.0) (2025-12-11)
+
+
+### Features
+
+* **ani:** Add example for skani. ([06610d0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/06610d098f496dc0787ae43ec814ee57f230c6eb))
+* **ani:** Add Skani and allow user uploaded files. ([1e389e4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1e389e4a15e88d17caf199f8089e33dc5c2726c9))
+* **ani:** Add Skani and allow user uploaded files. ([61e39b4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/61e39b46f523ac7fe4251ea650563ee870b2a4a0))
+* **ani:** Add Skani and allow user uploaded files. ([a2b3ff3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a2b3ff339e5b16f91336aeb998ea27c3c43fb27f))
+* **ani:** Add Skani and allow user uploaded files. ([1e7c7cb](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1e7c7cb008b2f92c216663c64e7663417e7ee200))
+* **ani:** Add Skani and allow user uploaded files. ([6c8d46f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6c8d46f2e2dd29181474e85782ff34a141d05a67))
+* **ani:** Fix uploading user genomes. ([c6155fe](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c6155fea7ff506f38b9ef3962121882e2f444f8c))
+* **skani:** Add skani calculator. ([9cd99f1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9cd99f1bf5801722c5950eb0beb18612f80bd34b))
+* **skani:** Allow clustering of sparse matrix. ([34c77f7](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/34c77f7347b57aa48e70599879dc86aa2bab7ba5))
+
 # [2.43.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.3...v2.43.0) (2025-12-08)
 
 
