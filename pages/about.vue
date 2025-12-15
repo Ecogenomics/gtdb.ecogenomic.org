@@ -306,10 +306,9 @@
             </p>
 
             <p>
-              <a href="https://www.dsmz.de/dsmz/portrait/management" target="_blank">Jörg Overmann</a>
+              <a href="https://snsb.de/en/snsb-team/?lang=en&role-filter=%2A&facility-filter=%2A&tag-filter=%2A&name-input=Jorg%20Overmann" target="_blank">Jörg Overmann</a>
               <br>
-              Ph.D., Professor, Scientific Director, Leibniz Institute DSMZ-German Collection of
-              Microorganisms and Cell Cultures, Germany
+              Ph.D., Professor, Scientific Director, Director General, The Bavarian State Collections of Natural History, Germany
             </p>
 
             <p>
