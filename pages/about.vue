@@ -137,9 +137,8 @@
           <v-card-text class="text--primary">
             <div class="d-block">
               <p>
-                The GTDB team is primarily based at the <a href="https://ecogenomic.org/" target="_blank">Australian
-                Centre
-                for Ecogenomics</a>, and comprises a curation and development group.
+                The GTDB is a global enterprise with team members located in Australia, Denmark, Canada and Austria,
+                and comprises a curation and development group.
               </p>
             </div>
 
@@ -345,6 +344,12 @@
           <v-card-text class="text--primary">
             <p>If you find the GTDB useful in your work please cite:</p>
             <ul class="mt-2">
+              <li class="mt-3">
+                Parks, D.H., et al. (2025). "<a href="https://doi.org/10.1093/nar/gkaf1040" target="_blank">GTDB release 10: a complete and systematic taxonomy for 715 230 bacterial and 17 245 archaeal genomes</a>", Nucleic Acids Research, 2025;, gkaf1040, https://doi.org/10.1093/nar/gkaf1040
+              </li>
+              <li class="mt-3">
+                Chuvochina, M., et al. (2023). "<a href="https://doi.org/10.1093/femsle/fnad071" target="_blank">Proposal of names for 329 higher rank taxa defined in the Genome Taxonomy Database under two prokaryotic codes</a>", FEMS Microbiology Letters, Volume 370, 2023, fnad071, https://doi.org/10.1093/femsle/fnad071
+              </li>
               <li class="mt-3">
                 Parks, D.H., et al. (2021). "<a
                 href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkab776/6370255">GTDB:

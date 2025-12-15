@@ -37,6 +37,9 @@
             similarity in genomic characteristics, and proximity within a reference genome tree.
             <br>
             <br>
+            Genome Size is not corrected for completeness estimates and is simply the sum of the contig sizes.
+            <br>
+            <br>
             For more information, please check the <a href="https://github.com/Ecogenomics/CheckM/wiki" target="_blank">CheckM
             Wiki</a> page.
           </div>
