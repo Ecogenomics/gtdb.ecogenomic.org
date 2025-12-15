@@ -1,3 +1,10 @@
+## [2.45.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.45.0...v2.45.1) (2025-12-15)
+
+
+### Bug Fixes
+
+* **about:** Update Jorg Overmann SAB affiliation. ([7001a2a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7001a2a8f3924b56bacd1db6e9c41474709daf6a))
+
 # [2.45.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.44.0...v2.45.0) (2025-12-11)
 
 
