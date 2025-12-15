@@ -1,3 +1,10 @@
+# [2.46.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.45.1...v2.46.0) (2025-12-15)
+
+
+### Features
+
+* **about/genome:** Update citations, update team, update checkm contig count info. ([3d4a3f2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3d4a3f21e39f623d33c35662c6ab710a36d305f3))
+
 ## [2.45.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.45.0...v2.45.1) (2025-12-15)
 
 
