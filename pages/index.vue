@@ -8,14 +8,8 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-        <NotifyBar uid="r226">
-          *** GTDB Europe mirror now online!  🌍
-          <NuxtLink class="mx-1" to="/downloads">download files</NuxtLink>
-          ***
-        </NotifyBar>
-        <NotifyBar uid="r226-gtdbtk">
-          *** GTDB Tk <span class="mx-1"><a
-          href="https://ecogenomics.github.io/GTDBTk/installing/index.html" target="_blank">v2.6.0</a></span> is now available ***
+        <NotifyBar uid="error-502">
+          *** 🚨🚨 We are aware of a navigation issue on the website and are currently working to resolve it. 🚨🚨 ***
         </NotifyBar>
       </div>
 
@@ -176,8 +170,8 @@ export default Vue.extend({
 
 <style scoped>
 .gtdb-main {
-  //background: url('~/assets/images/bg-lake-tree/bg-lake-tree.jpg') no-repeat center;
-  background: url('~/assets/images/bg-xmas-tree/bg-xmas-tree.jpg') no-repeat center;
+  background: url('~/assets/images/bg-lake-tree/bg-lake-tree.jpg') no-repeat center;
+  //background: url('~/assets/images/bg-xmas-tree/bg-xmas-tree.jpg') no-repeat center;
   background-size: cover;
   transition: all 0.25s ease-out;
 }
