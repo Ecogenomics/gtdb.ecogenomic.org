@@ -1,3 +1,10 @@
+## [2.47.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.0...v2.47.1) (2026-01-08)
+
+
+### Bug Fixes
+
+* **bump:** Update cachekey ([41f6a76](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/41f6a767d33cd85572b13370d1cce9311c22b37d))
+
 # [2.47.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.46.0...v2.47.0) (2026-01-08)
 
 
