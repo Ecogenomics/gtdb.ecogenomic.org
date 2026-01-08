@@ -9,7 +9,7 @@
       <!-- First row -->
       <div class="d-flex flex-column">
         <NotifyBar uid="error-502">
-          *** 🚨🚨 We are aware of a navigation issue on the website and are currently working to resolve it. 🚨🚨 ***
+          *** 🚨🚨We are aware of a navigation issue on the website and are currently working to resolve it.🚨🚨 ***
         </NotifyBar>
       </div>
 
