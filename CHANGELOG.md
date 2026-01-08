@@ -1,3 +1,10 @@
+# [2.47.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.46.0...v2.47.0) (2026-01-08)
+
+
+### Features
+
+* **banner:** Update Banner for 502 ([ebb1f5d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ebb1f5d9e65117b3b93caeba15cc6637290956e5))
+
 # [2.46.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.45.1...v2.46.0) (2025-12-15)
 
 
