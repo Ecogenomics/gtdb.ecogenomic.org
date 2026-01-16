@@ -1,3 +1,10 @@
+## [2.47.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.1...v2.47.2) (2026-01-16)
+
+
+### Bug Fixes
+
+* **skani:** Add error handling for erroneous jobs in table / heatmap. ([a0a413a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a0a413a73f671ac548411e5d9c12c7213313ac25))
+
 ## [2.47.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.0...v2.47.1) (2026-01-08)
 
 
