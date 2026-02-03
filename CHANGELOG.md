@@ -1,3 +1,10 @@
+# [2.48.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.2...v2.48.0) (2026-02-03)
+
+
+### Features
+
+* **banner:** Add maintenance window. ([96216bc](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/96216bc505a27d67179f2fc9681a21e9dcf769bf))
+
 ## [2.47.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.1...v2.47.2) (2026-01-16)
 
 
