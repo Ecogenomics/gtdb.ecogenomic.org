@@ -1,3 +1,16 @@
+# [2.49.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.48.0...v2.49.0) (2026-02-25)
+
+
+### Bug Fixes
+
+* **genome:** Fix tooltip for LQ badge. ([a147c85](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a147c85213b358853f5375ded0a4d2f2ba2217f9))
+
+
+### Features
+
+* **index:** Add outages. ([64c18c8](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/64c18c8bd9eb551ae3290e3e79a8143e31530993))
+* **index:** Remove maintenance banner. ([fd1506a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/fd1506ab1a04802267c20d2f484a437dfa95e5fc))
+
 # [2.48.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.2...v2.48.0) (2026-02-03)
 
 
