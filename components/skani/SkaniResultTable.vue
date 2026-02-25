@@ -4,7 +4,7 @@
 
       <v-row no-gutters>
         <v-btn
-          :disabled="isManualRefreshLoading || isRefreshQueryStillRunning"
+          :disabled="isManualRefreshLoading || isRefreshQueryStillRunning || isJobError === true || isJobComplete === true"
           class="white--text"
           color="#5a6855"
           depressed
@@ -20,6 +20,7 @@
           :href="downloadCsvUrl"
           class="ml-2 white--text"
           color="#5a6855"
+          :disabled="(isJobComplete === false || isManualRefreshLoading || isRefreshQueryStillRunning) || isJobError === true"
           depressed
         >
           Download
@@ -53,6 +54,24 @@
         >
         </v-checkbox>
       </v-row>
+
+      <v-card
+        v-if="isJobError"
+        color="#ffdede"
+        outlined
+        style="border-color: #f45454"
+        class="mt-5"
+      >
+        <v-card-title>
+          <v-icon left>
+            {{ mdiAlertCircleOutlineSvg }}
+          </v-icon>
+          Error
+        </v-card-title>
+        <v-card-text>
+          There was an error running skani for this job. If you have used a user genome, it could be that it is invalid. Run skani locally to verify this.
+        </v-card-text>
+      </v-card>
 
       <v-data-table
         :footer-props="{'items-per-page-options': [20, 50, 100, 250, 500, -1]}"
@@ -118,6 +137,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import {
+  mdiAlertCircleOutline,
   mdiCogRefresh,
   mdiDownload,
   mdiRefresh,
@@ -154,6 +174,7 @@ export default Vue.extend({
     mdiSigmaSvg: mdiSigma,
     mdiSortNumericDescendingSvg: mdiSortNumericDescending,
     mdiSortNumericAscendingSvg: mdiSortNumericAscending,
+    mdiAlertCircleOutlineSvg: mdiAlertCircleOutline,
 
     isRefreshQueryStillRunning: false,
     isManualRefreshLoading: false,
@@ -165,6 +186,8 @@ export default Vue.extend({
     showNa: true,
     showSelf: true,
 
+    isJobError: null as null | boolean,
+    isJobComplete: null as null | boolean,
 
     tableHeaders: [
       {text: "Query", value: "qry"},
@@ -195,6 +218,10 @@ export default Vue.extend({
       }
       this.isRefreshQueryStillRunning = true;
       this.$api.skani.getJobTablePage(this.jobId, this.showNa, this.showSelf).then((resp) => {
+
+        this.isJobError = resp.data.error;
+        this.isJobComplete = resp.data.completed;
+
         // Add a unique id to each row for the table
         for (let i = 0; i < resp.data.rows.length; i++) {
           resp.data.rows[i].id = i;

@@ -137,9 +137,8 @@
           <v-card-text class="text--primary">
             <div class="d-block">
               <p>
-                The GTDB team is primarily based at the <a href="https://ecogenomic.org/" target="_blank">Australian
-                Centre
-                for Ecogenomics</a>, and comprises a curation and development group.
+                The GTDB is a global enterprise with team members located in Australia, Denmark, Canada and Austria,
+                and comprises a curation and development group.
               </p>
             </div>
 
@@ -158,6 +157,9 @@
                   <template v-slot:name>
                     <a href="https://scmb.uq.edu.au/profile/324/phil-hugenholtz" target="_blank">Phil Hugenholtz</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-uq mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Maria -->
@@ -168,6 +170,9 @@
                   <template v-slot:name>
                     <a href="https://scmb.uq.edu.au/profile/1458/maria-chuvochina" target="_blank">Maria Chuvochina</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-aau mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Chris -->
@@ -176,7 +181,10 @@
                     <img alt="Christian Rinke" src="~/assets/images/gtdb-team/chris.jpg">
                   </template>
                   <template v-slot:name>
-                    <a href="https://scmb.uq.edu.au/profile/513/chris-rinke" target="_blank">Christian Rinke</a>
+                    <a href="https://www.uibk.ac.at/de/microbiology/team/christian-rinke/" target="_blank">Christian Rinke</a>
+                  </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-uibk mt-1"></div>
                   </template>
                 </AboutAvatar>
               </div>
@@ -198,6 +206,9 @@
                     <a href="https://scholar.google.com.au/citations?user=A87iE7wAAAAJ" target="_blank">Donovan
                       Parks</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-aau mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Pierre -->
@@ -209,6 +220,9 @@
                     <a href="https://scmb.uq.edu.au/profile/1278/pierre-alain-chaumeil" target="_blank">Pierre
                       Chaumeil</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-aau mt-1"></div>
+                  </template>
                 </AboutAvatar>
 
                 <!-- Aaron -->
@@ -219,28 +233,31 @@
                   <template v-slot:name>
                     <a href="https://scholar.google.com.au/citations?user=-wSKhB0AAAAJ" target="_blank">Aaron Mussig</a>
                   </template>
+                  <template v-slot:affiliation>
+                    <div class="logo-uq mt-1"></div>
+                  </template>
                 </AboutAvatar>
               </div>
             </div>
 
             <!-- Alumni -->
-            <div class="d-inline-block mt-2 about-block pa-2 rounded">
-              <div class="d-block">
-                <span style="font-size: 16px; font-weight: 500;">Alumni</span>
-              </div>
+<!--            <div class="d-inline-block mt-2 about-block pa-2 rounded">-->
+<!--              <div class="d-block">-->
+<!--                <span style="font-size: 16px; font-weight: 500;">Alumni</span>-->
+<!--              </div>-->
 
-              <div class="d-block">
-                <!-- Adam -->
-                <AboutAvatar>
-                  <template v-slot:image>
-                    <img alt="Adam Skarshewski" src="~/assets/images/gtdb-team/adam.jpg">
-                  </template>
-                  <template v-slot:name>
-                    Adam Skarshewski
-                  </template>
-                </AboutAvatar>
-              </div>
-            </div>
+<!--              <div class="d-block">-->
+<!--                &lt;!&ndash; Adam &ndash;&gt;-->
+<!--                <AboutAvatar>-->
+<!--                  <template v-slot:image>-->
+<!--                    <img alt="Adam Skarshewski" src="~/assets/images/gtdb-team/adam.jpg">-->
+<!--                  </template>-->
+<!--                  <template v-slot:name>-->
+<!--                    Adam Skarshewski-->
+<!--                  </template>-->
+<!--                </AboutAvatar>-->
+<!--              </div>-->
+<!--            </div>-->
           </v-card-text>
         </v-card>
 
@@ -288,10 +305,9 @@
             </p>
 
             <p>
-              <a href="https://www.dsmz.de/dsmz/portrait/management" target="_blank">Jörg Overmann</a>
+              <a href="https://snsb.de/en/snsb-team/?lang=en&role-filter=%2A&facility-filter=%2A&tag-filter=%2A&name-input=Jorg%20Overmann" target="_blank">Jörg Overmann</a>
               <br>
-              Ph.D., Professor, Scientific Director, Leibniz Institute DSMZ-German Collection of
-              Microorganisms and Cell Cultures, Germany
+              Ph.D., Professor, Scientific Director, Director General, The Bavarian State Collections of Natural History, Germany
             </p>
 
             <p>
@@ -328,6 +344,12 @@
           <v-card-text class="text--primary">
             <p>If you find the GTDB useful in your work please cite:</p>
             <ul class="mt-2">
+              <li class="mt-3">
+                Parks, D.H., et al. (2025). "<a href="https://doi.org/10.1093/nar/gkaf1040" target="_blank">GTDB release 10: a complete and systematic taxonomy for 715 230 bacterial and 17 245 archaeal genomes</a>", Nucleic Acids Research, 2025;, gkaf1040, https://doi.org/10.1093/nar/gkaf1040
+              </li>
+              <li class="mt-3">
+                Chuvochina, M., et al. (2023). "<a href="https://doi.org/10.1093/femsle/fnad071" target="_blank">Proposal of names for 329 higher rank taxa defined in the Genome Taxonomy Database under two prokaryotic codes</a>", FEMS Microbiology Letters, Volume 370, 2023, fnad071, https://doi.org/10.1093/femsle/fnad071
+              </li>
               <li class="mt-3">
                 Parks, D.H., et al. (2021). "<a
                 href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkab776/6370255">GTDB:
@@ -458,4 +480,24 @@ export default Vue.extend({
   text-decoration: none;
 }
 
+.logo-aau {
+  background: url("~/assets/images/aau-logo-blue.svg") no-repeat top center;
+  width: 110px;
+  height: 40px;
+  background-size: contain;
+}
+
+.logo-uibk {
+  background: url("~/assets/images/uibk-logo.svg") no-repeat top center;
+  width: 110px;
+  height: 40px;
+  background-size: contain;
+}
+
+.logo-uq {
+  background: url("~/assets/images/uq-logo-purple.svg") no-repeat top center;
+  width: 110px;
+  height: 40px;
+  background-size: contain;
+}
 </style>

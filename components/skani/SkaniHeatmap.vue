@@ -99,11 +99,29 @@
         </v-dialog>
       </v-row>
 
-
       <v-divider class="mt-10"></v-divider>
 
+      <v-row v-if="plotData !== null && plotData.error === true">
+        <v-card
+          color="#ffdede"
+          outlined
+          style="border-color: #f45454"
+          class="mt-5"
+        >
+          <v-card-title>
+            <v-icon left>
+              {{ mdiAlertCircleOutlineSvg }}
+            </v-icon>
+            Error
+          </v-card-title>
+          <v-card-text>
+            There was an error running skani for this job. If you have used a user genome, it could be that it is invalid. Run skani locally to verify this.
+          </v-card-text>
+        </v-card>
+      </v-row>
+
       <!-- Row for graph -->
-      <v-row class="mt-4">
+      <v-row class="mt-4" v-else>
         <div class="d-flex mx-auto">
 
           <div v-if="isPlotDrawing">

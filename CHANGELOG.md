@@ -1,3 +1,148 @@
+# [2.48.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.2...v2.48.0) (2026-02-03)
+
+
+### Features
+
+* **banner:** Add maintenance window. ([96216bc](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/96216bc505a27d67179f2fc9681a21e9dcf769bf))
+
+## [2.47.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.1...v2.47.2) (2026-01-16)
+
+
+### Bug Fixes
+
+* **skani:** Add error handling for erroneous jobs in table / heatmap. ([a0a413a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a0a413a73f671ac548411e5d9c12c7213313ac25))
+
+## [2.47.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.47.0...v2.47.1) (2026-01-08)
+
+
+### Bug Fixes
+
+* **bump:** Update cachekey ([41f6a76](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/41f6a767d33cd85572b13370d1cce9311c22b37d))
+
+# [2.47.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.46.0...v2.47.0) (2026-01-08)
+
+
+### Features
+
+* **banner:** Update Banner for 502 ([ebb1f5d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ebb1f5d9e65117b3b93caeba15cc6637290956e5))
+
+# [2.46.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.45.1...v2.46.0) (2025-12-15)
+
+
+### Features
+
+* **about/genome:** Update citations, update team, update checkm contig count info. ([3d4a3f2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3d4a3f21e39f623d33c35662c6ab710a36d305f3))
+
+## [2.45.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.45.0...v2.45.1) (2025-12-15)
+
+
+### Bug Fixes
+
+* **about:** Update Jorg Overmann SAB affiliation. ([7001a2a](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7001a2a8f3924b56bacd1db6e9c41474709daf6a))
+
+# [2.45.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.44.0...v2.45.0) (2025-12-11)
+
+
+### Features
+
+* **banner:** Updated Tk banner ([8248a48](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8248a4830db8673cedf2b530ea6c8f5c6eb1a37c))
+* **Xmas Theme:** Xmas Theme ([88792ac](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/88792ac7b201755987fa67498827fc2198e23800))
+
+# [2.44.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.43.0...v2.44.0) (2025-12-11)
+
+
+### Features
+
+* **ani:** Add example for skani. ([06610d0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/06610d098f496dc0787ae43ec814ee57f230c6eb))
+* **ani:** Add Skani and allow user uploaded files. ([1e389e4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1e389e4a15e88d17caf199f8089e33dc5c2726c9))
+* **ani:** Add Skani and allow user uploaded files. ([61e39b4](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/61e39b46f523ac7fe4251ea650563ee870b2a4a0))
+* **ani:** Add Skani and allow user uploaded files. ([a2b3ff3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a2b3ff339e5b16f91336aeb998ea27c3c43fb27f))
+* **ani:** Add Skani and allow user uploaded files. ([1e7c7cb](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1e7c7cb008b2f92c216663c64e7663417e7ee200))
+* **ani:** Add Skani and allow user uploaded files. ([6c8d46f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6c8d46f2e2dd29181474e85782ff34a141d05a67))
+* **ani:** Fix uploading user genomes. ([c6155fe](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c6155fea7ff506f38b9ef3962121882e2f444f8c))
+* **skani:** Add skani calculator. ([9cd99f1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/9cd99f1bf5801722c5950eb0beb18612f80bd34b))
+* **skani:** Allow clustering of sparse matrix. ([34c77f7](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/34c77f7347b57aa48e70599879dc86aa2bab7ba5))
+
+# [2.43.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.3...v2.43.0) (2025-12-08)
+
+
+### Features
+
+* **ENA:** Add ENA links for taxonomy tree and genome page. ([d252200](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d25220074f94b5674f563480bdd0c484a01d8146))
+
+## [2.42.3](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.2...v2.42.3) (2025-11-27)
+
+
+### Bug Fixes
+
+* **bump:** Pages migration. ([b81bc8b](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/b81bc8b69f3e88de427f6a107af07aed73a9bb5f))
+
+## [2.42.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.1...v2.42.2) (2025-11-27)
+
+
+### Bug Fixes
+
+* **bump:** Pages migration. ([077980e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/077980e3edba3b5acb450c9e19e6a65e99848e24))
+
+## [2.42.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.42.0...v2.42.1) (2025-11-12)
+
+
+### Bug Fixes
+
+* **taxon:** Update taxon page to remove incorrectly labelled type species s__Haloarcula marismortui ([c091690](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c091690ab40df67976eda21d86f70377e7ebdcf9))
+
+# [2.42.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.41.0...v2.42.0) (2025-10-27)
+
+
+### Features
+
+* **about:** Add affiliation logos. ([8c0b831](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8c0b831d2f06dedad273ff7db4576e2e0ae6567f))
+
+# [2.41.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.40.0...v2.41.0) (2025-09-22)
+
+
+### Bug Fixes
+
+* **about:** Update Chris' affiliation. Resolves [#44](https://github.com/Ecogenomics/gtdb.ecogenomic.org/issues/44) ([a1a7809](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a1a78096373968798eea0e3cd98714666199b76e))
+
+
+### Features
+
+* **faq:** Add FAQ on downloading data from NCBI. Resolves [#45](https://github.com/Ecogenomics/gtdb.ecogenomic.org/issues/45) ([826518c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/826518ce661457307de3bc20f31dc3cb76ad9950))
+
+# [2.40.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.39.1...v2.40.0) (2025-09-11)
+
+
+### Features
+
+* **Add maintenance date:** maintenance for AAU ([4a83ecd](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/4a83ecd477b6412ca867b4d85d1441f1120a3357))
+
+## [2.39.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.39.0...v2.39.1) (2025-09-03)
+
+
+### Bug Fixes
+
+* **Fix the scrolling issue on the stat page:** Round 2, the page scrolls down, check if everything is rendered and scroll down again if the card we want is displayed ([c528d36](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/c528d362a8dd087be673269feaaad4cce1d02126))
+
+# [2.39.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.38.0...v2.39.0) (2025-08-29)
+
+
+### Bug Fixes
+
+* **download:** Typo in AAU mirror. ([cc587ba](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/cc587ba925a6413033c04bcdda403f741984dcb1))
+* **fastani:** Update the heatmap font size per square. ([57fb84f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/57fb84f789296e9d52ca144d6a2d743e704c0442))
+
+
+### Features
+
+* **Add extra links in Download:** add AAU links ([a569a97](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/a569a977a42b69b28369808c763c5152192615e9))
+* **change aau_logo:** update the AAU logo to add Denmark ([38332dc](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/38332dc8a21f489e5cfe1b2618826c24a74d2ae0))
+* **change banner:** update banner to list Europe mirror ([ecb9e86](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ecb9e86dbd4e24cecfb53840b907236d26fb1274))
+* **change frontpage logos:** reoganise logo and add AAU logo ([2758a9f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/2758a9ff652bf5eb9810af5c1918243033b2905f))
+* **change the data urls:** point to releases folder ([d4f1068](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d4f1068c4a43e2c31464a10dc01e6b82682098b5))
+* **change the data urls:** point to releases folder ([7b4c98d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/7b4c98d8c5102295c75ec10d3308de1beb6aa94f))
+* **shift logo:** realign bottom logos ([2f5dd29](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/2f5dd29b8ddd97683351052def79d21804146c43))
+
 # [2.38.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.37.0...v2.38.0) (2025-08-27)
 
 

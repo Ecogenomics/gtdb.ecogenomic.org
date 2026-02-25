@@ -8,8 +8,9 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-        <NotifyBar uid="error-502">
-          *** 🚨🚨We are aware of a navigation issue on the website and are currently working to resolve it.🚨🚨 ***
+        <NotifyBar uid="qcif-maintenance-2026-02-02">
+          <!-- https://status.rc.nectar.org.au/outages/404/ -->
+          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-02-12T21:00:00Z") }} and {{ formatMaintenanceTime("2026-02-17T09:00:00Z") }}. The website will be unavailable at some point during this time. ***
         </NotifyBar>
       </div>
 
@@ -165,6 +166,35 @@ export default Vue.extend({
     releaseVer: '10-RS226',
     releaseDate: '16th April 2025',
   }),
+  methods: {
+    formatMaintenanceTime(isoString: string) {
+      const dateObj = new Date(isoString);
+      const options: Intl.DateTimeFormatOptions = {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZoneName: 'short'
+      };
+
+      const formatter = new Intl.DateTimeFormat('default', options);
+      const parts = formatter.formatToParts(dateObj);
+
+      // We map the parts into a dictionary for easy access
+      const p = parts.reduce((acc, part) => {
+        acc[part.type] = part.value;
+        return acc;
+      }, {} as Record<string, string>);
+
+      // Construct your custom string
+      return `${p.hour}:${p.minute}${p.dayPeriod} ${p.day} ${p.month} ${p.year} (${p.timeZoneName})`;
+
+      // 'default' uses the browser/system locale (e.g., 'en-US' or 'en-GB')
+      // return new Intl.DateTimeFormat('default', options).format(new Date(isoString));
+    }
+  }
 })
 </script>
 

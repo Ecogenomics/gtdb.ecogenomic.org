@@ -13,6 +13,11 @@
         <slot name="name"></slot>
       </div>
     </div>
+    <div class="d-flex">
+      <div class="d-flex mx-auto">
+        <slot name="affiliation"></slot>
+      </div>
+    </div>
   </div>
 </template>
 
