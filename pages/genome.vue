@@ -73,7 +73,7 @@
                     v-else
                     colour="#b2383a"
                     text="LQ"
-                    tooltip="High Quality: Completeness>90%, Contamination<5%"
+                    tooltip="Low Quality: Completeness>90%, Contamination<5%"
                   />
 
                   <!-- Subunits badge -->
