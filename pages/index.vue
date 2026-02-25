@@ -7,12 +7,16 @@
     <div ref="gtdbmain" class="gtdb-main d-flex w-100 flex-grow-1 flex-column" style="min-height: 200px;">
 
       <!-- First row -->
-<!--      <div class="d-flex flex-column">-->
-<!--        <NotifyBar uid="qcif-maintenance-2026-02-02">-->
-<!--          &lt;!&ndash; https://status.rc.nectar.org.au/outages/404/ &ndash;&gt;-->
-<!--          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-02-12T21:00:00Z") }} and {{ formatMaintenanceTime("2026-02-17T09:00:00Z") }}. The website will be unavailable at some point during this time. ***-->
-<!--        </NotifyBar>-->
-<!--      </div>-->
+      <div class="d-flex flex-column">
+        <NotifyBar uid="qcif-maintenance-2026-02-26">
+          <!-- https://status.rc.nectar.org.au/outages/ -->
+          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-02-26T00:00:00Z") }} and {{ formatMaintenanceTime("2026-02-26T02:00:00Z") }}. The website will be unavailable during this time. ***
+        </NotifyBar>
+        <NotifyBar uid="qcif-maintenance-2026-02-27">
+          <!-- https://status.rc.nectar.org.au/outages/ -->
+          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-02-26T22:00:00Z") }} and {{ formatMaintenanceTime("2026-02-27T00:00:00Z") }}. The website will be unavailable during this time. ***
+        </NotifyBar>
+      </div>
 
       <!-- First row -->
       <div class="d-flex mt-5 mx-5">
