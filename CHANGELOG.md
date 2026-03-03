@@ -1,3 +1,12 @@
+# [2.50.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.49.0...v2.50.0) (2026-03-03)
+
+
+### Features
+
+* **genome:** Add AR53/BAC120 marker summary. ([cb0c8ff](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/cb0c8ff7b66e2689f7c90b67922de7505c07ab07))
+* **index:** Remove outages. ([93bd530](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/93bd5301e4069acb68496c6c032207eaa623ffeb))
+* **nav:** Add hetrix status page. ([ac8619c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ac8619c32f2740cb1b7c1501c0b55500cd8794a8))
+
 # [2.49.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.48.0...v2.49.0) (2026-02-25)
 
 
