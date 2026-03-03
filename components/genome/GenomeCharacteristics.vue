@@ -7,55 +7,29 @@
       <v-simple-table dense>
         <tbody>
 
-
         <tr>
           <td class="gtdb-green-bg-table first-table-col rounded-tl">CheckM</td>
           <td>
+            <!-- Display when loading -->
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
               ></v-skeleton-loader>
             </template>
+            <!-- Content to display after loading complete -->
             <template v-else>
-              <template v-if="genomeCard.metadata_gene.checkm_completeness == null">
-                Completeness:
-                <NullChip/>
-              </template>
-              <template v-else>
-                Completeness: {{ genomeCard.metadata_gene.checkm_completeness.toLocaleString() }}%
-              </template>
-            </template>
-          </td>
-          <td>
-            <template v-if="isLoading">
-              <v-skeleton-loader
-                type="text"
-              ></v-skeleton-loader>
-            </template>
-            <template v-else>
-              <template v-if="genomeCard.metadata_gene.checkm_contamination == null">
-                Contamination:
-                <NullChip/>
-              </template>
-              <template v-else>
-                Contamination: {{ genomeCard.metadata_gene.checkm_contamination.toLocaleString() }}%
-              </template>
-            </template>
-          </td>
-          <td>
-            <template v-if="isLoading">
-              <v-skeleton-loader
-                type="text"
-              ></v-skeleton-loader>
-            </template>
-            <template v-else>
-              <template v-if="genomeCard.metadata_gene.checkm_strain_heterogeneity == null">
-                Strain Heterogeneity:
-                <NullChip/>
-              </template>
-              <template v-else>
-                Strain Heterogeneity: {{ genomeCard.metadata_gene.checkm_strain_heterogeneity.toLocaleString() }}
-              </template>
+              <!-- Completeness -->
+              <v-chip small>
+                Completeness: {{ genomeCard.metadata_gene.checkm_completeness == null ? 'n/a' : genomeCard.metadata_gene.checkm_completeness.toLocaleString() }}%
+              </v-chip>
+              <!-- Contamination -->
+              <v-chip small>
+                Contamination: {{ genomeCard.metadata_gene.checkm_contamination == null ? 'n/a' : genomeCard.metadata_gene.checkm_contamination.toLocaleString() }}%
+              </v-chip>
+              <!-- Strain heterogeneity -->
+              <v-chip small>
+                Strain Heterogeneity: {{ genomeCard.metadata_gene.checkm_strain_heterogeneity == null ? 'n/a' :  genomeCard.metadata_gene.checkm_strain_heterogeneity.toLocaleString() }}
+              </v-chip>
             </template>
           </td>
         </tr>
@@ -63,59 +37,179 @@
         <tr>
           <td class="gtdb-green-bg-table first-table-col">CheckM2</td>
           <td>
+            <!-- Display when loading -->
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
               ></v-skeleton-loader>
             </template>
+            <!-- Content to display after loading complete -->
             <template v-else>
-              <template v-if="genomeCard.metadata_gene.checkm2_completeness == null">
-                Completeness:
-                <NullChip/>
-              </template>
-              <template v-else>
-                Completeness: {{ genomeCard.metadata_gene.checkm2_completeness.toLocaleString() }}%
-              </template>
-            </template>
-          </td>
-          <td>
-            <template v-if="isLoading">
-              <v-skeleton-loader
-                type="text"
-              ></v-skeleton-loader>
-            </template>
-            <template v-else>
-              <template v-if="genomeCard.metadata_gene.checkm2_contamination == null">
-                Contamination:
-                <NullChip/>
-              </template>
-              <template v-else>
-                Contamination: {{ genomeCard.metadata_gene.checkm2_contamination.toLocaleString() }}%
-              </template>
-            </template>
-          </td>
-          <td>
-            <template v-if="isLoading">
-              <v-skeleton-loader
-                type="text"
-              ></v-skeleton-loader>
-            </template>
-            <template v-else>
-              <template v-if="genomeCard.metadata_gene.checkm2_model == null">
-                Model:
-                <NullChip/>
-              </template>
-              <template v-else>
-                Model: {{ genomeCard.metadata_gene.checkm2_model }}
-              </template>
+              <!-- Completeness -->
+              <v-chip small>
+                Completeness: {{ genomeCard.metadata_gene.checkm2_completeness == null ? 'n/a' : genomeCard.metadata_gene.checkm2_completeness.toLocaleString() }}%
+              </v-chip>
+              <!-- Contamination -->
+              <v-chip small>
+                Contamination: {{ genomeCard.metadata_gene.checkm2_contamination == null ? 'n/a' : genomeCard.metadata_gene.checkm2_contamination.toLocaleString() }}%
+              </v-chip>
+              <!-- Model -->
+              <v-chip small>
+                Model: {{ genomeCard.metadata_gene.checkm2_model == null ? 'n/a' :  genomeCard.metadata_gene.checkm2_model }}
+              </v-chip>
             </template>
           </td>
         </tr>
 
+        <!-- Archaeal marker summary -->
+        <tr>
+          <td class="gtdb-green-bg-table first-table-col">AR53 markers</td>
+          <td>
+            <!-- Display when loading -->
+            <template v-if="isLoading">
+              <v-skeleton-loader
+                type="text"
+              ></v-skeleton-loader>
+            </template>
+
+            <!-- Content to display after loading complete -->
+            <template v-else>
+              <!-- AR53 Unique -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Unique: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.arc_n_unique  }}
+                  </v-chip>
+                </template>
+                <span>The number of unique single-copy AR53 markers.</span>
+              </v-tooltip>
+              <!-- AR53 multi-unique -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Multi-unique: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.arc_n_multi_unique  }}
+                  </v-chip>
+                </template>
+                <span>The number of unique multi-copy (i.e. identical sequences) AR53 markers.</span>
+              </v-tooltip>
+              <!-- AR53 multi-copy -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Multi-copy: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.arc_n_multi_non_unique  }}
+                  </v-chip>
+                </template>
+                <span>The number of multi-copy (i.e. non-identical sequences) AR53 markers.</span>
+              </v-tooltip>
+              <!-- AR53 missing -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Missing: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.arc_n_missing  }}
+                  </v-chip>
+                </template>
+                <span>The number of missing AR53 markers.</span>
+              </v-tooltip>
+            </template>
+          </td>
+        </tr>
+
+        <!-- Bacterial marker summary -->
+        <tr>
+          <td class="gtdb-green-bg-table first-table-col">BAC120 markers</td>
+          <td>
+            <!-- Display when loading -->
+            <template v-if="isLoading">
+              <v-skeleton-loader
+                type="text"
+              ></v-skeleton-loader>
+            </template>
+
+            <!-- Content to display after loading complete -->
+            <template v-else>
+              <!-- BAC120 Unique -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Unique: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.bac_n_unique  }}
+                  </v-chip>
+                </template>
+                <span>The number of unique single-copy BAC120 markers.</span>
+              </v-tooltip>
+              <!-- BAC120 multi-unique -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Multi-unique: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.bac_n_multi_unique  }}
+                  </v-chip>
+                </template>
+                <span>The number of unique multi-copy (i.e. identical sequences) BAC120 markers.</span>
+              </v-tooltip>
+              <!-- BAC120 multi-copy -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Multi-copy: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.bac_n_multi_non_unique  }}
+                  </v-chip>
+                </template>
+                <span>The number of multi-copy (i.e. non-identical sequences) BAC120 markers.</span>
+              </v-tooltip>
+              <!-- BAC120 missing -->
+              <v-tooltip open-delay="150" top transition="slide-x-transition">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    small
+                    style="cursor: pointer;"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Missing: {{ genomeCard.markerSummary == null ? 'n/a' : genomeCard.markerSummary?.bac_n_missing  }}
+                  </v-chip>
+                </template>
+                <span>The number of missing BAC120 markers.</span>
+              </v-tooltip>
+            </template>
+          </td>
+        </tr>
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">5S Count</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -134,7 +228,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">16S Count</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -153,7 +247,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">23S Count</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -172,7 +266,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">tRNA Count</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -191,7 +285,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Contig Count</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -210,7 +304,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">N50 Contigs</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -229,7 +323,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Longest Contig</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -248,7 +342,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Scaffold Count</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -267,7 +361,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">N50 Scaffolds</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -286,7 +380,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Longest Scaffold</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -305,7 +399,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Genome Size</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -324,7 +418,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Protein Count</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -343,7 +437,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Coding Density</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -362,7 +456,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">GC Percentage</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -381,7 +475,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col">Ambiguous Bases</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"
@@ -410,7 +504,7 @@
 
             <template
               v-else-if="genomeCard.metadataTaxonomy.gtdb_genome_representative.startsWith('R') || genomeCard.metadataTaxonomy.gtdb_genome_representative.startsWith('G')">
-              <td colspan="3">
+              <td >
                 <nuxt-link :to="{
                     name: 'genome',
                     query: {
@@ -422,7 +516,7 @@
               </td>
             </template>
             <template v-else>
-              <td colspan="3">
+              <td >
                 <nuxt-link :to="{
                     name: 'genome',
                     query: {
@@ -438,7 +532,7 @@
 
         <tr>
           <td class="gtdb-green-bg-table first-table-col rounded-bl">GTDB representative of species</td>
-          <td colspan="3">
+          <td >
             <template v-if="isLoading">
               <v-skeleton-loader
                 type="text"

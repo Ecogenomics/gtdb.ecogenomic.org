@@ -35,6 +35,16 @@ export class GenomeApi {
       })
   }
 
+
+  getMarkerSummary(accession: string) {
+    return axios.get<GenomeMarkersSummary>(`${apiBase}/genome/${encodeURIComponent(accession)}/marker-summary`,
+      {
+        timeout: apiTimeout,
+        params: {cacheKey: apiCacheKey}
+      })
+  }
+
+
 }
 
 // --------------------------------------------------------------------------------------------
@@ -151,6 +161,16 @@ export interface GenomeMetadataNcbi {
   ncbi_wgs_master: string
 }
 
+export interface GenomeMarkersSummary {
+  bac_n_unique: number
+  bac_n_multi_unique: number
+  bac_n_multi_non_unique: number
+  bac_n_missing: number
+  arc_n_unique: number
+  arc_n_multi_unique: number
+  arc_n_multi_non_unique: number
+  arc_n_missing: number
+}
 
 export interface GenomeCard {
   genome: GenomeBase
@@ -166,5 +186,5 @@ export interface GenomeCard {
   metadata_nucleotide: GenomeMetadataNucleotide
   speciesClusterCount?: number
   subunit_summary?: string
+  markerSummary?: GenomeMarkersSummary | null
 }
-
