@@ -316,7 +316,7 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Status',
-          to: 'https://stats.uptimerobot.com/gZZr2fq81O',
+          to: 'https://hetrixtools.com/r/c94d90972cc6927f0f6ade4c499aeb8a',
           nuxt: false,
           external: true,
         },
