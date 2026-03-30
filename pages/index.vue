@@ -11,6 +11,9 @@
 <!--        <NotifyBar uid="qcif-maintenance-2026-02-26">-->
 <!--          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-02-26T00:00:00Z") }} and {{ formatMaintenanceTime("2026-02-26T02:00:00Z") }}. The website will be unavailable during this time. ***-->
 <!--        </NotifyBar>-->
+                <NotifyBar uid="r232-dev-1">
+                  *** Database connectors updated to use R232 database. WEB database is being updated (i.e. tree + tax history) ***
+                </NotifyBar>
       </div>
 
       <!-- First row -->
@@ -143,27 +146,27 @@ export default Vue.extend({
   },
   data: () => ({
     /* Bacterial stats */
-    nBacTot: 715230,
-    nBacS: 136646,
-    nBacG: 27326,
-    nBacF: 5311,
-    nBacO: 1976,
-    nBacC: 571,
-    nBacP: 169,
+    nBacTot: 878998,
+    nBacS: 189801,
+    nBacG: 34834,
+    nBacF: 6026,
+    nBacO: 2164,
+    nBacC: 572,
+    nBacP: 162,
 
     /* Archaeal stats */
-    nArcTot: 17245,
-    nArcS: 6968,
-    nArcG: 2079,
-    nArcF: 603,
-    nArcO: 171,
-    nArcC: 63,
-    nArcP: 20,
+    nArcTot: 22343,
+    nArcS: 10122,
+    nArcG: 2669,
+    nArcF: 699,
+    nArcO: 179,
+    nArcC: 69,
+    nArcP: 24,
 
     /* Summary stats */
-    nGenomes: 732475,
-    releaseVer: '10-RS226',
-    releaseDate: '16th April 2025',
+    nGenomes: 901341,
+    releaseVer: '11-RS232',
+    releaseDate: 'XXXth April 2026',
   }),
   methods: {
     formatMaintenanceTime(isoString: string) {
