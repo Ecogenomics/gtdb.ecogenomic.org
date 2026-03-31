@@ -80,7 +80,7 @@
             </td>
             <td>
               <template v-if="item.d && item.d.length > 3">
-                <nuxt-link :to="getHistUrl(item.d)">{{ item.d }}</nuxt-link>
+                <nuxt-link :to="getHistUrl(item.d, item.release)">{{ item.d }}</nuxt-link>
               </template>
               <template v-else>
                 {{ item.d }}
@@ -88,7 +88,8 @@
             </td>
             <td>
               <template v-if="item.p && item.p.length > 3">
-                <nuxt-link :to="getHistUrl(item.p)">{{ item.p }}</nuxt-link>
+                <nuxt-link :to="getHistUrl(item.p, item.release)">{{ item.p }}</nuxt-link>
+                {{ item }}
               </template>
               <template v-else>
                 {{ item.p }}
@@ -96,7 +97,7 @@
             </td>
             <td>
               <template v-if="item.c && item.c.length > 3">
-                <nuxt-link :to="getHistUrl(item.c)">{{ item.c }}</nuxt-link>
+                <nuxt-link :to="getHistUrl(item.c, item.release)">{{ item.c }}</nuxt-link>
               </template>
               <template v-else>
                 {{ item.c }}
@@ -104,7 +105,7 @@
             </td>
             <td>
               <template v-if="item.o && item.o.length > 3">
-                <nuxt-link :to="getHistUrl(item.o)">{{ item.o }}</nuxt-link>
+                <nuxt-link :to="getHistUrl(item.o, item.release)">{{ item.o }}</nuxt-link>
               </template>
               <template v-else>
                 {{ item.o }}
@@ -112,7 +113,7 @@
             </td>
             <td>
               <template v-if="item.f && item.f.length > 3">
-                <nuxt-link :to="getHistUrl(item.f)">{{ item.f }}</nuxt-link>
+                <nuxt-link :to="getHistUrl(item.f, item.release)">{{ item.f }}</nuxt-link>
               </template>
               <template v-else>
                 {{ item.f }}
@@ -120,7 +121,7 @@
             </td>
             <td>
               <template v-if="item.g && item.g.length > 3">
-                <nuxt-link :to="getHistUrl(item.g)">{{ item.g }}</nuxt-link>
+                <nuxt-link :to="getHistUrl(item.g, item.release)">{{ item.g }}</nuxt-link>
               </template>
               <template v-else>
                 {{ item.g }}
@@ -128,7 +129,7 @@
             </td>
             <td>
               <template v-if="item.s && item.s.length > 3">
-                <nuxt-link :to="getHistUrl(item.s)">{{ item.s }}</nuxt-link>
+                <nuxt-link :to="getHistUrl(item.s, item.release)">{{ item.s }}</nuxt-link>
               </template>
               <template v-else>
                 {{ item.s }}
@@ -176,8 +177,13 @@ export default Vue.extend({
   },
   methods: {
     // Compute the taxon history URL for the current taxon
-    getHistUrl(taxon: string) {
-      return `/taxon-history?from=R95&to=R226&query=${encodeURIComponent(taxon)}`
+    getHistUrl(taxon: string, release: string) {
+      let releaseFrom = release;
+      let releaseTo = 'R232';
+      if (releaseFrom === releaseTo) {
+        releaseFrom = 'R95'
+      }
+      return `/taxon-history?from=${releaseFrom}&to=${releaseTo}&query=${encodeURIComponent(taxon)}`
     },
 
     // Retrieve the taxon history for this accession
