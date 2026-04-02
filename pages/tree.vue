@@ -169,6 +169,7 @@
               v-model="showSandPiperUrl"
               class="font-12px"
               color="#485fc7"
+              disabled
               dense
               hide-details
               label="SandPiper"
@@ -179,7 +180,7 @@
                   class="ml-3 my-auto"
                   color="#485fc7"
                 >
-                  <template v-slot:title>SeqCode</template>
+                  <template v-slot:title>SandPiper</template>
                   <template v-slot:content>
                     <p>
                       Links have been created to SandPiper taxa based on verbatim name matching, not all taxa have
@@ -620,6 +621,7 @@
                     v-model="showSandPiperUrl"
                     class="font-12px"
                     color="#485fc7"
+                    disabled
                     dense
                     hide-details
                     label="Sandpiper"
@@ -630,7 +632,7 @@
                         class="ml-3 my-auto"
                         color="#485fc7"
                       >
-                        <template v-slot:title>SeqCode</template>
+                        <template v-slot:title>SandPiper</template>
                         <template v-slot:content>
                           <p>
                             Links have been created to Sandpiper taxa based on verbatim name matching, not all taxa have
