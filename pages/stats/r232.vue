@@ -20,7 +20,7 @@
 
 
       <template #taxon-overview>
-        GTDB R232 spans 732,475 genomes organized into 143,614 species clusters.
+        GTDB R232 spans 901,341 genomes organized into 199,923 species clusters.
         <v-simple-table class="gtdb-table mt-3" dense style="max-width: 500px;">
           <template v-slot:default>
             <thead>
@@ -42,39 +42,39 @@
             <tbody>
             <tr>
               <td>Phylum</td>
-              <td>169</td>
-              <td>20</td>
-              <td>189</td>
+              <td>162</td>
+              <td>24</td>
+              <td>186</td>
             </tr>
             <tr>
               <td>Class</td>
-              <td>571</td>
-              <td>63</td>
-              <td>634</td>
+              <td>572</td>
+              <td>69</td>
+              <td>641</td>
             </tr>
             <tr>
               <td>Order</td>
-              <td>1,976</td>
-              <td>171</td>
-              <td>2,147</td>
+              <td>2,164</td>
+              <td>179</td>
+              <td>2,343</td>
             </tr>
             <tr>
               <td>Family</td>
-              <td>5,311</td>
-              <td>603</td>
-              <td>5,914</td>
+              <td>6,026</td>
+              <td>699</td>
+              <td>6,725</td>
             </tr>
             <tr>
               <td>Genus</td>
-              <td>27,326</td>
-              <td>2,079</td>
-              <td>29,405</td>
+              <td>34,834</td>
+              <td>2,669</td>
+              <td>37,503</td>
             </tr>
             <tr>
               <td>Species</td>
-              <td>136,646</td>
-              <td>6,968</td>
-              <td>143,614</td>
+              <td>189,801</td>
+              <td>10,122</td>
+              <td>199,923</td>
             </tr>
             </tbody>
           </template>
@@ -82,8 +82,8 @@
       </template>
 
       <template #species-overview>
-        GTDB R226 is comprised of 715,230 bacterial and 17,245 archaeal genomes organized into 136,646 bacterial and
-        6,968
+        GTDB R232 is comprised of 878,998 bacterial and 22,343 archaeal genomes organized into 189,801 bacterial and
+        10,122
         archaeal species clusters, respectively.
 
         <v-simple-table class="gtdb-table mt-3" dense>
@@ -158,11 +158,18 @@
               <td>6,968</td>
             </tr>
             <tr>
+              <td>R11-RS232</td>
+              <td>878,998</td>
+              <td>22,343</td>
+              <td>189,801</td>
+              <td>10,122</td>
+            </tr>
+            <tr>
               <td><b>Growth from R09-RS220</b></td>
-              <td>22.39%</td>
-              <td>38.21%</td>
-              <td>27.43%</td>
-              <td>18.73%</td>
+              <td>22.90%</td>
+              <td>29.56%</td>
+              <td>38.90%</td>
+              <td>45.26%</td>
             </tr>
             </tbody>
           </template>
@@ -176,8 +183,8 @@
         genomes.
                <template v-if="cdv_switch">
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/genome-category-per-rank-cvd.svg')"
-          :preview="require('~/assets/images/stats/r226/genome-category-per-rank-cvd.svg')"
+          :full="require('~/assets/images/stats/r232/genome-category-per-rank-cvd.svg')"
+          :preview="require('~/assets/images/stats/r232/genome-category-per-rank-cvd.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -185,8 +192,8 @@
       </template>
       <template v-else>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/genome-category-per-rank.svg')"
-          :preview="require('~/assets/images/stats/r226/genome-category-per-rank.svg')"
+          :full="require('~/assets/images/stats/r232/genome-category-per-rank.svg')"
+          :preview="require('~/assets/images/stats/r232/genome-category-per-rank.svg')"
 
           class="mt-2"
           preview-max-width="800px"
@@ -202,8 +209,8 @@
         category.
         <template v-if="cdv_switch">
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/sp-rep-type-cvd.svg')"
-          :preview="require('~/assets/images/stats/r226/sp-rep-type-cvd.svg')"
+          :full="require('~/assets/images/stats/r232/sp-rep-type-cvd.svg')"
+          :preview="require('~/assets/images/stats/r232/sp-rep-type-cvd.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -211,8 +218,8 @@
       </template>
       <template v-else>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/sp-rep-type.svg')"
-          :preview="require('~/assets/images/stats/r226/sp-rep-type.svg')"
+          :full="require('~/assets/images/stats/r232/sp-rep-type.svg')"
+          :preview="require('~/assets/images/stats/r232/sp-rep-type.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -231,8 +238,8 @@
         A few exceptions exist in order to retain well-known species with abnormal CheckM quality estimates, where contamination exceeds 10%.
         <template v-if="cdv_switch">
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/genome-quality-species-cvd.png')"
-          :preview="require('~/assets/images/stats/r226/genome-quality-species-cvd.png')"
+          :full="require('~/assets/images/stats/r232/genome-quality-species-cvd.png')"
+          :preview="require('~/assets/images/stats/r232/genome-quality-species-cvd.png')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -240,8 +247,8 @@
       </template>
       <template v-else>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/genome-quality-species.png')"
-          :preview="require('~/assets/images/stats/r226/genome-quality-species.png')"
+          :full="require('~/assets/images/stats/r232/genome-quality-species.png')"
+          :preview="require('~/assets/images/stats/r232/genome-quality-species.png')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -274,76 +281,75 @@
             </thead>
             <tbody>
             <tr>
-              <td>Pseudomonadota 35,839</td>
-              <td>Gammaproteobacteria 19,731</td>
-              <td>Burkholderiales	7,245</td>
-              <td>Burkholderiaceae	4,466</td>
-              <td>Streptomyces	1,739</td>
+              <td>Pseudomonadota 46,828</td>
+              <td>Gammaproteobacteria 25,165</td>
+              <td>Burkholderiales 9,155</td>
+              <td>Lachnospiraceae 4,549</td>
+              <td>Streptomyces 2,311</td>
             </tr>
             <tr>
-              <td>Bacillota 24,866</td>
-              <td>Bacteroidia 16,912</td>
-              <td>Bacteroidales 6,951</td>
-              <td>Lachnospiraceae 3,903</td>
-              <td>Collinsella 1,058</td>
+              <td>Bacillota 27,167</td>
+              <td>Bacteroidia 21,942</td>
+              <td>Bacteroidales 8,804</td>
+              <td>Flavobacteriaceae 3,764</td>
+              <td>Collinsella 1,181</td>
             </tr>
             <tr>
-              <td>Actinomycetota 16,922</td>
-              <td>Alphaproteobacteria 15,970</td>
-              <td>Oscillospirales 5,467</td>
-              <td>Flavobacteriaceae 2,952</td>
-              <td>Pelagibacter 891</td>
+              <td>Actinomycetota 24,968</td>
+              <td>Alphaproteobacteria 21,473</td>
+              <td>Oscillospirales 7,815</td>
+              <td>Rhodobacteraceae 3,226</td>
+              <td>Flavobacterium 1,026</td>
             </tr>
             <tr>
-              <td>Bacteroidota 16,912</td>
-              <td>Clostridia 15,463</td>
-              <td>Flavobacteriales 4,528</td>
-              <td>Rhodobacteraceae 2,553</td>
-              <td>Prevotella 888</td>
+              <td>Bacteroidota 23,901</td>
+              <td>Clostridia 20,027</td>
+              <td>Rhizobiales 5,752</td>
+              <td>Burkholderiaceae_C 2,966</td>
+              <td>Aquipseudomonas 993</td>
             </tr>
             <tr>
-              <td>Patescibacteriota 6,435</td>
-              <td>Actinomycetes 10,924</td>
-              <td>Lachnospirales 4,263</td>
-              <td>Sphingomonadaceae 2,180</td>
-              <td>Pseudomonas_E 878</td>
+              <td>Patescibacteriota 10,945</td>
+              <td>Actinomycetes 14,793</td>
+              <td>Lachnospirales 4,973</td>
+              <td>Sphingomonadaceae 2,805</td>
+              <td>Prevotella 959</td>
             </tr>
             <tr>
-              <td>Chloroflexota 4,182</td>
-              <td>Bacilli 7,498</td>
-              <td>Rhizobiales 3,949</td>
-              <td>Streptomycetaceae 1,950</td>
-              <td>Flavobacterium 812</td>
+              <td>Acidobacteriota 7,453</td>
+              <td>Bacilli 4,864</td>
+              <td>Pseudomonadales 4,700</td>
+              <td>Streptomycetaceae 2,611</td>
+              <td>Pelagibacter 938</td>
             </tr>
             <tr>
-              <td>Acidobacteriota 3,758</td>
-              <td>Verrucomicrobiia 2,595</td>
-              <td>Pseudomonadales 3,843</td>
-              <td>Bacteroidaceae 1,845</td>
-              <td>Streptococcus 693</td>
+              <td>Chloroflexota 6,831</td>
+              <td>Minisyncoccia 4,322</td>
+              <td>Flavobacteriales 4,674</td>
+              <td>Acutalibacteraceae 2,322</td>
+              <td>Mycobacterium 850</td>
             </tr>
             <tr>
-              <td>Verrucomicrobiota 3,351</td>
-              <td>Minisyncoccia 2,547</td>
-              <td>Actinomycetales 3,638</td>
-              <td>Chitinophagaceae 1,598</td>
-              <td>Mycobacterium 597</td>
+              <td>Planctomycetota 4,995</td>
+              <td>Terriglobia 4,081</td>
+              <td>Actinomycetales 4,579</td>
+              <td>Acidobacteriaceae 2,202</td>
+              <td>Streptococcus 761</td>
             </tr>
             <tr>
-              <td>Planctomycetota 3,168</td>
-              <td>Acidimicrobiia 2,102</td>
-              <td>Mycobacteriales 2,983</td>
-              <td>Oscillospiraceae 1,587</td>
-              <td>Cryptobacteroides 555</td>
+              <td>Verrucomicrobiota 4,825</td>
+              <td>Bacilli_A 3,799</td>
+              <td>Mycobacteriales 3,781</td>
+              <td>Chitinophagaceae 2,191</td>
+              <td>Cryptobacteroides 643</td>
             </tr>
             <tr>
-              <td>Cyanobacteriota 2,718</td>
-              <td>Cyanobacteriia 1,943</td>
-              <td>Rhodobacterales 2,553</td>
-              <td>Microbacteriaceae 1,524</td>
-              <td>Microbacterium 451</td>
+              <td>Desulfobacterota 4,552</td>
+              <td>Verrucomicrobiia 3,767</td>
+              <td>Chitinophagales 3,446</td>
+              <td>Bacteroidaceae 2,100</td>
+              <td>Microbacterium 593</td>
             </tr>
-
             </tbody>
           </template>
         </v-simple-table>
@@ -355,96 +361,107 @@
           <template v-slot:default>
             <thead>
             <tr>
-              <th class="text-left">Phylum</th>
-              <th class="text-left">Class</th>
-              <th class="text-left">Order</th>
-              <th class="text-left">Family</th>
-              <th class="text-left">Genus</th>
-              <th class="text-left">Species</th>
+              <th class="text-left">
+                Phylum
+              </th>
+              <th class="text-left">
+                Class
+              </th>
+              <th class="text-left">
+                Order
+              </th>
+              <th class="text-left">
+                Family
+              </th>
+              <th class="text-left">
+                Genus
+              </th>
+              <th class="text-left">
+                Species
+              </th>
             </tr>
             </thead>
             <tbody>
             <tr>
-              <td>Pseudomonadota 267,130</td>
-              <td>Gammaproteobacteria 226,629</td>
-              <td>Enterobacterales 133,925</td>
-              <td>Enterobacteriaceae 115,303</td>
-              <td>Escherichia 45,533</td>
-              <td>Escherichia coli 44,640</td>
+              <td>Pseudomonadota 324,613</td>
+              <td>Gammaproteobacteria 273,004</td>
+              <td>Enterobacterales 162,324</td>
+              <td>Enterobacteriaceae 139,599</td>
+              <td>Escherichia 37,464</td>
+              <td>Escherichia coli 36,408</td>
             </tr>
             <tr>
-              <td>Bacillota 205,871</td>
-              <td>Bacilli 109,361</td>
-              <td>Bacteroidales 67,821</td>
-              <td>Lachnospiraceae 37,618</td>
-              <td>Klebsiella 28,408</td>
-              <td>Klebsiella pneumoniae 23,011</td>
+              <td>Bacillota 228,026</td>
+              <td>Bacilli 112,556</td>
+              <td>Bacteroidales 75,895</td>
+              <td>Lachnospiraceae 42,630</td>
+              <td>Klebsiella 35,140</td>
+              <td>Klebsiella pneumoniae 28,487</td>
             </tr>
             <tr>
-              <td>Bacteroidota 89,203</td>
-              <td>Clostridia 89,775</td>
-              <td>Lactobacillales 54,361</td>
-              <td>Staphylococcaceae 25,195</td>
-              <td>Staphylococcus 24,405</td>
-              <td>Staphylococcus aureus 17,542</td>
+              <td>Bacteroidota 107,378</td>
+              <td>Clostridia 107,138</td>
+              <td>Lactobacillales 62,342</td>
+              <td>Staphylococcaceae 28,460</td>
+              <td>Staphylococcus 27,543</td>
+              <td>Salmonella enterica 21,527</td>
             </tr>
             <tr>
-              <td>Actinomycetota 59,430</td>
-              <td>Bacteroidia 89,203</td>
-              <td>Pseudomonadales 42,287</td>
-              <td>Muribaculaceae 24,600</td>
-              <td>Streptococcus 21,852</td>
-              <td>Salmonella enterica 17,159</td>
+              <td>Actinomycetota 80,926</td>
+              <td>Bacteroidia 103,615</td>
+              <td>Pseudomonadales 50,143</td>
+              <td>Streptococcaceae 25,663</td>
+              <td>Streptococcus 23,747</td>
+              <td>Staphylococcus aureus 19,502</td>
             </tr>
             <tr>
-              <td>Campylobacterota 12,704</td>
-              <td>Actinomycetes 45,222</td>
-              <td>Lachnospirales 38,784</td>
-              <td>Streptococcaceae 23,415</td>
-              <td>Salmonella 17,457</td>
-              <td>Pseudomonas aeruginosa 10,492</td>
+              <td>Patescibacteriota 16,000</td>
+              <td>Actinomycetes 60,544</td>
+              <td>Lachnospirales 43,929</td>
+              <td>Muribaculaceae 25,055</td>
+              <td>Salmonella 21,848</td>
+              <td>ECMA0423 sp047199055 13,724</td>
             </tr>
             <tr>
-              <td>Patescibacteriota 10,847</td>
-              <td>Alphaproteobacteria 40,295</td>
-              <td>Burkholderiales 30,358</td>
-              <td>Pseudomonadaceae 21,139</td>
-              <td>Acinetobacter 14,084</td>
-              <td>Acinetobacter baumannii 10,048</td>
+              <td>Bacillota_I 14,528</td>
+              <td>Alphaproteobacteria 51,346</td>
+              <td>Burkholderiales 35,997</td>
+              <td>Pseudomonadaceae 24,656</td>
+              <td>Acinetobacter 16,492</td>
+              <td>Pseudomonas aeruginosa 12,456</td>
             </tr>
             <tr>
-              <td>Verrucomicrobiota 8,325</td>
-              <td>Campylobacteria 12,658</td>
-              <td>Staphylococcales 25,423</td>
-              <td>Bacteroidaceae 20,813</td>
-              <td>Mycobacterium 11,924</td>
-              <td>Streptococcus pneumoniae 9,446</td>
+              <td>Campylobacterota 14,392</td>
+              <td>Bacilli_A 14,528</td>
+              <td>Oscillospirales 33,622</td>
+              <td>Bacteroidaceae 23,694</td>
+              <td>ECMA0423 13,724</td>
+              <td>Acinetobacter baumannii 11,844</td>
             </tr>
             <tr>
-              <td>Cyanobacteriota 7,057</td>
-              <td>Verrucomicrobiia 6,806</td>
-              <td>Oscillospirales 25,303</td>
-              <td>Burkholderiaceae 19,661</td>
-              <td>Pseudomonas 10,723</td>
-              <td>Mycobacterium tuberculosis 7,631</td>
+              <td>Verrucomicrobiota 10,795</td>
+              <td>Campylobacteria 14,392</td>
+              <td>Staphylococcales 28,714</td>
+              <td>Mycobacteriaceae 18,607</td>
+              <td>Pseudomonas 12,771</td>
+              <td>Streptococcus pneumoniae 9,634</td>
             </tr>
             <tr>
-              <td>Chloroflexota 6,904</td>
-              <td>Coriobacteriia 6,002</td>
-              <td>Mycobacteriales 19,389</td>
-              <td>Mycobacteriaceae 16,757</td>
-              <td>Pseudomonas_E 8,551</td>
-              <td>Enterococcus faecalis 4,055</td>
+              <td>Acidobacteriota 10,449</td>
+              <td>Verrucomicrobiia 8,872</td>
+              <td>Mycobacteriales 22,121</td>
+              <td>Moraxellaceae 17,964</td>
+              <td>Mycobacterium 12,726</td>
+              <td>Mycobacterium tuberculosis 7,759</td>
             </tr>
             <tr>
-              <td>Acidobacteriota 5,462</td>
-              <td>Acidimicrobiia 5,487</td>
-              <td>Actinomycetales 13,693</td>
-              <td>Moraxellaceae 15,244</td>
-              <td>Vibrio 8,461</td>
-              <td>Enterococcus_B faecium 3,907</td>
+              <td>Chloroflexota 10,423</td>
+              <td>Acidimicrobiia 7,655</td>
+              <td>Actinomycetales 17,794</td>
+              <td>Lactobacillaceae 14,996</td>
+              <td>Streptomyces 11,995</td>
+              <td>Enterococcus faecalis 5,041</td>
             </tr>
-
             </tbody>
           </template>
         </v-simple-table>
@@ -467,13 +484,13 @@
         <!--          inset-->
         <!--        ></v-switch>-->
         <template v-if="showRedAsD3">
-          <REDr226></REDr226>
+          <REDr232></REDr232>
         </template>
         <template v-else>
           <h2>Bacteria</h2>
           <ImgToggle
-            :full="require('~/assets/images/stats/r226/red-bacteria.png')"
-            :preview="require('~/assets/images/stats/r226/red-bacteria.png')"
+            :full="require('~/assets/images/stats/r232/red-bacteria.png')"
+            :preview="require('~/assets/images/stats/r232/red-bacteria.png')"
             class="mt-2"
             preview-max-width="800px"
             preview-width="75%"
@@ -484,8 +501,8 @@
 
           <h2>Archaea</h2>
           <ImgToggle
-            :full="require('~/assets/images/stats/r226/red-archaea.png')"
-            :preview="require('~/assets/images/stats/r226/red-archaea.png')"
+            :full="require('~/assets/images/stats/r232/red-archaea.png')"
+            :preview="require('~/assets/images/stats/r232/red-archaea.png')"
             class="mt-3"
             preview-max-width="800px"
             preview-width="75%"
@@ -512,8 +529,8 @@
         </p>
         <template v-if="cdv_switch">
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/ncbi-compare-species-cvd.svg')"
-          :preview="require('~/assets/images/stats/r226/ncbi-compare-species-cvd.svg')"
+          :full="require('~/assets/images/stats/r232/ncbi-compare-species-cvd.svg')"
+          :preview="require('~/assets/images/stats/r232/ncbi-compare-species-cvd.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -521,8 +538,8 @@
         </ImgToggle>
         <hr>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/ncbi-compare-genomes-cvd.svg')"
-          :preview="require('~/assets/images/stats/r226/ncbi-compare-genomes-cvd.svg')"
+          :full="require('~/assets/images/stats/r232/ncbi-compare-genomes-cvd.svg')"
+          :preview="require('~/assets/images/stats/r232/ncbi-compare-genomes-cvd.svg')"
           class="mt-3"
           preview-max-width="800px"
           preview-width="75%"
@@ -531,8 +548,8 @@
       </template>
       <template v-else>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/ncbi-compare-species.svg')"
-          :preview="require('~/assets/images/stats/r226/ncbi-compare-species.svg')"
+          :full="require('~/assets/images/stats/r232/ncbi-compare-species.svg')"
+          :preview="require('~/assets/images/stats/r232/ncbi-compare-species.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -540,8 +557,8 @@
         </ImgToggle>
         <hr>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/ncbi-compare-genomes.svg')"
-          :preview="require('~/assets/images/stats/r226/ncbi-compare-genomes.svg')"
+          :full="require('~/assets/images/stats/r232/ncbi-compare-genomes.svg')"
+          :preview="require('~/assets/images/stats/r232/ncbi-compare-genomes.svg')"
           class="mt-3"
           preview-max-width="800px"
           preview-width="75%"
@@ -555,8 +572,8 @@
 
         <h2>Genomes</h2>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/genomic-stats-genomes.svg')"
-          :preview="require('~/assets/images/stats/r226/genomic-stats-genomes.svg')"
+          :full="require('~/assets/images/stats/r232/genomic-stats-genomes.svg')"
+          :preview="require('~/assets/images/stats/r232/genomic-stats-genomes.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -567,8 +584,8 @@
 
         <h2>Species</h2>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/genomic-stats-species.svg')"
-          :preview="require('~/assets/images/stats/r226/genomic-stats-species.svg')"
+          :full="require('~/assets/images/stats/r232/genomic-stats-species.svg')"
+          :preview="require('~/assets/images/stats/r232/genomic-stats-species.svg')"
           class="mt-3"
           preview-max-width="800px"
           preview-width="75%"
@@ -610,59 +627,58 @@
             <tbody>
             <tr>
               <td>Phylum</td>
-              <td>76 (44.97%)</td>
-              <td>93 (55.03%)</td>
-              <td>16 (80.00%)</td>
-              <td>4 (20.00%)</td>
-              <td>92 (48.68%)</td>
-              <td>97 (51.32%)</td>
+              <td>75 (46.30%)</td>
+              <td>87 (53.70%)</td>
+              <td>16 (66.67%)</td>
+              <td>8 (33.33%)</td>
+              <td>91 (48.92%)</td>
+              <td>95 (51.08%)</td>
             </tr>
             <tr>
               <td>Class</td>
-              <td>170 (29.77%)</td>
-              <td>401 (70.23%)</td>
-              <td>41 (65.08%)</td>
-              <td>22 (34.92%)</td>
-              <td>211 (33.28%)</td>
-              <td>423 (66.72%)</td>
+              <td>174 (30.42%)</td>
+              <td>398 (69.58%)</td>
+              <td>42 (60.87%)</td>
+              <td>27 (39.13%)</td>
+              <td>216 (33.70%)</td>
+              <td>425 (66.30%)</td>
             </tr>
             <tr>
               <td>Order</td>
-              <td>401 (20.29%)</td>
-              <td>1,575 (79.71%)</td>
-              <td>73 (42.69%)</td>
-              <td>98 (57.31%)</td>
-              <td>474 (22.08%)</td>
-              <td>1,673 (77.92%)</td>
+              <td>417 (19.27%)</td>
+              <td>1,747 (80.73%)</td>
+              <td>72 (40.22%)</td>
+              <td>107 (59.78%)</td>
+              <td>489 (20.87%)</td>
+              <td>1,854 (79.13%)</td>
             </tr>
             <tr>
               <td>Family</td>
-              <td>856 (16.12%)</td>
-              <td>4,455 (83.88%)</td>
-              <td>111 (18.41%)</td>
-              <td>492 (81.59%)</td>
-              <td>967 (16.35%)</td>
-              <td>4,947 (83.65%)</td>
+              <td>892 (14.80%)</td>
+              <td>5,134 (85.20%)</td>
+              <td>117 (16.74%)</td>
+              <td>582 (83.26%)</td>
+              <td>1,009 (15.00%)</td>
+              <td>5,716 (85.00%)</td>
             </tr>
             <tr>
               <td>Genus</td>
-              <td>4,230 (15.48%)</td>
-              <td>23,096 (84.52%)</td>
-              <td>294 (14.14%)</td>
-              <td>1,785 (85.86%)</td>
-              <td>4,524 (15.39%)</td>
-              <td>24,881 (84.61%)</td>
+              <td>4,422 (12.69%)</td>
+              <td>30,412 (87.31%)</td>
+              <td>304 (11.39%)</td>
+              <td>2,365 (88.61%)</td>
+              <td>4,726 (12.60%)</td>
+              <td>32,777 (87.40%)</td>
             </tr>
             <tr>
               <td>Species</td>
-              <td>17,977 (13.16%)</td>
-              <td>118,669 (86.84%)</td>
-              <td>811 (11.64%)</td>
-              <td>6,157 (88.36%)</td>
-              <td>18,788 (13.08%)</td>
-              <td>124,826 (86.92%)</td>
+              <td>19,798 (10.43%)</td>
+              <td>170,003 (89.57%)</td>
+              <td>888 (8.77%)</td>
+              <td>9,234 (91.23%)</td>
+              <td>20,686 (10.35%)</td>
+              <td>179,237 (89.65%)</td>
             </tr>
-
             </tbody>
           </template>
         </v-simple-table>
@@ -670,8 +686,8 @@
 
                 <template v-if="cdv_switch">
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/nomenclatural-per-rank-cvd.svg')"
-          :preview="require('~/assets/images/stats/r226/nomenclatural-per-rank-cvd.svg')"
+          :full="require('~/assets/images/stats/r232/nomenclatural-per-rank-cvd.svg')"
+          :preview="require('~/assets/images/stats/r232/nomenclatural-per-rank-cvd.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -679,8 +695,8 @@
       </template>
       <template v-else>
         <ImgToggle
-          :full="require('~/assets/images/stats/r226/nomenclatural-per-rank.svg')"
-          :preview="require('~/assets/images/stats/r226/nomenclatural-per-rank.svg')"
+          :full="require('~/assets/images/stats/r232/nomenclatural-per-rank.svg')"
+          :preview="require('~/assets/images/stats/r232/nomenclatural-per-rank.svg')"
           class="mt-2"
           preview-max-width="800px"
           preview-width="75%"
@@ -724,17 +740,17 @@ export default Vue.extend({
   components: {PhylumPd, StatsTitle, REDr220, SectionedPage, ImgToggle},
   head() {
     return {
-      title: 'R226 Statistics',
+      title: 'R232 Statistics',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `Statistics describing GTDB release R226.`
+          content: `Statistics describing GTDB release R232.`
         },
         {
           hid: 'keywords',
           name: 'keywords',
-          content: `R226, statistics, GTDB, release 226, stats`
+          content: `R232, statistics, GTDB, release 232, stats`
         }
       ]
     }
@@ -760,39 +776,54 @@ export default Vue.extend({
 
     phylumPdArc: [
   {
+   taxon: "AGJL01",
+   scaled: 0.34,
+   unscaled: 0.2
+  },
+  {
    taxon: "Aenigmatarchaeota",
-   scaled: 5.67,
-   unscaled: 6.21
+   scaled: 5.94,
+   unscaled: 7.18
   },
   {
    taxon: "Altiarchaeota",
-   scaled: 1.15,
-   unscaled: 1.03
+   scaled: 1.22,
+   unscaled: 1.13
   },
   {
    taxon: "Asgardarchaeota",
-   scaled: 4.13,
-   unscaled: 4.08
+   scaled: 3.92,
+   unscaled: 3.94
   },
   {
    taxon: "B1Sed10-29",
-   scaled: 0.99,
-   unscaled: 0.87
+   scaled: 0.94,
+   unscaled: 0.84
+  },
+  {
+   taxon: "CAYFZR01",
+   scaled: 0.03,
+   unscaled: 0.01
+  },
+  {
+   taxon: "CAYQAE01",
+   scaled: 0.18,
+   unscaled: 0.14
   },
   {
    taxon: "EX4484-52",
-   scaled: 0.74,
-   unscaled: 0.82
+   scaled: 0.6,
+   unscaled: 0.69
   },
   {
    taxon: "Hadarchaeota",
-   scaled: 0.92,
-   unscaled: 0.68
+   scaled: 1.09,
+   unscaled: 0.81
   },
   {
    taxon: "Halobacteriota",
-   scaled: 12.0,
-   unscaled: 9.14
+   scaled: 10.81,
+   unscaled: 7.72
   },
   {
    taxon: "Huberarchaeota",
@@ -801,13 +832,18 @@ export default Vue.extend({
   },
   {
    taxon: "Hydrothermarchaeota",
-   scaled: 0.8,
-   unscaled: 0.54
+   scaled: 0.73,
+   unscaled: 0.49
   },
   {
    taxon: "Iainarchaeota",
-   scaled: 2.93,
-   unscaled: 3.57
+   scaled: 3.03,
+   unscaled: 3.97
+  },
+  {
+   taxon: "JAADCQ01",
+   scaled: 0.04,
+   unscaled: 0.03
   },
   {
    taxon: "JACRDV01",
@@ -816,241 +852,229 @@ export default Vue.extend({
   },
   {
    taxon: "Korarchaeota",
-   scaled: 0.7,
-   unscaled: 0.71
+   scaled: 0.52,
+   unscaled: 0.56
   },
   {
    taxon: "Methanobacteriota",
-   scaled: 2.51,
-   unscaled: 1.73
+   scaled: 1.7,
+   unscaled: 1.01
   },
   {
    taxon: "Methanobacteriota_B",
-   scaled: 1.08,
-   unscaled: 0.72
+   scaled: 0.87,
+   unscaled: 0.62
   },
   {
    taxon: "Micrarchaeota",
-   scaled: 7.11,
-   unscaled: 9.5
+   scaled: 6.33,
+   unscaled: 8.74
   },
   {
    taxon: "Nanobdellota",
-   scaled: 21.43,
-   unscaled: 28.14
+   scaled: 24.39,
+   unscaled: 32.68
   },
   {
    taxon: "Nanohalarchaeota",
-   scaled: 0.67,
-   unscaled: 0.82
+   scaled: 0.71,
+   unscaled: 0.89
   },
   {
    taxon: "SpSt-1190",
-   scaled: 0.47,
-   unscaled: 0.49
+   scaled: 0.46,
+   unscaled: 0.46
   },
   {
    taxon: "Thermoplasmatota",
-   scaled: 13.52,
-   unscaled: 12.29
+   scaled: 11.95,
+   unscaled: 9.91
   },
   {
    taxon: "Thermoproteota",
-   scaled: 19.07,
-   unscaled: 18.02
+   scaled: 18.12,
+   unscaled: 17.01
   },
   {
    taxon: "Undinarchaeota",
-   scaled: 0.21,
-   unscaled: 0.18
+   scaled: 0.51,
+   unscaled: 0.42
   }
  ],
 
 phylumPdBac: [
-  {   taxon: "2-12-FULL-45-22",scaled: 0.01,unscaled: 0.01},
+    {   taxon: "2-12-FULL-45-22",scaled: 0.01,unscaled: 0.01},
   {   taxon: "4484-113",scaled: 0.04,unscaled: 0.04},
   {   taxon: "4572-55",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "ARS69",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "ARS69",scaled: 0.02,unscaled: 0.02},
   {   taxon: "AUK180",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Abyssobacteria",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Acidobacteriota",scaled: 3.48,unscaled: 2.84},
-  {   taxon: "Actinomycetota",scaled: 7.63,unscaled: 7.75},
-  {   taxon: "Aerophobota",scaled: 0.04,unscaled: 0.03},
-  {   taxon: "Aquificota",scaled: 0.15,unscaled: 0.14},
-  {   taxon: "Arandabacterota",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Armatimonadota",scaled: 0.68,unscaled: 0.65},
+  {   taxon: "Abyssobacteria",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "Acidobacteriota",scaled: 4.28,unscaled: 3.13},
+  {   taxon: "Actinomycetota",scaled: 7.88,unscaled: 8.01},
+  {   taxon: "Aerophobota",scaled: 0.05,unscaled: 0.04},
+  {   taxon: "Aquificota",scaled: 0.12,unscaled: 0.12},
+  {   taxon: "Arandabacterota",scaled: 0.04,unscaled: 0.02},
+  {   taxon: "Armatimonadota",scaled: 0.75,unscaled: 0.73},
   {   taxon: "Atribacterota",scaled: 0.09,unscaled: 0.07},
-  {   taxon: "Auribacterota",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "Auribacterota",scaled: 0.19,unscaled: 0.12},
   {   taxon: "B130-G9",scaled: 0.01,unscaled: 0.01},
   {   taxon: "BMS3Abin14",scaled: 0.03,unscaled: 0.02},
   {   taxon: "BS750m-G25",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "Babelota",scaled: 0.26,unscaled: 0.31},
-  {   taxon: "Bacillota",scaled: 15.61,unscaled: 17.57},
-  {   taxon: "Bacteroidota",scaled: 8.66,unscaled: 9.54},
-  {   taxon: "Bacteroidota_A",scaled: 1.41,unscaled: 1.22},
-  {   taxon: "Bdellovibrionota",scaled: 0.76,unscaled: 0.75},
-  {   taxon: "Bdellovibrionota_B",scaled: 0.33,unscaled: 0.32},
-  {   taxon: "Bdellovibrionota_F",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "Bdellovibrionota_G",scaled: 0.04,unscaled: 0.03},
-  {   taxon: "Bipolaricaulota",scaled: 0.14,unscaled: 0.13},
-  {   taxon: "Blakebacterota",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "Babelota",scaled: 0.33,unscaled: 0.41},
+  {   taxon: "Bacillota",scaled: 13.16,unscaled: 12.79},
+  {   taxon: "Bacillota_I",scaled: 2.66,unscaled: 3.28},
+  {   taxon: "Bacteroidota",scaled: 7.59,unscaled: 9.03},
+  {   taxon: "Bdellovibrionota",scaled: 0.86,unscaled: 0.81},
+  {   taxon: "Bdellovibrionota_B",scaled: 0.16,unscaled: 0.18},
+  {   taxon: "Bdellovibrionota_C",scaled: 0.18,unscaled: 0.19},
+  {   taxon: "Bdellovibrionota_F",scaled: 0.02,unscaled: 0.02},
+  {   taxon: "Bdellovibrionota_G",scaled: 0.05,unscaled: 0.04},
+  {   taxon: "Bipolaricaulota",scaled: 0.15,unscaled: 0.16},
+  {   taxon: "Blakebacterota",scaled: 0.02,unscaled: 0.01},
   {   taxon: "CAIJMQ01",scaled: 0.02,unscaled: 0.02},
   {   taxon: "CAIWAD01",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "CAKKQC01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "CALINM01",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "CG03",scaled: 0.05,unscaled: 0.04},
-  {   taxon: "CG2-30-53-67",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "CG2-30-70-394",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "CLD3",scaled: 0.03,unscaled: 0.03},
-  {   taxon: "CSSED10-310",scaled: 0.05,unscaled: 0.03},
-  {   taxon: "Caldisericota",scaled: 0.09,unscaled: 0.08},
-  {   taxon: "Calditrichota",scaled: 0.11,unscaled: 0.07},
+  {   taxon: "CAYJOG01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "CAYJRR01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "CAYMEV01",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "CAYSBA01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "CAYTYR01",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "CAYUVA01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "CAZDME01",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "CAZSTA01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "CAZTWC01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "CBDUZB01",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "CG03",scaled: 0.05,unscaled: 0.06},
+  {   taxon: "CG2-30-53-67",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "CLD3",scaled: 0.04,unscaled: 0.03},
+  {   taxon: "CSSED10-310",scaled: 0.05,unscaled: 0.04},
+  {   taxon: "Caldisericota",scaled: 0.1,unscaled: 0.1},
+  {   taxon: "Calditrichota",scaled: 0.14,unscaled: 0.08},
   {   taxon: "Calescibacteriota",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Campylobacterota",scaled: 0.77,unscaled: 0.8},
-  {   taxon: "Chlamydiota",scaled: 0.56,unscaled: 0.63},
-  {   taxon: "Chloroflexota",scaled: 4.02,unscaled: 4.03},
-  {   taxon: "Chrysiogenota",scaled: 0.09,unscaled: 0.08},
-  {   taxon: "Cloacimonadota",scaled: 0.23,unscaled: 0.21},
-  {   taxon: "Coprothermobacterota",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "Cyanobacteriota",scaled: 1.59,unscaled: 1.34},
-  {   taxon: "DAOPZR01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "Campylobacterota",scaled: 0.59,unscaled: 0.61},
+  {   taxon: "Campylobacterota_A",scaled: 0.05,unscaled: 0.04},
+  {   taxon: "Chlamydiota",scaled: 0.61,unscaled: 0.68},
+  {   taxon: "Chloroflexota",scaled: 4.5,unscaled: 4.61},
+  {   taxon: "Chrysiogenota",scaled: 0.08,unscaled: 0.06},
+  {   taxon: "Cloacimonadota",scaled: 0.22,unscaled: 0.19},
+  {   taxon: "Coprothermobacterota",scaled: 0.03,unscaled: 0.03},
+  {   taxon: "Cyanobacteriota",scaled: 1.4,unscaled: 1.02},
+  {   taxon: "DAOPZR01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "DASVDK01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "DRYD01",scaled: 0.02,unscaled: 0.02},
   {   taxon: "DUMJ01",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "DYJV01",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "DYJV01",scaled: 0.02,unscaled: 0.01},
   {   taxon: "Deinococcota",scaled: 0.19,unscaled: 0.18},
   {   taxon: "Desantisbacteria",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Desulfobacterota",scaled: 2.7,unscaled: 2.03},
-  {   taxon: "Desulfobacterota_B",scaled: 0.33,unscaled: 0.25},
-  {   taxon: "Desulfobacterota_C",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "Desulfobacterota",scaled: 3.81,unscaled: 2.51},
   {   taxon: "Desulfobacterota_D",scaled: 0.1,unscaled: 0.08},
-  {   taxon: "Desulfobacterota_E",scaled: 0.06,unscaled: 0.04},
-  {   taxon: "Desulfobacterota_G",scaled: 0.07,unscaled: 0.05},
-  {   taxon: "Desulfobacterota_I",scaled: 0.45,unscaled: 0.37},
-  {   taxon: "Dictyoglomota",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "Edwardsbacteria",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Eisenbacteria",scaled: 0.19,unscaled: 0.15},
-  {   taxon: "Electryoneota",scaled: 0.12,unscaled: 0.1},
+  {   taxon: "Dictyoglomota",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "Edwardsbacteria",scaled: 0.04,unscaled: 0.02},
+  {   taxon: "Eisenbacteria",scaled: 0.26,unscaled: 0.2},
+  {   taxon: "Electryoneota",scaled: 0.14,unscaled: 0.11},
   {   taxon: "Elusimicrobiota",scaled: 0.48,unscaled: 0.47},
-  {   taxon: "FCPU426",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "Fermentibacterota",scaled: 0.07,unscaled: 0.06},
-  {   taxon: "Fibrobacterota",scaled: 0.21,unscaled: 0.19},
-  {   taxon: "Firestonebacteria",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Fusobacteriota",scaled: 0.12,unscaled: 0.11},
+  {   taxon: "Fermentibacterota",scaled: 0.06,unscaled: 0.06},
+  {   taxon: "Fibrobacterota",scaled: 0.22,unscaled: 0.21},
+  {   taxon: "Fidelibacterota",scaled: 0.36,unscaled: 0.3},
+  {   taxon: "Fusobacteriota",scaled: 0.12,unscaled: 0.1},
   {   taxon: "GCA-001730085",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "GCA-2686955",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Gemmatimonadota",scaled: 1.15,unscaled: 1.04},
-  {   taxon: "Goldbacteria",scaled: 0.03,unscaled: 0.03},
-  {   taxon: "Hinthialibacterota",scaled: 0.06,unscaled: 0.05},
-  {   taxon: "Hydrogenedentota",scaled: 0.16,unscaled: 0.12},
-  {   taxon: "J088",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "GCA-2686955",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "Gemmatimonadota",scaled: 1.24,unscaled: 0.97},
+  {   taxon: "Hinthialibacterota",scaled: 0.07,unscaled: 0.05},
+  {   taxon: "Hydrogenedentota",scaled: 0.17,unscaled: 0.13},
+  {   taxon: "Hydrothermota",scaled: 0.35,unscaled: 0.33},
+  {   taxon: "J088",scaled: 0.02,unscaled: 0.02},
   {   taxon: "JAAXHH01",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "JAAXVQ01",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "JABMQX01",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "JACPFL01",scaled: 0.0,unscaled: 0.0},
   {   taxon: "JACPQY01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "JACPSX01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "JACPUC01",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "JACPWU01",scaled: 0.02,unscaled: 0.01},
   {   taxon: "JACQOV01",scaled: 0.0,unscaled: 0.0},
   {   taxon: "JACRDZ01",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "JADFOP01",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "JADJOY01",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "JAFGBW01",scaled: 0.02,unscaled: 0.02},
+  {   taxon: "JADFOP01",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "JADJOY01",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "JAEEML01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "JAFGKV01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "JAFGND01",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "JAFGOL01",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "JAGOBX01",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "JAGOEH01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "JAGOBX01",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "JAGOEH01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "JAGRBM01",scaled: 0.02,unscaled: 0.01},
   {   taxon: "JAHJDO01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "JAJRZV01",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "JAJVIF01",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "JAJYCY01",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "JAKLEM01",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "JAJVIF01",scaled: 0.03,unscaled: 0.03},
   {   taxon: "JALSQH01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "JAMCPX01",scaled: 0.03,unscaled: 0.02},
   {   taxon: "JAMORN01",scaled: 0.0,unscaled: 0.0},
   {   taxon: "JAMOTN01",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "JANLFM01",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "JAPLJL01",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "JAUVQV01",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "JAUXIB01",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "JAUXIQ01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "JAUVQV01",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "JAUXIQ01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "JAUYMQ01",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "JAWLBW01",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "JAZFTZ01",scaled: 0.0,unscaled: 0.0},
   {   taxon: "JBBIVP01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "JBDRGX01",scaled: 0.0,unscaled: 0.0},
   {   taxon: "JBFMHD01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "JBHIER01",scaled: 0.01,unscaled: 0.01},
   {   taxon: "Joyebacterota",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Krumholzibacteriota",scaled: 0.18,unscaled: 0.15},
-  {   taxon: "Latescibacterota",scaled: 0.14,unscaled: 0.1},
+  {   taxon: "Krumholzibacteriota",scaled: 0.23,unscaled: 0.17},
+  {   taxon: "LJUI01",scaled: 0.0,unscaled: 0.0},
+  {   taxon: "Latescibacterota",scaled: 0.17,unscaled: 0.13},
   {   taxon: "Lernaellota",scaled: 0.04,unscaled: 0.03},
   {   taxon: "Lindowbacteria",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Lithacetigenota",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Margulisbacteria",scaled: 0.26,unscaled: 0.24},
-  {   taxon: "Marinisomatota",scaled: 0.37,unscaled: 0.32},
-  {   taxon: "Mcinerneyibacteriota",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Methylomirabilota",scaled: 0.18,unscaled: 0.13},
+  {   taxon: "Macinerneyibacteriota",scaled: 0.02,unscaled: 0.02},
+  {   taxon: "Margulisbacteria",scaled: 0.3,unscaled: 0.25},
+  {   taxon: "Methylomirabilota",scaled: 0.21,unscaled: 0.13},
   {   taxon: "Moduliflexota",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "Muiribacteriota",scaled: 0.11,unscaled: 0.1},
-  {   taxon: "Myxococcota",scaled: 1.71,unscaled: 1.56},
-  {   taxon: "Myxococcota_A",scaled: 0.23,unscaled: 0.19},
-  {   taxon: "NPL-UPA2",scaled: 0.04,unscaled: 0.03},
-  {   taxon: "Nitrospinota",scaled: 0.18,unscaled: 0.14},
-  {   taxon: "Nitrospirota",scaled: 0.75,unscaled: 0.58},
-  {   taxon: "Nitrospirota_A",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Nitrospirota_B",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "Omnitrophota",scaled: 1.11,unscaled: 1.04},
-  {   taxon: "Orphanbacterota",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "PUNC01",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "Patescibacteriota",scaled: 7.85,unscaled: 11.18},
-  {   taxon: "Planctomycetota",scaled: 3.63,unscaled: 3.71},
-  {   taxon: "Poribacteria",scaled: 0.12,unscaled: 0.08},
-  {   taxon: "Pseudomonadota",scaled: 19.3,unscaled: 19.18},
-  {   taxon: "RBG-13-61-14",scaled: 0.02,unscaled: 0.02},
+  {   taxon: "Muiribacteriota",scaled: 0.13,unscaled: 0.11},
+  {   taxon: "Myxococcota",scaled: 0.48,unscaled: 0.37},
+  {   taxon: "Myxococcota_A",scaled: 1.6,unscaled: 1.53},
+  {   taxon: "Myxococcota_C",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "NPL-UPA2",scaled: 0.05,unscaled: 0.03},
+  {   taxon: "Nitrospinota",scaled: 0.11,unscaled: 0.07},
+  {   taxon: "Nitrospinota_A",scaled: 0.09,unscaled: 0.05},
+  {   taxon: "Nitrospirota",scaled: 0.79,unscaled: 0.52},
+  {   taxon: "Oederibacteriota",scaled: 0.18,unscaled: 0.13},
+  {   taxon: "Omnitrophota",scaled: 1.33,unscaled: 1.17},
+  {   taxon: "Orphanbacterota",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "Patescibacteriota",scaled: 9.85,unscaled: 15.66},
+  {   taxon: "Planctomycetota",scaled: 3.77,unscaled: 4.44},
+  {   taxon: "Poribacteria",scaled: 0.12,unscaled: 0.09},
+  {   taxon: "Pseudomonadota",scaled: 17.34,unscaled: 15.94},
+  {   taxon: "RBG-13-61-14",scaled: 0.04,unscaled: 0.03},
   {   taxon: "RBG-13-66-14",scaled: 0.05,unscaled: 0.04},
-  {   taxon: "RUG730",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "Ratteibacteria",scaled: 0.08,unscaled: 0.07},
-  {   taxon: "SAR324",scaled: 0.12,unscaled: 0.1},
-  {   taxon: "SM23-31",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "SZUA-182",scaled: 0.04,unscaled: 0.03},
-  {   taxon: "SZUA-79",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "RUG730",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "Ratteibacteria",scaled: 0.08,unscaled: 0.08},
+  {   taxon: "SAR324",scaled: 0.1,unscaled: 0.11},
+  {   taxon: "SDB-A",scaled: 0.01,unscaled: 0.01},
+  {   taxon: "SM23-31",scaled: 0.04,unscaled: 0.02},
+  {   taxon: "SM23-81",scaled: 0.02,unscaled: 0.01},
+  {   taxon: "SZUA-182",scaled: 0.05,unscaled: 0.03},
+  {   taxon: "SZUA-79",scaled: 0.02,unscaled: 0.02},
   {   taxon: "Schekmanbacteria",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "Spirochaetota",scaled: 1.35,unscaled: 1.48},
-  {   taxon: "Sumerlaeota",scaled: 0.15,unscaled: 0.12},
-  {   taxon: "Synergistota",scaled: 0.26,unscaled: 0.23},
-  {   taxon: "Sysuimicrobiota",scaled: 0.11,unscaled: 0.08},
-  {   taxon: "T1SED10-198M",scaled: 0.0,unscaled: 0.0},
-  {   taxon: "T1Sed10-126",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "TA06",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "TA06_A",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Tectomicrobia",scaled: 0.02,unscaled: 0.02},
+  {   taxon: "Spirochaetota",scaled: 1.42,unscaled: 1.53},
+  {   taxon: "Sumerlaeota",scaled: 0.17,unscaled: 0.14},
+  {   taxon: "Synergistota",scaled: 0.21,unscaled: 0.19},
+  {   taxon: "Sysuimicrobiota",scaled: 0.1,unscaled: 0.07},
+  {   taxon: "T1Sed10-126",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "Tectomicrobia",scaled: 0.03,unscaled: 0.02},
   {   taxon: "Thermodesulfobiota",scaled: 0.01,unscaled: 0.01},
   {   taxon: "Thermosulfidibacterota",scaled: 0.03,unscaled: 0.02},
-  {   taxon: "Thermotogota",scaled: 0.16,unscaled: 0.15},
-  {   taxon: "UBA10199",scaled: 0.18,unscaled: 0.13},
-  {   taxon: "UBA1439",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "Thermotogota",scaled: 0.13,unscaled: 0.13},
+  {   taxon: "UBA10199",scaled: 0.2,unscaled: 0.13},
   {   taxon: "UBA2233",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "UBA3054",scaled: 0.03,unscaled: 0.02},
   {   taxon: "UBA4055",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "UBA6262",scaled: 0.04,unscaled: 0.03},
-  {   taxon: "UBA6266",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "UBA8248",scaled: 0.03,unscaled: 0.03},
+  {   taxon: "UBA6262",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "UBA8248",scaled: 0.05,unscaled: 0.04},
   {   taxon: "UBA8481",scaled: 0.02,unscaled: 0.01},
   {   taxon: "UBA9089",scaled: 0.06,unscaled: 0.04},
   {   taxon: "UBP13",scaled: 0.01,unscaled: 0.01},
-  {   taxon: "UBP14",scaled: 0.05,unscaled: 0.04},
-  {   taxon: "UBP15",scaled: 0.03,unscaled: 0.02},
+  {   taxon: "UBP14",scaled: 0.06,unscaled: 0.05},
+  {   taxon: "UBP15",scaled: 0.03,unscaled: 0.03},
   {   taxon: "UBP18",scaled: 0.01,unscaled: 0.01},
   {   taxon: "UBP4",scaled: 0.02,unscaled: 0.01},
-  {   taxon: "UBP6",scaled: 0.04,unscaled: 0.04},
+  {   taxon: "UBP6",scaled: 0.05,unscaled: 0.04},
   {   taxon: "UBP7",scaled: 0.02,unscaled: 0.02},
-  {   taxon: "Verrucomicrobiota",scaled: 2.93,unscaled: 2.85},
-  {   taxon: "Vulcanimicrobiota",scaled: 0.3,unscaled: 0.26},
-  {   taxon: "WOR-3",scaled: 0.33,unscaled: 0.31},
-  {   taxon: "Zhuqueibacterota",scaled: 0.23,unscaled: 0.16},
-  {   taxon: "Zixibacteria",scaled: 0.3,unscaled: 0.24
-  }
+  {   taxon: "Verrucomicrobiota",scaled: 3.01,unscaled: 2.84},
+  {   taxon: "Vulcanimicrobiota",scaled: 0.34,unscaled: 0.26},
+  {   taxon: "Zhuqueibacterota",scaled: 0.28,unscaled: 0.16},
+  {   taxon: "Zixibacteria",scaled: 0.35,unscaled: 0.25}
  ],
 
 
