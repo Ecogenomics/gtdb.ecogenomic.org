@@ -144,7 +144,7 @@
               <td>4,416</td>
             </tr>
             <tr>
-              <td>R9-RS220</td>
+              <td>R09-RS220</td>
               <td>584,382</td>
               <td>12,477</td>
               <td>107,235</td>
@@ -165,7 +165,7 @@
               <td>10,122</td>
             </tr>
             <tr>
-              <td><b>Growth from R09-RS220</b></td>
+              <td><b>Growth from R10-RS226</b></td>
               <td>22.90%</td>
               <td>29.56%</td>
               <td>38.90%</td>
