@@ -8,12 +8,12 @@
         <v-card class="pos-fixed-md" style="width: 400px;">
           <v-card-title class="d-flex">
             <div class="d-flex mx-auto text-h5">
-              {{ gid }}
+              {{ hasLoaded ? gid : 'Loading...' }}
             </div>
           </v-card-title>
           <v-card-subtitle class="d-flex">
             <div class="d-flex mx-auto text-h6">
-              <template v-if="genomeCard.metadataTaxonomy">
+              <template v-if="hasLoaded && genomeCard.metadataTaxonomy">
                 <template
                   v-if="genomeCard.metadataTaxonomy.gtdbPhylum && genomeCard.metadataTaxonomy.gtdbPhylum !== 'p__'">
                   <template v-if="genomeCard.metadataTaxonomy.gtdbSpecies !== 's__'">
@@ -46,7 +46,7 @@
               <div class="d-flex mx-auto flex-wrap">
 
                 <!-- Name -->
-                <template v-if="genomeCard.metadataTaxonomy">
+                <template v-if="hasLoaded && genomeCard.metadataTaxonomy">
 
                   <!-- Source badge -->
                   <BadgeWithTooltip
@@ -153,11 +153,20 @@
               :genome-card="genomeCard"
               class="mt-5"
             />
-            <GenomeTaxonHistory
-              ref="taxon-history"
-              :accession="gid"
-              class="mt-5"
-            />
+            <template v-if="hasLoaded">
+              <GenomeTaxonHistory
+                ref="taxon-history"
+                :accession="gid"
+                class="mt-5"
+              />
+            </template>
+            <template v-else>
+              <v-skeleton-loader
+                class="mt-2"
+                min-width="200px"
+                type="table"
+              ></v-skeleton-loader>
+            </template>
           </v-card-text>
         </v-card>
       </v-col>
@@ -227,6 +236,7 @@ export default Vue.extend({
       this.genomeCard = {} as GenomeCard;
       this.$api.genome.getCard(this.gid).then(response => {
         this.genomeCard = response.data;
+        this.hasLoaded = true;
       }).catch((err) => {
         this.$accessor.api.defaultCatch(err);
       })
@@ -283,6 +293,7 @@ export default Vue.extend({
     mdiArrowCollapseRightSvg: mdiArrowCollapseRight,
 
     gid: 'Loading...',
+    hasLoaded: false,
 
     // The base model
     genomeCard: {} as GenomeCard,

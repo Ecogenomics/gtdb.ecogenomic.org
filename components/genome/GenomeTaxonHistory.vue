@@ -89,7 +89,6 @@
             <td>
               <template v-if="item.p && item.p.length > 3">
                 <nuxt-link :to="getHistUrl(item.p, item.release)">{{ item.p }}</nuxt-link>
-                {{ item }}
               </template>
               <template v-else>
                 {{ item.p }}
