@@ -11,8 +11,8 @@
 <!--        <NotifyBar uid="qcif-maintenance-2026-02-26">-->
 <!--          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-02-26T00:00:00Z") }} and {{ formatMaintenanceTime("2026-02-26T02:00:00Z") }}. The website will be unavailable during this time. ***-->
 <!--        </NotifyBar>-->
-                <NotifyBar uid="r232-dev-1">
-                  *** Database connectors updated to use R232 database. WEB database is being updated (i.e. tree + tax history) ***
+                <NotifyBar uid="r232">
+                  *** GTDB Release 232 is now available 🎉 ***
                 </NotifyBar>
       </div>
 
@@ -166,7 +166,7 @@ export default Vue.extend({
     /* Summary stats */
     nGenomes: 901341,
     releaseVer: '11-RS232',
-    releaseDate: 'XXXth April 2026',
+    releaseDate: '15th April 2026',
   }),
   methods: {
     formatMaintenanceTime(isoString: string) {
