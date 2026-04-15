@@ -1,3 +1,16 @@
+# [2.51.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.50.0...v2.51.0) (2026-04-15)
+
+
+### Features
+
+* **R232:** Fix genome page not displaying taxon history on navigation from /tree. ([943c65e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/943c65e2c7a1f4f128a76eaf860951f4dc028e54))
+* **R232:** Temporarily disable SandPiper on tree.vue. ([98bfbb8](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/98bfbb856fb98e5b416b04216954416ad08d3ad8))
+* **R232:** Update current release info. ([31e31cf](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/31e31cfcbb41b59421a73c94e984e76433e7e7ab))
+* **R232:** Update release date. ([70287b5](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/70287b584ef68ced272f30f873073f061004e4d3))
+* **R232:** WIP ([98cc368](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/98cc368a28d5666f4e468a294711031c2e802ee1))
+* **Update R232 Stats page:** R232 has now been updated ([58ecdb2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/58ecdb2b45abccf71e1635d776a86f2e44edc866))
+* **Update R232 Stats page:** Update growth rate table ([dcc4858](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/dcc4858b69ea00a5d543ae76930d406b9854be2f))
+
 # [2.50.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.49.0...v2.50.0) (2026-03-03)
 
 
