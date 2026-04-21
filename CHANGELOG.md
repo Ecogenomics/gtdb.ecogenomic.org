@@ -1,3 +1,10 @@
+## [2.51.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.51.0...v2.51.1) (2026-04-21)
+
+
+### Bug Fixes
+
+* **downloads:** Remove reference to previous maintenance period. ([32350bf](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/32350bfa45adfb9c9d4c6c54cb2ca07e71621404))
+
 # [2.51.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.50.0...v2.51.0) (2026-04-15)
 
 
