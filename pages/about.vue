@@ -403,6 +403,8 @@
                 <i>Bioinformatics</i>, <b>btz848</b>: https://doi.org/10.1093/bioinformatics/btz848.
               </li>
             </ul>
+
+            <p>A full list of GTDB manuscripts can be found on <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AIqSsVtMCu2uowhhZrOjFC9VQfJfspuV4gg6KOT6NLB1gH8sp2-CFlYb1ALmXIpLvtrZcvPfJH9eCcVcBYUM-vnAz-hGhSpbJIEIo2GsQzA&user=QnGlHm4AAAAJ" target="_blank">Google Scholar</a></p>
           </v-card-text>
         </v-card>
 
