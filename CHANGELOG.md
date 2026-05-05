@@ -1,3 +1,10 @@
+# [2.52.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.51.1...v2.52.0) (2026-05-05)
+
+
+### Features
+
+* **about:** Add link to Google Scholar profile. ([6f576e9](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6f576e9e582cc63633b5c2a91e5b3fc79b17c2a8))
+
 ## [2.51.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.51.0...v2.51.1) (2026-04-21)
 
 
