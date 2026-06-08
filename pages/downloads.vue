@@ -61,6 +61,11 @@
               <td><a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/" target="_blank">https://data.ace.uq.edu.au/public/gtdb/data/releases/</a></td>
               <td>Worldwide</td>
             </tr>
+            <tr>
+              <td>Worldwide</td>
+              <td><a href="https://academictorrents.com/details/642f971d1229cbf0cbe1de5903c969fb82cc4365" target="_blank">https://academictorrents.com/details/642f971d1229cbf0cbe1de5903c969fb82cc4365</a></td>
+              <td>Torrent users</td>
+            </tr>
             </tbody>
           </template>
         </v-simple-table>
