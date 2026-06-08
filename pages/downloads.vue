@@ -63,7 +63,7 @@
             </tr>
             <tr>
               <td>Worldwide</td>
-              <td><a href="https://academictorrents.com/details/642f971d1229cbf0cbe1de5903c969fb82cc4365" target="_blank">https://academictorrents.com/details/642f971d1229cbf0cbe1de5903c969fb82cc4365</a></td>
+              <td><a href="https://academictorrents.com/collection/genome-taxonomy-database-gtdb" target="_blank">https://academictorrents.com/collection/genome-taxonomy-database-gtdb</a></td>
               <td>Torrent users</td>
             </tr>
             </tbody>
