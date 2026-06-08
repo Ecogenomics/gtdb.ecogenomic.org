@@ -1,3 +1,10 @@
+# [2.55.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.54.0...v2.55.0) (2026-06-08)
+
+
+### Features
+
+* **downloads:** Add torrent link. ([1b13963](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/1b13963f7aa15ae0c4a7cbf33e3648f152728a9f))
+
 # [2.54.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.53.0...v2.54.0) (2026-06-08)
 
 
