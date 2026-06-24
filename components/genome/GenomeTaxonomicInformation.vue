@@ -52,7 +52,7 @@
 
         <!-- Filtered NCBI taxonomy -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col">Filtered NCBI Taxonomy </td>
+          <td class="gtdb-green-bg-table first-table-col">Filtered NCBI Taxonomy</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
@@ -263,6 +263,43 @@
             </td>
           </template>
         </tr>
+
+        <!-- Synonyms -->
+        <tr>
+          <td class="gtdb-green-bg-table first-table-col rounded-bl">Synonyms</td>
+          <template v-if="isLoading">
+            <td>
+              <v-skeleton-loader
+                type="text"
+              ></v-skeleton-loader>
+            </td>
+          </template>
+          <template v-else>
+            <td>
+            <!-- Synonym to display -->
+            <template v-if="!genomeCard.metadataTaxonomy.synonyms != null">
+              <v-chip
+                v-for="(synonym, index) in genomeCard.metadataTaxonomy.synonyms"
+                :key="index"
+                small
+              >
+                {{ synonym }}
+              </v-chip>
+            </template>
+
+            <!-- No synonym to display -->
+            <template v-else>
+              <v-chip
+                small
+              >
+                N/A
+              </v-chip>
+            </template>
+            </td>
+          </template>
+        </tr>
+
+
         </tbody>
       </v-simple-table>
     </v-card-text>
@@ -299,6 +336,7 @@ export default Vue.extend({
 .first-table-col {
   width: 250px !important;
 }
+
 a:hover {
   font-weight: bold;
 }
