@@ -208,14 +208,20 @@
           </template>
           <template v-else>
             <td v-if="genomeCard.gtdbTypeDesignation">
-              {{ genomeCard.gtdbTypeDesignation }}
+              <v-chip small>
+                {{ genomeCard.gtdbTypeDesignation }}
+              </v-chip>
               <template
                 v-if="genomeCard.metadata_type_material && genomeCard.metadata_type_material.gtdbTypeSpeciesOfGenus === true">
-                ; type species of genus
+                <v-chip small>
+                  type species of genus
+                </v-chip>
               </template>
             </td>
             <td v-else>
-              not type material
+              <v-chip small>
+                not type material
+              </v-chip>
             </td>
           </template>
         </tr>
