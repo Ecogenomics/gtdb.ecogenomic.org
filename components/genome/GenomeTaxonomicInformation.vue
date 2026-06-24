@@ -222,7 +222,7 @@
 
         <!-- GTDB representative of species -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col rounded-bl">GTDB Representative of Species</td>
+          <td class="gtdb-green-bg-table first-table-col">GTDB Representative of Species</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
