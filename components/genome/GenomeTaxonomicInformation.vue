@@ -283,7 +283,7 @@
           <template v-else>
             <td>
             <!-- Synonym to display -->
-            <template v-if="!genomeCard.metadataTaxonomy.synonyms != null">
+            <template v-if="genomeCard.metadataTaxonomy.synonyms != null && genomeCard.metadataTaxonomy.synonyms.length > 0">
               <v-chip
                 v-for="(synonym, index) in genomeCard.metadataTaxonomy.synonyms"
                 :key="index"
