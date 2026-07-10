@@ -1,3 +1,10 @@
+## [2.55.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.55.0...v2.55.1) (2026-07-10)
+
+
+### Bug Fixes
+
+* **maintenance:** Add maintenance window. ([950631e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/950631e4d3c1dd33172f8a7c72e99c303436f4c2))
+
 # [2.55.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.54.0...v2.55.0) (2026-06-08)
 
 
