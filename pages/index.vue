@@ -8,12 +8,12 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-<!--        <NotifyBar uid="qcif-maintenance-2026-02-26">-->
-<!--          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-02-26T00:00:00Z") }} and {{ formatMaintenanceTime("2026-02-26T02:00:00Z") }}. The website will be unavailable during this time. ***-->
-<!--        </NotifyBar>-->
-                <NotifyBar uid="r232">
-                  *** GTDB Release 232 is now available 🎉 ***
-                </NotifyBar>
+        <NotifyBar uid="ardc-maintenance-2026-07-10">
+          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-07-10T05:00:00Z") }} and {{ formatMaintenanceTime("2026-07-10T09:00:00Z") }}. The website will be unavailable during this time. ***
+        </NotifyBar>
+        <NotifyBar uid="r232">
+          *** GTDB Release 232 is now available 🎉 ***
+        </NotifyBar>
       </div>
 
       <!-- First row -->
