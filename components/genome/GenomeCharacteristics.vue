@@ -63,7 +63,7 @@
 
         <!-- Archaeal marker summary -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col">AR53 markers</td>
+          <td class="gtdb-green-bg-table first-table-col">Archaeal Markers (ar53)</td>
           <td>
             <!-- Display when loading -->
             <template v-if="isLoading">
@@ -136,7 +136,7 @@
 
         <!-- Bacterial marker summary -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col">BAC120 markers</td>
+          <td class="gtdb-green-bg-table first-table-col">Bacterial Markers (bac120)</td>
           <td>
             <!-- Display when loading -->
             <template v-if="isLoading">
@@ -496,7 +496,7 @@
         <template
           v-if="!isLoading && genomeCard.metadataTaxonomy.gtdb_representative && genomeCard.metadataTaxonomy.gtdb_genome_representative">
           <tr>
-            <td class="gtdb-green-bg-table first-table-col">GTDB representative</td>
+            <td class="gtdb-green-bg-table first-table-col">GTDB Representative</td>
 
             <template v-if="genomeCard.metadataTaxonomy.gtdb_genome_representative == null">
               <NullChip/>
@@ -531,7 +531,7 @@
         </template>
 
         <tr>
-          <td class="gtdb-green-bg-table first-table-col rounded-bl">GTDB representative of species</td>
+          <td class="gtdb-green-bg-table first-table-col rounded-bl">GTDB Representative of Species</td>
           <td >
             <template v-if="isLoading">
               <v-skeleton-loader

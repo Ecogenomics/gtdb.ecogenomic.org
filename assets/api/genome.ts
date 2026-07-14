@@ -93,6 +93,7 @@ export interface GenomeMetadataTaxonomy {
   gtdb_representative: boolean
   gtdb_genome_representative: string
   ncbi_type_material_designation: string | null,
+  synonyms: string[] | null
 }
 
 export interface GenomeNcbiTaxon {

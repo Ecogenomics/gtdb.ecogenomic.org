@@ -52,7 +52,7 @@
 
         <!-- Filtered NCBI taxonomy -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col">Filtered NCBI Taxonomy </td>
+          <td class="gtdb-green-bg-table first-table-col">Filtered NCBI Taxonomy</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
@@ -178,7 +178,7 @@
 
         <!-- NCBI Strain Identifiers -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col"> NCBI strain identifiers</td>
+          <td class="gtdb-green-bg-table first-table-col"> NCBI Strain Identifiers</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
@@ -208,21 +208,27 @@
           </template>
           <template v-else>
             <td v-if="genomeCard.gtdbTypeDesignation">
-              {{ genomeCard.gtdbTypeDesignation }}
+              <v-chip small>
+                {{ genomeCard.gtdbTypeDesignation }}
+              </v-chip>
               <template
                 v-if="genomeCard.metadata_type_material && genomeCard.metadata_type_material.gtdbTypeSpeciesOfGenus === true">
-                ; type species of genus
+                <v-chip small>
+                  type species of genus
+                </v-chip>
               </template>
             </td>
             <td v-else>
-              not type material
+              <v-chip small>
+                not type material
+              </v-chip>
             </td>
           </template>
         </tr>
 
         <!-- GTDB representative of species -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col rounded-bl">GTDB Representative of Species</td>
+          <td class="gtdb-green-bg-table first-table-col">GTDB Representative of Species</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
@@ -263,6 +269,56 @@
             </td>
           </template>
         </tr>
+
+        <!-- Synonyms -->
+        <tr>
+          <td class="gtdb-green-bg-table first-table-col rounded-bl">GTDB Synonyms</td>
+          <template v-if="isLoading">
+            <td>
+              <v-skeleton-loader
+                type="text"
+              ></v-skeleton-loader>
+            </td>
+          </template>
+          <template v-else>
+            <td>
+            <!-- Synonym to display -->
+            <template v-if="genomeCard.metadataTaxonomy.synonyms != null && genomeCard.metadataTaxonomy.synonyms.length > 0">
+              <v-chip
+                v-for="(synonym, index) in genomeCard.metadataTaxonomy.synonyms"
+                :key="index"
+                class="mr-1"
+                small
+              >
+                {{ synonym }}
+              </v-chip>
+              <v-tooltip bottom max-width="400px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    small
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    {{ mdiHelpCircleSvg }}
+                  </v-icon>
+                </template>
+                <span>Validated names merged during ANI-based species clustering, typically because type strains share >=97% ANI.</span>
+              </v-tooltip>
+            </template>
+
+            <!-- No synonym to display -->
+            <template v-else>
+              <v-chip
+                small
+              >
+                N/A
+              </v-chip>
+            </template>
+            </td>
+          </template>
+        </tr>
+
+
         </tbody>
       </v-simple-table>
     </v-card-text>
@@ -274,9 +330,10 @@ import Vue, {PropType} from 'vue';
 import {GenomeCard} from "~/assets/api/genome";
 import GenomeDialogTaxInfo from "~/components/genome/GenomeDialogTaxInfo.vue";
 import {mdiHelpCircle} from "@mdi/js";
+import BadgeWithTooltip from "~/components/util/BadgeWithTooltip.vue";
 
 export default Vue.extend({
-  components: {GenomeDialogTaxInfo},
+  components: {BadgeWithTooltip, GenomeDialogTaxInfo},
   props: {
     genomeCard: {
       type: Object as PropType<GenomeCard>,
@@ -299,6 +356,7 @@ export default Vue.extend({
 .first-table-col {
   width: 250px !important;
 }
+
 a:hover {
   font-weight: bold;
 }
