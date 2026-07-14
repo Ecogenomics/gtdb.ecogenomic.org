@@ -3,7 +3,7 @@
 
     <div>
 
-      <v-card class="pa-2">
+      <v-card class="pa-2" style="min-height: 70vh">
 
         <v-card-title class="text-h5">
           Contact us
@@ -12,64 +12,39 @@
         <v-divider></v-divider>
 
         <v-card-text class="text--primary">
-          <p>
-            We appreciate all feedback regarding the GTDB. We encourage questions to be asked on the
-            public <a href="https://forum.gtdb.ecogenomic.org/" target="_blank">GTDB forum</a> so that it can act as a
-            resource that benefits the entire community.
-          </p>
-          <p>
-            If you have any questions or issues using GTDB-Tk, please raise an
-            <a href="https://github.com/Ecogenomics/GTDBTk/issues" target="_blank">issue</a> on GitHub instead.
-          </p>
+          <p>We appreciate all feedback regarding the GTDB. Please choose the option below that best matches your question:</p>
 
-          <v-card class="pa-5" flat
-                  outlined
-                  style="max-width: 700px;"
-          >
-            <v-form>
 
-              <v-text-field
-                v-model="email"
-                label="E-mail"
-                placeholder="someone@example.com"
-                required
-              ></v-text-field>
 
-              <v-text-field
-                v-model="subject"
-                label="Subject"
-                required
-              ></v-text-field>
 
-              <v-textarea
-                v-model="message"
-                label="Message"
-                placeholder="Your message..."
-              ></v-textarea>
+          <div class="mb-3">
+            <strong>1. General questions about GTDB</strong>
+            <p class="mb-0">
+              Ask on the public
+              <a href="https://forum.gtdb.ecogenomic.org/" target="_blank">GTDB forum</a>,
+              so that it can act as a resource that benefits the entire community.
+            </p>
+          </div>
 
-              <Recaptcha @passed="getCaptchaData"/>
+          <div class="mb-3">
+            <strong>2. Issues or bugs with GTDB-Tk</strong>
+            <p class="mb-0">
+              Please raise an
+              <a href="https://github.com/Ecogenomics/GTDBTk/issues" target="_blank">issue</a>
+              on GitHub.
+            </p>
+          </div>
 
-              <v-btn
-                :disabled="!enableSendButton"
-                :loading="messageIsSending"
-                class="mt-4"
-                @click="submitForm"
-              >
-                Send message
-              </v-btn>
-
-              <v-alert v-if="alertIsVisible && alertType === 'success'" class="mt-10" color="green" dismissible
-                       outlined>
-                {{ alertMessage }}
-              </v-alert>
-
-              <v-alert v-if="alertIsVisible && alertType === 'error'" class="mt-10" color="red" dismissible outlined>
-                {{ alertMessage }}
-              </v-alert>
-
-            </v-form>
-          </v-card>
+          <div class="mb-3">
+            <strong>3. Anything else</strong>
+            <p class="mb-0">
+              If your question doesn't fit the above, click the following button to reveal our support address and we will get back to you as soon as possible.
+            </p>
+            <SupportContact />
+          </div>
         </v-card-text>
+
+
       </v-card>
 
     </div>
@@ -79,6 +54,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Recaptcha from "~/components/layout/Recaptcha.vue";
+import SupportContact from "~/components/util/SupportContact.vue";
 
 export default Vue.extend({
   head() {
@@ -99,6 +75,7 @@ export default Vue.extend({
     }
   },
   components: {
+    SupportContact,
     Recaptcha
   },
   computed: {

@@ -36,12 +36,17 @@ export default Vue.extend({
       type: Number,
       required: false,
       default: 2147483647
+    },
+    hideAfter: {
+      type: String,
+      required: false,
+      default: null
     }
   },
   computed: {
     cookieKey(): string {
       return `gtdb-notify-bar-hidden-${this.uid}`;
-    }
+    },
   },
   data: () => ({
     isVisible: true,
@@ -58,8 +63,20 @@ export default Vue.extend({
     },
   },
   created() {
+    // Hide the notification bar if the user has dismissed the banner (cookie is set)
     if (this.$cookies.get(this.cookieKey)) {
       this.isVisible = false;
+    }
+    // Hide the notification if the lifetime has passed
+    if (this.hideAfter != null) {
+      try {
+        const dateObj = new Date(this.hideAfter);
+        if (dateObj.getTime() < Date.now()) {
+          this.isVisible = false;
+        }
+      } catch (error) {
+        console.error('Error parsing hideAfter date:', error);
+      }
     }
   }
 })

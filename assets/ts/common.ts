@@ -175,3 +175,31 @@ export function timeAgo(unixTimestamp: number) {
   const diffWeeks = Math.floor(diffDays / 7);
   return `${diffWeeks} week${diffWeeks !== 1 ? "s" : ""} ago`;
 }
+
+export function formatMaintenanceTime(isoString: string) {
+  const dateObj = new Date(isoString);
+  const options: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+    timeZoneName: 'short'
+  };
+
+  const formatter = new Intl.DateTimeFormat('default', options);
+  const parts = formatter.formatToParts(dateObj);
+
+  // We map the parts into a dictionary for easy access
+  const p = parts.reduce((acc, part) => {
+    acc[part.type] = part.value;
+    return acc;
+  }, {} as Record<string, string>);
+
+  // Construct your custom string
+  return `${p.hour}:${p.minute}${p.dayPeriod} ${p.day} ${p.month} ${p.year} (${p.timeZoneName})`;
+
+  // 'default' uses the browser/system locale (e.g., 'en-US' or 'en-GB')
+  // return new Intl.DateTimeFormat('default', options).format(new Date(isoString));
+}

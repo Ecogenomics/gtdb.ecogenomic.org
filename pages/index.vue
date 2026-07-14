@@ -8,9 +8,10 @@
 
       <!-- First row -->
       <div class="d-flex flex-column">
-        <NotifyBar uid="ardc-maintenance-2026-07-10">
-          *** Our hosting provider will perform maintenance between {{ formatMaintenanceTime("2026-07-10T05:00:00Z") }} and {{ formatMaintenanceTime("2026-07-10T09:00:00Z") }}. The website will be unavailable during this time. ***
-        </NotifyBar>
+        <!-- hideAfter and formatTime are in UTC e.g. "2026-07-10T09:00:00Z" -->
+<!--        <NotifyBar uid="ardc-maintenance-2026-07-10" hideAfter="2026-07-10T12:00:00Z">-->
+<!--          *** Our hosting provider will perform maintenance between {{ formatTime("2026-07-10T05:00:00Z") }} and {{ formatTime("2026-07-10T09:00:00Z") }}. The website will be unavailable during this time. ***-->
+<!--        </NotifyBar>-->
         <NotifyBar uid="r232">
           *** GTDB Release 232 is now available 🎉 ***
         </NotifyBar>
@@ -122,6 +123,7 @@ import GtdbRankHistogram from "~/components/index/GtdbRankHistogram.vue";
 import NotifyBar from "~/components/index/NotifyBar.vue";
 import TwitterFooter from "~/components/layout/TwitterFooter.vue";
 import BlueskyFooter from "~/components/layout/BlueskyFooter.vue";
+import {formatMaintenanceTime} from "~/assets/ts/common";
 
 export default Vue.extend({
   components: {
@@ -169,32 +171,8 @@ export default Vue.extend({
     releaseDate: '15th April 2026',
   }),
   methods: {
-    formatMaintenanceTime(isoString: string) {
-      const dateObj = new Date(isoString);
-      const options: Intl.DateTimeFormatOptions = {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-        timeZoneName: 'short'
-      };
-
-      const formatter = new Intl.DateTimeFormat('default', options);
-      const parts = formatter.formatToParts(dateObj);
-
-      // We map the parts into a dictionary for easy access
-      const p = parts.reduce((acc, part) => {
-        acc[part.type] = part.value;
-        return acc;
-      }, {} as Record<string, string>);
-
-      // Construct your custom string
-      return `${p.hour}:${p.minute}${p.dayPeriod} ${p.day} ${p.month} ${p.year} (${p.timeZoneName})`;
-
-      // 'default' uses the browser/system locale (e.g., 'en-US' or 'en-GB')
-      // return new Intl.DateTimeFormat('default', options).format(new Date(isoString));
+    formatTime(isoString: string) {
+      return formatMaintenanceTime(isoString)
     }
   }
 })
