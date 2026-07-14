@@ -178,7 +178,7 @@
 
         <!-- NCBI Strain Identifiers -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col"> NCBI strain identifiers</td>
+          <td class="gtdb-green-bg-table first-table-col"> NCBI Strain Identifiers</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
@@ -272,7 +272,7 @@
 
         <!-- Synonyms -->
         <tr>
-          <td class="gtdb-green-bg-table first-table-col rounded-bl">Synonyms</td>
+          <td class="gtdb-green-bg-table first-table-col rounded-bl">GTDB Synonyms</td>
           <template v-if="isLoading">
             <td>
               <v-skeleton-loader
@@ -287,10 +287,23 @@
               <v-chip
                 v-for="(synonym, index) in genomeCard.metadataTaxonomy.synonyms"
                 :key="index"
+                class="mr-1"
                 small
               >
                 {{ synonym }}
               </v-chip>
+              <v-tooltip bottom max-width="400px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    small
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    {{ mdiHelpCircleSvg }}
+                  </v-icon>
+                </template>
+                <span>Validated names merged during ANI-based species clustering, typically because type strains share >=97% ANI.</span>
+              </v-tooltip>
             </template>
 
             <!-- No synonym to display -->
@@ -317,9 +330,10 @@ import Vue, {PropType} from 'vue';
 import {GenomeCard} from "~/assets/api/genome";
 import GenomeDialogTaxInfo from "~/components/genome/GenomeDialogTaxInfo.vue";
 import {mdiHelpCircle} from "@mdi/js";
+import BadgeWithTooltip from "~/components/util/BadgeWithTooltip.vue";
 
 export default Vue.extend({
-  components: {GenomeDialogTaxInfo},
+  components: {BadgeWithTooltip, GenomeDialogTaxInfo},
   props: {
     genomeCard: {
       type: Object as PropType<GenomeCard>,
