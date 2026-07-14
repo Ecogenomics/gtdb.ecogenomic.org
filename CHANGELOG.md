@@ -1,3 +1,19 @@
+# [2.56.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.55.1...v2.56.0) (2026-07-14)
+
+
+### Bug Fixes
+
+* **genome:** Update Type Material Designation to use v-chip ([86f9340](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/86f9340c24acb5613e1b658dbbb4bee9d0eb10a4))
+* **genome:** Update Type Material Designation to use v-chip ([8757d22](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/8757d22dab1a2eb7bf3a9ec9e3511402d95f72cb))
+
+
+### Features
+
+* **contact:** Use support e-mail address intead of form. ([bdbbaa7](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/bdbbaa7321693d89f98165622419fe06381e3028))
+* **genome:** Add synonyms to genome page. ([d62e21e](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/d62e21ec15030cb4449d782503da108102eacb1b))
+* **genome:** Add synonyms to genome page. ([2cd92f0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/2cd92f072c83d93a001f024e201c6139ea6dff62))
+* **genome:** Add tooltip for Synonyms and minor text changes. ([e4bae6c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e4bae6c67fbd1638a39e14781e831782905d37c9))
+
 ## [2.55.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.55.0...v2.55.1) (2026-07-10)
 
 
