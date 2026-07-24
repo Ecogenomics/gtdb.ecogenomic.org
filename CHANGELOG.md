@@ -1,3 +1,10 @@
+# [2.57.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.56.0...v2.57.0) (2026-07-24)
+
+
+### Features
+
+* **tree:** Activate external links to SandPiper. ([6549a64](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/6549a645475cb1b0d125b345dbee2109e978b567))
+
 # [2.56.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.55.1...v2.56.0) (2026-07-14)
 
 
