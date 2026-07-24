@@ -169,7 +169,6 @@
               v-model="showSandPiperUrl"
               class="font-12px"
               color="#485fc7"
-              disabled
               dense
               hide-details
               label="SandPiper"
@@ -621,7 +620,6 @@
                     v-model="showSandPiperUrl"
                     class="font-12px"
                     color="#485fc7"
-                    disabled
                     dense
                     hide-details
                     label="Sandpiper"
