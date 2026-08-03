@@ -51,9 +51,9 @@
               a Future Fellowship (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/FT170100213"
                                       target="_blank">FT170100213</a>),
               and
-              Discovery Project
-              (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP220100900" target="_blank">DP220100900</a>),
-              with the welcome assistance of <a
+              Discovery Projects
+              (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP220100900" target="_blank">DP220100900</a> and <a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP250101508" target="_blank">DP250101508</a>),
+              and the Novo Nordisk Foundation (NNF25SA0105111), with the welcome assistance of <a
               href="https://research.uq.edu.au/research-support/research-management/funding-schemes/uq-internal-schemes"
               target="_blank">strategic funding from
               The University of Queensland.</a>
