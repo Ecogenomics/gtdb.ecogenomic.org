@@ -168,7 +168,7 @@
                     <img alt="Maria Chuvochina" src="~/assets/images/gtdb-team/maria.jpg">
                   </template>
                   <template v-slot:name>
-                    <a href="https://scmb.uq.edu.au/profile/1458/maria-chuvochina" target="_blank">Maria Chuvochina</a>
+                    <a href="https://vbn.aau.dk/en/persons/masha-chuvochina/" target="_blank">Maria Chuvochina</a>
                   </template>
                   <template v-slot:affiliation>
                     <div class="logo-aau mt-1"></div>
@@ -217,7 +217,7 @@
                     <img alt="Pierre Chaumeil" src="~/assets/images/gtdb-team/pierre.jpg">
                   </template>
                   <template v-slot:name>
-                    <a href="https://scmb.uq.edu.au/profile/1278/pierre-alain-chaumeil" target="_blank">Pierre
+                    <a href="https://vbn.aau.dk/en/persons/pierre-alain-chaumeil/" target="_blank">Pierre
                       Chaumeil</a>
                   </template>
                   <template v-slot:affiliation>
