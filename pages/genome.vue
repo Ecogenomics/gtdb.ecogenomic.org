@@ -5,7 +5,7 @@
         class="mx-auto mb-3"
         style="max-width: 400px;"
       >
-        <v-card class="pos-fixed-md" style="width: 400px;">
+        <v-card class="pos-fixed-md" style="width: 400px;" outlined>
           <v-card-title class="d-flex">
             <div class="d-flex mx-auto text-h5">
               {{ hasLoaded ? gid : 'Loading...' }}
