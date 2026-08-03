@@ -236,6 +236,9 @@ export default Vue.extend({
       this.genomeCard = {} as GenomeCard;
       this.$api.genome.getCard(this.gid).then(response => {
         this.genomeCard = response.data;
+        if (this.gid !== this.genomeCard.genome.accession && this.gid !== this.genomeCard.genome.name) {
+          this.gid = this.genomeCard.genome.name;
+        }
         this.hasLoaded = true;
       }).catch((err) => {
         this.$accessor.api.defaultCatch(err);
