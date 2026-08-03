@@ -19,15 +19,15 @@
             <!-- Content to display after loading complete -->
             <template v-else>
               <!-- Completeness -->
-              <v-chip small>
+              <v-chip small outlined>
                 Completeness: {{ genomeCard.metadata_gene.checkm_completeness == null ? 'n/a' : genomeCard.metadata_gene.checkm_completeness.toLocaleString() }}%
               </v-chip>
               <!-- Contamination -->
-              <v-chip small>
+              <v-chip small outlined>
                 Contamination: {{ genomeCard.metadata_gene.checkm_contamination == null ? 'n/a' : genomeCard.metadata_gene.checkm_contamination.toLocaleString() }}%
               </v-chip>
               <!-- Strain heterogeneity -->
-              <v-chip small>
+              <v-chip small outlined>
                 Strain Heterogeneity: {{ genomeCard.metadata_gene.checkm_strain_heterogeneity == null ? 'n/a' :  genomeCard.metadata_gene.checkm_strain_heterogeneity.toLocaleString() }}
               </v-chip>
             </template>
@@ -46,15 +46,15 @@
             <!-- Content to display after loading complete -->
             <template v-else>
               <!-- Completeness -->
-              <v-chip small>
+              <v-chip small outlined>
                 Completeness: {{ genomeCard.metadata_gene.checkm2_completeness == null ? 'n/a' : genomeCard.metadata_gene.checkm2_completeness.toLocaleString() }}%
               </v-chip>
               <!-- Contamination -->
-              <v-chip small>
+              <v-chip small outlined>
                 Contamination: {{ genomeCard.metadata_gene.checkm2_contamination == null ? 'n/a' : genomeCard.metadata_gene.checkm2_contamination.toLocaleString() }}%
               </v-chip>
               <!-- Model -->
-              <v-chip small>
+              <v-chip small outlined>
                 Model: {{ genomeCard.metadata_gene.checkm2_model == null ? 'n/a' :  genomeCard.metadata_gene.checkm2_model }}
               </v-chip>
             </template>
