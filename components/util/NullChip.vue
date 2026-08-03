@@ -1,6 +1,7 @@
 <template>
   <v-chip
     color="#e3e3e3"
+    outlined
     small
   >
     n/a
