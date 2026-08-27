@@ -1,3 +1,10 @@
+## [2.57.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.57.0...v2.57.1) (2026-08-27)
+
+
+### Bug Fixes
+
+* **banner:** Add DB outage notification. ([3b7fa65](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3b7fa65ef6668d5533e03c0e607be3109b6094df))
+
 # [2.57.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.56.0...v2.57.0) (2026-07-24)
 
 
