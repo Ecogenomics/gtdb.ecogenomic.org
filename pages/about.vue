@@ -51,9 +51,9 @@
               a Future Fellowship (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/FT170100213"
                                       target="_blank">FT170100213</a>),
               and
-              Discovery Project
-              (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP220100900" target="_blank">DP220100900</a>),
-              with the welcome assistance of <a
+              Discovery Projects
+              (<a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP220100900" target="_blank">DP220100900</a> and <a href="https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/DP250101508" target="_blank">DP250101508</a>),
+              and the Novo Nordisk Foundation (NNF25SA0105111), with the welcome assistance of <a
               href="https://research.uq.edu.au/research-support/research-management/funding-schemes/uq-internal-schemes"
               target="_blank">strategic funding from
               The University of Queensland.</a>
@@ -168,7 +168,7 @@
                     <img alt="Maria Chuvochina" src="~/assets/images/gtdb-team/maria.jpg">
                   </template>
                   <template v-slot:name>
-                    <a href="https://scmb.uq.edu.au/profile/1458/maria-chuvochina" target="_blank">Maria Chuvochina</a>
+                    <a href="https://vbn.aau.dk/en/persons/masha-chuvochina/" target="_blank">Maria Chuvochina</a>
                   </template>
                   <template v-slot:affiliation>
                     <div class="logo-aau mt-1"></div>
@@ -217,7 +217,7 @@
                     <img alt="Pierre Chaumeil" src="~/assets/images/gtdb-team/pierre.jpg">
                   </template>
                   <template v-slot:name>
-                    <a href="https://scmb.uq.edu.au/profile/1278/pierre-alain-chaumeil" target="_blank">Pierre
+                    <a href="https://vbn.aau.dk/en/persons/pierre-alain-chaumeil/" target="_blank">Pierre
                       Chaumeil</a>
                   </template>
                   <template v-slot:affiliation>
