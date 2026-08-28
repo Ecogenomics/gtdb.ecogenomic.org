@@ -13,9 +13,6 @@
 <!--          *** Our hosting provider will perform maintenance between {{ formatTime("2026-07-10T05:00:00Z") }} and {{ formatTime("2026-07-10T09:00:00Z") }}. The website will be unavailable during this time. ***-->
 <!--        </NotifyBar>-->
         <NotifyBar uid="r232">
-          *** The database is currently unavailable due to an unexpected issue with our host. We expect to have this resolved by 2026-08-28 ***
-        </NotifyBar>
-        <NotifyBar uid="r232">
           *** GTDB Release 232 is now available 🎉 ***
         </NotifyBar>
       </div>
