@@ -1,3 +1,10 @@
+## [2.58.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.58.0...v2.58.1) (2026-09-01)
+
+
+### Bug Fixes
+
+* **api:** Temporarily remove API call during downtime to allow building. ([ad2eb0f](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ad2eb0f9fc0d165180ca18e3d61968b02862a8bf))
+
 # [2.58.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.57.2...v2.58.0) (2026-09-01)
 
 
