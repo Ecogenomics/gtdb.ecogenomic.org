@@ -15,9 +15,11 @@ information from the API to be embedded into the website.
  */
 
 function loadApiVersion() {
-  const res = syncRequest('GET', `${process.env.API_BASE}/meta/version`);
-  const data = JSON.parse(res.getBody('utf8'));
-  return `${data.major}.${data.minor}.${data.patch}`;
+  // const res = syncRequest('GET', `${process.env.API_BASE}/meta/version`);
+  // const data = JSON.parse(res.getBody('utf8'));
+  // return `${data.major}.${data.minor}.${data.patch}`;
+  // TODO: Fix this once API is back up
+  return "2.28.1"
 }
 
 /*
