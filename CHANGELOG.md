@@ -1,3 +1,15 @@
+## [2.58.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.58.1...v2.58.2) (2026-09-01)
+
+
+### Bug Fixes
+
+* **index:** Remove database outage banner. ([3ad469d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/3ad469dcb2e63018bddf6969eb987ac6c7a11ac1))
+
+
+### Reverts
+
+* **api:** Temporarily remove API call during downtime to allow building. ([ad0f1db](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ad0f1dbf1aacc7d243993c6e1a87ffd26c5da5f6))
+
 ## [2.58.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.58.0...v2.58.1) (2026-09-01)
 
 
