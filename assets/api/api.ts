@@ -13,6 +13,7 @@ import {MetaApi} from "~/assets/api/meta";
 import {GenomesApi} from "~/assets/api/genomes";
 import {AniApi} from "~/assets/api/ani";
 import {SkaniApi} from "~/assets/api/skani";
+import {StatusApi} from "~/assets/api/status";
 
 export class API {
   fastani = new FastAniApi();
@@ -28,6 +29,7 @@ export class API {
   meta = new MetaApi();
   ani = new AniApi();
   skani = new SkaniApi();
+  status = new StatusApi();
 }
 
 export function getApiErrorMessage(error: Error | AxiosError): string[] {

@@ -15,6 +15,7 @@
 <!--        <NotifyBar uid="db-outage-2026-09-01">-->
 <!--          *** The database is currently unavailable due to an unexpected issue with our host. We expect to have this resolved by 2026-09-02 ***-->
 <!--        </NotifyBar>-->
+        <NotifyBarApiStatus />
         <NotifyBar uid="r232">
           *** GTDB Release 232 is now available 🎉 ***
         </NotifyBar>
@@ -127,9 +128,11 @@ import NotifyBar from "~/components/index/NotifyBar.vue";
 import TwitterFooter from "~/components/layout/TwitterFooter.vue";
 import BlueskyFooter from "~/components/layout/BlueskyFooter.vue";
 import {formatMaintenanceTime} from "~/assets/ts/common";
+import NotifyBarApiStatus from "~/components/index/NotifyBarApiStatus.vue";
 
 export default Vue.extend({
   components: {
+    NotifyBarApiStatus,
     AAULogo,
     ArcLogo, TwitterFooter,BlueskyFooter, GtdbRankHistogram, TwitterTimeline, UqLogo, AceLogo, NotifyBar},
   head() {
@@ -184,7 +187,6 @@ export default Vue.extend({
 <style scoped>
 .gtdb-main {
   background: url('~/assets/images/bg-lake-tree/bg-lake-tree.jpg') no-repeat center;
-  //background: url('~/assets/images/bg-xmas-tree/bg-xmas-tree.jpg') no-repeat center;
   background-size: cover;
   transition: all 0.25s ease-out;
 }
