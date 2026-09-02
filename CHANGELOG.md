@@ -1,3 +1,10 @@
+# [2.59.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.58.2...v2.59.0) (2026-09-02)
+
+
+### Features
+
+* **index:** Add automatic outage banner on API connection failure. ([ee8c93c](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/ee8c93ca9b5c45402c603fbf346b24a419137fa9))
+
 ## [2.58.2](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.58.1...v2.58.2) (2026-09-01)
 
 
