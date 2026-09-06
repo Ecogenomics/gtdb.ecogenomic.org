@@ -208,18 +208,18 @@
           </template>
           <template v-else>
             <td v-if="genomeCard.gtdbTypeDesignation">
-              <v-chip small>
+              <v-chip small outlined>
                 {{ genomeCard.gtdbTypeDesignation }}
               </v-chip>
               <template
                 v-if="genomeCard.metadata_type_material && genomeCard.metadata_type_material.gtdbTypeSpeciesOfGenus === true">
-                <v-chip small>
+                <v-chip small outlined>
                   type species of genus
                 </v-chip>
               </template>
             </td>
             <td v-else>
-              <v-chip small>
+              <v-chip small outlined>
                 not type material
               </v-chip>
             </td>
@@ -289,6 +289,7 @@
                 :key="index"
                 class="mr-1"
                 small
+                outlined
               >
                 {{ synonym }}
               </v-chip>
@@ -309,6 +310,7 @@
             <!-- No synonym to display -->
             <template v-else>
               <v-chip
+                outlined
                 small
               >
                 N/A

@@ -5,7 +5,7 @@
         class="mx-auto mb-3"
         style="max-width: 400px;"
       >
-        <v-card class="pos-fixed-md" style="width: 400px;">
+        <v-card class="pos-fixed-md" style="width: 400px;" outlined>
           <v-card-title class="d-flex">
             <div class="d-flex mx-auto text-h5">
               {{ hasLoaded ? gid : 'Loading...' }}
@@ -236,6 +236,9 @@ export default Vue.extend({
       this.genomeCard = {} as GenomeCard;
       this.$api.genome.getCard(this.gid).then(response => {
         this.genomeCard = response.data;
+        if (this.gid !== this.genomeCard.genome.accession && this.gid !== this.genomeCard.genome.name) {
+          this.gid = this.genomeCard.genome.name;
+        }
         this.hasLoaded = true;
       }).catch((err) => {
         this.$accessor.api.defaultCatch(err);
