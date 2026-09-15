@@ -48,8 +48,6 @@ jobs:
           CAPTCHA_KEY: ${{ vars.CAPTCHA_KEY }}
           ENV_NAME: ${{ vars.ENV_NAME }}
           GA_TRACKING_ID: ${{ vars.GA_TRACKING_ID }}
-          PLAUSIBLE_API_HOST: ${{ vars.PLAUSIBLE_API_HOST }}
-          PLAUSIBLE_DOMAIN: ${{ vars.PLAUSIBLE_DOMAIN }}
           UMAMI_WEBSITE_ID: ${{ vars.UMAMI_WEBSITE_ID }}
 
       - name: Setup Node 20 (Deploy Env)

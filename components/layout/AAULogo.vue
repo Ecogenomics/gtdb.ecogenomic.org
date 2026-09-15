@@ -15,7 +15,7 @@ export default Vue.extend({
   name: "AAULogo",
   methods: {
     trackClick() {
-      this.$plausible.trackEvent("AAU Logo Click", { props: { location: "header" } });
+      window.plausible("AAU Logo Click", { props: { location: "header" } });
     }
   }
 })

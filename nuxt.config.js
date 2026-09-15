@@ -38,6 +38,17 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+    ],
+    script: [
+      {
+        hid: 'plausible-script',
+        src: 'https://gtdb-stats.ecogenomic.org/js/pa-ibzxDhoRHEFHjLLXIQWem.js',
+        async: true
+      },
+      {
+        hid: 'plausible-init',
+        innerHTML: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`
+      }
     ]
   },
 
@@ -69,8 +80,7 @@ export default {
         iconfont: 'mdiSvg'
       }
     }], // https://typed-vuex.roe.dev
-    'nuxt-typed-vuex',
-    'vue-plausible'
+    'nuxt-typed-vuex'
   ],
 
   // Modules: https://gwo.nuxtjs.dev/config-modules
@@ -204,19 +214,6 @@ export default {
   generate: {
     fallback: 'error.html',
     subFolders: false
-  },
-
-  plausible: { // Use as fallback if no runtime config is available at runtime
-    domain: process.env.PLAUSIBLE_DOMAIN
-  },
-  publicRuntimeConfig: {
-    plausible: {
-      domain: process.env.PLAUSIBLE_DOMAIN,
-      apiHost: process.env.PLAUSIBLE_API_HOST,
-      hashMode: false,
-      enableAutoOutboundTracking: false,
-      trackLocalhost: false
-    }
   },
 
   hooks: {

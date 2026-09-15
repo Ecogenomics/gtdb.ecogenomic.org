@@ -969,32 +969,32 @@ export default Vue.extend({
 
     onShowBergeysUrl() {
       if (this.showBergeysUrl) {
-        this.$plausible.trackEvent("Show Bergey's Manual");
+        window.plausible("Show Bergey's Manual");
       }
     },
     onShowLpsnUrl() {
       if (this.showLpsnUrl) {
-        this.$plausible.trackEvent("Show LPSN URL");
+        window.plausible("Show LPSN URL");
       }
     },
     onShowNcbiUrl() {
       if (this.showNcbiUrl) {
-        this.$plausible.trackEvent("Show NCBI URL");
+        window.plausible("Show NCBI URL");
       }
     },
     onShowSeqCodeUrl() {
       if (this.showSeqCodeUrl) {
-        this.$plausible.trackEvent("Show SeqCode URL");
+        window.plausible("Show SeqCode URL");
       }
     },
     onShowSandPiperUrl() {
       if (this.showSandPiperUrl) {
-        this.$plausible.trackEvent("Show Sandpiper URL");
+        window.plausible("Show Sandpiper URL");
       }
     },
     onShowEnaUrl() {
       if (this.showEnaUrl) {
-        this.$plausible.trackEvent("Show ENA URL");
+        window.plausible("Show ENA URL");
       }
     },
   },

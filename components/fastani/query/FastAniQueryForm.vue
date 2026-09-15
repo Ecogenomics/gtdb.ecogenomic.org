@@ -258,7 +258,7 @@ export default Vue.extend({
           // }
 
           // Track this event
-          this.$plausible.trackEvent("FastANI job created",
+          window.plausible("FastANI job created",
             {
               props: {
                 comparisons: resp.data.group_1.length * resp.data.group_2.length,

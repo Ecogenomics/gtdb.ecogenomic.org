@@ -238,7 +238,7 @@ export default Vue.extend({
         .then((resp) => {
 
           // Track this event
-          this.$plausible.trackEvent("skani job created",
+          window.plausible("skani job created",
             {
               props: {
                 comparisons: resp.data.group_1.length * resp.data.group_2.length,
