@@ -1,3 +1,10 @@
+# [2.60.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.59.0...v2.60.0) (2026-09-15)
+
+
+### Features
+
+* **plausible:** Update script. ([e1df795](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/e1df79510151670cd68bd76680f3e9a1ea1104f6))
+
 # [2.59.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.58.2...v2.59.0) (2026-09-02)
 
 
