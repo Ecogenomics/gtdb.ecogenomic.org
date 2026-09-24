@@ -1,3 +1,10 @@
+## [2.60.1](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.60.0...v2.60.1) (2026-09-24)
+
+
+### Bug Fixes
+
+* **stats:** Correct release year for R232 from 2025 to 2026. ([505c70d](https://github.com/Ecogenomics/gtdb.ecogenomic.org/commit/505c70d7491802b3a6e750d68c1989a4ea6c0480))
+
 # [2.60.0](https://github.com/Ecogenomics/gtdb.ecogenomic.org/compare/v2.59.0...v2.60.0) (2026-09-15)
 
 
